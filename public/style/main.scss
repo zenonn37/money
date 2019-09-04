@@ -1,0 +1,59 @@
+@import './vars/vars';
+@import './mixins/mixins';
+@import './modules/header';
+@import './modules/header';
+@import './modules/sidebar';
+
+
+*,
+*::after,
+*::before{
+    @include box-sizing(inherit);
+}
+
+html{
+    @include box-sizing(border-box);
+    height: 100%;
+}
+
+body{
+    height: 100vh;
+   
+}
+
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+
+i{
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    }
+    
+    img{
+        max-width: 100%;
+    }
+
+    .app{
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .main-content{
+        display: flex;
+        flex: 1;
+    }
+
+    .content{
+        flex:1;
+        padding: 1rem;
+    }
+    .container{
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 90%;
+    }
