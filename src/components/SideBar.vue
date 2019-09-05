@@ -16,27 +16,39 @@
 
     <ul class="menu">
       <li>
-        <a href>
+        <a href="#">
           <i class="fas fa-chart-line"></i>
-          Dashboard
+          <span>Dashboard</span>
         </a>
       </li>
       <li>
         <a href>
-          <i class="fas fa-chart-line"></i>
+          <i class="fas fa-wallet"></i>
           Wallet
         </a>
       </li>
       <li>
         <a href>
-          <i class="fas fa-chart-line"></i>
+          <i class="fas fa-user-circle"></i>
+          My Account
+        </a>
+      </li>
+      <li>
+        <a href>
+          <i class="far fa-money-bill-alt"></i>
           Transactions
         </a>
       </li>
       <li>
         <a href>
-          <i class="fas fa-chart-line"></i>
+          <i class="fas fa-cog"></i>
           Settings
+        </a>
+      </li>
+      <li>
+        <a href>
+          <i class="far fa-question-circle"></i>
+          Help
         </a>
       </li>
     </ul>

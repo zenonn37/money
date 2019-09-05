@@ -2,9 +2,13 @@
   <div class="app">
     <main class="main-content">
       <SideBar />
+
       <div class="content">
+        <Header />
         <div class="container">
-          <router-view />
+          <div class="render">
+            <router-view />
+          </div>
         </div>
       </div>
     </main>
@@ -13,9 +17,11 @@
 
 <script>
 import SideBar from "@/components/SideBar";
+import Header from "@/components/Header";
 export default {
   components: {
-    SideBar
+    SideBar,
+    Header
   }
 };
 </script>

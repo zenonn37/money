@@ -1,3 +1,21 @@
+header {
+  z-index: 999;
+  background-color: purple;
+  width: 100%;
+  height: 21rem;
+  background: #020024;
+  background: linear-gradient(273deg, #020024 0%, rgba(58, 56, 151, 0.95562) 0%, #a3a1ff 100%);
+}
+
+header {
+  z-index: 999;
+  background-color: purple;
+  width: 100%;
+  height: 21rem;
+  background: #020024;
+  background: linear-gradient(273deg, #020024 0%, rgba(58, 56, 151, 0.95562) 0%, #a3a1ff 100%);
+}
+
 aside {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10,6 +28,7 @@ aside {
       -ms-flex: 0 0 15rem;
           flex: 0 0 15rem;
   background-color: #393857;
+  z-index: 1000;
 }
 
 aside .logo-box {
@@ -81,6 +100,47 @@ aside .dynamic-btn .btn i {
   color: black;
 }
 
+aside .menu li {
+  padding: 1.3rem 0 1.3rem 0;
+}
+
+aside .menu i {
+  color: #a8a5eb;
+  font-size: 1.5rem;
+  margin: 0 1.9rem 0  .5rem;
+}
+
+aside .menu a {
+  color: #fff;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+aside .menu a:hover {
+  padding-left: .9em;
+}
+
+aside .menu a span {
+  text-align: left;
+}
+
+.render {
+  background-color: #fff;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-radius: 10px;
+  margin-top: -8rem;
+  height: 75vh;
+}
+
 *,
 *::after,
 *::before {
@@ -96,6 +156,8 @@ html {
 
 body {
   height: 100vh;
+  background-color: #e2dfdf;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 a {
@@ -139,7 +201,6 @@ img {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 1rem;
 }
 
 .container {
