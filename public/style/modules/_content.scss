@@ -5,3 +5,38 @@
     margin-top: -8rem;
      height: 75vh;
 }
+
+.page-header{
+    display: flex;
+    align-items: center;
+    padding: 1rem 3.0rem;
+    .page-title{
+       font-size: $titleFont;
+       color: $titles;
+       flex:2;
+       text-transform: uppercase;
+      
+     
+
+    }
+    .page-menu{
+      
+        li{
+            display: inline;
+            padding: 0.8rem;
+            a{
+                color: $titles;
+                font-size: $pageLink;
+                @include transitions(.3s,ease-out);
+                &:hover{
+                 color: black;
+                 
+                 &:before{
+                  content: ""
+                 }
+                }
+            }
+        }
+    }
+
+}

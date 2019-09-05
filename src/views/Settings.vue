@@ -1,5 +1,7 @@
 <template>
-  <div>Settings</div>
+  <div class="page-header">
+    <div class="page-title">Settings</div>
+  </div>
 </template>
 
 <script>

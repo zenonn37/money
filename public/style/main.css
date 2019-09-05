@@ -201,6 +201,45 @@ aside .menu a span {
   height: 75vh;
 }
 
+.page-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 3.0rem;
+}
+
+.page-header .page-title {
+  font-size: 18px;
+  color: #D8D8D8;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  text-transform: uppercase;
+}
+
+.page-header .page-menu li {
+  display: inline;
+  padding: 0.8rem;
+}
+
+.page-header .page-menu li a {
+  color: #D8D8D8;
+  font-size: 14px;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.page-header .page-menu li a:hover {
+  color: black;
+}
+
+.page-header .page-menu li a:hover:before {
+  content: "";
+}
+
 *,
 *::after,
 *::before {

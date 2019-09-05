@@ -1,5 +1,7 @@
 <template>
-  <div>Help</div>
+  <div class="page-header">
+    <div class="page-title">Help</div>
+  </div>
 </template>
 
 <script>
