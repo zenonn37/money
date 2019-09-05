@@ -16,40 +16,46 @@
 
     <ul class="menu">
       <li>
-        <a href="#">
+        <router-link to="/" tag="a">
           <i class="fas fa-chart-line"></i>
           <span>Dashboard</span>
-        </a>
+        </router-link>
       </li>
       <li>
-        <a href>
+        <router-link to="/wallet" tag="a">
           <i class="fas fa-wallet"></i>
-          Wallet
-        </a>
+          <span>Wallet</span>
+        </router-link>
       </li>
       <li>
-        <a href>
+        <router-link to="/account" tag="a">
           <i class="fas fa-user-circle"></i>
-          My Account
-        </a>
+          <span>My Account</span>
+        </router-link>
       </li>
       <li>
-        <a href>
+        <router-link to="/transactions" tag="a">
           <i class="far fa-money-bill-alt"></i>
-          Transactions
-        </a>
+          <span>Transactions</span>
+        </router-link>
       </li>
       <li>
-        <a href>
+        <router-link to="/expenses" tag="a">
+          <i class="fas fa-receipt"></i>
+          <span>Expenses</span>
+        </router-link>
+      </li>
+      <li>
+        <router-link to="/settings" tag="a">
           <i class="fas fa-cog"></i>
-          Settings
-        </a>
+          <span>Settings</span>
+        </router-link>
       </li>
       <li>
-        <a href>
+        <router-link to="/help" tag="a">
           <i class="far fa-question-circle"></i>
-          Help
-        </a>
+          <span>Help</span>
+        </router-link>
       </li>
     </ul>
   </aside>

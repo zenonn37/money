@@ -1,10 +1,10 @@
 <template>
   <header>
     <nav>
-      <div class="notifications">
+      <div @click="notifications()" class="notifications">
         <i class="far fa-bell"></i>
       </div>
-      <div class="auth">
+      <div class="auth" @click="logOut()">
         <i class="fas fa-sign-out-alt"></i>
       </div>
     </nav>
@@ -12,6 +12,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    logOut() {
+      console.log("out");
+    },
+    notifications() {
+      console.log("check notes");
+    }
+  }
+};
 </script>
 

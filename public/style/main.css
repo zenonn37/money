@@ -1,19 +1,79 @@
 header {
   z-index: 999;
-  background-color: purple;
   width: 100%;
   height: 21rem;
   background: #020024;
   background: linear-gradient(273deg, #020024 0%, rgba(58, 56, 151, 0.95562) 0%, #a3a1ff 100%);
 }
 
+header i {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1em 2em;
+  height: 80px;
+}
+
+header nav .auth {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+header nav .notifications {
+  cursor: pointer;
+}
+
 header {
   z-index: 999;
-  background-color: purple;
   width: 100%;
   height: 21rem;
   background: #020024;
   background: linear-gradient(273deg, #020024 0%, rgba(58, 56, 151, 0.95562) 0%, #a3a1ff 100%);
+}
+
+header i {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1em 2em;
+  height: 80px;
+}
+
+header nav .auth {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+header nav .notifications {
+  cursor: pointer;
 }
 
 aside {
