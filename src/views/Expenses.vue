@@ -1,5 +1,10 @@
 <template>
-  <div class="page-header">
+  <div>
+    <PageHeaders title="Expenses" menu1 menu2 menu3 />
+    <ListTable name="Name" />
+  </div>
+
+  <!-- <div class="page-header">
     <div class="page-title">Expeneses</div>
     <div class="page-menu">
       <ul>
@@ -14,10 +19,17 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div>-->
 </template>
 
 <script>
-export default {};
+import PageHeaders from "@/components/PageHeaders";
+import ListTable from "@/components/ListTable";
+export default {
+  components: {
+    ListTable,
+    PageHeaders
+  }
+};
 </script>
 

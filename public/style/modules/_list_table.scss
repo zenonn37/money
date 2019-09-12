@@ -1,0 +1,34 @@
+.list-table{
+    display: flex;
+    flex-direction: column;
+    .sort-header{
+      display: flex;
+      flex:1;
+      flex-direction: row;
+      margin-left: $default-page-LM;
+      div{
+          flex:1;
+          color: $titles;
+      }
+      span{
+          font-size: 8px;
+          color: $titles;
+      }
+    }
+    .list-elements{
+        display: flex;
+        flex:1;
+        flex-direction: row;
+        margin-left: $default-page-LM;
+        ul{
+          padding:0;   
+          flex:1;
+        }
+        li{
+            line-height: 1rem;
+            padding-top: .9rem;
+            color: $listFont;
+        }
+       
+    }
+}

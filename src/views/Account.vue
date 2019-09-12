@@ -1,20 +1,18 @@
 <template>
-  <div class="page-header">
-    <div class="page-title">My Account</div>
-    <div class="page-menu">
-      <ul>
-        <li>
-          <a href="#">Financial Institutions</a>
-        </li>
-        <li>
-          <a href="#">Budgets</a>
-        </li>
-      </ul>
-    </div>
+  <div>
+    <PageHeaders title="My Accounts" menu1="Financial Institutions" menu2="Budgets" menu3 />
+    <ListTable name="Bank" />
   </div>
 </template>
 
 <script>
-export default {};
+import PageHeaders from "@/components/PageHeaders";
+import ListTable from "@/components/ListTable";
+export default {
+  components: {
+    ListTable,
+    PageHeaders
+  }
+};
 </script>
 
