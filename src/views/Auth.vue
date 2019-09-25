@@ -1,5 +1,7 @@
 <template>
-  <div>Auth</div>
+  <div class="form-field">
+    <input type="text" placeholder="email" />
+  </div>
 </template>
 
 <script>

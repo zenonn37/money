@@ -7,10 +7,11 @@
       </div>
     </div>
 
-    <div class="dynamic-btn">
+    <div class="dynamic-btn" @click="show()">
       <div class="btn">
         <i class="fas fa-piggy-bank"></i>
-        <span>New Account</span>
+
+        <span>New {{button}}</span>
       </div>
     </div>
 
@@ -33,12 +34,7 @@
           <span>My Account</span>
         </router-link>
       </li>
-      <li>
-        <router-link to="/transactions" tag="a">
-          <i class="far fa-money-bill-alt"></i>
-          <span>Transactions</span>
-        </router-link>
-      </li>
+
       <li>
         <router-link to="/expenses" tag="a">
           <i class="fas fa-receipt"></i>
@@ -58,9 +54,42 @@
         </router-link>
       </li>
     </ul>
+    <TransactionsModal />
   </aside>
 </template>
 
 <script>
-export default {};
+import TransactionsModal from "@/components/modals/TransactionsModal";
+export default {
+  components: {
+    TransactionsModal
+  },
+  data() {
+    return {
+      route: this.$route.name
+    };
+  },
+  methods: {
+    show() {
+      this.$modal.show("hello");
+      console.log("click");
+    }
+  },
+  computed: {
+    button() {
+      const name = this.$route.name;
+      switch (name) {
+        case "account":
+          return "Account";
+
+        case "transactions":
+          return "Transaction";
+
+        default:
+          return "Expense";
+          break;
+      }
+    }
+  }
+};
 </script>

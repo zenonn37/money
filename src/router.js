@@ -7,8 +7,9 @@ import Wallet from './views/Wallet.vue';
 import Expenses from './views/Expenses.vue';
 import Settings from './views/Settings.vue';
 import Help from './views/Help.vue';
-import Auth from './views/Auth.vue';
+
 import About from './views/About.vue';
+import Auth from "./views/Auth.vue";
 
 
 
@@ -21,37 +22,58 @@ export default new Router({
     {
       path: "/",
       name: "home",
+      meta: {
+        layout: "user"
+      },
       component: Home
     },
     {
       path: '/wallet',
       name: "wallet",
+      meta: {
+        layout: "user"
+      },
       component: Wallet
     },
     {
       path: '/account',
       name: "account",
+      meta: {
+        layout: "user"
+      },
       component: Account
     },
     {
-      path: '/transactions',
+      path: '/transactions/:id',
       name: "transactions",
+      meta: {
+        layout: "user"
+      },
       component: Transactions
     },
     {
       path: '/expenses',
       name: "expenses",
+      meta: {
+        layout: "user"
+      },
       component: Expenses
     },
     {
       path: '/auth',
       name: "auth",
+      meta: {
+        layout: "no-user"
+      },
       component: Auth
     },
 
     {
       path: "/about",
       name: "about",
+      meta: {
+        layout: "user"
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -61,6 +83,9 @@ export default new Router({
     {
       path: "/settings",
       name: "settings",
+      meta: {
+        layout: "user"
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -70,6 +95,9 @@ export default new Router({
     {
       path: "/help",
       name: "help",
+      meta: {
+        layout: "user"
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.

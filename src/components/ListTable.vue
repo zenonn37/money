@@ -17,30 +17,27 @@
     </div>
     <div class="list-elements">
       <ul>
-        <li>04.01.2019</li>
-        <li>04.01.2019</li>
-        <li>04.01.2019</li>
-        <li>04.01.2019</li>
+        <li v-for="a in data" :key="a.id">{{a.created_at | day}}</li>
+      </ul>
+
+      <ul v-if="type">
+        <li v-for="a in data" :key="a.id">
+          <router-link :to="`/transactions/${a.id}`">{{a.name}}</router-link>
+        </li>
+      </ul>
+      <ul v-else>
+        <li v-for="a in data" :key="a.id">{{a.name}}</li>
       </ul>
 
       <ul>
-        <li>Bank of America</li>
-        <li>Bank of America</li>
-        <li>Ally Bank</li>
-        <li>Northeast Credit Union</li>
-      </ul>
-      <ul>
-        <li>Checking</li>
-        <li>Savings</li>
-        <li>CD</li>
-        <li>Car Loans</li>
+        <li v-for="a in data" :key="a.id">{{a.type}}</li>
       </ul>
 
-      <ul>
-        <li>2832.00</li>
-        <li>1005.00</li>
-        <li>18,000</li>
-        <li>25,568</li>
+      <ul v-if="type">
+        <li v-for="a in data" :key="a.id">{{a.balance | currency}}</li>
+      </ul>
+      <ul v-else>
+        <li v-for="a in data" :key="a.id">{{a.amount | currency}}</li>
       </ul>
     </div>
   </div>
@@ -48,7 +45,8 @@
 
 <script>
 export default {
-  props: ["name"]
+  name: "ListTable",
+  props: ["name", "data", "type"]
 };
 </script>
 

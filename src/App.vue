@@ -1,27 +1,17 @@
 <template>
-  <div class="app">
-    <main class="main-content">
-      <SideBar />
-
-      <div class="content">
-        <Header />
-        <div class="container">
-          <div class="render">
-            <router-view />
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
+  <component :is="layout">
+    <router-view />
+  </component>
 </template>
 
 <script>
-import SideBar from "@/components/SideBar";
-import Header from "@/components/Header";
+const default_layout = "no-user";
 export default {
-  components: {
-    SideBar,
-    Header
+  components: {},
+  computed: {
+    layout() {
+      return this.$route.meta.layout || default_layout;
+    }
   }
 };
 </script>
