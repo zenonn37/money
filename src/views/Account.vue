@@ -1,7 +1,14 @@
 <template>
   <div>
     <PageHeaders title="My Accounts" menu1="Financial Institutions" menu2="Budgets" menu3 />
-    <ListTable name="Bank" :data="acct" :type="type" />
+
+    <template v-if="loading">
+      <div>...loading</div>
+    </template>
+
+    <template v-else>
+      <ListTable name="Bank" :data="accounts" :type="type" />
+    </template>
   </div>
 </template>
 
@@ -19,19 +26,29 @@ export default {
   data() {
     return {
       acct: [],
-      type: true
+      type: true,
+      loading: false
     };
   },
+  computed: {
+    accounts() {
+      return this.$store.getters.GET_ACCOUNTS;
+    }
+  },
   created() {
-    axios
-      .get("http://apps.test/api/accounts")
-      .then(res => {
-        console.log(res.data);
-        this.acct = res.data;
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.loading = true;
+    this.$store.dispatch("ALL_ACCOUNTS").then(() => {
+      this.loading = false;
+    });
+    // axios
+    //   .get("http://apps.test/api/accounts")
+    //   .then(res => {
+    //     console.log(res.data);
+    //     this.acct = res.data;
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   }
 };
 </script>

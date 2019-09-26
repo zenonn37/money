@@ -15,6 +15,9 @@
 export default {
   methods: {
     logOut() {
+      this.$store.dispatch("LOGOUT").then(() => {
+        this.$router.push("/auth");
+      });
       console.log("out");
     },
     notifications() {

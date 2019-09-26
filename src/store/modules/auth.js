@@ -1,8 +1,9 @@
 import money from '../../api/money'
+import axios from 'axios';
 
 const state = {
     token: localStorage.getItem("access_token") || null,
-    user: null
+    user: localStorage.getItem("user") || null,
 
 };
 const mutations = {
@@ -27,26 +28,93 @@ const getters = {
 }
 
 const actions = {
+    //Register
+    REGISTER({ commit }, data) {
+
+        return new Promise((resolve, reject) => {
+            money.post('/new', data)
+                .then(res => {
+                    console.log(res);
+                    const result = res.data;
+                    console.log(result);
+
+                    resolve(res)
+
+                }).catch(err => {
+                    console.log(err);
+                    reject(err)
+
+                })
+        });
+
+    },
 
     //LOGIN
-    LOGIN({ commit, data }) {
+    LOGIN({ commit }, data) {
 
         return new Promise((resolve, reject) => {
             money.post('/login', data)
                 .then(res => {
                     console.log(res);
                     const result = res.data.access_token;
-                    commit(SET_AUTH, result)
+                    console.log(result);
+
+                    commit("SET_AUTH", result)
                     localStorage.setItem("access_token", result)
+                    resolve(res)
 
                 }).catch(err => {
                     console.log(err);
+                    reject(err)
 
                 })
         });
 
-    }
+    },
+    LOGOUT({ commit }) {
+        axios.defaults.headers.common["Authorization"] =
+            "Bearer " + state.token;
+        return new Promise((resolve, reject) => {
+            axios.post('http://apps.test/api/logout')
+                .then(() => {
+
+
+                    commit("SET_USER", null)
+                    localStorage.removeItem("user")
+                    localStorage.removeItem("access_token")
+                    resolve()
+                }).catch(err => {
+                    console.log(err);
+                    reject(err)
+                })
+        })
+    },
+
+    USER({ commit }) {
+        axios.defaults.headers.common["Authorization"] =
+            "Bearer " + state.token;
+        return new Promise((resolve, reject) => {
+            axios.get('http://apps.test/api/user')
+                .then(res => {
+
+                    console.log(res);
+
+                    const result = res.data;
+                    commit("SET_USER", result)
+                    localStorage.setItem("user", result)
+                    resolve(res)
+                }).catch(err => {
+                    console.log(err);
+                    reject(err)
+                })
+        })
+    },
+
+
 }
+
+
+
 
 export default {
     state, mutations, getters, actions

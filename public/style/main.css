@@ -323,7 +323,7 @@ aside .menu a span {
           flex: 1;
 }
 
-input[type="text"] {
+input[type="text"], input[type="email"], input[type="password"] {
   width: 100%;
   display: inline-block;
   margin: 0 auto;
@@ -338,6 +338,16 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
+  border: 2px solid rgba(0, 12, 55, 0.4);
+  background-color: aquamarine;
+}
+
+input[type="email"]:focus {
+  border: 2px solid rgba(0, 12, 55, 0.4);
+  background-color: aquamarine;
+}
+
+input[type="password"]:focus {
   border: 2px solid rgba(0, 12, 55, 0.4);
   background-color: aquamarine;
 }
