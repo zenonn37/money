@@ -73,7 +73,7 @@ export default new Router({
       component: New
     },
     {
-      path: '/edit/:id',
+      path: '/edit/:acct/:id',
       name: "edit",
       props: true,
       meta: {

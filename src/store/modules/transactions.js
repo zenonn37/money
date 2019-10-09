@@ -12,6 +12,13 @@ const mutations = {
     },
     NEW_TRANS(state, trans) {
         state.trans.push(trans);
+    },
+    DELETE_TRANS(state, id) {
+        console.log(id);
+        const newTrans = state.trans.filter(tran => tran.id !== id)
+        state.trans = newTrans
+
+
     }
 }
 
@@ -20,8 +27,6 @@ const getters = {
         return state.trans
     },
     GET_TRANSACTION: (state) => (id) => {
-        console.log(id);
-        console.log(state.trans.find(t => t.id === 7));
 
         return state.trans.find(tran => tran.id === id)
     }
@@ -42,6 +47,7 @@ const actions = {
                     resolve(res)
 
                 }).catch(err => {
+                    //handle errors!!
                     console.log(err);
 
                     reject(err)
@@ -66,6 +72,56 @@ const actions = {
                     resolve(res)
 
                 }).catch(err => {
+                    //handle errors!!
+                    console.log(err);
+
+                    reject(err)
+                })
+        })
+    },
+    UPDATE_TRANSACTION({ commit }, payload) {
+        //MAKE DRY!
+        axios.defaults.headers.common["Authorization"] =
+            "Bearer " + localStorage.getItem('access_token');
+        return new Promise((resolve, reject) => {
+            console.log(payload);
+
+            axios.patch(`${url}/transactions/${payload.id}`, {
+                name: payload.name,
+                type: payload.type,
+                amount: payload.amount,
+                acct_id: payload.acct_id
+            })
+                .then(res => {
+
+
+                    commit('NEW_TRANS', res.data)
+                    resolve(res)
+
+                }).catch(err => {
+                    //handle errors!!
+                    console.log(err);
+
+                    reject(err)
+                })
+        })
+    },
+    DELETE_TRANSACTION({ commit }, id) {
+        //MAKE DRY!
+        axios.defaults.headers.common["Authorization"] =
+            "Bearer " + localStorage.getItem('access_token');
+        return new Promise((resolve, reject) => {
+
+
+            axios.delete(`${url}/transactions/${id}`)
+                .then(res => {
+                    console.log(res);
+
+                    commit('DELETE_TRANS', id)
+                    resolve(res)
+
+                }).catch(err => {
+                    //handle errors!!
                     console.log(err);
 
                     reject(err)

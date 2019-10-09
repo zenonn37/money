@@ -57,11 +57,14 @@ export default {
   props: ["name", "data", "type"],
   methods: {
     onEdit(id) {
-      this.$router.push(`/edit/${id}`);
+      const acct = this.$route.params.id;
+      this.$router.push(`/edit/${acct}/${id}`);
     },
-    onDelete(id) {
+    onDelete(trans) {
       //call delete dispatch
-      console.log(id);
+      console.log(trans);
+      const id = parseInt(trans);
+      this.$store.dispatch("DELETE_TRANSACTION", id);
     }
   }
 };

@@ -28,15 +28,20 @@
 
 <script>
 export default {
-  props: ["id", "edit", "title"],
+  props: ["id", "edit", "title", "acct"],
   components: {},
   data() {
     return {
       trans: {
-        acct_id: this.id,
-        amount: this.edit === null ? "" : this.edit.amount,
-        name: this.edit === null ? "" : this.edit.name,
-        type: this.edit === null ? "" : this.edit.type
+        id: this.id !== undefined ? this.id : "",
+        acct_id: this.acct,
+        // this.edit === null || this.edit === undefined ? "" : this.edit.id,
+        amount:
+          this.edit === null || this.edit === undefined ? "" : this.edit.amount,
+        name:
+          this.edit === null || this.edit === undefined ? "" : this.edit.name,
+        type:
+          this.edit === null || this.edit === undefined ? "" : this.edit.type
       }
     };
   },

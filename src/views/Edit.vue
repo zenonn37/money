@@ -4,7 +4,7 @@
       <i class="fas fa-chevron-left" @click="goBack()"></i>
     </div>
     <div class="new-form">
-      <TransactionForm title="Edit Transaction" :edit="edit" @new="onSubmit" :id="id" />
+      <TransactionForm title="Edit Transaction" :edit="edit" @new="onSubmit" :id="id" :acct="acct" />
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@ import { prevRoutes } from "../mixins/prevRoute.js";
 
 export default {
   name: "Edit",
-  props: ["id"],
+  props: ["id", "acct"],
   mixins: [prevRoutes],
   components: {
     TransactionForm
@@ -34,6 +34,9 @@ export default {
   methods: {
     onSubmit(value) {
       console.log(value);
+      this.$store.dispatch("UPDATE_TRANSACTION", value).then(() => {
+        this.goBack();
+      });
     }
   }
 };
