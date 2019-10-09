@@ -9,6 +9,7 @@
         {{name}}
         <span>&#9660</span>
       </div>
+      <div>Edit</div>
       <div>Type</div>
       <div>
         Balance
@@ -39,6 +40,13 @@
       <ul v-else>
         <li v-for="a in data" :key="a.id">{{a.amount | currency}}</li>
       </ul>
+
+      <ul>
+        <li v-for="a in data" :key="a.id" class="cursors">
+          <i class="far fa-edit" @click="onEdit(a.id)"></i>
+          <i class="far fa-trash-alt" @click="onDelete(a.id)"></i>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -46,7 +54,16 @@
 <script>
 export default {
   name: "ListTable",
-  props: ["name", "data", "type"]
+  props: ["name", "data", "type"],
+  methods: {
+    onEdit(id) {
+      this.$router.push(`/edit/${id}`);
+    },
+    onDelete(id) {
+      //call delete dispatch
+      console.log(id);
+    }
+  }
 };
 </script>
 

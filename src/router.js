@@ -5,6 +5,8 @@ import Account from "./views/Account.vue";
 import Transactions from './views/Transactions.vue';
 import Wallet from './views/Wallet.vue';
 import Expenses from './views/Expenses.vue';
+import New from './views/New'
+import Edit from './views/Edit'
 import Settings from './views/Settings.vue';
 import Help from './views/Help.vue';
 
@@ -46,6 +48,7 @@ export default new Router({
     {
       path: '/transactions/:id',
       name: "transactions",
+      props: true,
       meta: {
         layout: "user"
       },
@@ -59,6 +62,26 @@ export default new Router({
       },
       component: Expenses
     },
+
+    {
+      path: '/new/:id',
+      name: "new",
+      props: true,
+      meta: {
+        layout: "user"
+      },
+      component: New
+    },
+    {
+      path: '/edit/:id',
+      name: "edit",
+      props: true,
+      meta: {
+        layout: "user"
+      },
+      component: Edit
+    },
+
     {
       path: '/auth',
       name: "auth",

@@ -6,6 +6,7 @@ import vmodal from 'vue-js-modal'
 import Guest from './layouts/Guest'
 import User from './layouts/User'
 import "./filters/filter";
+import "./style/main.css";
 
 Vue.config.productionTip = false;
 

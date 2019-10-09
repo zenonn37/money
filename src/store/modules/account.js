@@ -15,13 +15,14 @@ const getters = {
     GET_ACCOUNTS(state) {
         return state.accounts;
     },
+
 }
 
 const actions = {
     //get all accounts
     ALL_ACCOUNTS({ commit }) {
         axios.defaults.headers.common["Authorization"] =
-            "Bearer " + state.token;
+            "Bearer " + localStorage.getItem('access_token');
 
         return new Promise((resolve, reject) => {
             axios.get('http://apps.test/api/accounts')
