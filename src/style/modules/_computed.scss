@@ -1,0 +1,13 @@
+.computed{
+    display: flex;
+    height: 16rem;
+    justify-content: flex-end;
+    padding: 2rem;
+    
+    .balance{
+        font-size:4rem;
+        color: $white;
+        margin-right: 1rem;
+
+    }
+}

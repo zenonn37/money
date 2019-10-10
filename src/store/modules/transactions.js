@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { url } from '../../api/apps';
+import { totalTransaction } from '../../math/math'
 
 
 const state = {
@@ -29,6 +30,10 @@ const getters = {
     GET_TRANSACTION: (state) => (id) => {
 
         return state.trans.find(tran => tran.id === id)
+    },
+    TOTAL_TRANSACTION(state, getters) {
+        let array = state.trans;
+        return totalTransaction(array);
     }
 }
 

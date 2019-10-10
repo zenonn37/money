@@ -35,10 +35,18 @@
       </ul>
 
       <ul v-if="type">
-        <li v-for="a in data" :key="a.id">{{a.balance | currency}}</li>
+        <li
+          v-for="a in data"
+          :key="a.id"
+          :class="[a.type === 'Deposit' ? 'credit' : 'debit' ]"
+        >{{a.balance | currency}}</li>
       </ul>
       <ul v-else>
-        <li v-for="a in data" :key="a.id">{{a.amount | currency}}</li>
+        <li
+          v-for="a in data"
+          :key="a.id"
+          :class="[a.type === 'Deposit' ? 'credit' : 'debit' ]"
+        >{{a.amount | currency}}</li>
       </ul>
 
       <ul>

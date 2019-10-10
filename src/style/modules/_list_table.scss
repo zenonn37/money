@@ -20,6 +20,18 @@
         flex:1;
         flex-direction: row;
         margin-left: $default-page-LM;
+        .debit{
+         color:$negative;
+         &::before{
+             content: '\2212'
+         }
+        }
+        .credit{
+            color: $positive;
+            &::before{
+                content: '\002B'
+            }
+        }
         i{
             font-size: 1em;
             line-height: 0;

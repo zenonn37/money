@@ -346,6 +346,22 @@ aside .menu a span {
   margin-left: 3rem;
 }
 
+.list-table .list-elements .debit {
+  color: rgba(207, 91, 56, 0.781);
+}
+
+.list-table .list-elements .debit::before {
+  content: '\2212';
+}
+
+.list-table .list-elements .credit {
+  color: #67d467;
+}
+
+.list-table .list-elements .credit::before {
+  content: '\002B';
+}
+
 .list-table .list-elements i {
   font-size: 1em;
   line-height: 0;
@@ -508,6 +524,23 @@ select {
   height: 40px;
   border: none;
   background-color: #f1f1f1;
+}
+
+.computed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 16rem;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 2rem;
+}
+
+.computed .balance {
+  font-size: 4rem;
+  color: #fff;
+  margin-right: 1rem;
 }
 
 *,

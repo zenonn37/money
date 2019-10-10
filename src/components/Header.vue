@@ -8,11 +8,22 @@
         <i class="fas fa-sign-out-alt"></i>
       </div>
     </nav>
+
+    <div class="computed">
+      <div class="balance">{{ balance | currency}}</div>
+    </div>
   </header>
 </template>
 
 <script>
 export default {
+  computed: {
+    balance() {
+      return this.$store.getters.TOTAL_TRANSACTION > 0
+        ? this.$store.getters.TOTAL_TRANSACTION
+        : 0;
+    }
+  },
   methods: {
     logOut() {
       this.$store.dispatch("LOGOUT").then(() => {

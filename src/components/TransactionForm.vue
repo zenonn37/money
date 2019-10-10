@@ -10,11 +10,8 @@
           <input type="text" placeholder="Amount" v-model="trans.amount" />
         </div>
         <div class="form-field">
-          <select name="type" v-model="trans.type">
-            <option disabled value>Transaction Type</option>
-            <option value="Debit">Debit</option>
-            <option value="Check">Check</option>
-            <option value="Credit Card">Credit Card</option>
+          <select name="type" v-model="trans.type" value="Debit">
+            <option v-for="t in types" :key="t" :value="t">{{t}}</option>
           </select>
         </div>
 
@@ -31,11 +28,13 @@
 </template>
 
 <script>
+import { types } from "@/model/types.js";
 export default {
   props: ["id", "edit", "title", "acct", "loading"],
   components: {},
   data() {
     return {
+      types: types,
       trans: {
         id: this.id !== undefined ? this.id : "",
         acct_id: this.acct,
@@ -45,7 +44,9 @@ export default {
         name:
           this.edit === null || this.edit === undefined ? "" : this.edit.name,
         type:
-          this.edit === null || this.edit === undefined ? "" : this.edit.type
+          this.edit === null || this.edit === undefined
+            ? "Debit"
+            : this.edit.type
       }
     };
   },
