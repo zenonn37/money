@@ -4,7 +4,10 @@ import { totalTransaction } from '../../math/math'
 
 
 const state = {
-    trans: []
+    trans: [],
+    links: "",
+    meta: "",
+    total: [],
 }
 
 const mutations = {
@@ -13,13 +16,24 @@ const mutations = {
     },
     NEW_TRANS(state, trans) {
         state.trans.push(trans);
+        state.total.push(trans);
     },
+
     DELETE_TRANS(state, id) {
-        console.log(id);
+        // console.log(id);
         const newTrans = state.trans.filter(tran => tran.id !== id)
         state.trans = newTrans
 
 
+    },
+    SET_TOTAL(state, total) {
+        state.total = total
+    },
+    SET_LINKS(state, links) {
+        state.links = links
+    },
+    SET_META(state, meta) {
+        state.meta = meta
     }
 }
 
@@ -32,12 +46,46 @@ const getters = {
         return state.trans.find(tran => tran.id === id)
     },
     TOTAL_TRANSACTION(state, getters) {
-        let array = state.trans;
+        let array = state.total;
         return totalTransaction(array);
+    },
+    GET_LINKS(state) {
+        return state.links;
+    },
+    GET_META(state) {
+        return state.meta;
+    },
+    GET_TOTAL(state) {
+        let array = state.total;
+        return totalTransaction(array);
+
     }
 }
 
 const actions = {
+
+    PAGE_TRANSACTIONS({ commit }, data) {
+        console.log(data);
+
+        axios.defaults.headers.common["Authorization"] =
+            "Bearer " + localStorage.getItem('access_token');
+        return new Promise((resolve, reject) => {
+            axios.get(`${url}/transactions/${data.id}?page=${data.page}`)
+                // axios.get(`${url}/transactions/${id}?page=${page}`)
+                .then(res => {
+                    const data = res.data
+                    commit('SET_TRANS', data.data)
+
+                    resolve(res)
+
+                }).catch(err => {
+                    //handle errors!!
+                    console.log(err);
+
+                    reject(err)
+                })
+        })
+    },
 
     ACCOUNT_TRANSACTIONS({ commit }, id) {
 
@@ -47,9 +95,21 @@ const actions = {
 
             axios.get(`${url}/transactions/${id}`)
                 .then(res => {
+                    const data = res.data
+                    commit('SET_TRANS', data.data)
+                    commit('SET_LINKS', data.links)
+                    commit('SET_META', data.meta)
 
-                    commit('SET_TRANS', res.data)
-                    resolve(res)
+
+                    axios.get(`${url}/total/${id}`)
+                        .then(res => {
+                            resolve(res)
+                            commit('SET_TOTAL', res.data)
+                        }).catch(err => {
+                        })
+
+
+
 
                 }).catch(err => {
                     //handle errors!!
@@ -75,7 +135,13 @@ const actions = {
                 .then(res => {
 
                     commit('NEW_TRANS', res.data)
-                    resolve(res)
+                    axios.get(`${url}/total/${payload.acct_id}`)
+                        .then(res => {
+                            resolve(res)
+                            commit('SET_TOTAL', res.data)
+                        }).catch(err => {
+                        })
+                    //  resolve(res)
 
                 }).catch(err => {
                     //handle errors!!

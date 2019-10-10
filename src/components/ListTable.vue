@@ -60,6 +60,15 @@
         </li>
       </ul>
     </div>
+    <div class="paginate">
+      <paginate
+        :page-count="meta"
+        :click-handler="onPage"
+        :prev-text="'Prev'"
+        :next-text="'Next'"
+        :container-class="'className'"
+      ></paginate>
+    </div>
   </div>
 </template>
 
@@ -67,7 +76,29 @@
 export default {
   name: "ListTable",
   props: ["name", "data", "type"],
+  data() {
+    return {
+      pages: 1
+    };
+  },
+  computed: {
+    links() {
+      return this.$store.getters.GET_LINKS;
+    },
+    meta() {
+      return parseInt(this.$store.getters.GET_META.last_page);
+    }
+  },
+  watch: {},
   methods: {
+    onPage(page) {
+      const data = {
+        id: this.$route.params.id,
+        page: page
+      };
+      console.log(page);
+      this.$store.dispatch("PAGE_TRANSACTIONS", data);
+    },
     onEdit(id) {
       const acct = this.$route.params.id;
       this.$router.push(`/edit/${acct}/${id}`);

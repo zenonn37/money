@@ -8,6 +8,7 @@ import User from './layouts/User'
 import "./filters/filter";
 import "./style/main.css";
 import "./plugins/vue-datetime";
+import "./plugins/vue-paginate";
 
 Vue.config.productionTip = false;
 

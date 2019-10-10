@@ -19,9 +19,10 @@
 export default {
   computed: {
     balance() {
-      return this.$store.getters.TOTAL_TRANSACTION > 0
-        ? this.$store.getters.TOTAL_TRANSACTION
-        : 0;
+      return this.$store.getters.GET_TOTAL;
+      // return this.$store.getters.GET_TOTAL.length > 0
+      //   ? this.$store.getters.GET_TOTAL
+      //   : 0;
     }
   },
   methods: {
