@@ -42,7 +42,7 @@ export default {
   methods: {
     onSubmit(value) {
       this.loading = true;
-      console.log(this.loading);
+      console.log(value);
 
       this.$store.dispatch("NEW_TRANSACTION", value).then(() => {
         console.log("success");
@@ -51,7 +51,7 @@ export default {
           console.log("done");
 
           this.goBack();
-        }, 1000);
+        }, 500);
       });
     }
   }

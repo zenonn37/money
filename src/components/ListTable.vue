@@ -18,7 +18,7 @@
     </div>
     <div class="list-elements">
       <ul>
-        <li v-for="a in data" :key="a.id">{{a.created_at | day}}</li>
+        <li v-for="a in data" :key="a.id" class="dates">{{a.date | day}}</li>
       </ul>
 
       <ul v-if="type">

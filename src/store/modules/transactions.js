@@ -69,6 +69,7 @@ const actions = {
                 name: payload.name,
                 type: payload.type,
                 amount: parseFloat(payload.amount),
+                date: payload.date.slice(0, 19).replace("T", " "),
                 acct_id: payload.acct_id
             })
                 .then(res => {
@@ -95,7 +96,8 @@ const actions = {
                 name: payload.name,
                 type: payload.type,
                 amount: payload.amount,
-                acct_id: payload.acct_id
+                acct_id: payload.acct_id,
+                date: payload.date.slice(0, 19).replace("T", " "),
             })
                 .then(res => {
 

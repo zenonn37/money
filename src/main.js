@@ -7,6 +7,7 @@ import Guest from './layouts/Guest'
 import User from './layouts/User'
 import "./filters/filter";
 import "./style/main.css";
+import "./plugins/vue-datetime";
 
 Vue.config.productionTip = false;
 

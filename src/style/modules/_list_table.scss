@@ -1,6 +1,11 @@
 .list-table{
     display: flex;
     flex-direction: column;
+    .dates{
+        color:$titles;
+        text-transform: uppercase;
+        font-size: .8em;
+    }
     .sort-header{
       display: flex;
       flex:1;

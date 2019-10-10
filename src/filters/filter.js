@@ -4,7 +4,7 @@ import numeral from 'numeral';
 
 
 Vue.filter('day', function (value) {
-    return moment(value).format('ddd MMM Do YY ');
+    return moment(value).format('MMM Do ');
 })
 
 Vue.filter('currency', function (value) {
