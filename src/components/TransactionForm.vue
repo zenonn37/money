@@ -18,8 +18,12 @@
           </select>
         </div>
 
-        <div class="form-field">
+        <div class="form-field" v-if="!loading">
           <input type="submit" value="Complete" />
+        </div>
+
+        <div class="form-field" v-else>
+          <input type="submit" value="Processing" />
         </div>
       </form>
     </div>
@@ -28,7 +32,7 @@
 
 <script>
 export default {
-  props: ["id", "edit", "title", "acct"],
+  props: ["id", "edit", "title", "acct", "loading"],
   components: {},
   data() {
     return {

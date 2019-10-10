@@ -43,8 +43,12 @@
 
       <ul>
         <li v-for="a in data" :key="a.id" class="cursors">
-          <i class="far fa-edit" @click="onEdit(a.id)"></i>
-          <i class="far fa-trash-alt" @click="onDelete(a.id)"></i>
+          <div class="edit">
+            <i class="far fa-edit" @click="onEdit(a.id)"></i>
+          </div>
+          <div class="delete">
+            <i class="far fa-trash-alt" @click="onDelete(a.id)"></i>
+          </div>
         </li>
       </ul>
     </div>

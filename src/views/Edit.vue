@@ -4,7 +4,14 @@
       <i class="fas fa-chevron-left" @click="goBack()"></i>
     </div>
     <div class="new-form">
-      <TransactionForm title="Edit Transaction" :edit="edit" @new="onSubmit" :id="id" :acct="acct" />
+      <TransactionForm
+        :loading="loading"
+        title="Edit Transaction"
+        :edit="edit"
+        @new="onSubmit"
+        :id="id"
+        :acct="acct"
+      />
     </div>
   </div>
 </template>
@@ -22,6 +29,7 @@ export default {
   },
   data() {
     return {
+      loading: false
       //   prevRoute: null
     };
   },
@@ -33,8 +41,10 @@ export default {
   },
   methods: {
     onSubmit(value) {
+      this.loading = true;
       console.log(value);
       this.$store.dispatch("UPDATE_TRANSACTION", value).then(() => {
+        this.loading = false;
         this.goBack();
       });
     }

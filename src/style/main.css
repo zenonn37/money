@@ -346,14 +346,49 @@ aside .menu a span {
   margin-left: 3rem;
 }
 
-.list-table .list-elements ul {
+.list-table .list-elements i {
+  font-size: 1em;
+  line-height: 0;
+}
+
+.list-table .list-elements .edit {
+  display: inline;
+}
+
+.list-table .list-elements .edit i {
+  color: #a8a5eb;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.list-table .list-elements .edit i:hover {
+  color: #30304D;
+  font-size: 1.4em;
+}
+
+.list-table .list-elements .delete {
+  display: inline;
+}
+
+.list-table .list-elements .delete i {
+  color: #db3a3a;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.list-table .list-elements .delete i:hover {
+  color: #30304D;
+  font-size: 1.4em;
+}
+
+.list-table ul {
   padding: 0;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.list-table .list-elements li {
+.list-table li {
   line-height: 1rem;
   padding-top: .9rem;
   color: #2A2A44;

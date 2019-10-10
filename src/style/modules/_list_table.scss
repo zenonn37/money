@@ -20,6 +20,40 @@
         flex:1;
         flex-direction: row;
         margin-left: $default-page-LM;
+        i{
+            font-size: 1em;
+            line-height: 0;
+          
+            
+      
+        }
+        .edit{
+            display: inline;
+            i{
+                color:$trim;
+                transition: all .3s ease-in-out;
+                &:hover{
+                    color: $primaryDark;
+                    font-size: 1.4em;
+                    
+                }
+              
+               
+            }
+        }
+        .delete{
+            display: inline;
+            i{
+                color: $destroy;
+                transition: all .3s ease-in-out;
+                &:hover{
+                    color: $primaryDark;
+                    font-size: 1.4em;
+                }
+            }
+        }
+      
+        }
         ul{
           padding:0;   
           flex:1;
@@ -31,4 +65,3 @@
         }
        
     }
-}

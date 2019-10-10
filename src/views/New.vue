@@ -3,9 +3,24 @@
     <div class="back">
       <i class="fas fa-chevron-left" @click="goBack()"></i>
     </div>
-    <div class="new-form">
-      <TransactionForm :edit="null" title="New Transaction" @new="onSubmit" :acct="id" />
-    </div>
+
+    <!-- <template v-if="loading">
+      <div class="new-form">
+        <div class="form-container">...loading</div>
+      </div>
+    </template>-->
+
+    <template>
+      <div class="new-form">
+        <TransactionForm
+          :loading="loading"
+          :edit="null"
+          title="New Transaction"
+          @new="onSubmit"
+          :acct="id"
+        />
+      </div>
+    </template>
   </div>
 </template>
 
@@ -27,10 +42,14 @@ export default {
   methods: {
     onSubmit(value) {
       this.loading = true;
+      console.log(this.loading);
+
       this.$store.dispatch("NEW_TRANSACTION", value).then(() => {
         console.log("success");
         setTimeout(() => {
           this.loading = true;
+          console.log("done");
+
           this.goBack();
         }, 1000);
       });
