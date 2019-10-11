@@ -1,0 +1,27 @@
+.paginate{
+    display: flex;
+    justify-content: center;
+    margin-top:3rem; 
+
+    .paginate-child{
+        display: flex;
+        justify-content: center;
+       li{
+        display: inline;
+        padding: 1em;
+        a{
+            background-color: $trim;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            color: $white;
+            outline: none;
+            transition: all .3s ease-in;
+            box-shadow: $shadow;
+            &:hover{
+                background-color: $primary;
+            }
+        }
+     
+       }
+    }
+}

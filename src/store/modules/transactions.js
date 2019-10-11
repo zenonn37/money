@@ -8,6 +8,7 @@ const state = {
     links: "",
     meta: "",
     total: [],
+    order: false,
 }
 
 const mutations = {
@@ -34,11 +35,59 @@ const mutations = {
     },
     SET_META(state, meta) {
         state.meta = meta
-    }
+    },
+    sortDate(state) {
+
+        state.order = !state.order
+        state.trans.sort(function (n1, n2) {
+            // const x = n1.createdAt.seconds
+            // const y = n2.createdAt.seconds
+
+            const x = n1.date
+            const y = n2.date
+
+            let test = state.order ? x == y : x > y
+
+            if (test) {
+                return 1
+            } else {
+                return -1
+            }
+        })
+    },
 }
 
 const getters = {
+
+
+
+
+    // function compare(a, b) {
+
+    //     const dateA = a.date;
+    //     const dateB = a.date;
+
+    //     let comparison = 0;
+
+    //     if (dateA > dateB) {
+    //         comparison = 1;
+    //     } else if (dateA < dateB) {
+    //         comparison = -1;
+    //     }
+    //     return comparison;
+
+
+    // }
+    // const sorts = sort(compare);
+
+
+
+
     GET_TRANSACTIONS(state) {
+
+
+
+
         return state.trans
     },
     GET_TRANSACTION: (state) => (id) => {
@@ -63,6 +112,11 @@ const getters = {
 }
 
 const actions = {
+
+    sortDates({ commit }) {
+        commit('sortDate');
+    },
+
 
     PAGE_TRANSACTIONS({ commit }, data) {
         console.log(data);

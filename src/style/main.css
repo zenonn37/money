@@ -549,6 +549,46 @@ select {
   margin-right: 1rem;
 }
 
+.paginate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 3rem;
+}
+
+.paginate .paginate-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.paginate .paginate-child li {
+  display: inline;
+  padding: 1em;
+}
+
+.paginate .paginate-child li a {
+  background-color: #a8a5eb;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  color: #fff;
+  outline: none;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  -webkit-box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.paginate .paginate-child li a:hover {
+  background-color: #393857;
+}
+
 *,
 *::after,
 *::before {

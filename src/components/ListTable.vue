@@ -1,7 +1,7 @@
 <template>
   <div class="list-table">
     <div class="sort-header">
-      <div>
+      <div @click="sortDates()">
         Date
         <span>&#9660</span>
       </div>
@@ -66,7 +66,7 @@
         :click-handler="onPage"
         :prev-text="'Prev'"
         :next-text="'Next'"
-        :container-class="'className'"
+        :container-class="'paginate-child'"
       ></paginate>
     </div>
   </div>
@@ -91,6 +91,9 @@ export default {
   },
   watch: {},
   methods: {
+    sortDates() {
+      this.$store.dispatch("sortDates");
+    },
     onPage(page) {
       const data = {
         id: this.$route.params.id,
