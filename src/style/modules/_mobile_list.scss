@@ -1,0 +1,37 @@
+.list-parent{
+    display: flex;
+    width: 100%;
+    
+    .left-block{
+        //display: flex;
+        flex:2;
+       
+        .list-title{
+          
+        }
+        .date-title{
+            text-align: left;
+          
+           
+        }
+        .trans{
+            font-size: 16px;
+        }
+
+    }
+    .right-block{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex: 1;
+       
+      
+      
+        .list-amount{
+          
+            text-align: left;
+         
+          
+        }
+    }
+}

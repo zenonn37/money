@@ -18,39 +18,57 @@
     </div>
     <div class="list-elements">
       <ul>
-        <li v-for="a in data" :key="a.id" class="dates">{{a.date | day}}</li>
+        <li v-for="trn in transDESC" :key="trn.id">
+          <div class="list-parent">
+            <div class="left-block">
+              <div class="list-title">
+                <small>{{trn.name}}</small>
+              </div>
+              <div class="date-title">
+                <small>{{trn.date | day}}</small>
+              </div>
+            </div>
+            <div class="right-block">
+              <div class="list-amount">{{trn.amount | currency}}</div>
+              <div class="trans">{{trn.type}}</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- <ul>
+        <li v-for="a in transDESC" :key="a.id" class="dates">{{a.date | day}}</li>
       </ul>
 
       <ul v-if="type">
-        <li v-for="a in data" :key="a.id">
+        <li v-for="a in transDESC" :key="a.id">
           <router-link :to="`/transactions/${a.id}`">{{a.name}}</router-link>
         </li>
       </ul>
       <ul v-else>
-        <li v-for="a in data" :key="a.id">{{a.name}}</li>
+        <li v-for="a in transDESC" :key="a.id">{{a.name}}</li>
       </ul>
 
       <ul>
-        <li v-for="a in data" :key="a.id">{{a.type}}</li>
+        <li v-for="a in transDESC" :key="a.id">{{a.type}}</li>
       </ul>
 
       <ul v-if="type">
         <li
-          v-for="a in data"
+          v-for="a in transDESC"
           :key="a.id"
           :class="[a.type === 'Deposit' ? 'credit' : 'debit' ]"
         >{{a.balance | currency}}</li>
       </ul>
       <ul v-else>
         <li
-          v-for="a in data"
+          v-for="a in transDESC"
           :key="a.id"
           :class="[a.type === 'Deposit' ? 'credit' : 'debit' ]"
         >{{a.amount | currency}}</li>
       </ul>
 
       <ul>
-        <li v-for="a in data" :key="a.id" class="cursors">
+        <li v-for="a in transDESC" :key="a.id" class="cursors">
           <div class="edit">
             <i class="far fa-edit" @click="onEdit(a.id)"></i>
           </div>
@@ -58,7 +76,7 @@
             <i class="far fa-trash-alt" @click="onDelete(a.id)"></i>
           </div>
         </li>
-      </ul>
+      </ul>-->
     </div>
     <div class="paginate">
       <paginate
@@ -78,10 +96,32 @@ export default {
   props: ["name", "data", "type"],
   data() {
     return {
-      pages: 1
+      pages: 1,
+      order: false
     };
   },
   computed: {
+    orderDate() {
+      return this.order ? this.transDESC : this.transASC;
+    },
+
+    transASC() {
+      const trans = _.sortBy(this.data, [
+        function(value) {
+          return value.date;
+        }
+      ]);
+      return trans;
+    },
+    transDESC() {
+      const trans = _.sortBy(this.data, [
+        function(value) {
+          return value.date * -1;
+        }
+      ]);
+      return trans;
+    },
+
     links() {
       return this.$store.getters.GET_LINKS;
     },
@@ -92,7 +132,12 @@ export default {
   watch: {},
   methods: {
     sortDates() {
-      this.$store.dispatch("sortDates");
+      console.log("clicked");
+
+      this.order != this.order;
+      console.log(this.order);
+
+      //this.$store.dispatch("sortDates");
     },
     onPage(page) {
       const data = {
