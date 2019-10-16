@@ -39,6 +39,11 @@ export default {
       return this.$store.getters.GET_ACCOUNTS;
     }
   },
+  methods: {
+    onNew() {
+      this.$router.push("/new");
+    }
+  },
   created() {
     this.loading = true;
     this.$store.dispatch("ALL_ACCOUNTS").then(() => {

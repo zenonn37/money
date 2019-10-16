@@ -56,7 +56,7 @@
         <li
           v-for="a in transDESC"
           :key="a.id"
-          :class="[a.type === 'Deposit' ? 'credit' : 'debit' ]"
+          :class="[a.balance > 0 ?  'credit' : 'debit'  ]"
         >{{a.balance | currency}}</li>
       </ul>
       <ul v-else>
@@ -69,16 +69,22 @@
 
       <ul>
         <li v-for="a in transDESC" :key="a.id" class="cursors">
-          <div class="edit">
+          <div class="edit" v-if="route === 'account'">
+            <i class="far fa-edit" @click="onEditAccount(a.id)"></i>
+          </div>
+          <div class="edit" v-else>
             <i class="far fa-edit" @click="onEdit(a.id)"></i>
           </div>
-          <div class="delete">
+          <div class="delete" v-if="route === 'account'">
+            <i class="far fa-trash-alt" @click="onDeleteAccount(a.id)"></i>
+          </div>
+          <div class="delete" v-else>
             <i class="far fa-trash-alt" @click="onDelete(a.id)"></i>
           </div>
         </li>
       </ul>
     </div>
-    <div class="paginate">
+    <div class="paginate" v-if="!type">
       <paginate
         :page-count="meta"
         :click-handler="onPage"
@@ -97,7 +103,8 @@ export default {
   data() {
     return {
       pages: 1,
-      order: false
+      order: false,
+      route: this.$route.name
     };
   },
   computed: {
@@ -148,14 +155,30 @@ export default {
       this.$store.dispatch("PAGE_TRANSACTIONS", data);
     },
     onEdit(id) {
+      console.log("transaction");
+
       const acct = this.$route.params.id;
+
       this.$router.push(`/edit/${acct}/${id}`);
+    },
+    onEditAccount(id) {
+      console.log("accounts");
+
+      const acct = this.$route.params.id;
+
+      this.$router.push(`/edit/${id}`);
     },
     onDelete(trans) {
       //call delete dispatch
-      console.log(trans);
+
       const id = parseInt(trans);
       this.$store.dispatch("DELETE_TRANSACTION", id);
+    },
+    onDeleteAccount(acct) {
+      //call delete dispatch
+
+      const id = parseInt(acct);
+      this.$store.dispatch("DELETE_ACCOUNT", id);
     }
   }
 };

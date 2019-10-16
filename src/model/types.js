@@ -11,12 +11,12 @@ export const types = [
     'Deposit',
     'ATM'
 
+]
 
-
-
-
-
-
-
+export const acct = [
+    'Checking',
+    'Credit Card',
+    'Credit Line',
+    'Savings'
 ]
 

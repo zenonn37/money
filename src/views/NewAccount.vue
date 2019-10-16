@@ -2,36 +2,21 @@
   <div class="render-child">
     <ReturnBtn :back="back" @nav="goBack()" />
 
-    <!-- <template v-if="loading">
-      <div class="new-form">
-        <div class="form-container">...loading</div>
-      </div>
-    </template>-->
-
-    <template>
-      <div class="new-form">
-        <TransactionForm
-          :loading="loading"
-          :edit="null"
-          title="New Transaction"
-          @new="onSubmit"
-          :acct="id"
-        />
-      </div>
-    </template>
+    <div class="new-form">
+      <AccountForm :loading="loading" :edit="null" title="New Account" @new="onSubmit" :id="null" />
+    </div>
   </div>
 </template>
 
 <script>
-import TransactionForm from "@/components/TransactionForm";
+import AccountForm from "@/components/AccountForm";
 import { prevRoutes } from "../mixins/prevRoute.js";
 import ReturnBtn from "@/components/btns/ReturnBtn";
 export default {
-  name: "New",
-  props: ["id"],
+  name: "NewAccount",
   mixins: [prevRoutes],
   components: {
-    TransactionForm,
+    AccountForm,
     ReturnBtn
   },
   data() {
@@ -45,12 +30,12 @@ export default {
       this.loading = true;
       console.log(value);
 
-      this.$store.dispatch("NEW_TRANSACTION", value).then(() => {
+      this.$store.dispatch("NEW_ACCOUNTS", value).then(() => {
         console.log("success");
         setTimeout(() => {
           this.loading = true;
           console.log("done");
-
+          //callled from mixin method
           this.goBack();
         }, 500);
       });
@@ -58,4 +43,5 @@ export default {
   }
 };
 </script>
+
 

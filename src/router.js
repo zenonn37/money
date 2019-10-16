@@ -7,6 +7,8 @@ import Wallet from './views/Wallet.vue';
 import Expenses from './views/Expenses.vue';
 import New from './views/New'
 import Edit from './views/Edit'
+import NewAccount from './views/NewAccount'
+import EditAccount from './views/EditAccount'
 import Settings from './views/Settings.vue';
 import Help from './views/Help.vue';
 
@@ -73,6 +75,14 @@ export default new Router({
       component: New
     },
     {
+      path: '/new',
+      name: "new_account",
+      meta: {
+        layout: "user"
+      },
+      component: NewAccount
+    },
+    {
       path: '/edit/:acct/:id',
       name: "edit",
       props: true,
@@ -80,6 +90,15 @@ export default new Router({
         layout: "user"
       },
       component: Edit
+    },
+    {
+      path: '/edit/:id',
+      name: "edit_account",
+      props: true,
+      meta: {
+        layout: "user"
+      },
+      component: EditAccount
     },
 
     {
