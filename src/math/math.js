@@ -12,3 +12,9 @@ export const totalTransaction = array => {
 
     }, 0)
 }
+
+export const totalAccount = array => {
+    return array.reduce((total, account) => {
+        return total + parseInt(account.balance)
+    }, 0)
+}

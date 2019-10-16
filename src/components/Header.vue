@@ -9,7 +9,10 @@
       </div>
     </nav>
 
-    <div class="computed">
+    <div class="computed" v-if="$route.name === 'account'">
+      <div class="balance">{{ amount | currency}}</div>
+    </div>
+    <div class="computed" v-else>
       <div class="balance">{{ balance | currency}}</div>
     </div>
   </header>
@@ -17,12 +20,17 @@
 
 <script>
 export default {
+  data() {
+    return {
+      route: this.$route.name
+    };
+  },
   computed: {
     balance() {
-      return this.$store.getters.GET_TOTAL;
-      // return this.$store.getters.GET_TOTAL.length > 0
-      //   ? this.$store.getters.GET_TOTAL
-      //   : 0;
+      return this.$store.getters["transactions/GET_TOTAL"];
+    },
+    amount() {
+      return this.$store.getters["account/get_total"];
     }
   },
   methods: {

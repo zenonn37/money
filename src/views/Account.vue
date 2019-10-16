@@ -18,6 +18,8 @@
 import PageHeaders from "@/components/PageHeaders";
 import ListTable from "@/components/ListTable";
 import NewBtn from "@/components/btns/NewBtn";
+import { createNamespacedHelpers } from "vuex";
+const { mapGetters } = createNamespacedHelpers("GET_ACCOUNTS");
 
 export default {
   name: "Account",
@@ -35,8 +37,9 @@ export default {
     };
   },
   computed: {
+    // ...mapGetters(["GET_ACCOUNTS"])
     accounts() {
-      return this.$store.getters.GET_ACCOUNTS;
+      return this.$store.getters["account/GET_ACCOUNTS"];
     }
   },
   methods: {
@@ -46,7 +49,7 @@ export default {
   },
   created() {
     this.loading = true;
-    this.$store.dispatch("ALL_ACCOUNTS").then(() => {
+    this.$store.dispatch("account/ALL_ACCOUNTS").then(() => {
       this.loading = false;
     });
   }

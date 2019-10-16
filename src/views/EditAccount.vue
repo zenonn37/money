@@ -31,14 +31,14 @@ export default {
   computed: {
     edit() {
       const id = parseInt(this.$route.params.id);
-      return this.$store.getters.GET_ACCOUNT(id);
+      return this.$store.getters["account/GET_ACCOUNT"](id);
     }
   },
   methods: {
     onSubmit(value) {
       this.loading = true;
       console.log(value);
-      this.$store.dispatch("UPDATE_ACCOUNT", value).then(() => {
+      this.$store.dispatch("account/UPDATE_ACCOUNT", value).then(() => {
         this.loading = false;
         this.goBack();
       });

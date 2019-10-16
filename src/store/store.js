@@ -7,9 +7,17 @@ import transactions from './modules/transactions'
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  namespaced: true,
+
   modules: {
     auth,
     account,
+
+
+
     transactions
+
+
+
   }
 });

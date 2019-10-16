@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     trans() {
-      return this.$store.getters.GET_TRANSACTIONS;
+      return this.$store.getters["transactions/GET_TRANSACTIONS"];
     }
   },
   methods: {
@@ -68,7 +68,7 @@ export default {
   created() {
     this.loading = true;
     this.$store
-      .dispatch("ACCOUNT_TRANSACTIONS", this.currentAcctid)
+      .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.currentAcctid)
       .then(() => {
         this.loading = false;
       });

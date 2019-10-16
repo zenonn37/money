@@ -45,7 +45,7 @@ export default {
       this.loading = true;
       console.log(value);
 
-      this.$store.dispatch("NEW_TRANSACTION", value).then(() => {
+      this.$store.dispatch("transactions/NEW_TRANSACTION", value).then(() => {
         console.log("success");
         setTimeout(() => {
           this.loading = true;

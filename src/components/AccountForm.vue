@@ -14,6 +14,14 @@
             <option v-for="t in  types" :key="t" :value="t">{{t}}</option>
           </select>
         </div>
+        <div class="form-field">
+          <datetime
+            placeholder="Enter Date"
+            v-model="account.date"
+            value-zone="America/New_York"
+            :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+          ></datetime>
+        </div>
 
         <div class="form-field" v-if="!loading">
           <input type="submit" value="Complete" />
@@ -37,7 +45,8 @@ export default {
       types: acct,
       account: {
         id: this.id !== undefined || this.id !== null ? this.id : "",
-
+        date:
+          this.edit === null || this.edit === undefined ? "" : this.edit.date,
         balance:
           this.edit === null || this.edit === undefined
             ? ""

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { url } from '../../api/apps'
+import { totalAccount } from '../../math/math'
 const accounts = "accounts";
 const state = {
     accounts: []
@@ -30,6 +31,10 @@ const getters = {
 
         return state.accounts.find(acct => acct.id === id)
     },
+    get_total(state) {
+        return totalAccount(state.accounts)
+    }
+
 
 }
 
@@ -53,7 +58,7 @@ const actions = {
 
 
     },
-    NEW_ACCOUNTS({ commit }, payload) {
+    NEW_ACCOUNTS({ commit, dispatch }, payload) {
         axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem('access_token');
 
@@ -61,12 +66,29 @@ const actions = {
             axios.post(`${url}/${accounts}`, {
                 name: payload.name,
                 balance: payload.balance,
-                type: payload.type
+                type: payload.type,
+                date: payload.date.slice(0, 19).replace("T", " ")
 
 
             })
                 .then(res => {
                     commit('NEW_ACCOUNT', res.data)
+                    console.log(res.data.data.id);
+
+
+                    const trans = {
+                        name: payload.name,
+                        amount: payload.balance,
+                        type: "Deposit",
+                        date: payload.date,
+                        acct_id: res.data.data.id
+
+                    }
+                    dispatch('transactions/NEW_TRANSACTION', trans, { root: true })
+
+
+
+
                     resolve(res)
                 }).catch(err => {
                     reject(err)
@@ -85,7 +107,8 @@ const actions = {
             axios.patch(`${url}/${accounts}/${payload.id}`, {
                 name: payload.name,
                 balance: payload.balance,
-                type: payload.type
+                type: payload.type,
+                date: payload.date.slice(0, 19).replace("T", " ")
 
 
             })
@@ -123,5 +146,6 @@ const actions = {
 }
 
 export default {
+    namespaced: true,
     state, mutations, getters, actions
 }

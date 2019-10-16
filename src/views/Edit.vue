@@ -36,17 +36,19 @@ export default {
   computed: {
     edit() {
       const id = parseInt(this.$route.params.id);
-      return this.$store.getters.GET_TRANSACTION(id);
+      return this.$store.getters["transactions/GET_TRANSACTION"](id);
     }
   },
   methods: {
     onSubmit(value) {
       this.loading = true;
       console.log(value);
-      this.$store.dispatch("UPDATE_TRANSACTION", value).then(() => {
-        this.loading = false;
-        this.goBack();
-      });
+      this.$store
+        .dispatch("transactions/UPDATE_TRANSACTION", value)
+        .then(() => {
+          this.loading = false;
+          this.goBack();
+        });
     }
   }
 };

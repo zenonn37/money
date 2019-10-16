@@ -6,7 +6,7 @@
       <AccountForm :loading="loading" :edit="null" title="New Account" @new="onSubmit" :id="null" />
     </div>
   </div>
-</template>
+</template> 
 
 <script>
 import AccountForm from "@/components/AccountForm";
@@ -30,7 +30,7 @@ export default {
       this.loading = true;
       console.log(value);
 
-      this.$store.dispatch("NEW_ACCOUNTS", value).then(() => {
+      this.$store.dispatch("account/NEW_ACCOUNTS", value).then(() => {
         console.log("success");
         setTimeout(() => {
           this.loading = true;

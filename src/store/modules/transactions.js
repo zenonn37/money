@@ -39,21 +39,14 @@ const mutations = {
     sortDate(state) {
 
         state.order = !state.order
-        state.trans.sort(function (n1, n2) {
-            // const x = n1.createdAt.seconds
-            // const y = n2.createdAt.seconds
 
-            const x = n1.date
-            const y = n2.date
-
-            let test = state.order ? x == y : x > y
-
-            if (test) {
-                return 1
-            } else {
-                return -1
+        const trans = _.sortBy(state.trans, [
+            function (value) {
+                return value.date;
             }
-        })
+        ]);
+        return trans;
+
     },
 }
 
@@ -173,6 +166,43 @@ const actions = {
                 })
         })
     },
+    TEST_TRANS(value) {
+        console.log(value);
+
+    },
+
+    account_transaction({ commit }, payload) {
+        axios.defaults.headers.common["Authorization"] =
+            "Bearer " + localStorage.getItem('access_token');
+        return new Promise((resolve, reject) => {
+            console.log(payload);
+
+            axios.post(`${url}/transactions`, {
+                name: payload.name,
+                type: payload.type,
+                amount: parseFloat(payload.amount),
+                date: payload.date.slice(0, 19).replace("T", " "),
+                acct_id: payload.acct_id
+            })
+                .then(res => {
+
+                    commit('NEW_TRANS', res.data)
+                    axios.get(`${url}/total/${payload.acct_id}`)
+                        .then(res => {
+                            resolve(res)
+                            commit('SET_TOTAL', res.data)
+                        }).catch(err => {
+                        })
+                    //  resolve(res)
+
+                }).catch(err => {
+                    //handle errors!!
+                    console.log(err);
+
+                    reject(err)
+                })
+        })
+    },
     NEW_TRANSACTION({ commit }, payload) {
         axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem('access_token');
@@ -258,6 +288,7 @@ const actions = {
 }
 
 export default {
+    namespaced: true,
     state, mutations
     , actions, getters
 }
