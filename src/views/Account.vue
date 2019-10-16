@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="render-child">
     <PageHeaders title="My Accounts" menu1="Financial Institutions" menu2="Budgets" menu3 />
 
     <template v-if="loading">
@@ -8,6 +8,8 @@
 
     <template v-else>
       <ListTable name="Bank" :data="accounts" :type="type" />
+
+      <NewBtn @new="onNew()" :icon="icon" />
     </template>
   </div>
 </template>
@@ -15,19 +17,21 @@
 <script>
 import PageHeaders from "@/components/PageHeaders";
 import ListTable from "@/components/ListTable";
+import NewBtn from "@/components/btns/NewBtn";
 
-import axios from "axios";
 export default {
   name: "Account",
   components: {
     ListTable,
-    PageHeaders
+    PageHeaders,
+    NewBtn
   },
   data() {
     return {
       acct: [],
       type: true,
-      loading: false
+      loading: false,
+      icon: "fas fa-university"
     };
   },
   computed: {
@@ -40,15 +44,6 @@ export default {
     this.$store.dispatch("ALL_ACCOUNTS").then(() => {
       this.loading = false;
     });
-    // axios
-    //   .get("http://apps.test/api/accounts")
-    //   .then(res => {
-    //     console.log(res.data);
-    //     this.acct = res.data;
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
   }
 };
 </script>

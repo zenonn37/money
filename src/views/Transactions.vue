@@ -13,21 +13,17 @@
         </div>
         <ListTable name="Name" :data="trans" :type="type" />
 
-        <div @click="onNew()" class="new-btn">
-          <i class="fas fa-dollar-sign"></i>
-        </div>
+        <NewBtn @new="onNew()" :icon="icon" />
       </div>
     </template>
-
-    <!-- <modal name="hello-world">hello, world!</modal> -->
   </div>
 </template>
 
 <script>
-import axios from "axios";
 import PageHeaders from "@/components/PageHeaders";
 import ListTable from "@/components/ListTable";
 import TransactionForm from "@/components/TransactionForm";
+import NewBtn from "@/components/btns/NewBtn";
 export default {
   name: "Transactions",
 
@@ -36,7 +32,8 @@ export default {
   components: {
     ListTable,
     PageHeaders,
-    TransactionForm
+    TransactionForm,
+    NewBtn
   },
   data() {
     return {
@@ -44,7 +41,8 @@ export default {
       type: false,
       loading: false,
       currentAcctid: this.id,
-      form: false
+      form: false,
+      icon: "fas fa-dollar-sign"
     };
   },
   computed: {

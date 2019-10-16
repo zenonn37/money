@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { url } from '../../api/apps'
+const accounts = "accounts";
 const state = {
     accounts: []
 
@@ -25,7 +27,7 @@ const actions = {
             "Bearer " + localStorage.getItem('access_token');
 
         return new Promise((resolve, reject) => {
-            axios.get('http://apps.test/api/accounts')
+            axios.get(`${url}/${accounts}`)
                 .then(res => {
                     commit('SET_ACCOUNT', res.data)
                     resolve(res)

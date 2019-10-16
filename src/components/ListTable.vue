@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="list-elements">
-      <ul>
+      <!-- <ul>
         <li v-for="trn in transDESC" :key="trn.id">
           <div class="list-parent">
             <div class="left-block">
@@ -34,8 +34,8 @@
             </div>
           </div>
         </li>
-      </ul>
-      <!-- <ul>
+      </ul>-->
+      <ul>
         <li v-for="a in transDESC" :key="a.id" class="dates">{{a.date | day}}</li>
       </ul>
 
@@ -76,7 +76,7 @@
             <i class="far fa-trash-alt" @click="onDelete(a.id)"></i>
           </div>
         </li>
-      </ul>-->
+      </ul>
     </div>
     <div class="paginate">
       <paginate
