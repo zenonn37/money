@@ -1,0 +1,54 @@
+
+
+.auth{
+ width: 70%;
+ max-width: 600px;
+ margin: 0 auto;
+ .auth-parent{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 320px;
+    margin-bottom: 2rem;
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .3s ease-in-out;
+      }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+      }
+    .form-field{
+        margin-top:.6em;
+        width: 100%;
+     }
+  }
+   .toggle-btn{
+   
+    background-color: $trim;
+    position: absolute;
+    bottom:30px;
+    right:30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-shadow: $shadow;
+    outline: none;
+    border:none ;
+    color: $white;
+    border-radius:4px;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      background-color: $primary;
+      bottom: 35px;
+    }
+ 
+}
+
+}
+
+
+
+
+
+
+ 

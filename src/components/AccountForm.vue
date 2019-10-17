@@ -2,12 +2,22 @@
   <div class="forms-container">
     <div class="forms">
       <h1>{{title}}</h1>
-      <form @submit.prevent="onSend()">
+      <ValidationObserver ref="observer" tag="form" v-slot="{ valid }" @submit.prevent="onSend()">
         <div class="form-field">
-          <input type="text" placeholder="Name" v-model=" account.name" />
+          <ValidationProvider name="Account name" rules="required|min:2|max:30" v-slot="{errors}">
+            <input type="text" placeholder="Name" v-model=" account.name" />
+            <span class="errors">{{errors[0]}}</span>
+          </ValidationProvider>
         </div>
         <div class="form-field">
-          <input type="text" placeholder="Balance" v-model=" account.balance" />
+          <ValidationProvider
+            name="Starting Balance"
+            rules="required|min:2|max:10"
+            v-slot="{errors}"
+          >
+            <input type="text" placeholder=" Starting Balance" v-model=" account.balance" />
+            <span class="errors">{{errors[0]}}</span>
+          </ValidationProvider>
         </div>
         <div class="form-field">
           <select name="type" v-model=" account.type" value="Checking">
@@ -15,22 +25,29 @@
           </select>
         </div>
         <div class="form-field">
-          <datetime
-            placeholder="Enter Date"
-            v-model="account.date"
-            value-zone="America/New_York"
-            :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
-          ></datetime>
+          <ValidationProvider name="Date" rules="required" :bails="false" v-slot="{errors}">
+            <datetime
+              placeholder="Enter Date"
+              v-model="account.date"
+              value-zone="America/New_York"
+              :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+            ></datetime>
+            <span class="errors">{{errors[0]}}</span>
+          </ValidationProvider>
         </div>
 
         <div class="form-field" v-if="!loading">
-          <input type="submit" value="Complete" />
+          <button
+            :class="[valid ? 'complete' : 'not-valid' ]"
+            :disabled="!valid"
+            type="submit"
+          >{{valid ? 'Complete' : 'Disabled'}}</button>
         </div>
 
         <div class="form-field" v-else>
           <input type="submit" value="Processing" />
         </div>
-      </form>
+      </ValidationObserver>
     </div>
   </div>
 </template>
@@ -61,11 +78,18 @@ export default {
     };
   },
   methods: {
-    onSend() {
-      // console.log(this.props.id);
-      console.log(this.account);
-
+    async onSend() {
+      const isValid = await this.$refs.observer.validate();
+      if (!isValid) {
+        console.log("form has issues");
+        this.loading = false;
+      }
+      requestAnimationFrame(() => {
+        this.$refs.observer.reset();
+      });
       this.$emit("new", this.account);
+
+      console.log(this.account);
     }
   }
 };

@@ -7,7 +7,7 @@
         <div class="form-field">
           <ValidationProvider
             name="Transaction name"
-            rules="required|min:2|max:30|alpha"
+            rules="required|min:2|max:30"
             :bails="false"
             v-slot="{errors}"
           >
@@ -107,19 +107,6 @@ export default {
       this.$emit("new", this.trans);
 
       console.log(this.trans);
-    },
-
-    save() {
-      this.isValidation = true;
-      this.$validator.validate().then(valid => {
-        if (!valid) {
-          console.log("error");
-        } else {
-          console.log("no errors");
-
-          this.$emit("new", this.trans);
-        }
-      });
     }
   }
 };
