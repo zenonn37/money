@@ -2,12 +2,32 @@
   <div class="forms-container">
     <div class="forms">
       <h1>{{title}}</h1>
-      <form @submit.prevent="onSend()">
+
+      <ValidationObserver ref="observer" v-slot="{ valid }" tag="form" @submit.prevent="onSend()">
         <div class="form-field">
-          <input type="text" placeholder="Name" v-model="trans.name" />
+          <ValidationProvider
+            name="Transaction name"
+            rules="required|min:2|max:30|alpha"
+            :bails="false"
+            v-slot="{errors}"
+          >
+            <input type="text" placeholder="Name" v-model="trans.name" />
+            <span class="errors">{{errors[0]}}</span>
+            <!-- <ul>
+              <li class="errors" v-for="error in errors">{{ error }}</li>
+            </ul>-->
+          </ValidationProvider>
         </div>
         <div class="form-field">
-          <input type="text" placeholder="Amount" v-model="trans.amount" />
+          <ValidationProvider
+            name="Amount"
+            rules="required|min:1|max:10"
+            :bails="false"
+            v-slot="{errors}"
+          >
+            <input type="text" placeholder="Amount" v-model="trans.amount" />
+            <span class="errors">{{errors[0]}}</span>
+          </ValidationProvider>
         </div>
         <div class="form-field">
           <select name="type" v-model="trans.type" value="Debit">
@@ -16,22 +36,30 @@
         </div>
 
         <div class="form-field">
-          <datetime
-            placeholder="Enter Date"
-            v-model="trans.date"
-            value-zone="America/New_York"
-            :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
-          ></datetime>
+          <ValidationProvider name="Date" rules="required" :bails="false" v-slot="{errors}">
+            <datetime
+              placeholder="Enter Date"
+              v-model="trans.date"
+              value-zone="America/New_York"
+              :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+            ></datetime>
+            <span class="errors">{{errors[0]}}</span>
+          </ValidationProvider>
         </div>
 
         <div class="form-field" v-if="!loading">
-          <input type="submit" value="Complete" />
+          <!-- <input disabled type="submit" value="Complete" /> -->
+          <button
+            :class="[valid ? 'complete' : 'not-valid' ]"
+            :disabled="!valid"
+            type="submit"
+          >{{valid ? 'Complete' : 'Disabled'}}</button>
         </div>
 
         <div class="form-field" v-else>
           <input type="submit" value="Processing" />
         </div>
-      </form>
+      </ValidationObserver>
     </div>
   </div>
 </template>
@@ -39,6 +67,7 @@
 <script>
 import { types } from "@/model/types.js";
 import moment from "moment";
+
 export default {
   props: ["id", "edit", "title", "acct", "loading"],
   components: {},
@@ -59,16 +88,38 @@ export default {
         type:
           this.edit === null || this.edit === undefined
             ? "Debit"
-            : this.edit.type
+            : this.edit.type,
+        state: {
+          isValidation: false
+        }
       }
     };
   },
   methods: {
-    onSend() {
-      // console.log(this.props.id);
-      console.log(this.trans);
-
+    async onSend() {
+      const isValid = await this.$refs.observer.validate();
+      if (!isValid) {
+        console.log("form has issues");
+      }
+      requestAnimationFrame(() => {
+        this.$refs.observer.reset();
+      });
       this.$emit("new", this.trans);
+
+      console.log(this.trans);
+    },
+
+    save() {
+      this.isValidation = true;
+      this.$validator.validate().then(valid => {
+        if (!valid) {
+          console.log("error");
+        } else {
+          console.log("no errors");
+
+          this.$emit("new", this.trans);
+        }
+      });
     }
   }
 };

@@ -11,7 +11,7 @@
       </div>
       <div>Edit</div>
       <div>Type</div>
-      <div>
+      <div class="cursors" @click="sortAmount()">
         Balance
         <span>&#9660</span>
       </div>
@@ -36,39 +36,39 @@
         </li>
       </ul>-->
       <ul>
-        <li v-for="a in orderDate" :key="a.id" class="dates">{{a.date | day}}</li>
+        <li v-for="a in  data" :key="a.id" class="dates">{{a.date | day}}</li>
       </ul>
 
       <ul v-if="type">
-        <li v-for="a in orderDate" :key="a.id">
+        <li v-for="a in data" :key="a.id">
           <router-link :to="`/transactions/${a.id}`">{{a.name}}</router-link>
         </li>
       </ul>
       <ul v-else>
-        <li v-for="a in orderDate" :key="a.id">{{a.name}}</li>
+        <li v-for="a in data" :key="a.id">{{a.name}}</li>
       </ul>
 
       <ul>
-        <li v-for="a in orderDate" :key="a.id">{{a.type}}</li>
+        <li v-for="a in data" :key="a.id">{{a.type}}</li>
       </ul>
 
       <ul v-if="type">
         <li
-          v-for="a in orderDate"
+          v-for="a in data"
           :key="a.id"
           :class="[a.balance > 0 ?  'credit' : 'debit'  ]"
         >{{a.balance | currency}}</li>
       </ul>
       <ul v-else>
         <li
-          v-for="a in orderDate"
+          v-for="a in data"
           :key="a.id"
           :class="[a.type === 'Deposit' ? 'credit' : 'debit' ]"
         >{{a.amount | currency}}</li>
       </ul>
 
       <ul>
-        <li v-for="a in orderDate" :key="a.id" class="cursors">
+        <li v-for="a in data" :key="a.id" class="cursors">
           <div class="edit" v-if="route === 'account'">
             <i class="far fa-edit" @click="onEditAccount(a.id)"></i>
           </div>
@@ -140,12 +140,15 @@ export default {
   methods: {
     sortDates() {
       console.log("clicked");
-      let test = false;
-      test != test;
+
       this.order = !this.order;
-      console.log(this.order);
+
+      this.$store.dispatch("transactions/sortAmounts");
 
       //this.$store.dispatch("sortDates");
+    },
+    sortAmount() {
+      this.$store.dispatch("transactions/sortAmounts");
     },
     onPage(page) {
       const data = {

@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { url } from '../../api/apps';
 import { totalTransaction } from '../../math/math'
+import _ from "lodash";
+
 
 
 const state = {
@@ -8,7 +10,7 @@ const state = {
     links: "",
     meta: "",
     total: [],
-    order: false,
+    order: true,
 }
 
 const mutations = {
@@ -36,43 +38,48 @@ const mutations = {
     SET_META(state, meta) {
         state.meta = meta
     },
-    sortDate(state) {
+    sortAmount(state) {
 
-        state.order = !state.order
 
-        const trans = _.sortBy(state.trans, [
-            function (value) {
-                return value.date;
-            }
-        ]);
-        return trans;
+        if (state.order) {
+            state.trans = _.sortBy(state.trans, [
+
+                function (value) {
+                    console.log('called ASC ');
+
+                    return value.amount;
+
+                }
+
+            ]);
+            console.log(state.trans);
+
+        } else {
+            state.trans = _.sortBy(state.trans, [
+
+                function (value) {
+
+                    console.log('called DESC ');
+                    return value.amount * -1;
+
+                }
+
+            ]);
+            console.log(state.trans);
+
+        }
+
+
+
+
+
+
+
 
     },
 }
 
 const getters = {
-
-
-
-
-    // function compare(a, b) {
-
-    //     const dateA = a.date;
-    //     const dateB = a.date;
-
-    //     let comparison = 0;
-
-    //     if (dateA > dateB) {
-    //         comparison = 1;
-    //     } else if (dateA < dateB) {
-    //         comparison = -1;
-    //     }
-    //     return comparison;
-
-
-    // }
-    // const sorts = sort(compare);
-
 
 
 
@@ -106,8 +113,11 @@ const getters = {
 
 const actions = {
 
-    sortDates({ commit }) {
-        commit('sortDate');
+    sortAmounts({ commit }) {
+        state.order = !state.order
+
+        //console.log(state.order);
+        commit('sortAmount');
     },
 
 
