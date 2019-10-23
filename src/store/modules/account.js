@@ -19,6 +19,9 @@ const mutations = {
 
         const newArray = state.accounts.filter(account => account.id !== id)
         state.accounts = newArray
+    },
+    clear_accounts(state) {
+        state.accounts = []
     }
 
 }

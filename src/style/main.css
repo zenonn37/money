@@ -847,4 +847,14 @@ img {
   color: rgba(207, 91, 56, 0.781);
   margin-top: .5em;
 }
+
+.fadeIn {
+  -webkit-animation-duration: .25s;
+          animation-duration: .25s;
+}
+
+.fadeOut {
+  -webkit-animation-duration: .25s;
+          animation-duration: .25s;
+}
 /*# sourceMappingURL=main.css.map */

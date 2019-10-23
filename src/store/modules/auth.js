@@ -5,6 +5,7 @@ const state = {
     token: localStorage.getItem("access_token") || null,
     user: localStorage.getItem("user") || null,
 
+
 };
 const mutations = {
     SET_AUTH(state, token) {
@@ -12,7 +13,11 @@ const mutations = {
     },
     SET_USER(state, user) {
         state.user = user
-    }
+    },
+    SET_LOGGED(state) {
+        state.isLogged
+    },
+
 
 
 }
@@ -22,7 +27,10 @@ const getters = {
         return state.token
     },
     GET_USER(state) {
-        return state.USER
+        return state.user
+    },
+    isLogged(state) {
+        return state.token !== null ? true : false
     }
 
 }
@@ -80,6 +88,10 @@ const actions = {
 
 
                     commit("SET_USER", null)
+                    commit("SET_AUTH", null)
+                    commit("account/clear_accounts", { root: true });
+                    commit("transactions/SET_TRANS", [], { root: true });
+                    commit("transactions/SET_TOTAL", [], { root: true });
                     localStorage.removeItem("user")
                     localStorage.removeItem("access_token")
                     resolve()

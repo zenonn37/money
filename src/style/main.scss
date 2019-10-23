@@ -1,3 +1,5 @@
+//@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css";
+
 @import './vars/vars';
 @import './mixins/mixins';
 @import './modules/header';
@@ -77,3 +79,16 @@ i{
         color: $negative;
         margin-top: .5em;
     }
+
+    .fadeIn{
+        animation-duration: .25s;
+        // animation-delay: 2s;
+        // animation-iteration-count: infinite;
+    }
+    .fadeOut{
+        animation-duration: .25s;
+        // animation-delay: 2s;
+        // animation-iteration-count: infinite;
+    }
+
+    

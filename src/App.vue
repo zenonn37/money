@@ -1,6 +1,13 @@
 <template>
   <component :is="layout">
-    <router-view />
+    <transition
+      name="router-anim"
+      mode="out-in"
+      enter-active-class="animated fadeIn"
+      leave-active-class="animated fadeOut"
+    >
+      <router-view />
+    </transition>
   </component>
 </template>
 

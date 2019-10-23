@@ -1,11 +1,11 @@
 <template>
-  <div class="render-child">
+  <div class="render-child page">
     <template v-if="loading">
       <img src="https://i.imgur.com/JfPpwOA.gif" alt />
     </template>
 
     <template v-else>
-      <ReturnBtn :back="back" @nav="goBack()" />
+      <ReturnBtn :back="back" @nav="onReturn()" />
       <PageHeaders title="Transactions" menu1="Today" menu2="This Week" menu3="This Month" />
       <div>
         <ListTable name="Name" :data="trans" :type="type" />
@@ -54,14 +54,10 @@ export default {
   },
   methods: {
     onNew() {
-      // this.form = !this.form;
       this.$router.push(`/new/${this.id}`);
-      //this.$modal.show("hello-world");
-      // this.$modal.show("trans", { id: this.currentAcctid });
-      // this.loading = true;
-      // this.$store.dispatch("NEW_TRANSACTION", this.currentAcctid).then(() => {
-      //   this.loading = false;
-      // });
+    },
+    onReturn() {
+      this.$router.push("/account");
     }
   },
 

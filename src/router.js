@@ -27,7 +27,8 @@ export default new Router({
       path: "/",
       name: "home",
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
       },
       component: Home
     },
@@ -35,7 +36,8 @@ export default new Router({
       path: '/wallet',
       name: "wallet",
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
       },
       component: Wallet
     },
@@ -43,7 +45,8 @@ export default new Router({
       path: '/account',
       name: "account",
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
       },
       component: Account
     },
@@ -52,7 +55,8 @@ export default new Router({
       name: "transactions",
       props: true,
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
       },
       component: Transactions
     },
@@ -60,7 +64,8 @@ export default new Router({
       path: '/expenses',
       name: "expenses",
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
       },
       component: Expenses
     },
@@ -70,7 +75,8 @@ export default new Router({
       name: "new",
       props: true,
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
       },
       component: New
     },
@@ -78,7 +84,8 @@ export default new Router({
       path: '/new',
       name: "new_account",
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
       },
       component: NewAccount
     },
@@ -87,7 +94,8 @@ export default new Router({
       name: "edit",
       props: true,
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
       },
       component: Edit
     },
@@ -96,7 +104,8 @@ export default new Router({
       name: "edit_account",
       props: true,
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
       },
       component: EditAccount
     },
@@ -105,7 +114,9 @@ export default new Router({
       path: '/auth',
       name: "auth",
       meta: {
-        layout: "no-user"
+        layout: "no-user",
+        requiresVisitor: true
+
       },
       component: Auth
     },
@@ -114,7 +125,9 @@ export default new Router({
       path: "/about",
       name: "about",
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
+
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -126,7 +139,8 @@ export default new Router({
       path: "/settings",
       name: "settings",
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -138,7 +152,9 @@ export default new Router({
       path: "/help",
       name: "help",
       meta: {
-        layout: "user"
+        layout: "user",
+        requiresAuth: true
+
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
