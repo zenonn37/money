@@ -7,13 +7,13 @@
       </div>
     </div>
 
-    <div class="dynamic-btn" @click="show()">
+    <!-- <div class="dynamic-btn" @click="show()">
       <div class="btn">
         <i class="fas fa-piggy-bank"></i>
 
         <span>New {{button}}</span>
       </div>
-    </div>
+    </div>-->
 
     <ul class="menu">
       <li>
@@ -22,12 +22,12 @@
           <span>Dashboard</span>
         </router-link>
       </li>
-      <li>
+      <!-- <li>
         <router-link to="/wallet" tag="a">
           <i class="fas fa-wallet"></i>
           <span>Wallet</span>
         </router-link>
-      </li>
+      </li>-->
       <li>
         <router-link to="/account" tag="a">
           <i class="fas fa-user-circle"></i>
@@ -35,12 +35,12 @@
         </router-link>
       </li>
 
-      <li>
+      <!-- <li>
         <router-link to="/expenses" tag="a">
           <i class="fas fa-receipt"></i>
           <span>Expenses</span>
         </router-link>
-      </li>
+      </li>-->
       <li>
         <router-link to="/settings" tag="a">
           <i class="fas fa-cog"></i>
@@ -54,7 +54,7 @@
         </router-link>
       </li>
     </ul>
-    <TransactionsModal />
+    <!-- <TransactionsModal /> -->
   </aside>
 </template>
 
