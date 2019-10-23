@@ -51,8 +51,8 @@ input[type="text"],input[type="email"],input[type="password"]{
     }
 
     input[type="text"]:focus{
-      border: 2px solid rgba(0, 12, 55, 0.4);
-      background-color: rgb(83, 82, 82);
+      border: 2px solid $border-focus;
+      background-color:$input-focus;
       color: $white;
       &::placeholder{
          color:$white;
@@ -61,14 +61,23 @@ input[type="text"],input[type="email"],input[type="password"]{
   
 
    input[type="email"]:focus{
-     border: 2px solid rgba(0, 12, 55, 0.4);
-     background-color: aquamarine;
+     border: 2px solid $border-focus;
+     background-color:$input-focus;
+     color: $white;
+     &::placeholder{
+        color:$white;
+     } 
+
   }
 
 
 input[type="password"]:focus{
-  border: 2px solid rgba(0, 12, 55, 0.4);
-  background-color: aquamarine;
+  border: 2px solid $border-focus;
+  background-color: $input-focus;
+  color: $white;
+  &::placeholder{
+     color:$white;
+  } 
 }
 
 input[type="button"],input[type="submit"]{

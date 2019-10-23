@@ -9,32 +9,40 @@ header {
 header i {
   color: #fff;
   font-size: 1.5rem;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
-header nav {
+header .nav-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1em 2em;
+  padding: 1em 1em;
   height: 80px;
 }
 
-header nav .auth {
-  margin-left: 1rem;
+header .nav-container .log-out {
   cursor: pointer;
 }
 
-header nav .notifications {
+header .nav-container .log-out:hover i {
+  color: #30304D;
+  font-size: 1.3rem;
+}
+
+header .nav-container .notifications {
   cursor: pointer;
+}
+
+header .nav-container .notifications:hover i {
+  color: #30304D;
+  font-size: 1.3rem;
 }
 
 header {
@@ -48,32 +56,40 @@ header {
 header i {
   color: #fff;
   font-size: 1.5rem;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
-header nav {
+header .nav-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1em 2em;
+  padding: 1em 1em;
   height: 80px;
 }
 
-header nav .auth {
-  margin-left: 1rem;
+header .nav-container .log-out {
   cursor: pointer;
 }
 
-header nav .notifications {
+header .nav-container .log-out:hover i {
+  color: #30304D;
+  font-size: 1.3rem;
+}
+
+header .nav-container .notifications {
   cursor: pointer;
+}
+
+header .nav-container .notifications:hover i {
+  color: #30304D;
+  font-size: 1.3rem;
 }
 
 aside {
@@ -477,7 +493,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 input[type="text"]:focus {
-  border: 2px solid rgba(0, 12, 55, 0.4);
+  border: 2px solid rgba(0, 12, 55, 0.1);
   background-color: #535252;
   color: #fff;
 }
@@ -499,13 +515,47 @@ input[type="text"]:focus::placeholder {
 }
 
 input[type="email"]:focus {
-  border: 2px solid rgba(0, 12, 55, 0.4);
-  background-color: aquamarine;
+  border: 2px solid rgba(0, 12, 55, 0.1);
+  background-color: #535252;
+  color: #fff;
+}
+
+input[type="email"]:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+input[type="email"]:focus:-ms-input-placeholder {
+  color: #fff;
+}
+
+input[type="email"]:focus::-ms-input-placeholder {
+  color: #fff;
+}
+
+input[type="email"]:focus::placeholder {
+  color: #fff;
 }
 
 input[type="password"]:focus {
-  border: 2px solid rgba(0, 12, 55, 0.4);
-  background-color: aquamarine;
+  border: 2px solid rgba(0, 12, 55, 0.1);
+  background-color: #535252;
+  color: #fff;
+}
+
+input[type="password"]:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+input[type="password"]:focus:-ms-input-placeholder {
+  color: #fff;
+}
+
+input[type="password"]:focus::-ms-input-placeholder {
+  color: #fff;
+}
+
+input[type="password"]:focus::placeholder {
+  color: #fff;
 }
 
 input[type="button"], input[type="submit"] {
@@ -567,7 +617,7 @@ select {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .computed .balance {
@@ -741,6 +791,7 @@ body {
 
 a {
   text-decoration: none;
+  color: #2A2A44;
 }
 
 ul {
