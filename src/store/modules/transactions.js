@@ -144,7 +144,7 @@ const actions = {
         })
     },
 
-    ACCOUNT_TRANSACTIONS({ commit }, id) {
+    ACCOUNT_TRANSACTIONS({ commit, dispatch }, id) {
 
         axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem('access_token');
@@ -157,8 +157,8 @@ const actions = {
                     commit('SET_LINKS', data.links)
                     commit('SET_META', data.meta)
 
-
-                    axios.get(`${url}/total/${id}`)
+                    //dispatch('total', id)
+                    axios.post(`${url}/total/${id}`)
                         .then(res => {
                             resolve(res)
                             commit('SET_TOTAL', res.data)
@@ -181,11 +181,11 @@ const actions = {
 
     },
 
-    account_transaction({ commit }, payload) {
+    account_transaction({ commit, getters }, payload) {
         axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem('access_token');
         return new Promise((resolve, reject) => {
-            console.log(payload);
+            console.log(payload + "transaction type account transaction");
 
             axios.post(`${url}/transactions`, {
                 name: payload.name,
@@ -197,7 +197,10 @@ const actions = {
                 .then(res => {
 
                     commit('NEW_TRANS', res.data)
-                    axios.get(`${url}/total/${payload.acct_id}`)
+                    const bal = getters.GET_TOTAL;
+                    axios.post(`${url}/total/${payload.acct_id}`, {
+                        balance: bal
+                    })
                         .then(res => {
                             resolve(res)
                             commit('SET_TOTAL', res.data)
@@ -213,7 +216,24 @@ const actions = {
                 })
         })
     },
-    NEW_TRANSACTION({ commit }, payload) {
+    total({ commit }, payload) {
+        return new Promise((resolve, reject) => {
+            console.log(payload);
+
+            axios.post(`${url}/total/${payload.id}`, {
+                balance: payload.balance
+            })
+                .then(res => {
+                    resolve(res)
+                    commit('SET_TOTAL', res.data)
+                }).catch(err => {
+                    reject(err)
+                })
+            //  resolve(res)
+
+        })
+    },
+    NEW_TRANSACTION({ commit, dispatch, getters }, payload) {
         axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem('access_token');
         return new Promise((resolve, reject) => {
@@ -229,13 +249,15 @@ const actions = {
                 .then(res => {
 
                     commit('NEW_TRANS', res.data)
-                    axios.get(`${url}/total/${payload.acct_id}`)
-                        .then(res => {
-                            resolve(res)
-                            commit('SET_TOTAL', res.data)
-                        }).catch(err => {
-                        })
-                    //  resolve(res)
+                    const bal = getters.GET_TOTAL;
+                    console.log(bal);
+                    const data = {
+                        acct_id: payload.acct_id,
+                        balance: bal
+                    }
+                    dispatch('total', data)
+
+                    resolve(res)
 
                 }).catch(err => {
                     //handle errors!!
@@ -245,7 +267,7 @@ const actions = {
                 })
         })
     },
-    UPDATE_TRANSACTION({ commit }, payload) {
+    UPDATE_TRANSACTION({ commit, dispatch }, payload) {
         //MAKE DRY!
         axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem('access_token');
@@ -263,6 +285,7 @@ const actions = {
 
 
                     commit('NEW_TRANS', res.data)
+                    dispatch('total', payload.acct_id)
                     resolve(res)
 
                 }).catch(err => {
@@ -273,18 +296,19 @@ const actions = {
                 })
         })
     },
-    DELETE_TRANSACTION({ commit }, id) {
+    DELETE_TRANSACTION({ commit, dispatch }, payload) {
         //MAKE DRY!
         axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem('access_token');
         return new Promise((resolve, reject) => {
 
 
-            axios.delete(`${url}/transactions/${id}`)
+            axios.delete(`${url}/transactions/${payload.id}`)
                 .then(res => {
                     console.log(res);
 
-                    commit('DELETE_TRANS', id)
+                    commit('DELETE_TRANS', payload.id)
+                    dispatch('total', payload.acct_id)
                     resolve(res)
 
                 }).catch(err => {

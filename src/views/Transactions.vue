@@ -8,7 +8,7 @@
       <ReturnBtn :back="back" @nav="onReturn()" />
       <PageHeaders title="Transactions" menu1="Today" menu2="This Week" menu3="This Month" />
       <div>
-        <ListTable name="Name" :data="trans" :type="type" />
+        <ListTable name="Name" :data="trans" :type="type" :acct_id="id" />
 
         <NewBtn @new="onNew()" :icon="icon" />
       </div>

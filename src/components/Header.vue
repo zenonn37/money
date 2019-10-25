@@ -32,7 +32,7 @@ export default {
       return this.$store.getters["transactions/GET_TOTAL"];
     },
     amount() {
-      return this.$store.getters["account/get_total"];
+      return this.$store.getters["transactions/GET_TOTAL"];
     }
   },
   methods: {

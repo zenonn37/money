@@ -99,7 +99,7 @@
 <script>
 export default {
   name: "ListTable",
-  props: ["name", "data", "type"],
+  props: ["name", "data", "type", "acct_id"],
   data() {
     return {
       pages: 1,
@@ -176,7 +176,12 @@ export default {
       //call delete dispatch
 
       const id = parseInt(trans);
-      this.$store.dispatch("transactions/DELETE_TRANSACTION", id);
+
+      const ids = {
+        acct_id: this.acct_id,
+        id: id
+      };
+      this.$store.dispatch("transactions/DELETE_TRANSACTION", ids);
     },
     onDeleteAccount(acct) {
       //call delete dispatch
