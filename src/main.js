@@ -10,6 +10,7 @@ import "./style/main.css";
 import "./plugins/vue-datetime";
 import "./plugins/vue-paginate";
 import "./plugins/vee-validate";
+import "./plugins/vue-filters";
 
 
 Vue.config.productionTip = false;

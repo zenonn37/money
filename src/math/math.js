@@ -4,9 +4,9 @@ export const totalTransaction = array => {
         console.log(transaction.type);
 
         if (transaction.type === 'Deposit') {
-            return total + parseInt(transaction.amount);
+            return total + parseFloat(transaction.amount);
         } else {
-            return total - parseInt(transaction.amount);
+            return total - parseFloat(transaction.amount);
         }
 
 
@@ -15,6 +15,6 @@ export const totalTransaction = array => {
 
 export const totalAccount = array => {
     return array.reduce((total, account) => {
-        return total + parseInt(account.balance)
+        return total + parseFloat(account.balance)
     }, 0)
 }

@@ -84,7 +84,8 @@ const actions = {
                         amount: payload.balance,
                         type: "Deposit",
                         date: payload.date,
-                        acct_id: res.data.data.id
+                        acct_id: res.data.data.id,
+                        account: true,
 
                     }
                     dispatch('transactions/NEW_TRANSACTION', trans, { root: true })

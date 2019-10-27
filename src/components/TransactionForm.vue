@@ -7,7 +7,7 @@
         <div class="form-field">
           <ValidationProvider
             name="Transaction name"
-            rules="required|min:2|max:30"
+            rules="required|min:2|max:30|alpha_spaces"
             :bails="false"
             v-slot="{errors}"
           >
@@ -21,7 +21,7 @@
         <div class="form-field">
           <ValidationProvider
             name="Amount"
-            rules="required|min:1|max:10"
+            :rules="{ required:{allowFalse:false},  regex: /^(\d*\.)?\d+$/,min:3,max:10}"
             :bails="false"
             v-slot="{errors}"
           >

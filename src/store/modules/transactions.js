@@ -176,10 +176,7 @@ const actions = {
                 })
         })
     },
-    TEST_TRANS(value) {
-        console.log(value);
 
-    },
 
     account_transaction({ commit, getters }, payload) {
         axios.defaults.headers.common["Authorization"] =
@@ -250,7 +247,10 @@ const actions = {
                 .then(res => {
 
                     commit('NEW_TRANS', res.data)
-                    const bal = getters.GET_TOTAL;
+                    let bal = 0;
+
+                    payload.account ? bal = 0 : bal = getters.GET_TOTAL
+                    //const bal = getters.GET_TOTAL;
                     console.log(bal);
                     const data = {
                         acct_id: payload.acct_id,

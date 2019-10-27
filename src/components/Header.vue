@@ -11,10 +11,10 @@
       </nav>
 
       <div class="computed" v-if="$route.name === 'account'">
-        <div class="balance">{{ amount | currency}}</div>
+        <div class="balance">{{ amount | currency('$')}}</div>
       </div>
       <div class="computed" v-else>
-        <div class="balance">{{ balance | currency}}</div>
+        <div class="balance">{{ balance | currency('$')}}</div>
       </div>
     </div>
   </header>

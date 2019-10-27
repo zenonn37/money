@@ -43,13 +43,18 @@ const actions = {
             money.post('/new', data)
                 .then(res => {
                     console.log(res);
-                    const result = res.data;
-                    console.log(result);
+                    // const result = res.data;
+                    // console.log(result);
+                    commit('base/set_errors', null, { root: true })
 
                     resolve(res)
 
                 }).catch(err => {
-                    console.log(err);
+                    // console.log(err);
+                    // console.log(err.response.data.errors.email[0]);
+                    const error = err.response.data.errors.email[0] + ' Please try a another email address.'
+
+                    commit('base/set_errors', error, { root: true })
                     reject(err)
 
                 })

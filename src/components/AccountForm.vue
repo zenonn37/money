@@ -16,7 +16,7 @@
         <div class="form-field">
           <ValidationProvider
             name="Starting Balance"
-            rules="required|min:2|max:10"
+            :rules="{ required:{allowFalse:false},  regex: /^(\d*\.)?\d+$/,min:3,max:10}"
             v-slot="{errors}"
           >
             <input

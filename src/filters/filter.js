@@ -7,6 +7,6 @@ Vue.filter('day', function (value) {
     return moment(value).format('MMM Do ');
 })
 
-Vue.filter('currency', function (value) {
-    return numeral(value).format('$0,0.00');
-})
+// Vue.filter('currency', function (value) {
+//     return numeral(value).format('$0,0.00');
+// })

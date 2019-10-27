@@ -58,14 +58,14 @@
           v-for="a in data"
           :key="a.id"
           :class="[a.balance > 0 ?  'credit' : 'debit'  ]"
-        >{{a.balance | currency}}</li>
+        >{{a.balance | currency('$')}}</li>
       </ul>
       <ul v-else>
         <li
           v-for="a in data"
           :key="a.id"
           :class="[a.type === 'Deposit' ? 'credit' : 'debit' ]"
-        >{{a.amount | currency}}</li>
+        >{{a.amount | currency('$')}}</li>
       </ul>
 
       <ul>
