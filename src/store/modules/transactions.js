@@ -195,6 +195,7 @@ const actions = {
                 acct_id: payload.acct_id
             })
                 .then(res => {
+                    console.log('called');
 
                     commit('NEW_TRANS', res.data)
                     const bal = getters.GET_TOTAL;
@@ -220,7 +221,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             console.log(payload);
 
-            axios.post(`${url}/total/${payload.id}`, {
+            axios.post(`${url}/total/${payload.acct_id}`, {
                 balance: payload.balance
             })
                 .then(res => {

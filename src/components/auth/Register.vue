@@ -1,7 +1,7 @@
 <template>
   <ValidationObserver ref="observer" tag="form" v-slot="{ valid }" @submit.prevent="onSubmit()">
     <div class="form-field">
-      <ValidationProvider name="Name" rules="required|min:5|max:40" v-slot="{errors}">
+      <ValidationProvider name="Name" rules="required|min:5|max:40|alpha_spaces" v-slot="{errors}">
         <input type="text" v-model=" reg.name" placeholder="Name" />
         <span class="errors">{{errors[0]}}</span>
       </ValidationProvider>

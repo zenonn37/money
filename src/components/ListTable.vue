@@ -17,6 +17,7 @@
       </div>
     </div>
     <div class="list-elements">
+      <div v-if="data.length === 0">Add an Account to get started!</div>
       <!-- <ul>
         <li v-for="trn in transDESC" :key="trn.id">
           <div class="list-parent">

@@ -7,7 +7,7 @@
       </ValidationProvider>
     </div>
     <div class="form-field">
-      <ValidationProvider name="Password" rules="required|min:6|max:40" v-slot="{errors}">
+      <ValidationProvider name="Password" rules="required|min:6|max:40|alpha" v-slot="{errors}">
         <input type="password" v-model=" login.password" placeholder="Password" />
         <span class="errors">{{errors[0]}}</span>
       </ValidationProvider>
@@ -21,6 +21,7 @@
 
 <script>
 export default {
+  props: ["error"],
   data() {
     return {
       login: {

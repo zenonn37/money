@@ -69,10 +69,12 @@ const actions = {
 
                     commit("SET_AUTH", result)
                     localStorage.setItem("access_token", result)
+                    commit('base/set_errors', null, { root: true })
                     resolve(res)
 
                 }).catch(err => {
-                    console.log(err);
+
+                    commit('base/set_errors', err.response.data.message, { root: true })
                     reject(err)
 
                 })

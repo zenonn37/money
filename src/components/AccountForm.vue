@@ -4,7 +4,11 @@
       <h1>{{title}}</h1>
       <ValidationObserver ref="observer" tag="form" v-slot="{ valid }" @submit.prevent="onSend()">
         <div class="form-field">
-          <ValidationProvider name="Account name" rules="required|min:2|max:30" v-slot="{errors}">
+          <ValidationProvider
+            name="Account name"
+            rules="required|min:2|max:30|alpha_spaces"
+            v-slot="{errors}"
+          >
             <input type="text" placeholder="Name" v-model=" account.name" />
             <span class="errors">{{errors[0]}}</span>
           </ValidationProvider>
@@ -15,7 +19,18 @@
             rules="required|min:2|max:10"
             v-slot="{errors}"
           >
-            <input type="text" placeholder=" Starting Balance" v-model=" account.balance" />
+            <input
+              v-if="edit === null"
+              type="text"
+              placeholder=" Starting Balance"
+              v-model=" account.balance"
+            />
+            <!-- <input v-else
+            
+              type="text"
+              placeholder=" Starting Balance"
+              v-model=" account.balance"
+            />-->
             <span class="errors">{{errors[0]}}</span>
           </ValidationProvider>
         </div>
@@ -64,10 +79,7 @@ export default {
         id: this.id !== undefined || this.id !== null ? this.id : "",
         date:
           this.edit === null || this.edit === undefined ? "" : this.edit.date,
-        balance:
-          this.edit === null || this.edit === undefined
-            ? ""
-            : this.edit.balance,
+        balance: this.edit === null || this.edit === undefined ? "" : "",
         name:
           this.edit === null || this.edit === undefined ? "" : this.edit.name,
         type:
@@ -76,6 +88,11 @@ export default {
             : this.edit.type
       }
     };
+  },
+  computed: {
+    bal() {
+      return this.edit !== null || this.edit !== undefined ? true : false;
+    }
   },
   methods: {
     async onSend() {

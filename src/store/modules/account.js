@@ -109,7 +109,6 @@ const actions = {
         return new Promise((resolve, reject) => {
             axios.patch(`${url}/${accounts}/${payload.id}`, {
                 name: payload.name,
-                balance: payload.balance,
                 type: payload.type,
                 date: payload.date.slice(0, 19).replace("T", " ")
 
