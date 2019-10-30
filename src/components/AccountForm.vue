@@ -15,16 +15,12 @@
         </div>
         <div class="form-field">
           <ValidationProvider
+            v-if="edit === null"
             name="Starting Balance"
             :rules="{ required:{allowFalse:false},  regex: /^(\d*\.)?\d+$/,min:3,max:10}"
             v-slot="{errors}"
           >
-            <input
-              v-if="edit === null"
-              type="text"
-              placeholder=" Starting Balance"
-              v-model=" account.balance"
-            />
+            <input type="text" placeholder=" Starting Balance" v-model=" account.balance" />
             <!-- <input v-else
             
               type="text"

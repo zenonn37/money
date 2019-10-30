@@ -10,11 +10,8 @@
         </div>
       </nav>
 
-      <div class="computed" v-if="$route.name === 'account'">
-        <div class="balance">{{ amount | currency('$')}}</div>
-      </div>
-      <div class="computed" v-else>
-        <div class="balance">{{ balance | currency('$')}}</div>
+      <div class="computed">
+        <div class="balance">{{ balance.net | currency('$')}}</div>
       </div>
     </div>
   </header>
@@ -29,9 +26,6 @@ export default {
   },
   computed: {
     balance() {
-      return this.$store.getters["transactions/GET_TOTAL"];
-    },
-    amount() {
       return this.$store.getters["transactions/GET_TOTAL"];
     }
   },
