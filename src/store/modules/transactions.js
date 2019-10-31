@@ -98,10 +98,7 @@ const getters = {
 
         return state.trans.find(tran => tran.id === id)
     },
-    TOTAL_TRANSACTION(state, getters) {
-        let array = state.total;
-        return totalTransaction(array);
-    },
+
     GET_LINKS(state) {
         return state.links;
     },
@@ -123,8 +120,44 @@ const actions = {
         //console.log(state.order);
         commit('sortAmount');
     },
+    range({ commit, dispatch, getters }, payload) {
+        return new Promise((resolve, reject) => {
+            axios.post(`${url}/range/${payload.id}`, {
 
+                date: payload.date.slice(0, 19).replace("T", " "),
+                date2: payload.date2.slice(0, 19).replace("T", " ")
 
+            }).then(res => {
+                commit('SET_TRANS', res.data.data)
+                commit('SET_LINKS', res.data.links)
+                commit('SET_META', res.data.meta)
+                resolve(res)
+            }).catch(err => {
+                reject(err)
+                console.log(err.response.data.message);
+
+            })
+        })
+    },
+
+    find_day({ commit, dispatch, getters }, payload) {
+        return new Promise((resolve, reject) => {
+            axios.post(`${url}/day/${payload.id}`, {
+
+                date: payload.date.slice(0, 19).replace("T", " ")
+
+            }).then(res => {
+                commit('SET_TRANS', res.data.data)
+                commit('SET_LINKS', res.data.links)
+                commit('SET_META', res.data.meta)
+                resolve(res)
+            }).catch(err => {
+                reject(err)
+                console.log(err.response.data.message);
+
+            })
+        })
+    },
     PAGE_TRANSACTIONS({ commit }, data) {
         console.log(data);
 

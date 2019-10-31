@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { url } from '../../api/apps'
-import { totalAccount } from '../../math/math'
+
 const accounts = "accounts";
 const state = {
     accounts: []

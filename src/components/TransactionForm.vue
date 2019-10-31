@@ -57,7 +57,7 @@
         </div>
 
         <div class="form-field" v-else>
-          <input type="submit" value="Processing" />
+          <input @keyup.enter="onSend()" type="submit" value="Processing" />
         </div>
       </ValidationObserver>
     </div>

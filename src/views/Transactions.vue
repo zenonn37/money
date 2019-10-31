@@ -1,12 +1,24 @@
 <template>
   <div class="render-child page">
     <template v-if="loading">
-      <img src="https://i.imgur.com/JfPpwOA.gif" alt />
+      <Loader />
     </template>
 
     <template v-else>
-      <ReturnBtn :back="back" @nav="onReturn()" />
-      <PageHeaders title="Transactions" menu1="Today" menu2="This Week" menu3="This Month" />
+      <div class="render-header">
+        <ReturnBtn :back="back" @nav="onReturn()" />
+        <div @click="onRefresh()">
+          <i class="fas fa-redo-alt"></i>
+        </div>
+        <Range @range="onRange" :id="id" />
+      </div>
+      <PageHeaders
+        title="Transactions"
+        :id="id"
+        menu1="Today"
+        menu2="This Week"
+        menu3="This Month"
+      />
       <div>
         <ListTable name="Name" :data="trans" :type="type" :acct_id="id" />
 
@@ -22,7 +34,9 @@ import ListTable from "@/components/ListTable";
 import TransactionForm from "@/components/TransactionForm";
 import NewBtn from "@/components/btns/NewBtn";
 import ReturnBtn from "@/components/btns/ReturnBtn";
-import { prevRoutes } from "../mixins/prevRoute.js";
+import { prevRoutes } from "../mixins/prevRoute";
+import Range from "@/components/Range";
+import Loader from "@/components/Loader";
 export default {
   name: "Transactions",
 
@@ -34,7 +48,9 @@ export default {
     PageHeaders,
     TransactionForm,
     NewBtn,
-    ReturnBtn
+    ReturnBtn,
+    Loader,
+    Range
   },
   data() {
     return {
@@ -58,6 +74,22 @@ export default {
     },
     onReturn() {
       this.$router.push("/account");
+    },
+    onRange(value) {
+      this.loading = true;
+
+      this.$store.dispatch("transactions/range", value).then(() => {
+        console.log("loaded");
+        this.loading = false;
+      });
+    },
+    onRefresh() {
+      this.$store
+        .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.id)
+        .then(() => {
+          console.log("loaded");
+          this.loading = false;
+        });
     }
   },
 

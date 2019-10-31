@@ -9,11 +9,14 @@
         {{name}}
         <span>&#9660</span>
       </div>
-      <div>Edit</div>
+
       <div>Type</div>
       <div class="cursors" @click="sortAmount()">
         Balance
         <span>&#9660</span>
+      </div>
+      <div>
+        <div>Edit/Delete</div>
       </div>
     </div>
     <div class="list-elements">

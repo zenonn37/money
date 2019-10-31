@@ -3,7 +3,7 @@
     <PageHeaders title="My Accounts" menu1="Financial Institutions" menu2="Budgets" menu3 />
 
     <template v-if="loading">
-      <div>...loading</div>
+      <Loader />
     </template>
 
     <template v-else>
@@ -19,6 +19,7 @@ import PageHeaders from "@/components/PageHeaders";
 import ListTable from "@/components/ListTable";
 import NewBtn from "@/components/btns/NewBtn";
 import { createNamespacedHelpers } from "vuex";
+import Loader from "@/components/Loader";
 const { mapGetters } = createNamespacedHelpers("GET_ACCOUNTS");
 
 export default {
@@ -26,7 +27,8 @@ export default {
   components: {
     ListTable,
     PageHeaders,
-    NewBtn
+    NewBtn,
+    Loader
   },
   data() {
     return {
