@@ -23,7 +23,7 @@
           <div class="dash-icons">
             <i class="fas fa-chart-line"></i>
           </div>
-          <h3>Total Tranactions</h3>
+          <h3>Spent</h3>
           <h1>{{reports.transactions | currency('$')}}</h1>
         </div>
       </div>
@@ -32,7 +32,7 @@
           <div class="dash-icons">
             <i class="fas fa-chart-bar"></i>
           </div>
-          <h3>Total Deposits</h3>
+          <h3>Deposits</h3>
           <h1>{{reports.deposits | currency('$')}}</h1>
         </div>
       </div>
@@ -41,20 +41,28 @@
           <div class="dash-icons">
             <i class="fas fa-chart-pie"></i>
           </div>
-          <h3>Total Spent</h3>
+          <h3>Net Worth</h3>
           <h1>{{reports.spent | currency('$')}}</h1>
         </div>
       </div>
+    </div>
+    <div class="dash-charts">
+      <div class="bar">
+        <Bar :trans="reports.all" />
+      </div>
+      <div class="pie"></div>
     </div>
   </div>
 </template>
 <script>
 // @ is an alias to /src
 import Loader from "@/components/Loader";
+import Bar from "@/components/Bar";
 export default {
   name: "home",
   components: {
-    Loader
+    Loader,
+    Bar
   },
   data() {
     return {

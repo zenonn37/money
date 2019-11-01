@@ -39,7 +39,8 @@ const actions = {
                         transactions: res.data.transactions,
                         deposits: res.data.deposits,
                         spent: res.data.spent,
-                        count: res.data.count
+                        count: res.data.count,
+                        all: res.data.all
                     }
                     commit('set_reports', data)
                 }).catch(err => {
