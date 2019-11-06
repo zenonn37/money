@@ -1,7 +1,7 @@
 .dash-parent{
     display: flex;
     justify-content: space-around;
-    margin-top:2rem;
+    padding:2rem;
     .dash-panel{
         
        
@@ -47,4 +47,14 @@
  
      }
  
+}
+
+.dash-charts{
+    display: flex;
+     justify-content: space-around;
+    .pie{
+      height: 300px;
+      width: 300px;
+      position: relative;
+    }
 }

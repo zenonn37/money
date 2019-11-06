@@ -105,6 +105,7 @@ aside {
           flex: 0 0 15rem;
   background-color: #393857;
   z-index: 1000;
+  height: 100vh;
 }
 
 aside .logo-box {
@@ -214,7 +215,7 @@ aside .menu a span {
           flex: 1;
   border-radius: 10px;
   margin-top: -8rem;
-  height: 75vh;
+  height: 72vh;
 }
 
 .render .render-child {
@@ -832,7 +833,7 @@ select {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  margin-top: 2rem;
+  padding: 2rem;
 }
 
 .dash-parent .dash-panel {
@@ -884,6 +885,20 @@ select {
 
 .dash-parent .panel-child .dash-icons i {
   color: #fff;
+}
+
+.dash-charts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.dash-charts .pie {
+  height: 300px;
+  width: 300px;
+  position: relative;
 }
 
 *,
