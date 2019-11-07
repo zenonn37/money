@@ -19,7 +19,7 @@ export default {
       datasets: [
         {
           label: "Transactions",
-          backgroundColor: ["#41B883", "#00D8FF", "#E46651"],
+          backgroundColor: ["#41B883", "#7784fc", "#e66153"],
           data: [0, 0, 0]
         }
       ]

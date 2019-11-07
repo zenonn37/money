@@ -49,23 +49,24 @@
       </div>
       <div class="dash-charts">
         <div class="bar">
-          <ul>
-            <li>
+          <div class="dash-panel">
+            <div class="panel-child">
               <div class="dash-icons">
-                <i class="fas fa-chart-pie"></i>
+                <i class="fas fa-chart-area"></i>
               </div>
-            </li>
-            <li>
+              <h3>Average Transaction</h3>
+              <h1>{{avg}}</h1>
+            </div>
+          </div>
+          <div class="dash-panel">
+            <div class="panel-child">
               <div class="dash-icons">
-                <i class="fas fa-chart-pie"></i>
+                <i class="fas fa-cash-register"></i>
               </div>
-            </li>
-            <li>
-              <div class="dash-icons">
-                <i class="fas fa-chart-pie"></i>
-              </div>
-            </li>
-          </ul>
+              <h3>Daily Average</h3>
+              <h1>{{daily}}</h1>
+            </div>
+          </div>
         </div>
         <div class="pie">
           <Pie :net="chart" />
@@ -79,6 +80,7 @@
 import Loader from "@/components/Loader";
 import Bar from "@/components/Bar";
 import Pie from "@/components/Pie";
+import numeral from "numeral";
 
 export default {
   name: "home",
@@ -112,6 +114,24 @@ export default {
       charts[2] = Math.round(reports.transactions);
 
       return charts;
+    },
+    avg() {
+      const reports = this.reports.all;
+
+      let avgArray = arr => arr.reduce((a, b) => a + b, 0) / reports.length;
+      let avg = avgArray(reports);
+
+      console.log(reports.all);
+      return numeral(avg).format("$0.00");
+    },
+    daily() {
+      const reports = this.reports.all;
+
+      let avgArray = arr => arr.reduce((a, b) => a + b, 0) / 30;
+      let avg = avgArray(reports);
+
+      console.log(reports.all);
+      return numeral(avg).format("$0.00");
     }
   },
   created() {

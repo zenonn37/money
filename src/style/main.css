@@ -893,12 +893,23 @@ select {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  padding: 0 0 0 3rem;
 }
 
 .dash-charts .pie {
   height: 300px;
   width: 300px;
   position: relative;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.dash-charts .bar {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-left: 2.9rem;
 }
 
 .dash-charts .bar .dash-icons {
@@ -912,15 +923,14 @@ select {
       -ms-flex-align: center;
           align-items: center;
   background-color: #a8a5eb;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin-bottom: .8rem;
   border-radius: 50%;
 }
 
 .dash-charts .bar .dash-icons i {
   color: #fff;
-  font-size: 15px;
 }
 
 *,

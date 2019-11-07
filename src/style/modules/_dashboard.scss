@@ -52,27 +52,31 @@
 .dash-charts{
     display: flex;
      justify-content: space-around;
+     padding: 0 0 0 3rem;
     .pie{
       height: 300px;
       width: 300px;
       position: relative;
+      flex:2;
     }
     .bar{
-        .dash-icons{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: $trim;
-            width: 30px;
-            height: 30px;
-            margin-bottom:.8rem ; 
-            border-radius: 50%;
-         
-            i{
-                color: $white;
-                font-size:15px;
-            }
+      flex:1;
+      padding-left:2.9rem;
+      .dash-icons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $trim;
+        width: 40px;
+        height: 40px;
+        margin-bottom:.8rem ; 
+        border-radius: 50%;
+     
+        i{
+            color: $white;
         }
+    }
+      
     }
    
 }
