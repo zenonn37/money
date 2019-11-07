@@ -57,4 +57,22 @@
       width: 300px;
       position: relative;
     }
+    .bar{
+        .dash-icons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $trim;
+            width: 30px;
+            height: 30px;
+            margin-bottom:.8rem ; 
+            border-radius: 50%;
+         
+            i{
+                color: $white;
+                font-size:15px;
+            }
+        }
+    }
+   
 }

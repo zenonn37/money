@@ -901,6 +901,28 @@ select {
   position: relative;
 }
 
+.dash-charts .bar .dash-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #a8a5eb;
+  width: 30px;
+  height: 30px;
+  margin-bottom: .8rem;
+  border-radius: 50%;
+}
+
+.dash-charts .bar .dash-icons i {
+  color: #fff;
+  font-size: 15px;
+}
+
 *,
 *::after,
 *::before {

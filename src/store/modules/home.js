@@ -5,7 +5,7 @@ axios.defaults.headers.common["Authorization"] =
 
 const state = {
 
-    report: "",
+    report: null,
     bar: [],
     pie: []
 }

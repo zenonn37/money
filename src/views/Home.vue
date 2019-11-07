@@ -48,7 +48,25 @@
         </div>
       </div>
       <div class="dash-charts">
-        <div class="bar"></div>
+        <div class="bar">
+          <ul>
+            <li>
+              <div class="dash-icons">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+            </li>
+            <li>
+              <div class="dash-icons">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+            </li>
+            <li>
+              <div class="dash-icons">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+            </li>
+          </ul>
+        </div>
         <div class="pie">
           <Pie :net="chart" />
         </div>
@@ -61,6 +79,7 @@
 import Loader from "@/components/Loader";
 import Bar from "@/components/Bar";
 import Pie from "@/components/Pie";
+
 export default {
   name: "home",
   components: {
@@ -75,14 +94,22 @@ export default {
   },
   computed: {
     reports() {
-      return this.$store.getters["home/get_reports"];
+      if (
+        this.$store.getters["home/get_reports"] !== null ||
+        this.$store.getters["home/get_reports"] !== undefined
+      ) {
+        return this.$store.getters["home/get_reports"];
+      } else {
+        return [];
+      }
     },
     chart() {
-      const report = this.$store.getters["home/get_reports"];
+      const reports = this.reports;
       let charts = [];
-      charts[0] = report.spent;
-      charts[1] = report.deposits;
-      charts[2] = report.transactions;
+
+      charts[0] = Math.round(reports.spent);
+      charts[1] = Math.round(reports.deposits);
+      charts[2] = Math.round(reports.transactions);
 
       return charts;
     }

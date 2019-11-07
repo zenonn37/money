@@ -20,7 +20,7 @@ export default {
         {
           label: "Transactions",
           backgroundColor: ["#41B883", "#00D8FF", "#E46651"],
-          data: this.net
+          data: [0, 0, 0]
         }
       ]
     },
@@ -31,14 +31,7 @@ export default {
   }),
   computed: {},
   created() {
-    // const data = this.net.map(net => {
-    //   return trans.amount;
-    // });
-    // const net = parseFloat(numeral(this.net.spent).format("0,0.00"));
-    // let stats = [this.net.spent, this.net.deposits, this.net.transactions];
-    // console.log(stats);
-    //this.chartdata.datasets[0].data = this.net;
-    //this.chartdata.labels = this.net;
+    this.chartdata.datasets[0].data = this.net;
   }
 };
 </script>
