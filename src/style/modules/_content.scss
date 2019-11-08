@@ -4,6 +4,7 @@
     border-radius: 10px;
     margin-top: -8rem;
     height: 72vh;
+    transition: all 0.4s ease-in;
     
     .render-child{
         display: flex;      
@@ -107,4 +108,39 @@
         }
     }
 
+}
+
+@media(max-width:768px){
+    .render{
+        background-color: $white;
+        flex: 1;
+        border-radius: 10px;
+        margin-top: -8rem;
+        min-width: 300px;
+        height: 100%;
+        min-height:60vh;
+        padding-bottom: 1rem;
+        margin-bottom:3rem;
+        .render-child{
+            position: relative;
+            min-height: inherit;
+            .new-btn{
+                width: 35px;
+                height: 35px;             
+                position: absolute;
+                bottom:13px;
+                right:13px;
+             
+              
+                &:hover{
+                 
+                  bottom: 10px;
+                }
+                i{
+                    color: $white;
+                }
+            }
+        }
+      
+    }
 }

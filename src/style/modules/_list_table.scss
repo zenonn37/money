@@ -1,6 +1,11 @@
 .list-table{
     display: flex;
     flex-direction: column;
+    
+    .mobile-parent{
+       display: none;
+       
+    }
     .dates{
         color:$titles;
         text-transform: uppercase;
@@ -81,4 +86,109 @@
             color: $listFont;
         }
        
+    }
+
+    //mobile
+  
+    
+//media!!
+    @media(max-width:768px){
+        .list-table{
+            .list-elements{
+                display: none;
+            }
+            .sort-header{
+                display: none;
+            }
+            .mobile-parent{
+                display: flex;               
+                margin-bottom:0.9rem;
+                align-items: center;
+                justify-content: flex-start;
+                h2{
+                    font-size: 16px;
+                }
+                .mobile-left{
+               
+                    justify-content: flex-start;
+                    .mobile-dates{
+                      
+                       margin-right:1rem;
+                       width: 50px;
+                       height: 50px;
+                      
+                       display: flex;
+                       flex-direction: column;
+                      align-items: center;
+                      justify-content: center;
+                       h2{
+                        font-size: 14px;
+                        color:$primaryDark;
+                        text-transform: uppercase;
+                    }
+                    h5{
+                      color:$titles;
+                    }
+                       
+                    }
+                   
+                }
+                .mobile-title{
+                  
+                    text-align: left;
+                    flex:1;
+                    h5{
+                        color:$titles;
+                    }
+                }
+
+                .mobile-amount{
+                    text-align: right;
+                   
+                }
+
+
+                .mobile-functions{
+                    display: flex;
+                    justify-content: flex-end;
+                    flex:1;
+                    .edit{
+                      
+                      
+
+                        i{
+                            color:$trim;
+                            transition: all .3s ease-in-out;
+                            &:hover{
+                                color: $primaryDark;
+                                font-size: 1.4em;
+                                
+                            }
+                          
+                           
+                        }
+                    }
+                    .delete{
+                        
+                        i{
+                            color: $destroy;
+                            transition: all .3s ease-in-out;
+                            &:hover{
+                                color: $primaryDark;
+                                font-size: 1.4em;
+                            }
+                        }
+                    }
+                    i{
+                        font-size: 14px;
+                        margin:0 .5rem 0 .5rem;
+                        cursor: pointer;
+                    }
+                   
+                }
+                
+            }
+        }
+
+      
     }

@@ -19,26 +19,51 @@
         <div>Edit/Delete</div>
       </div>
     </div>
-    <div class="list-elements">
-      <div v-if="data.length === 0">Add an Account to get started!</div>
-      <!-- <ul>
-        <li v-for="trn in transDESC" :key="trn.id">
-          <div class="list-parent">
-            <div class="left-block">
-              <div class="list-title">
-                <small>{{trn.name}}</small>
-              </div>
-              <div class="date-title">
-                <small>{{trn.date | day}}</small>
-              </div>
+    <div class="mobile-container">
+      <div class="mobile-parent" v-for="mobile in data" :key="mobile.id">
+        <div class="mobile-left">
+          <div class="mobile-dates">
+            <h2>{{mobile.date | day_short}}</h2>
+            <h5>{{mobile.date | month_short}}</h5>
+          </div>
+        </div>
+        <div class="mobile-title">
+          <h2>{{mobile.name}}</h2>
+          <h5>{{mobile.type}}</h5>
+        </div>
+
+        <div class="mobile-amount">
+          <h2
+            v-if="type"
+            :class="[mobile.balance > 0 ?  'credit' : 'debit'  ]"
+          >{{mobile.balance | currency('$')}}</h2>
+          <h2
+            v-else
+            :class="[mobile.type === 'Deposit' ? 'credit' : 'debit' ]"
+          >{{mobile.amount | currency('$')}}</h2>
+          <div class="mobile-functions">
+            <div class="edit" v-if="route === 'account'">
+              <i class="far fa-edit" @click="onEditAccount(mobile.id)"></i>
             </div>
-            <div class="right-block">
-              <div class="list-amount">{{trn.amount | currency}}</div>
-              <div class="trans">{{trn.type}}</div>
+            <div class="edit" v-else>
+              <i class="far fa-edit" @click="onEdit(mobile.id)"></i>
+            </div>
+            <div class="delete" v-if="route === 'account'">
+              <i class="far fa-trash-alt" @click="onDeleteAccount(mobile.id)"></i>
+            </div>
+            <div class="delete" v-else>
+              <i class="far fa-trash-alt" @click="onDelete(mobile.id)"></i>
             </div>
           </div>
-        </li>
-      </ul>-->
+        </div>
+
+        <div v-if="data.length === 0">Add an Account to get started!</div>
+      </div>
+    </div>
+
+    <div class="list-elements">
+      <div v-if="data.length === 0">Add an Account to get started!</div>
+
       <ul>
         <li v-for="a in  data" :key="a.id" class="dates">{{a.date | day}}</li>
       </ul>

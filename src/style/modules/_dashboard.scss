@@ -1,7 +1,10 @@
 .dash-parent{
     display: flex;
+   
     justify-content: space-around;
+    flex-wrap: wrap;
     padding:2rem;
+  
     .dash-panel{
         
        
@@ -52,6 +55,7 @@
 .dash-charts{
     display: flex;
      justify-content: space-around;
+     flex-wrap: wrap;
      padding: 0 0 0 3rem;
     .pie{
       height: 300px;
@@ -79,4 +83,116 @@
       
     }
    
+}
+
+@media(max-width:768px){
+    .dash-parent{
+        display: flex;
+        justify-content: space-around;
+        padding:2rem;
+        .dash-panel{
+            
+           
+            padding: 1rem;
+         
+            
+            h1,h3{
+                margin: 0;
+            }
+            
+        }
+        .panel-child{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h1{
+                font-size:18px;
+            }
+            h3{
+                margin-bottom: .5rem;
+            }
+    
+            div{
+                font-size: 24px;
+                font-weight: bold;
+              
+             //    text-align: center;
+      
+            }
+          
+             .dash-icons{
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 background-color: $trim;
+                 width: 40px;
+                 height: 40px;
+                 margin-bottom:.8rem ; 
+                 border-radius: 50%;
+              
+                 i{
+                     color: $white;
+                 }
+             }
+         
+     
+         }
+     
+    }
+    
+    .dash-charts{
+        display: flex;
+         justify-content: space-around;
+         flex-wrap: wrap;
+         padding: 0;
+      
+        .pie{
+          height: 50vh;
+          width: 50vw;
+          position: relative;
+          flex:1;
+          padding: 1rem;
+        }
+        .bar{
+          flex:1;
+          padding: 0;
+          .dash-panel{
+          
+           
+            padding: 1rem;
+         
+         
+            
+            h1,h3{
+                margin: 0;
+            }
+            .panel-child{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+        }
+        
+          h1{
+            font-size:18px;
+        }
+          .dash-icons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $trim;
+            width: 40px;
+            height: 40px;
+            margin-bottom:.8rem ; 
+            border-radius: 50%;
+         
+            i{
+                color: $white;
+            }
+        }
+          
+        }
+       
+    }
 }

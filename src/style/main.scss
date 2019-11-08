@@ -34,7 +34,9 @@ body{
    
 }
 
-
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+}
 
 a{
     text-decoration: none;
@@ -75,6 +77,24 @@ i{
         margin: 0 auto;
         width: 90%;
     }
+    .mobile-container{
+        max-width: 700px;
+        margin: 0 auto;
+        width: 90%;
+        margin-top: 1.3rem;
+    }
+    .debit{
+        color:$negative;
+        &::before{
+            content: '\2212';
+        }
+       }
+       .credit{
+           color: $positive;
+           &::before{
+               content: '\002B';
+           }
+       }  
 
     .cursors{
         cursor: pointer;
@@ -96,3 +116,8 @@ i{
     }
 
     
+    @media(max-width:768px){
+        .page-headers{
+            display: none;
+        }
+    }

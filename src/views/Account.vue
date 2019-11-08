@@ -1,6 +1,6 @@
 <template>
   <div class="render-child page">
-    <PageHeaders title="My Accounts" menu1="Financial Institutions" menu2="Budgets" menu3 />
+    <PageHeaders title="My Accounts" menu1 menu2 menu3 />
 
     <template v-if="loading">
       <Loader />

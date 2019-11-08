@@ -3,7 +3,7 @@
     <form class="date-range" @submit.prevent="onRange()">
       <div class="form-field">
         <datetime
-          placeholder="Enter Date"
+          placeholder="Start"
           v-model="date"
           value-zone="America/New_York"
           :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
@@ -11,7 +11,7 @@
       </div>
       <div class="form-field">
         <datetime
-          placeholder="Enter Date"
+          placeholder="End"
           v-model="date2"
           value-zone="America/New_York"
           :format="{ year: 'numeric', month: 'long', day: 'numeric'}"

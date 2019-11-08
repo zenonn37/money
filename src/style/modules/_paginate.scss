@@ -25,3 +25,26 @@
        }
     }
 }
+
+@media(max-width:768px){
+    .paginate{
+      
+    
+        .paginate-child{
+            display: flex;
+            justify-content: center;
+           li{
+          
+            padding: .3rem;
+            a{
+              
+                padding: .5rem .8rem;        
+                                     
+                font-size: 14px;
+               
+            }
+         
+           }
+        }
+    }
+}

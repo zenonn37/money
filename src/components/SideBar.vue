@@ -1,19 +1,11 @@
 <template>
-  <aside>
+  <aside :class="[nav !== true ? 'move' : 'navi']">
     <div class="logo-box">
       <div class="logo">MONEY</div>
-      <div class="hambuger">
+      <div class="hambuger" @click="onClose()">
         <img src="../assets/menu.png" alt="menu" />
       </div>
     </div>
-
-    <!-- <div class="dynamic-btn" @click="show()">
-      <div class="btn">
-        <i class="fas fa-piggy-bank"></i>
-
-        <span>New {{button}}</span>
-      </div>
-    </div>-->
 
     <ul class="menu">
       <li>
@@ -70,25 +62,13 @@ export default {
     };
   },
   methods: {
-    show() {
-      this.$modal.show("hello");
-      console.log("click");
+    onClose() {
+      this.$store.dispatch("base/set_aside");
     }
   },
   computed: {
-    button() {
-      const name = this.$route.name;
-      switch (name) {
-        case "account":
-          return "Account";
-
-        case "transactions":
-          return "Transaction";
-
-        default:
-          return "Expense";
-          break;
-      }
+    nav() {
+      return this.$store.getters["base/get_nav"];
     }
   }
 };

@@ -21,6 +21,19 @@ header{
         align-items: center;
         padding: 1em 1em;
         height:80px;
+
+        .menu{
+            flex:1;
+            cursor: pointer;
+            &:hover{
+                i{
+                    color: $primaryDark;
+                    font-size: 1.3rem;
+                  
+                    
+                } 
+            }
+        }
      
         .log-out{
           

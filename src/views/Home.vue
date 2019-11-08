@@ -28,6 +28,7 @@
             <h1>{{reports.transactions | currency('$')}}</h1>
           </div>
         </div>
+
         <div class="dash-panel">
           <div class="panel-child">
             <div class="dash-icons">
@@ -68,9 +69,9 @@
             </div>
           </div>
         </div>
-        <div class="pie">
+        <!-- <div class="pie">
           <Pie :net="chart" />
-        </div>
+        </div>-->
       </div>
     </template>
   </div>

@@ -12,13 +12,13 @@
         </div>
         <Range @range="onRange" :id="id" />
       </div>
-      <PageHeaders
+      <!-- <PageHeaders
         title="Transactions"
         :id="id"
         menu1="Today"
         menu2="This Week"
         menu3="This Month"
-      />
+      />-->
       <div>
         <ListTable name="Name" :data="trans" :type="type" :acct_id="id" />
 
