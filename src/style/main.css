@@ -360,6 +360,7 @@ header .nav-container .notifications:hover i {
     top: 0;
     left: 0;
     width: 15rem;
+    height: 1200px;
   }
   .navi {
     display: -webkit-box;
