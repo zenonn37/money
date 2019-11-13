@@ -1,0 +1,41 @@
+.cover-parent{
+  display: flex;
+
+    .cover-left{
+      flex: 1;
+
+      height: 50vh;
+      img{
+          height: 100%;
+      }
+    }
+    .cover-right{
+      flex: 1;
+      background-color: chartreuse;
+    }
+}
+
+
+@media screen and (max-width:1024px){
+  .cover-parent{
+      flex-direction: column;
+      .cover-left{
+          img{
+            height: 80%;
+          }
+        
+      }
+  }
+}
+
+@media screen and (max-width:600px){
+    .cover-parent{
+     
+        .cover-left{
+            img{
+              height: 70%;
+            }
+          
+        }
+    }
+  }

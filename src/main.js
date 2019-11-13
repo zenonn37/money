@@ -36,7 +36,7 @@ router.beforeEach((to, from, next) => {
       console.log("logged");
 
       next({
-        name: "home"
+        name: "dashboard"
       });
     } else {
       next();

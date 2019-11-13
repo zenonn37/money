@@ -7,14 +7,15 @@
 <script>
 import bar from "@/charts/bar.vue";
 import { trans } from "@/model.js";
+import moment from "moment";
 export default {
   name: "BarChart",
-  props: ["trans"],
+  props: ["chart"],
   components: { bar },
 
   data: () => ({
     chartdata: {
-      labels: [],
+      labels: ["10-30", "10-10"],
       datasets: [
         {
           label: "Transactions",
@@ -30,17 +31,19 @@ export default {
   }),
   computed: {},
   created() {
-    const lab = trans.map(label => {
-      return label.date;
+    const lab = this.chart.map(label => {
+      console.log(label);
+
+      return moment(label.date).format("D MMM");
     });
-    const data = trans.map(trans => {
+    const data = this.chart.map(trans => {
       return trans.amount;
     });
     console.log(data);
     this.chartdata.datasets[0].data = data;
 
     console.log(lab);
-    this.chartdata.labels = this.trans;
+    this.chartdata.labels = lab;
   }
 };
 </script>

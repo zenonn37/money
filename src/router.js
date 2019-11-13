@@ -9,6 +9,7 @@ import New from './views/New'
 import Edit from './views/Edit'
 import NewAccount from './views/NewAccount'
 import EditAccount from './views/EditAccount'
+import Cover from './views/Cover'
 import Settings from './views/Settings.vue';
 import Help from './views/Help.vue';
 
@@ -25,7 +26,16 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
+      name: "cover",
+      meta: {
+        layout: "no-user",
+        requiresVisitor: true
+      },
+      component: Cover
+    },
+    {
+      path: "/dashboard",
+      name: "dashboard",
       meta: {
         layout: "user",
         requiresAuth: true

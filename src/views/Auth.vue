@@ -1,22 +1,28 @@
 <template>
-  <div class="auth">
-    <div class="auth-parent">
-      <transition name="fade" mode="out-in">
-        <h1 v-if="!auth" key="login">Login</h1>
+  <div class="auth-container">
+    <div class="form-container">
+      <div class="container">
+        <div class="auth">
+          <div class="auth-parent">
+            <transition name="fade" mode="out-in">
+              <h1 v-if="!auth" key="login">Login</h1>
 
-        <h1 v-else key="register">Register</h1>
-      </transition>
-      <span class="errors">{{errors !== null ? errors : ""}}</span>
-      <transition name="fade" mode="out-in">
-        <Register @register="register" v-if="auth" :error="errors" />
-        <Login @login="login" v-else :error="errors" />
-      </transition>
+              <h1 v-else key="register">Register</h1>
+            </transition>
+            <span class="errors">{{errors !== null ? errors : ""}}</span>
+            <transition name="fade" mode="out-in">
+              <Register @register="register" v-if="auth" :error="errors" />
+              <Login @login="login" v-else :error="errors" />
+            </transition>
+          </div>
+
+          <button
+            class="toggle-btn"
+            @click="toggleAuth()"
+          >{{auth ? 'I already have an Account!':'I need an Account!' }}</button>
+        </div>
+      </div>
     </div>
-
-    <button
-      class="toggle-btn"
-      @click="toggleAuth()"
-    >{{auth ? 'I already have an Account!':'I need an Account!' }}</button>
   </div>
 </template>
 

@@ -466,9 +466,6 @@ header .nav-container .notifications:hover i {
   .navi .menu a span {
     text-align: left;
   }
-  body {
-    background-color: brown;
-  }
 }
 
 .render {
@@ -618,15 +615,9 @@ header .nav-container .notifications:hover i {
 
 @media (max-width: 768px) {
   .render {
-    background-color: #fff;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    border-radius: 10px;
-    margin-top: -8rem;
     min-width: 300px;
     height: 100%;
-    min-height: 60vh;
+    min-height: 75vh;
     padding-bottom: 1rem;
     margin-bottom: 3rem;
   }
@@ -1318,7 +1309,7 @@ select {
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 0 0 0 3rem;
+  padding: 0 0 1rem 3rem;
 }
 
 .dash-charts .pie {
@@ -1328,6 +1319,7 @@ select {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
+  padding: 0 2rem 0 0;
 }
 
 .dash-charts .bar {
@@ -1337,7 +1329,37 @@ select {
   padding-left: 2.9rem;
 }
 
-.dash-charts .bar .dash-icons {
+.dash-charts .bar .dash-panel {
+  padding: 1rem;
+}
+
+.dash-charts .bar .dash-panel h1, .dash-charts .bar .dash-panel h3 {
+  margin: 0;
+}
+
+.dash-charts .bar .dash-panel .panel-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dash-charts .bar .dash-panel .panel-child h3 {
+  margin-bottom: .5rem;
+}
+
+.dash-charts .bar .dash-panel .panel-child div {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.dash-charts .bar .dash-panel .dash-icons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1354,7 +1376,7 @@ select {
   border-radius: 50%;
 }
 
-.dash-charts .bar .dash-icons i {
+.dash-charts .bar .dash-panel .dash-icons i {
   color: #fff;
 }
 
@@ -1369,6 +1391,7 @@ select {
   }
   .dash-parent .dash-panel {
     padding: 1rem;
+    width: 110px;
   }
   .dash-parent .dash-panel h1, .dash-parent .dash-panel h3 {
     margin: 0;
@@ -1377,19 +1400,16 @@ select {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
   }
   .dash-parent .panel-child h1 {
-    font-size: 18px;
+    font-size: 16px;
   }
   .dash-parent .panel-child h3 {
     margin-bottom: .5rem;
+    font-size: 16px;
   }
   .dash-parent .panel-child div {
     font-size: 24px;
@@ -1427,6 +1447,7 @@ select {
   .dash-charts .pie {
     height: 50vh;
     width: 50vw;
+    min-width: 300px;
     position: relative;
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -1437,13 +1458,23 @@ select {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     padding: 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .dash-charts .bar .dash-panel {
-    padding: 1rem;
+    padding: .2rem;
+    width: 110px;
+    max-width: 110px;
+    text-align: center;
   }
   .dash-charts .bar .dash-panel h1, .dash-charts .bar .dash-panel h3 {
     margin: 0;
+    font-size: 16px;
   }
   .dash-charts .bar .dash-panel .panel-child {
     display: -webkit-box;
@@ -1478,6 +1509,48 @@ select {
   }
   .dash-charts .bar .dash-icons i {
     color: #fff;
+  }
+}
+
+.cover-parent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cover-parent .cover-left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 50vh;
+}
+
+.cover-parent .cover-left img {
+  height: 100%;
+}
+
+.cover-parent .cover-right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: chartreuse;
+}
+
+@media screen and (max-width: 1024px) {
+  .cover-parent {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cover-parent .cover-left img {
+    height: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cover-parent .cover-left img {
+    height: 70%;
   }
 }
 

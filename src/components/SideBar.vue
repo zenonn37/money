@@ -9,7 +9,7 @@
 
     <ul class="menu">
       <li>
-        <router-link to="/" tag="a">
+        <router-link to="/dashboard" tag="a">
           <i class="fas fa-chart-line"></i>
           <span>Dashboard</span>
         </router-link>
