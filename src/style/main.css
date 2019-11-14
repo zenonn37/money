@@ -1060,6 +1060,19 @@ select {
   margin-right: 1rem;
 }
 
+@media screen and (max-width: 450px) {
+  .computed {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .computed .balance {
+    font-size: 3rem;
+    color: #fff;
+    margin-right: 0;
+  }
+}
+
 .paginate {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1220,6 +1233,12 @@ select {
 .auth .toggle-btn:hover {
   background-color: #393857;
   bottom: 35px;
+}
+
+@media screen and (max-width: 450px) {
+  .auth {
+    width: 95%;
+  }
 }
 
 .loader-class {
@@ -1649,6 +1668,10 @@ img {
 
 .credit::before {
   content: '\002B';
+}
+
+.top-spacer {
+  margin-top: 1.5rem;
 }
 
 .cursors {

@@ -1,6 +1,6 @@
 <template>
   <div class="render-child">
-    <div class="back">
+    <div class="back top-spacer">
       <i class="fas fa-chevron-left" @click="goBack()"></i>
     </div>
     <div class="new-form">

@@ -8,7 +8,7 @@
     </div>
 
     <ul class="menu">
-      <li v-if="window.width < 1024">
+      <li v-if="window < 1024">
         <router-link to="/dashboard" tag="a">
           <i class="fas fa-chart-line"></i>
           <span @click="onClose()">Dashboard</span>
@@ -27,7 +27,7 @@
           <span>Wallet</span>
         </router-link>
       </li>-->
-      <li v-if="window.width < 1024">
+      <li v-if="window < 1024">
         <router-link to="/account" tag="a">
           <i class="fas fa-user-circle"></i>
           <span @click="onClose()">My Account</span>
@@ -46,7 +46,7 @@
           <span>Expenses</span>
         </router-link>
       </li>-->
-      <li v-if="window.width < 1024">
+      <li v-if="window < 1024">
         <router-link to="/settings" tag="a">
           <i class="fas fa-cog"></i>
           <span @click="onClose()">Settings</span>
@@ -60,7 +60,7 @@
         </router-link>
       </li>
 
-      <li v-if="window.width < 1024">
+      <li v-if="window < 1024">
         <router-link to="/help" tag="a">
           <i class="far fa-question-circle"></i>
           <span @click="onClose()">Help</span>
@@ -85,12 +85,19 @@ export default {
   },
   data() {
     return {
-      route: this.$route.name
+      route: this.$route.name,
+      width: 0
     };
   },
   methods: {
     onClose() {
+      console.log("close");
+
       this.$store.dispatch("base/set_aside");
+    },
+    resizeTracker(e) {
+      //console.log(window.innerWidth);
+      this.width = window.innerWidth;
     }
   },
   computed: {
@@ -98,17 +105,14 @@ export default {
       return this.$store.getters["base/get_nav"];
     },
     window() {
-      let width = window.innerWidth;
-      console.log(width);
-
-      let height = window.innerHeight;
-
-      let frame = {
-        width: width,
-        height: height
-      };
-      return frame;
+      return this.width < 1 ? window.innerWidth : this.width;
     }
+  },
+  created() {
+    window.addEventListener("resize", this.resizeTracker);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.resizeTracker);
   }
 };
 </script>

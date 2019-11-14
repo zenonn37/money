@@ -1,6 +1,10 @@
 <template>
   <div class="render-child">
-    <ReturnBtn :back="back" @nav="goBack()" />
+    <!-- <ReturnBtn :back="back" @nav="goBack()" /> -->
+
+    <div class="back top-spacer">
+      <i :class="[back]" @click="goBack()"></i>
+    </div>
 
     <!-- <template v-if="loading">
       <div class="new-form">

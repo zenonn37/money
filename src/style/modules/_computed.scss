@@ -11,3 +11,18 @@
 
     }
 }
+
+@media screen and (max-width:450px){
+    .computed{
+       
+        justify-content: center;
+      
+        
+        .balance{
+            font-size:3rem;
+            color: $white;
+            margin-right: 0;
+    
+        }
+    }
+}
