@@ -1633,6 +1633,18 @@ select {
   }
 }
 
+.faq-parent h2 {
+  margin: 1rem 0;
+}
+
+.faq-parent h4 {
+  margin: .3rem 0;
+}
+
+* {
+  margin: 0;
+}
+
 *,
 *::after,
 *::before {
@@ -1650,10 +1662,6 @@ body {
   height: 100vh;
   background-color: #e2dfdf;
   font-family: 'Roboto Condensed', sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
 }
 
 a {

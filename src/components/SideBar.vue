@@ -29,13 +29,15 @@
       </li>-->
       <li v-if="window < 1024">
         <router-link to="/account" tag="a">
-          <i class="fas fa-user-circle"></i>
+          <i class="fas fa-university"></i>
+
           <span @click="onClose()">My Account</span>
         </router-link>
       </li>
       <li v-else>
         <router-link to="/account" tag="a">
-          <i class="fas fa-user-circle"></i>
+          <i class="fas fa-university"></i>
+
           <span>My Account</span>
         </router-link>
       </li>
@@ -48,28 +50,28 @@
       </li>-->
       <li v-if="window < 1024">
         <router-link to="/settings" tag="a">
-          <i class="fas fa-cog"></i>
-          <span @click="onClose()">Settings</span>
+          <i class="fas fa-user-circle"></i>
+          <span @click="onClose()">Profile</span>
         </router-link>
       </li>
 
       <li v-else>
         <router-link to="/settings" tag="a">
-          <i class="fas fa-cog"></i>
-          <span>Settings</span>
+          <i class="fas fa-user-circle"></i>
+          <span>Profile</span>
         </router-link>
       </li>
 
       <li v-if="window < 1024">
         <router-link to="/help" tag="a">
           <i class="far fa-question-circle"></i>
-          <span @click="onClose()">Help</span>
+          <span @click="onClose()">Faq</span>
         </router-link>
       </li>
       <li v-else>
         <router-link to="/help" tag="a">
           <i class="far fa-question-circle"></i>
-          <span>Help</span>
+          <span>Faq</span>
         </router-link>
       </li>
     </ul>
