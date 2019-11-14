@@ -1,0 +1,53 @@
+
+.profile-container{
+  max-width: 700px;
+  margin: 0 auto;
+  width: 90%;
+
+
+.profile{
+  
+  hr{
+     opacity: .2;
+  }
+  h2{
+      color: $primaryDark;
+      font-size: 1.3rem;
+
+  }
+  h5{
+      text-transform: uppercase;
+      color: $titles;
+      font-size: .7rem;
+  }
+    padding: 1rem 2rem;
+    .settings-user{
+        div{
+            margin-bottom: 1rem;
+        }
+        .user-icon{
+            display: flex;
+            justify-content: flex-end;
+            img{
+                width:20%;
+            }
+        }
+        
+       
+    }
+}
+}
+@media screen and (max-width:1024px){
+    .profile{
+        max-width: 100%;
+    }
+    .user-icon{
+        display: flex;
+        justify-content: flex-end;
+        img{
+            width:30%;
+        }
+    }
+}
+
+

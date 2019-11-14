@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const state = {
     token: localStorage.getItem("access_token") || null,
-    user: localStorage.getItem("user") || null,
+    user: JSON.parse(localStorage.getItem("user")) || null,
 
 
 };
@@ -120,7 +120,7 @@ const actions = {
 
                     const result = res.data;
                     commit("SET_USER", result)
-                    localStorage.setItem("user", result)
+                    localStorage.setItem("user", JSON.stringify(result))
                     resolve(res)
                 }).catch(err => {
                     console.log(err);
@@ -136,6 +136,8 @@ const actions = {
 
 
 export default {
+
+
     state, mutations, getters, actions
 }
 

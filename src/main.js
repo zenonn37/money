@@ -23,7 +23,7 @@ Vue.component('no-user', Guest);
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!store.getters.isLogged) {
-      console.log("not logged");
+      // console.log("not logged");
 
       next({
         name: "auth"
@@ -33,7 +33,7 @@ router.beforeEach((to, from, next) => {
     }
   } else if (to.matched.some(record => record.meta.requiresVisitor)) {
     if (store.getters.isLogged) {
-      console.log("logged");
+      // console.log("logged");
 
       next({
         name: "dashboard"

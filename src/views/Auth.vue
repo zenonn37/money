@@ -19,7 +19,7 @@
           <button
             class="toggle-btn"
             @click="toggleAuth()"
-          >{{auth ? 'I already have an Account!':'I need an Account!' }}</button>
+          >{{auth ? 'I already have an Account':'I need an Account!' }}</button>
         </div>
       </div>
     </div>
@@ -50,19 +50,19 @@ export default {
       this.auth = !this.auth;
     },
     login(value) {
-      console.log(value);
+      //console.log(value);
 
       this.$store.dispatch("LOGIN", value).then(() => {
-        console.log("you are in");
+        //console.log("you are in");
         this.$store.dispatch("USER");
-        this.$router.push("/");
+        this.$router.push("/dashboard");
       });
     },
     register(value) {
-      console.log(value);
+      // console.log(value);
 
       this.$store.dispatch("REGISTER", value).then(() => {
-        console.log("you are in");
+        // console.log("you are in");
         // this.$store.dispatch("USER");
         //this.$router.push("/");
         this.auth = false;
