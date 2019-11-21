@@ -42,6 +42,37 @@ const mutations = {
     SET_META(state, meta) {
         state.meta = meta
     },
+    sortDate(state) {
+
+        if (!state.order) {
+            state.trans = _.sortBy(state.trans, [
+
+                function (value) {
+                    // console.log('called ASC ');
+
+                    return new Date(value.date);
+
+                }
+
+            ]);
+            // console.log(state.trans);
+
+        } else {
+            state.trans = _.sortBy(state.trans, [
+
+                function (value) {
+
+                    // console.log('called DESC ');
+                    return new Date(value.date) * -1;
+
+                }
+
+            ]);
+            //console.log(state.trans);
+
+        }
+
+    },
     sortAmount(state) {
 
 
@@ -120,6 +151,12 @@ const actions = {
         //console.log(state.order);
         commit('sortAmount');
     },
+    sortDate({ commit }) {
+        state.order = !state.order
+
+        //console.log(state.order);
+        commit('sortDate');
+    },
     range({ commit, dispatch, getters }, payload) {
         return new Promise((resolve, reject) => {
 
@@ -140,7 +177,7 @@ const actions = {
                 resolve(res)
             }).catch(err => {
                 reject(err)
-                console.log(err.response.data.message);
+                commit('base/set_errors', err.response.data.message, { root: true })
 
             })
         })
@@ -159,13 +196,12 @@ const actions = {
                 resolve(res)
             }).catch(err => {
                 reject(err)
-                console.log(err.response.data.message);
-
+                commit('base/set_errors', err.response.data.message, { root: true })
             })
         })
     },
     PAGE_TRANSACTIONS({ commit }, data) {
-        console.log(data);
+        // console.log(data);
 
         axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem('access_token');
@@ -180,7 +216,7 @@ const actions = {
 
                 }).catch(err => {
                     //handle errors!!
-                    console.log(err);
+                    commit('base/set_errors', err.response.data.message, { root: true })
 
                     reject(err)
                 })
@@ -206,6 +242,7 @@ const actions = {
                             resolve(res)
                             commit('SET_TOTAL', res.data)
                         }).catch(err => {
+                            commit('base/set_errors', err.response.data.message, { root: true })
                         })
 
 
@@ -213,8 +250,7 @@ const actions = {
 
                 }).catch(err => {
                     //handle errors!!
-                    console.log(err);
-
+                    commit('base/set_errors', err.response.data.message, { root: true })
                     reject(err)
                 })
         })
@@ -225,7 +261,7 @@ const actions = {
         axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem('access_token');
         return new Promise((resolve, reject) => {
-            console.log(payload + "transaction type account transaction");
+            //console.log(payload + "transaction type account transaction");
 
             axios.post(`${url}/transactions`, {
                 name: payload.name,
@@ -235,7 +271,7 @@ const actions = {
                 acct_id: payload.acct_id
             })
                 .then(res => {
-                    console.log('called');
+                    // console.log('called');
 
                     commit('NEW_TRANS', res.data)
                     const bal = getters.GET_TOTAL;
@@ -246,13 +282,13 @@ const actions = {
                             resolve(res)
                             commit('SET_TOTAL', res.data)
                         }).catch(err => {
+                            commit('base/set_errors', err.response.data.message, { root: true })
                         })
                     //  resolve(res)
 
                 }).catch(err => {
                     //handle errors!!
-                    console.log(err);
-
+                    commit('base/set_errors', err.response.data.message, { root: true })
                     reject(err)
                 })
         })
@@ -272,6 +308,7 @@ const actions = {
                     }
                     commit('SET_TOTAL', res.data)
                 }).catch(err => {
+                    commit('base/set_errors', err.response.data.message, { root: true })
                     reject(err)
                 })
             //  resolve(res)
@@ -303,7 +340,7 @@ const actions = {
 
                 }).catch(err => {
                     //handle errors!!
-                    console.log(err);
+                    commit('base/set_errors', err.response.data.message, { root: true })
 
                     reject(err)
                 })
@@ -334,7 +371,7 @@ const actions = {
 
                 }).catch(err => {
                     //handle errors!!
-                    console.log(err);
+                    commit('base/set_errors', err.response.data.message, { root: true })
 
                     reject(err)
                 })
@@ -367,7 +404,7 @@ const actions = {
 
                 }).catch(err => {
                     //handle errors!!
-                    console.log(err);
+                    commit('base/set_errors', err.response.data.message, { root: true })
 
                     reject(err)
                 })

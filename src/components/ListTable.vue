@@ -178,9 +178,7 @@ export default {
     sortDates() {
       console.log("clicked");
 
-      this.order = !this.order;
-
-      this.$store.dispatch("transactions/sortAmounts");
+      this.$store.dispatch("transactions/sortDate");
 
       //this.$store.dispatch("sortDates");
     },
