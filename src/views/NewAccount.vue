@@ -1,6 +1,6 @@
 <template>
   <div class="render-child">
-    <ReturnBtn :back="back" @nav="goBack()" />
+    <ReturnBtn class="top-spacer" :back="back" @nav="goBack()" />
 
     <div class="new-form">
       <AccountForm :loading="loading" :edit="null" title="New Account" @new="onSubmit" :id="null" />

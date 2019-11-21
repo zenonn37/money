@@ -24,6 +24,7 @@ header{
 
         .menu{
             flex:1;
+            display: none;
             cursor: pointer;
             &:hover{
                 i{
@@ -67,4 +68,63 @@ header{
     }
 }
 
+}
+
+@media screen and (max-width:1024px){
+
+
+    header{
+       
+        .nav-container{
+           
+    
+            .menu{
+                flex:1;
+                display: block;
+                cursor: pointer;
+                &:hover{
+                    i{
+                        color: $primaryDark;
+                        font-size: 1.3rem;
+                      
+                        
+                    } 
+                }
+            }
+         
+            .log-out{
+              
+                cursor: pointer;
+                &:hover{
+                    i{
+                        color: $primaryDark;
+                        font-size: 1.3rem;
+                      
+                        
+                    } 
+                }
+             
+            }
+            .notifications{
+                cursor: pointer;
+                &:hover{
+                    i{
+                        color: $primaryDark;
+                        font-size: 1.3rem;
+                      
+                        
+                    } 
+                }
+             
+             
+    
+    
+    
+            
+        }
+    }
+    
+    }
+   
+  
 }

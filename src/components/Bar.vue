@@ -18,7 +18,7 @@ export default {
       labels: ["10-30", "10-10"],
       datasets: [
         {
-          label: "Transactions",
+          label: "Last 30 Days",
           backgroundColor: "#f87979",
           data: []
         }
@@ -31,12 +31,12 @@ export default {
   }),
   computed: {},
   created() {
-    const lab = this.chart.map(label => {
+    const lab = this.chart.trans.map(label => {
       console.log(label);
 
       return moment(label.date).format("D MMM");
     });
-    const data = this.chart.map(trans => {
+    const data = this.chart.trans.map(trans => {
       return trans.amount;
     });
     console.log(data);

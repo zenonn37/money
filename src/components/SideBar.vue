@@ -2,6 +2,7 @@
   <aside :class="[nav !== true ? 'move' : 'navi']">
     <div class="logo-box">
       <div class="logo">MONEY</div>
+
       <div class="hambuger" @click="onClose()">
         <img src="../assets/menu.png" alt="menu" />
       </div>
@@ -94,7 +95,9 @@ export default {
   methods: {
     onClose() {
       console.log("close");
-
+      if (this.window > 1024) {
+        return false;
+      }
       this.$store.dispatch("base/set_aside");
     },
     resizeTracker(e) {

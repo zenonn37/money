@@ -7,7 +7,16 @@
     </template>
 
     <template v-else>
-      <ListTable name="Bank" :data="accounts" :type="type" />
+      <div v-if="accounts.length === 0" class="no-account">
+        <div>
+          <div>
+            <img src="/images/new_account.png" alt="chart for new account" />
+          </div>
+          <h2>Please Add an account to get started!</h2>
+        </div>
+      </div>
+
+      <ListTable v-else name="Bank" :data="accounts" :type="type" />
 
       <NewBtn @new="onNew()" :icon="icon" />
     </template>

@@ -122,10 +122,16 @@ const actions = {
     },
     range({ commit, dispatch, getters }, payload) {
         return new Promise((resolve, reject) => {
+
+
+
             axios.post(`${url}/range/${payload.id}`, {
 
                 date: payload.date.slice(0, 19).replace("T", " "),
                 date2: payload.date2.slice(0, 19).replace("T", " ")
+
+
+
 
             }).then(res => {
                 commit('SET_TRANS', res.data.data)

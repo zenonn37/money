@@ -17,7 +17,10 @@ export const acct = [
     'Checking',
     'Credit Card',
     'Credit Line',
-    'Savings'
+    'Savings',
+    'CD',
+    'Business Checking',
+    'Money Market'
 ]
 
 

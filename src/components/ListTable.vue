@@ -218,6 +218,7 @@ export default {
 
       const id = parseInt(acct);
       this.$store.dispatch("account/DELETE_ACCOUNT", id);
+      this.$store.commit("transactions/SET_TOTAL", 0);
     }
   }
 };

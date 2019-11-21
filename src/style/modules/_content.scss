@@ -44,6 +44,23 @@
             }
 
         }
+
+        .no-account{
+            height: inherit;
+            width: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            div{
+                text-align: center;
+                
+            }
+            img{
+                width: 20vw;
+               
+                margin-bottom: 1rem;
+            }
+        }
         // .back{
         //     margin-top:2rem;
         //     margin-left: 1em;
@@ -122,6 +139,22 @@
         .render-child{
             position: relative;
             min-height: inherit;
+            .no-account{
+                min-height:inherit;
+                width: inherit;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                div{
+                    text-align: center;
+                    
+                }
+                img{
+                    width: 30vw;
+                   
+                    margin-bottom: 1rem;
+                }
+            }
             .new-btn{
                 width: 35px;
                 height: 35px;             

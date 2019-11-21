@@ -71,7 +71,7 @@
             </div>
           </div>
           <div class="pie">
-            <Bar :chart="chart" />
+            <Bar :chart="month" />
           </div>
         </div>
       </div>
@@ -108,6 +108,11 @@ export default {
         return [];
       }
     },
+    month() {
+      const month = this.$store.getters["home/get_month_report"];
+
+      return month !== null || month !== undefined ? month : "";
+    },
     chart() {
       const reports = this.reports.charts;
       //let charts = [];
@@ -138,9 +143,11 @@ export default {
     }
   },
   created() {
+    console.log("created");
+
     this.loading = true;
     this.$store.dispatch("home/get_reports").then(() => {
-      console.log("done");
+      console.log("called");
 
       this.loading = false;
     });

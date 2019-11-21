@@ -10,7 +10,7 @@
             v-slot="{errors}"
           >
             <input type="text" placeholder="Name" v-model=" account.name" />
-            <span class="errors">{{errors[0]}}</span>
+           <span class="errors">{{errors[0]}}</span> 
           </ValidationProvider>
         </div>
         <div class="form-field">
