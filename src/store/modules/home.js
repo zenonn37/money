@@ -40,6 +40,8 @@ const getters = {
 const actions = {
 
     monthReport({ commit }) {
+        console.log('called');
+
         return new Promise((resolve, reject) => {
             axios.get(`${url}/month`)
                 .then(res => {

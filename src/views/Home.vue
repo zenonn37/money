@@ -71,7 +71,7 @@
             </div>
           </div>
           <div class="pie">
-            <Bar :chart="month" />
+            <Bar :chart="month" v-if="month !== null" />
           </div>
         </div>
       </div>
@@ -109,9 +109,18 @@ export default {
       }
     },
     month() {
-      const month = this.$store.getters["home/get_month_report"];
-
-      return month !== null || month !== undefined ? month : "";
+      let data = {};
+      //const month = this.$store.getters["home/get_month_report"];
+      if (
+        this.$store.getters["home/get_month_report"] !== null ||
+        this.$store.getters["home/get_month_report"] !== undefined ||
+        this.$store.getters["home/get_month_report"].trans.length !== 0
+      ) {
+        return this.$store.getters["home/get_month_report"];
+      } else {
+        return null;
+      }
+      // return month !== null || month !== undefined ? month : "";
     },
     chart() {
       const reports = this.reports.charts;
@@ -129,7 +138,7 @@ export default {
       let avgArray = arr => arr.reduce((a, b) => a + b, 0) / reports.length;
       let avg = avgArray(reports);
 
-      console.log(reports.all);
+      //console.log(reports.all);
       return numeral(avg).format("$0.00");
     },
     daily() {
@@ -138,7 +147,7 @@ export default {
       let avgArray = arr => arr.reduce((a, b) => a + b, 0) / 30;
       let avg = avgArray(reports);
 
-      console.log(reports.all);
+      //console.log(reports.all);
       return numeral(avg).format("$0.00");
     }
   },
