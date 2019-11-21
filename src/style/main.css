@@ -1570,7 +1570,7 @@ select {
   .dash-charts .pie {
     height: 50vh;
     width: 50vw;
-    min-width: 300px;
+    min-width: 400px;
     position: relative;
     -webkit-box-flex: 1;
         -ms-flex: 1;

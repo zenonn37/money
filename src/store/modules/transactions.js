@@ -282,7 +282,7 @@ const actions = {
         axios.defaults.headers.common["Authorization"] =
             "Bearer " + localStorage.getItem('access_token');
         return new Promise((resolve, reject) => {
-            console.log(payload);
+
 
             axios.post(`${url}/transactions`, {
                 name: payload.name,
@@ -296,6 +296,8 @@ const actions = {
                     commit('NEW_TRANS', res.data)
 
                     dispatch('total', payload.acct_id)
+                    dispatch('home/monthReport', { root: true })
+                    // dispatch('transactions/NEW_TRANSACTION', trans, { root: true })
 
                     resolve(res)
 

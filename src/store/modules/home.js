@@ -6,7 +6,7 @@ axios.defaults.headers.common["Authorization"] =
 const state = {
 
     report: null,
-    month: null,
+    month: [],
     bar: [],
     pie: []
 }
@@ -45,14 +45,10 @@ const actions = {
         return new Promise((resolve, reject) => {
             axios.get(`${url}/month`)
                 .then(res => {
-                    const data = {
-                        start: res.data.current,
-                        end: res.data.month,
-                        trans: res.data.trans
-                    }
+
 
                     resolve(res)
-                    commit('month_report', data)
+                    commit('month_report', res.data.trans)
                 }).catch(err => {
                     reject(err)
                     commit('base/set_errors', err.response.data.message, { root: true })

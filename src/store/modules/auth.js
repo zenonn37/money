@@ -42,7 +42,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             money.post('/new', data)
                 .then(res => {
-                    console.log(res);
+                    // console.log(res);
                     // const result = res.data;
                     // console.log(result);
                     commit('base/set_errors', null, { root: true })
@@ -68,9 +68,9 @@ const actions = {
         return new Promise((resolve, reject) => {
             money.post('/login', data)
                 .then(res => {
-                    console.log(res);
+                    // console.log(res);
                     const result = res.data.access_token;
-                    console.log(result);
+                    //  console.log(result);
 
                     commit("SET_AUTH", result)
                     localStorage.setItem("access_token", result)
@@ -103,7 +103,8 @@ const actions = {
                     localStorage.removeItem("access_token")
                     resolve()
                 }).catch(err => {
-                    console.log(err);
+                    // console.log(err);
+                    commit('base/set_errors', err.response.data.message, { root: true })
                     reject(err)
                 })
         })
@@ -116,14 +117,14 @@ const actions = {
             axios.get('http://apps.test/api/user')
                 .then(res => {
 
-                    console.log(res);
+                    // console.log(res);
 
                     const result = res.data;
                     commit("SET_USER", result)
                     localStorage.setItem("user", JSON.stringify(result))
                     resolve(res)
                 }).catch(err => {
-                    console.log(err);
+                    commit('base/set_errors', err.response.data.message, { root: true })
                     reject(err)
                 })
         })

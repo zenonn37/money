@@ -71,7 +71,7 @@
             </div>
           </div>
           <div class="pie">
-            <Bar :chart="month" v-if="month !== null" />
+            <Bar :chart="month" :key="updateChart" />
           </div>
         </div>
       </div>
@@ -94,7 +94,8 @@ export default {
   },
   data() {
     return {
-      loading: false
+      loading: false,
+      updateChart: 0
     };
   },
   computed: {
@@ -109,16 +110,15 @@ export default {
       }
     },
     month() {
-      let data = {};
       //const month = this.$store.getters["home/get_month_report"];
       if (
-        this.$store.getters["home/get_month_report"] !== null ||
-        this.$store.getters["home/get_month_report"] !== undefined ||
-        this.$store.getters["home/get_month_report"].trans.length !== 0
+        // this.$store.getters["home/get_month_report"] !== null ||
+        // this.$store.getters["home/get_month_report"] !== undefined ||
+        this.$store.getters["home/get_month_report"].length !== 0
       ) {
         return this.$store.getters["home/get_month_report"];
       } else {
-        return null;
+        return [];
       }
       // return month !== null || month !== undefined ? month : "";
     },
@@ -151,12 +151,18 @@ export default {
       return numeral(avg).format("$0.00");
     }
   },
+  watch: {
+    month(value) {
+      this.updateChart++;
+      console.log(value);
+    }
+  },
   created() {
-    console.log("created");
-
+    // console.log("created");
+    this.updateChart++;
     this.loading = true;
     this.$store.dispatch("home/get_reports").then(() => {
-      console.log("called");
+      // console.log("called");
 
       this.loading = false;
     });

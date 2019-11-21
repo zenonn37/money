@@ -62,9 +62,16 @@
       </div>
     </div>
 
+    <div v-if="data.length === 0" class="no-account">
+      <div>
+        <div>
+          <img src="/images/new_account.png" alt="chart for new account" />
+        </div>
+        <h2>Please add a new transaction!</h2>
+      </div>
+    </div>
+    <!-- <div class=""  v-if="data.length === 0">Add an Account to get started!</div> -->
     <div class="list-elements">
-      <div v-if="data.length === 0">Add an Account to get started!</div>
-
       <ul>
         <li v-for="a in  data" :key="a.id" class="dates">{{a.date | day}}</li>
       </ul>
