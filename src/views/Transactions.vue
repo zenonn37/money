@@ -78,17 +78,41 @@ export default {
     onRange(value) {
       this.loading = true;
 
-      this.$store.dispatch("transactions/range", value).then(() => {
-        console.log("loaded");
-        this.loading = false;
-      });
+      this.$store
+        .dispatch("transactions/range", value)
+        .then(() => {
+          this.$toast.open({
+            message: "New Date range active",
+            type: "info",
+            position: "top"
+          });
+          this.loading = false;
+        })
+        .catch(err => {
+          this.$toast.open({
+            message: "Connection Error please refresh the page",
+            type: "error",
+            position: "top"
+          });
+        });
     },
     onRefresh() {
       this.$store
         .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.id)
         .then(() => {
-          console.log("loaded");
+          this.$toast.open({
+            message: "Date range reset to default",
+            type: "info",
+            position: "top"
+          });
           this.loading = false;
+        })
+        .catch(err => {
+          this.$toast.open({
+            message: "Connection Error please refresh the page",
+            type: "error",
+            position: "top"
+          });
         });
     }
   },
@@ -98,18 +122,21 @@ export default {
     this.$store
       .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.currentAcctid)
       .then(() => {
+        this.$toast.open({
+          message: "Transaction data loaded",
+          type: "info",
+          position: "top"
+        });
         this.loading = false;
+      })
+      .catch(err => {
+        this.$toast.open({
+          message: "Connection Error please refresh the page",
+          type: "error",
+          position: "top"
+        });
       });
-    //   axios
-    //     .get(`http://apps.test/api/transactions/${this.$route.params.id}`)
-    //     .then(res => {
-    //       console.log(res.data);
-    //       this.trans = res.data;
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //     });
-    // }
+    //
   }
 };
 </script>

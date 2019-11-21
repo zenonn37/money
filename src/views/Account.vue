@@ -60,9 +60,23 @@ export default {
   },
   created() {
     this.loading = true;
-    this.$store.dispatch("account/ALL_ACCOUNTS").then(() => {
-      this.loading = false;
-    });
+    this.$store
+      .dispatch("account/ALL_ACCOUNTS")
+      .then(() => {
+        this.$toast.open({
+          message: "Accounts Loaded",
+          type: "info",
+          position: "top"
+        });
+        this.loading = false;
+      })
+      .catch(err => {
+        this.$toast.open({
+          message: "Connection Error please refresh the page",
+          type: "error",
+          position: "top"
+        });
+      });
   }
 };
 </script>

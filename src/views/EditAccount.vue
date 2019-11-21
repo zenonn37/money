@@ -1,6 +1,6 @@
 <template>
   <div class="render-child">
-    <ReturnBtn :back="back" @nav="goBack()" />
+    <ReturnBtn class="back top-spacer" :back="back" @nav="goBack()" />
 
     <div class="new-form">
       <AccountForm :loading="loading" title="Edit Account" :edit="edit" @new="onSubmit" :id="id" />
@@ -32,16 +32,37 @@ export default {
     edit() {
       const id = parseInt(this.$route.params.id);
       return this.$store.getters["account/GET_ACCOUNT"](id);
+    },
+    errors() {
+      return this.$store.getters["base/get_errors"];
     }
   },
   methods: {
     onSubmit(value) {
       this.loading = true;
       console.log(value);
-      this.$store.dispatch("account/UPDATE_ACCOUNT", value).then(() => {
-        this.loading = false;
-        this.goBack();
-      });
+      this.$store
+        .dispatch("account/UPDATE_ACCOUNT", value)
+        .then(() => {
+          this.$toast.open({
+            message: "Account updated",
+            type: "success",
+            position: "top"
+          });
+          this.loading = false;
+          this.goBack();
+        })
+        .catch(err => {
+          this.loading = false;
+          this.$toast.open({
+            message:
+              this.errors !== null
+                ? this.errors
+                : "Connection Error, please try again",
+            type: "error",
+            position: "top"
+          });
+        });
     }
   }
 };

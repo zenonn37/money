@@ -262,6 +262,10 @@ header .nav-container .notifications:hover i {
   color: black;
 }
 
+.move .menu {
+  padding-left: 1rem;
+}
+
 .move .menu li {
   padding: 1.3rem 0 1.3rem 0;
 }
@@ -1744,6 +1748,10 @@ select {
   margin: .3rem 0;
 }
 
+.faq-parent {
+  padding: 1rem;
+}
+
 * {
   margin: 0;
 }
@@ -1774,6 +1782,7 @@ a {
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 i {

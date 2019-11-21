@@ -11,6 +11,7 @@ import "./plugins/vue-datetime";
 import "./plugins/vue-paginate";
 import "./plugins/vee-validate";
 import "./plugins/vue-filters";
+import "./plugins/toast";
 //import "./plugins/chart";
 
 Vue.config.productionTip = false;

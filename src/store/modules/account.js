@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { url } from '../../api/apps'
+axios.defaults.headers.common["Authorization"] =
+    "Bearer " + localStorage.getItem('access_token');
 
 const accounts = "accounts";
 const state = {
@@ -44,8 +46,8 @@ const getters = {
 const actions = {
     //get all accounts
     ALL_ACCOUNTS({ commit }) {
-        axios.defaults.headers.common["Authorization"] =
-            "Bearer " + localStorage.getItem('access_token');
+        // axios.defaults.headers.common["Authorization"] =
+        //     "Bearer " + localStorage.getItem('access_token');
 
         return new Promise((resolve, reject) => {
             axios.get(`${url}/${accounts}`)
@@ -53,6 +55,7 @@ const actions = {
                     commit('SET_ACCOUNT', res.data.data)
                     resolve(res)
                 }).catch(err => {
+                    commit('base/set_errors', err.response.data.message, { root: true })
                     reject(err)
                 })
         })
@@ -62,8 +65,8 @@ const actions = {
 
     },
     NEW_ACCOUNTS({ commit, dispatch }, payload) {
-        axios.defaults.headers.common["Authorization"] =
-            "Bearer " + localStorage.getItem('access_token');
+        // axios.defaults.headers.common["Authorization"] =
+        //     "Bearer " + localStorage.getItem('access_token');
 
         return new Promise((resolve, reject) => {
             axios.post(`${url}/${accounts}`, {
@@ -95,6 +98,7 @@ const actions = {
 
                     resolve(res)
                 }).catch(err => {
+                    commit('base/set_errors', err.response.data.message, { root: true })
                     reject(err)
                 })
         })
@@ -104,8 +108,7 @@ const actions = {
 
     },
     UPDATE_ACCOUNT({ commit }, payload) {
-        axios.defaults.headers.common["Authorization"] =
-            "Bearer " + localStorage.getItem('access_token');
+
 
         return new Promise((resolve, reject) => {
             axios.patch(`${url}/${accounts}/${payload.id}`, {
@@ -119,6 +122,7 @@ const actions = {
                     commit('NEW_ACCOUNT', res.data)
                     resolve(res)
                 }).catch(err => {
+                    commit('base/set_errors', err.response.data.message, { root: true })
                     reject(err)
                 })
         })
@@ -128,8 +132,8 @@ const actions = {
 
     },
     DELETE_ACCOUNT({ commit }, id) {
-        axios.defaults.headers.common["Authorization"] =
-            "Bearer " + localStorage.getItem('access_token');
+        // axios.defaults.headers.common["Authorization"] =
+        //     "Bearer " + localStorage.getItem('access_token');
 
         return new Promise((resolve, reject) => {
             axios.delete(`${url}/${accounts}/${id}`)
@@ -137,6 +141,7 @@ const actions = {
                     commit('DELETE_ACCOUNT', id)
                     resolve(res)
                 }).catch(err => {
+                    commit('base/set_errors', err.response.data.message, { root: true })
                     reject(err)
                 })
         })

@@ -6,11 +6,11 @@
         <div class="form-field">
           <ValidationProvider
             name="Account name"
-            rules="required|min:2|max:30|alpha_spaces"
+            rules="required|min:2|max:40|alpha_spaces"
             v-slot="{errors}"
           >
             <input type="text" placeholder="Name" v-model=" account.name" />
-           <span class="errors">{{errors[0]}}</span> 
+            <span class="errors">{{errors[0]}}</span>
           </ValidationProvider>
         </div>
         <div class="form-field">

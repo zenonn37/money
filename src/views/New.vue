@@ -6,12 +6,6 @@
       <i :class="[back]" @click="goBack()"></i>
     </div>
 
-    <!-- <template v-if="loading">
-      <div class="new-form">
-        <div class="form-container">...loading</div>
-      </div>
-    </template>-->
-
     <template>
       <div class="new-form">
         <TransactionForm
@@ -44,20 +38,42 @@ export default {
       back: "fas fa-chevron-left"
     };
   },
+  computed: {
+    errors() {
+      return this.$store.getters["base/get_errors"];
+    }
+  },
   methods: {
     onSubmit(value) {
       this.loading = true;
       console.log(value);
 
-      this.$store.dispatch("transactions/NEW_TRANSACTION", value).then(() => {
-        console.log("success");
-        setTimeout(() => {
-          this.loading = true;
-          console.log("done");
+      this.$store
+        .dispatch("transactions/NEW_TRANSACTION", value)
+        .then(() => {
+          // console.log("success");
+          setTimeout(() => {
+            this.$toast.open({
+              message: "New Transaction Created",
+              type: "success",
+              position: "top"
+            });
+            this.loading = true;
+            //console.log("done");
 
-          this.goBack();
-        }, 500);
-      });
+            this.goBack();
+          }, 1000);
+        })
+        .catch(err => {
+          this.$toast.open({
+            message:
+              this.errors !== null
+                ? this.errors
+                : "Connection Error please refresh the page",
+            type: "error",
+            position: "top"
+          });
+        });
     }
   }
 };

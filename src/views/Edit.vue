@@ -46,8 +46,20 @@ export default {
       this.$store
         .dispatch("transactions/UPDATE_TRANSACTION", value)
         .then(() => {
+          this.$toast.open({
+            message: "Transaction has been updated",
+            type: "success",
+            position: "top"
+          });
           this.loading = false;
           this.goBack();
+        })
+        .catch(err => {
+          this.$toast.open({
+            message: "Connection Error please refresh the page",
+            type: "error",
+            position: "top"
+          });
         });
     }
   }

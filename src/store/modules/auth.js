@@ -99,6 +99,7 @@ const actions = {
                     commit("account/clear_accounts", { root: true });
                     commit("transactions/SET_TRANS", [], { root: true });
                     commit("transactions/SET_TOTAL", [], { root: true });
+                    commit('base/set_errors', null, { root: true })
                     localStorage.removeItem("user")
                     localStorage.removeItem("access_token")
                     resolve()

@@ -333,7 +333,7 @@ const actions = {
                     commit('NEW_TRANS', res.data)
 
                     dispatch('total', payload.acct_id)
-                    dispatch('home/monthReport', { root: true })
+                    // dispatch('home/monthReport', { root: true })
                     // dispatch('transactions/NEW_TRANSACTION', trans, { root: true })
 
                     resolve(res)

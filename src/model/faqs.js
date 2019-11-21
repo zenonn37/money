@@ -22,7 +22,7 @@ export const faq = [
         title: "Shared Account",
         issue: "Multiple Users",
         question: 'Can I share my account with multiple users?',
-        answer: "Yes, but at this time you will have to share one login."
+        answer: "Yes, but at this time you will have to share one login and share the allotted ten accounts"
 
     }
 
