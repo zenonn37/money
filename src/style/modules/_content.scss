@@ -3,7 +3,7 @@
     flex: 1;
     border-radius: 10px;
     margin-top: -8rem;
-    height: 72vh;
+    height: 80vh;
     transition: all 0.4s ease-in;
     
     .render-child{
@@ -70,7 +70,7 @@
             height: 50px;
             background-color: $trim;
             position: absolute;
-            bottom:30px;
+            bottom:45px;
             right:30px;
             border-radius: 50%;
             display: flex;

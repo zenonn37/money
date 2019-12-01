@@ -310,7 +310,7 @@ header .nav-container .notifications:hover i {
           flex: 0 0 15rem;
   background-color: #393857;
   z-index: 1000;
-  height: 100vh;
+  height: 1000px;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
@@ -384,6 +384,10 @@ header .nav-container .notifications:hover i {
   color: black;
 }
 
+.navi .menu {
+  padding-left: 1rem;
+}
+
 .navi .menu li {
   padding: 1.3rem 0 1.3rem 0;
 }
@@ -415,7 +419,7 @@ header .nav-container .notifications:hover i {
   text-align: left;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1160px) {
   .move {
     margin-left: 0;
     position: absolute;
@@ -538,7 +542,7 @@ header .nav-container .notifications:hover i {
           flex: 1;
   border-radius: 10px;
   margin-top: -8rem;
-  height: 72vh;
+  height: 80vh;
   -webkit-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
 }
@@ -633,7 +637,7 @@ header .nav-container .notifications:hover i {
   height: 50px;
   background-color: #a8a5eb;
   position: absolute;
-  bottom: 30px;
+  bottom: 45px;
   right: 30px;
   border-radius: 50%;
   display: -webkit-box;
@@ -1440,8 +1444,8 @@ select {
 }
 
 .dash-charts .pie {
-  height: 300px;
-  width: 300px;
+  height: 50vh;
+  width: 50vw;
   position: relative;
   -webkit-box-flex: 2;
       -ms-flex: 2;
