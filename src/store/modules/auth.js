@@ -1,4 +1,4 @@
-import money from '../../api/money'
+import { money } from '../../api/money'
 import axios from 'axios';
 
 const state = {
@@ -87,10 +87,10 @@ const actions = {
 
     },
     LOGOUT({ commit }) {
-        axios.defaults.headers.common["Authorization"] =
-            "Bearer " + state.token;
+        // axios.defaults.headers.common["Authorization"] =
+        //     "Bearer " + state.token;
         return new Promise((resolve, reject) => {
-            axios.post('http://apps.test/api/logout')
+            money.post('/logout')
                 .then(() => {
 
 
@@ -112,10 +112,10 @@ const actions = {
     },
 
     USER({ commit }) {
-        axios.defaults.headers.common["Authorization"] =
-            "Bearer " + state.token;
+        // axios.defaults.headers.common["Authorization"] =
+        //     "Bearer " + state.token;
         return new Promise((resolve, reject) => {
-            axios.get('http://apps.test/api/user')
+            money.get('/user')
                 .then(res => {
 
                     // console.log(res);
