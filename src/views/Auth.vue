@@ -36,18 +36,19 @@ export default {
     Login
   },
   data() {
-    return {
-      auth: false
-    };
+    return {};
   },
   computed: {
     errors() {
       return this.$store.getters["base/get_errors"];
+    },
+    auth() {
+      return this.$store.getters["base/get_auth"];
     }
   },
   methods: {
     toggleAuth() {
-      this.auth = !this.auth;
+      this.$store.dispatch("base/toggle_auth");
     },
     login(value) {
       //console.log(value);
