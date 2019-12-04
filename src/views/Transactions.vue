@@ -7,7 +7,7 @@
     <template v-else>
       <div class="render-header">
         <ReturnBtn :back="back" @nav="onReturn()" />
-        <div @click="onRefresh()">
+        <div @click="onRefresh()" class="cursors">
           <i class="fas fa-redo-alt"></i>
         </div>
         <Range @range="onRange" :id="id" />

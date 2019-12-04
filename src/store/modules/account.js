@@ -1,13 +1,11 @@
-// import axios from 'axios';
-// import { url } from '../../api/apps'
-// axios.defaults.headers.common["Authorization"] =
-//     "Bearer " + localStorage.getItem('access_token');
 
-import { money } from '../../api/money'
+import axios from 'axios';
+import { base } from '../../api/money'
 
 const accounts = "accounts";
 const state = {
     accounts: []
+
 
 }
 
@@ -52,7 +50,7 @@ const actions = {
         //     "Bearer " + localStorage.getItem('access_token');
 
         return new Promise((resolve, reject) => {
-            money.get('/accounts')
+            axios.get('accounts')
                 .then(res => {
                     commit('SET_ACCOUNT', res.data.data)
                     resolve(res)
@@ -71,7 +69,7 @@ const actions = {
         //     "Bearer " + localStorage.getItem('access_token');
 
         return new Promise((resolve, reject) => {
-            money.post('/accounts', {
+            axios.post('accounts', {
                 name: payload.name,
                 balance: payload.balance,
                 type: payload.type,
@@ -113,7 +111,7 @@ const actions = {
 
 
         return new Promise((resolve, reject) => {
-            money.patch(`/accounts/${payload.id}`, {
+            axios.patch(`accounts/${payload.id}`, {
                 name: payload.name,
                 type: payload.type,
                 date: payload.date.slice(0, 19).replace("T", " ")
@@ -138,7 +136,7 @@ const actions = {
         //     "Bearer " + localStorage.getItem('access_token');
 
         return new Promise((resolve, reject) => {
-            money.delete(`/accounts/${id}`)
+            axios.delete(`accounts/${id}`)
                 .then(res => {
                     commit('DELETE_ACCOUNT', id)
                     resolve(res)

@@ -27,9 +27,9 @@
             <h5>{{mobile.date | month_short}}</h5>
           </div>
         </div>
-        <div class="mobile-title cursors">
-          <router-link :to="`/transactions/${mobile.id}`" tag="h2">{{mobile.name}}</router-link>
-          <!-- <h2>{{mobile.name}}</h2> -->
+        <div class="mobile-title" :class="[type === true ? 'cursors': '']">
+          <router-link :to="`/transactions/${mobile.id}`" tag="h2" v-if="type">{{mobile.name}}</router-link>
+          <h2 v-else>{{mobile.name}}</h2>
           <h5>{{mobile.type}}</h5>
         </div>
 

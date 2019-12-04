@@ -1,9 +1,8 @@
-// import axios from 'axios'
-// import { url } from '../../api/apps';
-// axios.defaults.headers.common["Authorization"] =
-//     "Bearer " + localStorage.getItem('access_token');
+import axios from 'axios';
+import { base } from '../../api/money'
 
-import { money } from '../../api/money'
+
+
 
 const state = {
 
@@ -45,7 +44,7 @@ const actions = {
         console.log('called');
 
         return new Promise((resolve, reject) => {
-            money.get('/month')
+            axios.get('month')
                 .then(res => {
 
 
@@ -59,7 +58,7 @@ const actions = {
     },
     get_reports({ commit, dispatch }) {
         return new Promise((resolve, reject) => {
-            money.get('/worth')
+            axios.get('worth')
                 .then(res => {
                     dispatch('monthReport')
                     resolve(res)

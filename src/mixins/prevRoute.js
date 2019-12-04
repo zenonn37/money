@@ -15,7 +15,7 @@ export const prevRoutes = {
         });
     },
     created() {
-        console.log('hi from mixin');
+
 
     },
 }

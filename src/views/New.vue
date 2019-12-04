@@ -2,7 +2,7 @@
   <div class="render-child">
     <!-- <ReturnBtn :back="back" @nav="goBack()" /> -->
 
-    <div class="back top-spacer">
+    <div class="back top-spacer cursors">
       <i :class="[back]" @click="goBack()"></i>
     </div>
 
@@ -46,23 +46,23 @@ export default {
   methods: {
     onSubmit(value) {
       this.loading = true;
-      console.log(value);
 
       this.$store
         .dispatch("transactions/NEW_TRANSACTION", value)
         .then(() => {
-          // console.log("success");
-          setTimeout(() => {
-            this.$toast.open({
-              message: "New Transaction Created",
-              type: "success",
-              position: "top"
-            });
-            this.loading = true;
-            //console.log("done");
+          this.$toast.open({
+            message: "New Transaction Created",
+            type: "success",
+            position: "top"
+          });
+          this.loading = true;
+          //console.log("done");
 
-            this.goBack();
-          }, 1000);
+          this.goBack();
+          // console.log("success");
+          // setTimeout(() => {
+
+          // }, 300);
         })
         .catch(err => {
           this.$toast.open({

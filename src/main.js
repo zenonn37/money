@@ -12,9 +12,17 @@ import "./plugins/vue-paginate";
 import "./plugins/vee-validate";
 import "./plugins/vue-filters";
 import "./plugins/toast";
-//import "./plugins/chart";
+
+import interceptor from './interceptor'
+
+
+
+interceptor()
+
 
 Vue.config.productionTip = false;
+
+
 
 Vue.use(vmodal);
 

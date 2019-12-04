@@ -1,5 +1,6 @@
-import { money } from '../../api/money'
 import axios from 'axios';
+import { base } from '../../api/money'
+
 
 const state = {
     token: localStorage.getItem("access_token") || null,
@@ -40,7 +41,7 @@ const actions = {
     REGISTER({ commit }, data) {
 
         return new Promise((resolve, reject) => {
-            money.post('/new', data)
+            axios.post('new', data)
                 .then(res => {
                     // console.log(res);
                     // const result = res.data;
@@ -66,7 +67,8 @@ const actions = {
     LOGIN({ commit }, data) {
 
         return new Promise((resolve, reject) => {
-            money.post('/login', data)
+            axios.post('login', data)
+                // this.$http.post('/login', data)
                 .then(res => {
                     // console.log(res);
                     const result = res.data.access_token;
@@ -90,7 +92,7 @@ const actions = {
         // axios.defaults.headers.common["Authorization"] =
         //     "Bearer " + state.token;
         return new Promise((resolve, reject) => {
-            money.post('/logout')
+            axios.post('logout')
                 .then(() => {
 
 
@@ -115,7 +117,7 @@ const actions = {
         // axios.defaults.headers.common["Authorization"] =
         //     "Bearer " + state.token;
         return new Promise((resolve, reject) => {
-            money.get('/user')
+            axios.get('user')
                 .then(res => {
 
                     // console.log(res);

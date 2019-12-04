@@ -39,7 +39,7 @@ export default {
         date2: this.date2,
         id: this.id
       };
-      console.log(data);
+      // console.log(data);
 
       this.$emit("range", data);
     }

@@ -1,8 +1,5 @@
-// import axios from 'axios';
-// import { url } from '../../api/apps';
-
-
-import { money } from '../../api/money'
+import axios from 'axios';
+import { base } from '../../api/money'
 
 import _ from "lodash";
 
@@ -165,7 +162,7 @@ const actions = {
 
 
 
-            money.post(`/range/${payload.id}`, {
+            axios.post(`range/${payload.id}`, {
 
                 date: payload.date.slice(0, 19).replace("T", " "),
                 date2: payload.date2.slice(0, 19).replace("T", " ")
@@ -186,9 +183,9 @@ const actions = {
         })
     },
 
-    find_day({ commit, dispatch, getters }, payload) {
+    find_day({ commit }, payload) {
         return new Promise((resolve, reject) => {
-            money.post(`/day/${payload.id}`, {
+            axios.post(`day/${payload.id}`, {
 
                 date: payload.date.slice(0, 19).replace("T", " ")
 
@@ -209,7 +206,7 @@ const actions = {
         // axios.defaults.headers.common["Authorization"] =
         //     "Bearer " + localStorage.getItem('access_token');
         return new Promise((resolve, reject) => {
-            money.get(`/transactions/${data.id}?page=${data.page}`)
+            axios.get(`transactions/${data.id}?page=${data.page}`)
                 // axios.get(`${url}/transactions/${id}?page=${page}`)
                 .then(res => {
                     const data = res.data
@@ -232,7 +229,7 @@ const actions = {
         //     "Bearer " + localStorage.getItem('access_token');
         return new Promise((resolve, reject) => {
 
-            money.get(`/transactions/${id}`)
+            axios.get(`transactions/${id}`)
                 .then(res => {
                     const data = res.data
                     commit('SET_TRANS', data.data)
@@ -240,7 +237,7 @@ const actions = {
                     commit('SET_META', data.meta)
 
                     //dispatch('total', id)
-                    money.post(`/total/${id}`)
+                    axios.post(`total/${id}`)
                         .then(res => {
                             resolve(res)
                             commit('SET_TOTAL', res.data)
@@ -266,7 +263,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             //console.log(payload + "transaction type account transaction");
 
-            money.post(`/transactions`, {
+            axios.post(`transactions`, {
                 name: payload.name,
                 type: payload.type,
                 amount: parseFloat(payload.amount),
@@ -278,7 +275,7 @@ const actions = {
 
                     commit('NEW_TRANS', res.data)
                     const bal = getters.GET_TOTAL;
-                    money.post(`/total/${payload.acct_id}`, {
+                    axios.post(`total/${payload.acct_id}`, {
                         balance: bal
                     })
                         .then(res => {
@@ -301,7 +298,7 @@ const actions = {
 
 
 
-            money.post(`/total/${id}`)
+            axios.post(`total/${id}`)
                 .then(res => {
                     resolve(res)
                     const data = {
@@ -324,7 +321,7 @@ const actions = {
         return new Promise((resolve, reject) => {
 
 
-            money.post(`/transactions`, {
+            axios.post(`transactions`, {
                 name: payload.name,
                 type: payload.type,
                 amount: parseFloat(payload.amount),
@@ -356,7 +353,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             console.log(payload);
 
-            money.patch(`/transactions/${payload.id}`, {
+            axios.patch(`transactions/${payload.id}`, {
                 name: payload.name,
                 type: payload.type,
                 amount: payload.amount,
@@ -389,7 +386,7 @@ const actions = {
             // console.log(payload.acct_id);
 
 
-            money.delete(`/transactions/${payload.id}`)
+            axios.delete(`transactions/${payload.id}`)
                 .then(res => {
                     console.log(res);
 

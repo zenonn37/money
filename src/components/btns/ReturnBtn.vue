@@ -1,5 +1,5 @@
 <template>
-  <div class="back">
+  <div class="back cursors">
     <i :class="[back]" @click="goBack()"></i>
   </div>
 </template>
