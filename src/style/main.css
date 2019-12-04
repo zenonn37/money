@@ -198,7 +198,7 @@ header .nav-container .notifications:hover i {
   display: -ms-flexbox;
   display: flex;
   height: 84px;
-  padding: .2rem .2rem;
+  padding: .5rem .5rem;
   background-color: #30304D;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -211,6 +211,11 @@ header .nav-container .notifications:hover i {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
+  padding-left: 1rem;
+}
+
+.move .logo-box .logo img {
+  width: 120px;
 }
 
 .move .logo-box .hambuger img {
