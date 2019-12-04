@@ -198,7 +198,7 @@ header .nav-container .notifications:hover i {
   display: -ms-flexbox;
   display: flex;
   height: 84px;
-  padding: 1.25rem 2rem;
+  padding: .2rem .2rem;
   background-color: #30304D;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -320,7 +320,7 @@ header .nav-container .notifications:hover i {
   display: -ms-flexbox;
   display: flex;
   height: 84px;
-  padding: 1.25rem 2rem;
+  padding: .5rem .5rem;
   background-color: #30304D;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -333,6 +333,11 @@ header .nav-container .notifications:hover i {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
+  padding-left: 1rem;
+}
+
+.navi .logo-box .logo img {
+  width: 120px;
 }
 
 .navi .logo-box .hambuger img {
@@ -451,7 +456,7 @@ header .nav-container .notifications:hover i {
     display: -ms-flexbox;
     display: flex;
     height: 84px;
-    padding: 1.25rem 2rem;
+    padding: .5rem .5rem;
     background-color: #30304D;
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -1643,6 +1648,12 @@ select {
   }
 }
 
+.cover-page {
+  height: 100vh;
+  background-color: cornflowerblue;
+  color: #fff;
+}
+
 .cover-nav {
   padding: 1rem 1rem;
   display: -webkit-box;
@@ -1718,7 +1729,7 @@ select {
   height: 50px;
   width: 120px;
   color: #fff;
-  background-color: #a8a5eb;
+  background-color: #67c767;
   padding: 1rem;
   border-radius: 3px;
   text-transform: uppercase;

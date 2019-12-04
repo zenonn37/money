@@ -1,3 +1,10 @@
+
+.cover-page{
+  height:100vh;
+  background-color: cornflowerblue;
+  color: $white;
+}
+
 .cover-nav{
  
   padding: 1rem 1rem;
@@ -49,7 +56,7 @@
        height: 50px;
        width: 120px;
        color:$white;
-       background-color: $trim;
+       background-color: $action_green;
        padding: 1rem;
        border-radius: 3px;
        text-transform: uppercase;

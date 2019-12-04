@@ -46,6 +46,9 @@ const actions = {
     },
     set_auth_register({ commit }) {
         commit('set_auth', true)
+    },
+    clear_errors({ commit }) {
+        commit('set_errors', null)
     }
 }
 

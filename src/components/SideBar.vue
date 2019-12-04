@@ -1,7 +1,9 @@
 <template>
   <aside :class="[nav !== true ? 'move' : 'navi']">
     <div class="logo-box">
-      <div class="logo">MONEY</div>
+      <div class="logo">
+        <img src="/images/money_white.png" alt="logo" />
+      </div>
 
       <div class="hambuger" @click="onClose()">
         <img src="../assets/menu.png" alt="menu" />

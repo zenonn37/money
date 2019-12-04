@@ -49,6 +49,7 @@ export default {
   methods: {
     toggleAuth() {
       this.$store.dispatch("base/toggle_auth");
+      this.$store.dispatch("base/clear_errors");
     },
     login(value) {
       //console.log(value);
@@ -66,7 +67,7 @@ export default {
         // console.log("you are in");
         // this.$store.dispatch("USER");
         //this.$router.push("/");
-        this.auth = false;
+        this.$store.dispatch("base/set_auth_login");
       });
     }
   }

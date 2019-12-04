@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="cover-page">
     <nav class="cover-nav">
       <div class="logo">
-        <img src="/images/money.png" alt="App logo" />
+        <img src="/images/money_white.png" alt="App logo" />
       </div>
       <div class="cover-nav">
         <ul>
@@ -18,7 +18,7 @@
         </div>
         <p>Track every transaction on all your accounts, and keep up with account balances</p>
 
-        <div class="action" @click="set_register()">Get Started</div>
+        <div class="action cursors" @click="set_register()">Get Started</div>
       </div>
       <div class="cover-right">
         <div>
