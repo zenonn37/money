@@ -3,7 +3,13 @@
     <ReturnBtn class="back top-spacer" :back="back" @nav="goBack()" />
 
     <div class="new-form">
-      <AccountForm :loading="loading" title="Edit Account" :edit="edit" @new="onSubmit" :id="id" />
+      <AccountForm
+        :loading="loading"
+        title="Edit Account"
+        :edit="edit"
+        @new="onSubmit"
+        :id="id"
+      />
     </div>
   </div>
 </template>
@@ -40,7 +46,7 @@ export default {
   methods: {
     onSubmit(value) {
       this.loading = true;
-      console.log(value);
+      // console.log(value);
       this.$store
         .dispatch("account/UPDATE_ACCOUNT", value)
         .then(() => {
@@ -52,7 +58,7 @@ export default {
           this.loading = false;
           this.goBack();
         })
-        .catch(err => {
+        .catch(() => {
           this.loading = false;
           this.$toast.open({
             message:
@@ -67,4 +73,3 @@ export default {
   }
 };
 </script>
-

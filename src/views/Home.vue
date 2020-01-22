@@ -17,7 +17,7 @@
                 <i class="fas fa-dollar-sign"></i>
               </div>
               <h3>Transactions</h3>
-              <h1>{{reports.count}}</h1>
+              <h1>{{ reports.count }}</h1>
             </div>
           </div>
           <div class="dash-panel">
@@ -26,7 +26,7 @@
                 <i class="fas fa-chart-line"></i>
               </div>
               <h3>Spent</h3>
-              <h1>{{reports.transactions | currency('$')}}</h1>
+              <h1>{{ reports.transactions | currency("$") }}</h1>
             </div>
           </div>
 
@@ -36,7 +36,7 @@
                 <i class="fas fa-chart-bar"></i>
               </div>
               <h3>Deposits</h3>
-              <h1>{{reports.deposits | currency('$')}}</h1>
+              <h1>{{ reports.deposits | currency("$") }}</h1>
             </div>
           </div>
           <div class="dash-panel">
@@ -45,7 +45,7 @@
                 <i class="fas fa-chart-pie"></i>
               </div>
               <h3>Net Worth</h3>
-              <h1>{{reports.spent | currency('$')}}</h1>
+              <h1>{{ reports.spent | currency("$") }}</h1>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
                   <i class="fas fa-chart-area"></i>
                 </div>
                 <h3>Average Transaction</h3>
-                <h1>{{avg}}</h1>
+                <h1>{{ avg }}</h1>
               </div>
             </div>
             <div class="dash-panel">
@@ -66,11 +66,11 @@
                   <i class="fas fa-cash-register"></i>
                 </div>
                 <h3>Daily Average</h3>
-                <h1>{{daily}}</h1>
+                <h1>{{ daily }}</h1>
               </div>
             </div>
           </div>
-          <div class="pie">
+          <div class="pie" v-if="month.length >= 1">
             <Bar :chart="month" :key="updateChart" />
           </div>
         </div>
@@ -82,15 +82,14 @@
 // @ is an alias to /src
 import Loader from "@/components/Loader";
 import Bar from "@/components/Bar";
-import Pie from "@/components/Pie";
+
 import numeral from "numeral";
 
 export default {
   name: "home",
   components: {
     Loader,
-    Bar,
-    Pie
+    Bar
   },
   data() {
     return {
@@ -110,25 +109,10 @@ export default {
       }
     },
     month() {
-      //const month = this.$store.getters["home/get_month_report"];
-      if (
-        // this.$store.getters["home/get_month_report"] !== null ||
-        // this.$store.getters["home/get_month_report"] !== undefined ||
-        this.$store.getters["home/get_month_report"].length !== 0
-      ) {
-        return this.$store.getters["home/get_month_report"];
-      } else {
-        return [];
-      }
-      // return month !== null || month !== undefined ? month : "";
+      return this.$store.getters["home/get_month_report"];
     },
     chart() {
       const reports = this.reports.charts;
-      //let charts = [];
-
-      // charts[0] = Math.round(reports.spent);
-      // charts[1] = Math.round(reports.deposits);
-      // charts[2] = Math.round(reports.transactions);
 
       return reports;
     },
@@ -152,9 +136,8 @@ export default {
     }
   },
   watch: {
-    month(value) {
+    month() {
       this.updateChart++;
-      console.log(value);
     }
   },
   created() {

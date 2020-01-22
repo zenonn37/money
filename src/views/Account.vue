@@ -27,9 +27,9 @@
 import PageHeaders from "@/components/PageHeaders";
 import ListTable from "@/components/ListTable";
 import NewBtn from "@/components/btns/NewBtn";
-import { createNamespacedHelpers } from "vuex";
+//import { createNamespacedHelpers } from "vuex";
 import Loader from "@/components/Loader";
-const { mapGetters } = createNamespacedHelpers("GET_ACCOUNTS");
+//const { mapGetters } = createNamespacedHelpers("GET_ACCOUNTS");
 
 export default {
   name: "Account",
@@ -70,7 +70,7 @@ export default {
         });
         this.loading = false;
       })
-      .catch(err => {
+      .catch(() => {
         this.$toast.open({
           message: "Connection Error please refresh the page",
           type: "error",
@@ -80,4 +80,3 @@ export default {
   }
 };
 </script>
-

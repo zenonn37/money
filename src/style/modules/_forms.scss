@@ -44,8 +44,7 @@ input[type="text"],input[type="email"],input[type="password"]{
        border: none;
        box-sizing: border-box;
        outline: none;
-       background-color: $input-background;
-       
+       background-color: $input-background;       
        transition: all 0.4s ease-in-out;
      
     }

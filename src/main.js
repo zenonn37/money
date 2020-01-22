@@ -2,9 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store/store";
-import vmodal from 'vue-js-modal'
-import Guest from './layouts/Guest'
-import User from './layouts/User'
+import vmodal from "vue-js-modal";
+import Guest from "./layouts/Guest";
+import User from "./layouts/User";
 import "./filters/filter";
 import "./style/main.css";
 import "./plugins/vue-datetime";
@@ -13,21 +13,16 @@ import "./plugins/vee-validate";
 import "./plugins/vue-filters";
 import "./plugins/toast";
 
-import interceptor from './interceptor'
+import interceptor from "./interceptor";
 
-
-
-interceptor()
-
+interceptor();
 
 Vue.config.productionTip = false;
 
-
-
 Vue.use(vmodal);
 
-Vue.component('user', User);
-Vue.component('no-user', Guest);
+Vue.component("user", User);
+Vue.component("no-user", Guest);
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
@@ -54,7 +49,6 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
 
 new Vue({
   router,

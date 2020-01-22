@@ -6,7 +6,7 @@
 
 <script>
 import pie from "@/charts/pie.vue";
-import numeral from "numeral";
+//import numeral from "numeral";
 
 export default {
   name: "PieChart",
@@ -35,4 +35,3 @@ export default {
   }
 };
 </script>
-

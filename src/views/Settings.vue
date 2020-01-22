@@ -11,17 +11,17 @@
           </div>
           <div class="user-login">
             <h5>username</h5>
-            <h2>{{user.email}}</h2>
+            <h2>{{ user.email }}</h2>
             <hr />
           </div>
           <div class="user-name">
             <h5>name</h5>
-            <h2>{{user.name}}</h2>
+            <h2>{{ user.name }}</h2>
             <hr />
           </div>
           <div class="user-email">
             <h5>email</h5>
-            <h2>{{user.email}}</h2>
+            <h2>{{ user.email }}</h2>
             <hr />
           </div>
         </div>
@@ -54,5 +54,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

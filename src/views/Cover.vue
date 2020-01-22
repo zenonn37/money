@@ -16,7 +16,10 @@
         <div>
           <h1>Easily track every penny, with minimal effort</h1>
         </div>
-        <p>Track every transaction on all your accounts, and keep up with account balances</p>
+        <p>
+          Track every transaction on all your accounts, and keep up with account
+          balances
+        </p>
 
         <div class="action cursors" @click="set_register()">Get Started</div>
       </div>
@@ -45,4 +48,3 @@ export default {
   }
 };
 </script>
-

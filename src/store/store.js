@@ -1,10 +1,10 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import auth from "./modules/auth";
-import account from './modules/account';
-import transactions from './modules/transactions'
-import base from './modules/base'
-import home from './modules/home'
+import account from "./modules/account";
+import transactions from "./modules/transactions";
+import base from "./modules/base";
+import home from "./modules/home";
 
 Vue.use(Vuex);
 
@@ -17,8 +17,5 @@ export default new Vuex.Store({
     transactions,
     base,
     home
-
-
-
   }
 });

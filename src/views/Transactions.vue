@@ -12,13 +12,7 @@
         </div>
         <Range @range="onRange" :id="id" />
       </div>
-      <!-- <PageHeaders
-        title="Transactions"
-        :id="id"
-        menu1="Today"
-        menu2="This Week"
-        menu3="This Month"
-      />-->
+
       <div>
         <ListTable name="Name" :data="trans" :type="type" :acct_id="id" />
 
@@ -29,9 +23,8 @@
 </template>
 
 <script>
-import PageHeaders from "@/components/PageHeaders";
 import ListTable from "@/components/ListTable";
-import TransactionForm from "@/components/TransactionForm";
+
 import NewBtn from "@/components/btns/NewBtn";
 import ReturnBtn from "@/components/btns/ReturnBtn";
 import { prevRoutes } from "../mixins/prevRoute";
@@ -45,8 +38,7 @@ export default {
 
   components: {
     ListTable,
-    PageHeaders,
-    TransactionForm,
+
     NewBtn,
     ReturnBtn,
     Loader,
@@ -88,7 +80,7 @@ export default {
           });
           this.loading = false;
         })
-        .catch(err => {
+        .catch(() => {
           this.$toast.open({
             message: "Connection Error please refresh the page",
             type: "error",
@@ -107,7 +99,7 @@ export default {
           });
           this.loading = false;
         })
-        .catch(err => {
+        .catch(() => {
           this.$toast.open({
             message: "Connection Error please refresh the page",
             type: "error",
@@ -129,7 +121,7 @@ export default {
         });
         this.loading = false;
       })
-      .catch(err => {
+      .catch(() => {
         this.$toast.open({
           message: "Connection Error please refresh the page",
           type: "error",
@@ -140,4 +132,3 @@ export default {
   }
 };
 </script>
-

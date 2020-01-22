@@ -2,21 +2,19 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Account from "./views/Account.vue";
-import Transactions from './views/Transactions.vue';
-import Wallet from './views/Wallet.vue';
-import Expenses from './views/Expenses.vue';
-import New from './views/New'
-import Edit from './views/Edit'
-import NewAccount from './views/NewAccount'
-import EditAccount from './views/EditAccount'
-import Cover from './views/Cover'
-import Settings from './views/Settings.vue';
-import Help from './views/Help.vue';
+import Transactions from "./views/Transactions.vue";
+import Wallet from "./views/Wallet.vue";
+import Expenses from "./views/Expenses.vue";
+import New from "./views/New";
+import Edit from "./views/Edit";
+import NewAccount from "./views/NewAccount";
+import EditAccount from "./views/EditAccount";
+import Cover from "./views/Cover";
+//import Settings from "./views/Settings.vue";
+//import Help from "./views/Help.vue";
 
-import About from './views/About.vue';
+//import About from "./views/About.vue";
 import Auth from "./views/Auth.vue";
-
-
 
 Vue.use(Router);
 
@@ -43,7 +41,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/wallet',
+      path: "/wallet",
       name: "wallet",
       meta: {
         layout: "user",
@@ -52,7 +50,7 @@ export default new Router({
       component: Wallet
     },
     {
-      path: '/account',
+      path: "/account",
       name: "account",
       meta: {
         layout: "user",
@@ -61,7 +59,7 @@ export default new Router({
       component: Account
     },
     {
-      path: '/transactions/:id',
+      path: "/transactions/:id",
       name: "transactions",
       props: true,
       meta: {
@@ -71,7 +69,7 @@ export default new Router({
       component: Transactions
     },
     {
-      path: '/expenses',
+      path: "/expenses",
       name: "expenses",
       meta: {
         layout: "user",
@@ -81,7 +79,7 @@ export default new Router({
     },
 
     {
-      path: '/new/:id',
+      path: "/new/:id",
       name: "new",
       props: true,
       meta: {
@@ -91,7 +89,7 @@ export default new Router({
       component: New
     },
     {
-      path: '/new',
+      path: "/new",
       name: "new_account",
       meta: {
         layout: "user",
@@ -100,7 +98,7 @@ export default new Router({
       component: NewAccount
     },
     {
-      path: '/edit/:acct/:id',
+      path: "/edit/:acct/:id",
       name: "edit",
       props: true,
       meta: {
@@ -110,7 +108,7 @@ export default new Router({
       component: Edit
     },
     {
-      path: '/edit/:id',
+      path: "/edit/:id",
       name: "edit_account",
       props: true,
       meta: {
@@ -121,12 +119,11 @@ export default new Router({
     },
 
     {
-      path: '/auth',
+      path: "/auth",
       name: "auth",
       meta: {
         layout: "no-user",
         requiresVisitor: true
-
       },
       component: Auth
     },
@@ -137,7 +134,6 @@ export default new Router({
       meta: {
         layout: "user",
         requiresAuth: true
-
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -164,7 +160,6 @@ export default new Router({
       meta: {
         layout: "user",
         requiresAuth: true
-
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

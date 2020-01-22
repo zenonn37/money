@@ -6,7 +6,7 @@
           placeholder="Start"
           v-model="date"
           value-zone="America/New_York"
-          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
         ></datetime>
       </div>
       <div class="form-field">
@@ -14,7 +14,7 @@
           placeholder="End"
           v-model="date2"
           value-zone="America/New_York"
-          :format="{ year: 'numeric', month: 'long', day: 'numeric'}"
+          :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
         ></datetime>
       </div>
       <button type="submit">GO</button>
@@ -46,4 +46,3 @@ export default {
   }
 };
 </script>
-

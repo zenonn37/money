@@ -23,14 +23,13 @@
 <script>
 import TransactionForm from "@/components/TransactionForm";
 import { prevRoutes } from "../mixins/prevRoute.js";
-import ReturnBtn from "@/components/btns/ReturnBtn";
+
 export default {
   name: "New",
   props: ["id"],
   mixins: [prevRoutes],
   components: {
-    TransactionForm,
-    ReturnBtn
+    TransactionForm
   },
   data() {
     return {
@@ -64,7 +63,7 @@ export default {
 
           // }, 300);
         })
-        .catch(err => {
+        .catch(() => {
           this.$toast.open({
             message:
               this.errors !== null
@@ -78,4 +77,3 @@ export default {
   }
 };
 </script>
-

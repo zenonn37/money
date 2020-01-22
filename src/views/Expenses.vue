@@ -5,9 +5,9 @@
     <ListTable name="Name" />
 
     <ul>
-      <li v-for="exp of expense" :key="exp.id">{{exp.name}}</li>
+      <li v-for="exp of expense" :key="exp.id">{{ exp.name }}</li>
     </ul>
-    {{expense}}
+    {{ expense }}
   </div>
 </template>
 
@@ -58,4 +58,3 @@ export default {
   }
 };
 </script>
-

@@ -8,6 +8,7 @@
 import bar from "@/charts/bar.vue";
 
 import moment from "moment";
+import numeral from "numeral";
 export default {
   name: "LineChart",
   props: ["chart"],
@@ -35,9 +36,14 @@ export default {
     const lab = this.chart.map(label => {
       return moment(label.date).format("D MMM");
     });
+
+    //const array = [];
     const data = this.chart.map(trans => {
-      return trans.amount;
+      //console.log(numeral(trans.amount).format(0.0));
+      // array.push(numeral(trans.amount).format("$0.00"));
+      return numeral(trans.amount).format(0.0);
     });
+    // console.log(array);
 
     this.chartdata.datasets[0].data = data;
 
@@ -45,4 +51,3 @@ export default {
   }
 };
 </script>
-

@@ -3,17 +3,17 @@
     <div class="sort-header">
       <div class="cursors" @click="sortDates()">
         Date
-        <span>&#9660</span>
+        <span>&#9660;</span>
       </div>
       <div>
-        {{name}}
-        <span>&#9660</span>
+        {{ name }}
+        <span>&#9660;</span>
       </div>
 
       <div>Type</div>
       <div class="cursors" @click="sortAmount()">
         Balance
-        <span>&#9660</span>
+        <span>&#9660;</span>
       </div>
       <div>
         <div>Edit/Delete</div>
@@ -23,25 +23,28 @@
       <div class="mobile-parent" v-for="mobile in data" :key="mobile.id">
         <div class="mobile-left">
           <div class="mobile-dates">
-            <h2>{{mobile.date | day_short}}</h2>
-            <h5>{{mobile.date | month_short}}</h5>
+            <h2>{{ mobile.date | day_short }}</h2>
+            <h5>{{ mobile.date | month_short }}</h5>
           </div>
         </div>
-        <div class="mobile-title" :class="[type === true ? 'cursors': '']">
-          <router-link :to="`/transactions/${mobile.id}`" tag="h2" v-if="type">{{mobile.name}}</router-link>
-          <h2 v-else>{{mobile.name}}</h2>
-          <h5>{{mobile.type}}</h5>
+        <div class="mobile-title" :class="[type === true ? 'cursors' : '']">
+          <router-link
+            :to="`/transactions/${mobile.id}`"
+            tag="h2"
+            v-if="type"
+            >{{ mobile.name }}</router-link
+          >
+          <h2 v-else>{{ mobile.name }}</h2>
+          <h5>{{ mobile.type }}</h5>
         </div>
 
         <div class="mobile-amount">
-          <h2
-            v-if="type"
-            :class="[mobile.balance > 0 ?  'credit' : 'debit'  ]"
-          >{{mobile.balance | currency('$')}}</h2>
-          <h2
-            v-else
-            :class="[mobile.type === 'Deposit' ? 'credit' : 'debit' ]"
-          >{{mobile.amount | currency('$')}}</h2>
+          <h2 v-if="type" :class="[mobile.balance > 0 ? 'credit' : 'debit']">
+            {{ mobile.balance | currency("$") }}
+          </h2>
+          <h2 v-else :class="[mobile.type === 'Deposit' ? 'credit' : 'debit']">
+            {{ mobile.amount | currency("$") }}
+          </h2>
           <div class="mobile-functions">
             <div class="edit" v-if="route === 'account'">
               <i class="far fa-edit" @click="onEditAccount(mobile.id)"></i>
@@ -50,7 +53,10 @@
               <i class="far fa-edit" @click="onEdit(mobile.id)"></i>
             </div>
             <div class="delete" v-if="route === 'account'">
-              <i class="far fa-trash-alt" @click="onDeleteAccount(mobile.id)"></i>
+              <i
+                class="far fa-trash-alt"
+                @click="onDeleteAccount(mobile.id)"
+              ></i>
             </div>
             <div class="delete" v-else>
               <i class="far fa-trash-alt" @click="onDelete(mobile.id)"></i>
@@ -73,35 +79,39 @@
     <!-- <div class=""  v-if="data.length === 0">Add an Account to get started!</div> -->
     <div class="list-elements">
       <ul>
-        <li v-for="a in  data" :key="a.id" class="dates">{{a.date | day}}</li>
+        <li v-for="a in data" :key="a.id" class="dates">{{ a.date | day }}</li>
       </ul>
 
       <ul v-if="type">
         <li v-for="a in data" :key="a.id">
-          <router-link :to="`/transactions/${a.id}`">{{a.name}}</router-link>
+          <router-link :to="`/transactions/${a.id}`">{{ a.name }}</router-link>
         </li>
       </ul>
       <ul v-else>
-        <li v-for="a in data" :key="a.id">{{a.name}}</li>
+        <li v-for="a in data" :key="a.id">{{ a.name }}</li>
       </ul>
 
       <ul>
-        <li v-for="a in data" :key="a.id">{{a.type}}</li>
+        <li v-for="a in data" :key="a.id">{{ a.type }}</li>
       </ul>
 
       <ul v-if="type">
         <li
           v-for="a in data"
           :key="a.id"
-          :class="[a.balance > 0 ?  'credit' : 'debit'  ]"
-        >{{a.balance | currency('$')}}</li>
+          :class="[a.balance > 0 ? 'credit' : 'debit']"
+        >
+          {{ a.balance | currency("$") }}
+        </li>
       </ul>
       <ul v-else>
         <li
           v-for="a in data"
           :key="a.id"
-          :class="[a.type === 'Deposit' ? 'credit' : 'debit' ]"
-        >{{a.amount | currency('$')}}</li>
+          :class="[a.type === 'Deposit' ? 'credit' : 'debit']"
+        >
+          {{ a.amount | currency("$") }}
+        </li>
       </ul>
 
       <ul>
@@ -149,22 +159,22 @@ export default {
       return this.order ? this.transDESC : this.transASC;
     },
 
-    transASC() {
-      const trans = _.sortBy(this.data, [
-        function(value) {
-          return value.date;
-        }
-      ]);
-      return trans;
-    },
-    transDESC() {
-      const trans = _.sortBy(this.data, [
-        function(value) {
-          return value.date * -1;
-        }
-      ]);
-      return trans;
-    },
+    // transASC() {
+    //   const trans = _.sortBy(this.data, [
+    //     function(value) {
+    //       return value.date;
+    //     }
+    //   ]);
+    //   return trans;
+    // },
+    // transDESC() {
+    //   const trans = _.sortBy(this.data, [
+    //     function(value) {
+    //       return value.date * -1;
+    //     }
+    //   ]);
+    //   return trans;
+    // },
 
     links() {
       return this.$store.getters["transaction/GET_LINKS"];
@@ -190,20 +200,18 @@ export default {
         id: this.$route.params.id,
         page: page
       };
-      console.log(page);
+      //console.log(page);
       this.$store.dispatch("transactions/PAGE_TRANSACTIONS", data);
     },
     onEdit(id) {
-      console.log("transaction");
+      //console.log("transaction");
 
       const acct = this.$route.params.id;
 
       this.$router.push(`/edit/${acct}/${id}`);
     },
     onEditAccount(id) {
-      console.log("accounts");
-
-      const acct = this.$route.params.id;
+      // console.log("accounts");
 
       this.$router.push(`/edit/${id}`);
     },
@@ -228,4 +236,3 @@ export default {
   }
 };
 </script>
-

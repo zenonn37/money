@@ -83,10 +83,10 @@
 </template>
 
 <script>
-import TransactionsModal from "@/components/modals/TransactionsModal";
+//import TransactionsModal from "@/components/modals/TransactionsModal";
 export default {
   components: {
-    TransactionsModal
+    //TransactionsModal
   },
   data() {
     return {
@@ -96,13 +96,13 @@ export default {
   },
   methods: {
     onClose() {
-      console.log("close");
+      // console.log("close");
       if (this.window > 1024) {
         return false;
       }
       this.$store.dispatch("base/set_aside");
     },
-    resizeTracker(e) {
+    resizeTracker() {
       //console.log(window.innerWidth);
       this.width = window.innerWidth;
     }

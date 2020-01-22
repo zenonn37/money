@@ -54,7 +54,7 @@ export default {
           this.loading = false;
           this.goBack();
         })
-        .catch(err => {
+        .catch(() => {
           this.$toast.open({
             message: "Connection Error please refresh the page",
             type: "error",
@@ -65,4 +65,3 @@ export default {
   }
 };
 </script>
-

@@ -15,7 +15,7 @@
       </nav>
 
       <div class="computed">
-        <div class="balance">{{ balance.net | currency('$')}}</div>
+        <div class="balance">{{ balance.net | currency("$") }}</div>
       </div>
     </div>
   </header>
@@ -40,19 +40,13 @@ export default {
   methods: {
     logOut() {
       this.$store.dispatch("LOGOUT").then(() => {
-        console.log("called");
-
         this.$router.push("/auth");
       });
     },
     menu() {
-      console.log("new menu");
       this.$store.dispatch("base/set_aside");
     },
-    notifications() {
-      console.log("check notes");
-    }
+    notifications() {}
   }
 };
 </script>
-
