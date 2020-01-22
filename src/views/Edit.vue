@@ -42,7 +42,7 @@ export default {
   methods: {
     onSubmit(value) {
       this.loading = true;
-      console.log(value);
+
       this.$store
         .dispatch("transactions/UPDATE_TRANSACTION", value)
         .then(() => {

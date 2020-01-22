@@ -36,8 +36,6 @@
 export default {
   methods: {
     set_login() {
-      console.log("pressed");
-
       this.$store.dispatch("base/set_auth_login");
       this.$router.push("/auth");
     },
