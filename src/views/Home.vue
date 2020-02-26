@@ -117,18 +117,12 @@ export default {
       return reports;
     },
     avg() {
-      const reports = this.reports.all;
-
-      let avgArray = arr => arr.reduce((a, b) => a + b, 0) / reports.length;
-      let avg = avgArray(reports);
-
-      //console.log(reports.all);
-      return numeral(avg).format("$0.00");
+      return numeral(this.reports.avg).format("$0.00");
     },
     daily() {
       const reports = this.reports.all;
 
-      let avgArray = arr => arr.reduce((a, b) => a + b, 0) / 30;
+      let avgArray = arr => arr.reduce((a, b) => a + b.amount, 0) / 30;
       let avg = avgArray(reports);
 
       //console.log(reports.all);

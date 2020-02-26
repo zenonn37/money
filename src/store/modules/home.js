@@ -59,7 +59,7 @@ const actions = {
             spent: res.data.spent,
             count: res.data.count,
             all: res.data.all,
-            charts: res.data.charts
+            avg: res.data.avg
           };
           commit("set_reports", data);
         })
