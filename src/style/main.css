@@ -1919,7 +1919,7 @@ html {
 body {
   height: 100vh;
   background-color: #e2dfdf;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 a {
@@ -1986,7 +1986,7 @@ img {
 }
 
 .debit::before {
-  content: '\2212';
+  content: "\2212";
 }
 
 .credit {
@@ -1994,7 +1994,7 @@ img {
 }
 
 .credit::before {
-  content: '\002B';
+  content: "\002B";
 }
 
 .top-spacer {
@@ -2007,22 +2007,26 @@ img {
 
 .errors {
   color: rgba(207, 91, 56, 0.781);
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .fadeIn {
-  -webkit-animation-duration: .25s;
-          animation-duration: .25s;
+  -webkit-animation-duration: 0.25s;
+          animation-duration: 0.25s;
 }
 
 .fadeOut {
-  -webkit-animation-duration: .25s;
-          animation-duration: .25s;
+  -webkit-animation-duration: 0.25s;
+          animation-duration: 0.25s;
 }
 
 @media (max-width: 768px) {
   .page-headers {
     display: none;
+  }
+  .container {
+    width: 100%;
+    margin: 0;
   }
 }
 /*# sourceMappingURL=main.css.map */

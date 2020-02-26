@@ -1,132 +1,131 @@
 //@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css";
 
-@import './vars/vars';
-@import './mixins/mixins';
-@import './modules/header';
-@import './modules/header';
-@import './modules/sidebar';
-@import './modules/content';
-@import './modules/list_table';
-@import './modules/forms';
-@import './modules/computed';
-@import './modules/paginate';
-@import './modules/mobile_list';
-@import './modules/auth';
-@import './modules/loaders';
-@import './modules/dashboard';
-@import './modules/cover';
-@import './modules/settings';
-@import './modules/help';
-@import './modules/faq';
+@import "./vars/vars";
+@import "./mixins/mixins";
+@import "./modules/header";
+@import "./modules/header";
+@import "./modules/sidebar";
+@import "./modules/content";
+@import "./modules/list_table";
+@import "./modules/forms";
+@import "./modules/computed";
+@import "./modules/paginate";
+@import "./modules/mobile_list";
+@import "./modules/auth";
+@import "./modules/loaders";
+@import "./modules/dashboard";
+@import "./modules/cover";
+@import "./modules/settings";
+@import "./modules/help";
+@import "./modules/faq";
 
-*{
-    margin:0
+* {
+  margin: 0;
 }
 *,
 *::after,
-*::before{
-    @include box-sizing(inherit);
+*::before {
+  @include box-sizing(inherit);
 }
 
-html{
-    @include box-sizing(border-box);
-    height: 100%;
+html {
+  @include box-sizing(border-box);
+  height: 100%;
 }
 
-body{
-    height: 100vh;
-    background-color: $body;
-    font-family: 'Roboto Condensed', sans-serif;
-   
+body {
+  height: 100vh;
+  background-color: $body;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
-
-
-a{
-    text-decoration: none;
-    color: $listFont;
+a {
+  text-decoration: none;
+  color: $listFont;
 }
-ul{
-    list-style: none;
-    padding: 0;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-i{
-    margin: 0 1rem;
-    font-size: 1.2rem;
-    }
-    
-    img{
-        max-width: 100%;
-    }
+i {
+  margin: 0 1rem;
+  font-size: 1.2rem;
+}
 
-    .app{
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+img {
+  max-width: 100%;
+}
 
-    .main-content{
-        display: flex;
-        flex: 1;
-        position: relative;
-     
-    }
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-    .content{
-        flex:1;
-      
-        //padding: 1rem;
-    }
-    .container{
-        max-width: 1200px;
-        margin: 0 auto;
-        width: 90%;
-    }
-    .mobile-container{
-        max-width: 700px;
-        margin: 0 auto;
-        width: 90%;
-        margin-top: 1.3rem;
-    }
-    .debit{
-        color:$negative;
-        &::before{
-            content: '\2212';
-        }
-       }
-       .credit{
-           color: $positive;
-           &::before{
-               content: '\002B';
-           }
-       }  
-       .top-spacer{
-           margin-top:1.5rem;
-       }
+.main-content {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
 
-    .cursors{
-        cursor: pointer;
-    }
-    .errors{
-        color: $negative;
-        margin-top: .5em;
-    }
+.content {
+  flex: 1;
 
-    .fadeIn{
-        animation-duration: .25s;
-        // animation-delay: 2s;
-        // animation-iteration-count: infinite;
-    }
-    .fadeOut{
-        animation-duration: .25s;
-        // animation-delay: 2s;
-        // animation-iteration-count: infinite;
-    }
+  //padding: 1rem;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
+}
+.mobile-container {
+  max-width: 700px;
+  margin: 0 auto;
+  width: 90%;
+  margin-top: 1.3rem;
+}
+.debit {
+  color: $negative;
+  &::before {
+    content: "\2212";
+  }
+}
+.credit {
+  color: $positive;
+  &::before {
+    content: "\002B";
+  }
+}
+.top-spacer {
+  margin-top: 1.5rem;
+}
 
-    
-    @media(max-width:768px){
-        .page-headers{
-            display: none;
-        }
-    }
+.cursors {
+  cursor: pointer;
+}
+.errors {
+  color: $negative;
+  margin-top: 0.5em;
+}
+
+.fadeIn {
+  animation-duration: 0.25s;
+  // animation-delay: 2s;
+  // animation-iteration-count: infinite;
+}
+.fadeOut {
+  animation-duration: 0.25s;
+  // animation-delay: 2s;
+  // animation-iteration-count: infinite;
+}
+
+@media (max-width: 768px) {
+  .page-headers {
+    display: none;
+  }
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+}
