@@ -1695,7 +1695,9 @@ select {
           justify-content: center;
 }
 
-.cover-parent h1, .cover-parent h2, .cover-parent h3 {
+.cover-parent h1,
+.cover-parent h2,
+.cover-parent h3 {
   margin: 0;
 }
 
@@ -1732,7 +1734,14 @@ select {
 
 .cover-parent .cover-left .action {
   height: 50px;
-  width: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   color: #fff;
   background-color: #67c767;
   padding: 1rem;
