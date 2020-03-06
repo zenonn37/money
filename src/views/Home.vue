@@ -25,7 +25,7 @@
               <div class="dash-icons">
                 <i class="fas fa-chart-line"></i>
               </div>
-              <h3>Spent</h3>
+              <h3>Debits</h3>
               <h1>{{ reports.transactions | currency("$") }}</h1>
             </div>
           </div>
@@ -44,7 +44,7 @@
               <div class="dash-icons">
                 <i class="fas fa-chart-pie"></i>
               </div>
-              <h3>Net Worth</h3>
+              <h3>Available</h3>
               <h1>{{ reports.spent | currency("$") }}</h1>
             </div>
           </div>
@@ -120,13 +120,13 @@ export default {
       return numeral(this.reports.avg).format("$0.00");
     },
     daily() {
-      const reports = this.reports.all;
+      return numeral(this.reports.daily).format("$0.00");
 
-      let avgArray = arr => arr.reduce((a, b) => a + b.amount, 0) / 30;
-      let avg = avgArray(reports);
+      // let avgArray = arr => arr.reduce((a, b) => a + b.amount, 0) / 30;
+      // let avg = avgArray(reports);
 
-      //console.log(reports.all);
-      return numeral(avg).format("$0.00");
+      // //console.log(reports.all);
+      // return numeral(avg).format("$0.00");
     }
   },
   watch: {

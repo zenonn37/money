@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const state = {
-  report: null,
+  report: "",
   month: [],
   bar: [],
   pie: []
@@ -37,8 +37,8 @@ const actions = {
       axios
         .get("month")
         .then(res => {
-          resolve(res);
           commit("month_report", res.data);
+          resolve(res);
         })
         .catch(err => {
           reject(err);
@@ -52,20 +52,22 @@ const actions = {
         .get("worth")
         .then(res => {
           dispatch("monthReport");
-          resolve(res);
-          const data = {
-            transactions: res.data.transactions,
-            deposits: res.data.deposits,
-            spent: res.data.spent,
-            count: res.data.count,
-            all: res.data.all,
-            avg: res.data.avg
+          let all = res.data;
+          let data = {
+            transactions: all.amount,
+            deposits: all.deposits,
+            spent: all.net,
+            count: all.count,
+            avg: all.average,
+            daily: all.daily
           };
+
           commit("set_reports", data);
+          resolve(res);
         })
         .catch(err => {
-          reject(err);
           commit("base/set_errors", err.response.data.message, { root: true });
+          reject(err);
         });
     });
   }
