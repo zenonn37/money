@@ -7,6 +7,45 @@
   }
 }
 
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "dash-header dash-header dash-header dash-header"
+    "dash-icons dash-icons dash-icons dash-icons"
+    "dash-icon-chart dash-icon-chart dash-icon-chart dash-icon-chart";
+}
+
+.dash-header {
+  grid-area: dash-header;
+  height: 100px;
+  background-color: goldenrod;
+}
+.dash-icon-row {
+  grid-area: dash-icons;
+  height: 300px;
+  background-color: indianred;
+}
+.dash-icon-chart {
+  grid-area: dash-icon-chart;
+  height: 300px;
+}
+
+.dash-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $trim;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.8rem;
+  border-radius: 50%;
+
+  i {
+    color: $white;
+  }
+}
+
 .dash-parent {
   display: flex;
 

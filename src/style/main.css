@@ -1396,6 +1396,61 @@ select {
   width: 20%;
 }
 
+.dash-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-areas: "dash-header dash-header dash-header dash-header" "dash-icons dash-icons dash-icons dash-icons" "dash-icon-chart dash-icon-chart dash-icon-chart dash-icon-chart";
+}
+
+.dash-header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: dash-header;
+  height: 100px;
+  background-color: goldenrod;
+}
+
+.dash-icon-row {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: dash-icons;
+  height: 300px;
+  background-color: indianred;
+}
+
+.dash-icon-chart {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: dash-icon-chart;
+  height: 300px;
+}
+
+.dash-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #a8a5eb;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.8rem;
+  border-radius: 50%;
+}
+
+.dash-icons i {
+  color: #fff;
+}
+
 .dash-parent {
   display: -webkit-box;
   display: -ms-flexbox;

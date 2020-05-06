@@ -1,10 +1,6 @@
 <template>
   <div>
-    <!-- <div class="page-header">
-      <div class="page-title">Dashboard</div>
-    </div>-->
-
-    <template v-if="loading">
+    <!-- <template v-if="loading">
       <Loader />
     </template>
 
@@ -79,21 +75,25 @@
           </div>
         </div>
       </div>
-    </template>
+    </template>-->
+
+    <DasboardBoardComponent />
   </div>
 </template>
 <script>
 // @ is an alias to /src
-import Loader from "@/components/Loader";
-import Bar from "@/components/Bar";
+//import Loader from "@/components/Loader";
+//import Bar from "@/components/Bar";
 
 import numeral from "numeral";
+import DasboardBoardComponent from "@/components/dashboard/dashComponent";
 
 export default {
   name: "home",
   components: {
-    Loader,
-    Bar
+    // Loader,
+    // Bar
+    DasboardBoardComponent
   },
   data() {
     return {
