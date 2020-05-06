@@ -1380,6 +1380,22 @@ select {
   width: 75px;
 }
 
+.no-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.no-data img {
+  width: 50%;
+}
+
 .dash-parent {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1395,7 +1411,8 @@ select {
   padding: 1rem;
 }
 
-.dash-parent .dash-panel h1, .dash-parent .dash-panel h3 {
+.dash-parent .dash-panel h1,
+.dash-parent .dash-panel h3 {
   margin: 0;
 }
 
@@ -1413,7 +1430,7 @@ select {
 }
 
 .dash-parent .panel-child h3 {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .dash-parent .panel-child div {
@@ -1434,7 +1451,7 @@ select {
   background-color: #a8a5eb;
   width: 40px;
   height: 40px;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
   border-radius: 50%;
 }
 
@@ -1474,7 +1491,8 @@ select {
   padding: 1rem;
 }
 
-.dash-charts .bar .dash-panel h1, .dash-charts .bar .dash-panel h3 {
+.dash-charts .bar .dash-panel h1,
+.dash-charts .bar .dash-panel h3 {
   margin: 0;
 }
 
@@ -1492,7 +1510,7 @@ select {
 }
 
 .dash-charts .bar .dash-panel .panel-child h3 {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .dash-charts .bar .dash-panel .panel-child div {
@@ -1513,7 +1531,7 @@ select {
   background-color: #a8a5eb;
   width: 40px;
   height: 40px;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
   border-radius: 50%;
 }
 
@@ -1534,7 +1552,8 @@ select {
     padding: 1rem;
     width: 110px;
   }
-  .dash-parent .dash-panel h1, .dash-parent .dash-panel h3 {
+  .dash-parent .dash-panel h1,
+  .dash-parent .dash-panel h3 {
     margin: 0;
   }
   .dash-parent .panel-child {
@@ -1549,7 +1568,7 @@ select {
     font-size: 16px;
   }
   .dash-parent .panel-child h3 {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     font-size: 16px;
   }
   .dash-parent .panel-child div {
@@ -1569,7 +1588,7 @@ select {
     background-color: #a8a5eb;
     width: 40px;
     height: 40px;
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
     border-radius: 50%;
   }
   .dash-parent .panel-child .dash-icons i {
@@ -1608,12 +1627,13 @@ select {
             justify-content: center;
   }
   .dash-charts .bar .dash-panel {
-    padding: .2rem;
+    padding: 0.2rem;
     width: 110px;
     max-width: 110px;
     text-align: center;
   }
-  .dash-charts .bar .dash-panel h1, .dash-charts .bar .dash-panel h3 {
+  .dash-charts .bar .dash-panel h1,
+  .dash-charts .bar .dash-panel h3 {
     margin: 0;
     font-size: 16px;
   }
@@ -1645,7 +1665,7 @@ select {
     background-color: #a8a5eb;
     width: 40px;
     height: 40px;
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
     border-radius: 50%;
   }
   .dash-charts .bar .dash-icons i {

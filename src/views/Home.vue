@@ -73,6 +73,10 @@
           <div class="pie" v-if="month.length >= 1">
             <Bar :chart="month" :key="updateChart" />
           </div>
+
+          <div v-else class="no-data">
+            <img src="@/assets/charts.svg" />
+          </div>
         </div>
       </div>
     </template>
