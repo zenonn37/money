@@ -1,25 +1,20 @@
 <template>
   <div class="app">
+    <SideNav />
+    <Header />
     <main class="main-content">
-      <SideBar />
-      <div class="content">
-        <Header />
-        <div class="container">
-          <div class="render">
-            <slot />
-          </div>
-        </div>
-      </div>
+      <!-- <slot /> -->
     </main>
   </div>
 </template>
 
 <script>
-import SideBar from "@/components/SideBar";
+import SideNav from "@/components/nav/side_nav";
+
 import Header from "@/components/Header";
 export default {
   components: {
-    SideBar,
+    SideNav,
     Header
   }
 };

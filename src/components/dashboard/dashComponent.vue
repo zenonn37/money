@@ -3,6 +3,7 @@
     <div class="dash-header">Dash Header</div>
 
     <div class="dash-icon-row"></div>
+    <div class="dash-icon-chart"></div>
 
     <!-- <div class="dash-content">
       <div class="icon-row">

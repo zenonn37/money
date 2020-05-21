@@ -2,25 +2,29 @@
 
 @import "./vars/vars";
 @import "./mixins/mixins";
-@import "./modules/header";
-@import "./modules/header";
-@import "./modules/sidebar";
-@import "./modules/content";
-@import "./modules/list_table";
-@import "./modules/forms";
-@import "./modules/computed";
-@import "./modules/paginate";
-@import "./modules/mobile_list";
-@import "./modules/auth";
-@import "./modules/loaders";
-@import "./modules/dashboard";
-@import "./modules/cover";
-@import "./modules/settings";
-@import "./modules/help";
-@import "./modules/faq";
+
+@import "./modules/nav";
+@import "./modules/main_header";
+// @import "./modules/header";
+
+// @import "./modules/sidebar";
+// @import "./modules/content";
+// @import "./modules/list_table";
+// @import "./modules/forms";
+// @import "./modules/computed";
+// @import "./modules/paginate";
+// @import "./modules/mobile_list";
+// @import "./modules/auth";
+// @import "./modules/loaders";
+// @import "./modules/dashboard";
+// @import "./modules/cover";
+// @import "./modules/settings";
+// @import "./modules/help";
+// @import "./modules/faq";
 
 * {
   margin: 0;
+  padding: 0;
 }
 *,
 *::after,
@@ -30,13 +34,22 @@
 
 html {
   @include box-sizing(border-box);
-  height: 100%;
 }
 
 body {
-  height: 100vh;
-  background-color: $body;
+  background-color: $white;
   font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+  &::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $primaryDark;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $trim;
+  }
 }
 
 a {
@@ -60,30 +73,22 @@ img {
 .app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 .main-content {
-  display: flex;
-  flex: 1;
-  position: relative;
+  margin-left: 5rem;
+  margin-top: -5rem;
+  background: $white;
+  height: 100vh;
+  border-radius: 15px 15px 0 0;
 }
 
 .content {
-  flex: 1;
-
   //padding: 1rem;
 }
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 90%;
 }
 .mobile-container {
-  max-width: 700px;
-  margin: 0 auto;
-  width: 90%;
-  margin-top: 1.3rem;
 }
 .debit {
   color: $negative;
@@ -125,7 +130,5 @@ img {
     display: none;
   }
   .container {
-    width: 100%;
-    margin: 0;
   }
 }

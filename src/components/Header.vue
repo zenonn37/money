@@ -1,23 +1,19 @@
 <template>
-  <header>
-    <div class="container">
+  <header class="header">
+    <!-- <div class="container">
       <nav class="nav-container">
         <div @click="menu()" class="menu">
           <i class="fas fa-bars"></i>
         </div>
 
-        <!-- <div @click="notifications()" class="notifications">
-          <i class="far fa-bell"></i>
-        </div>-->
-        <div class="log-out" @click="logOut()">
-          <i class="fas fa-sign-out-alt"></i>
-        </div>
+      
+       
       </nav>
 
       <div class="computed">
         <div class="balance">{{ balance.net | currency("$") }}</div>
       </div>
-    </div>
+    </div>-->
   </header>
 </template>
 
