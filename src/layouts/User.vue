@@ -3,7 +3,7 @@
     <SideNav />
     <Header />
     <main class="main-content">
-      <!-- <slot /> -->
+      <slot />
     </main>
   </div>
 </template>

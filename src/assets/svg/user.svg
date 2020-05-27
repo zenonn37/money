@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>ion-person-circle-sharp</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-XR" transform="translate(-276.000000, -853.000000)" fill-rule="nonzero">
+            <g id="nav_icons" transform="translate(27.000000, 850.000000)">
+                <g id="ion-person-circle-sharp" transform="translate(246.000000, 0.000000)">
+                    <g id="Icon" fill="#A8A5EB">
+                        <path d="M16,3 C8.831875,3 3,8.831875 3,16 C3,23.168125 8.831875,29 16,29 C23.168125,29 29,23.168125 29,16 C29,8.831875 23.168125,3 16,3 Z M16.125,9 C18.6102814,9 20.625,11.0147186 20.625,13.5 C20.625,15.9852814 18.6102814,18 16.125,18 C13.6397186,18 11.625,15.9852814 11.625,13.5 C11.625,11.0147186 13.6397186,9 16.125,9 Z M16,27 C12.9325793,27.0012697 10.0046874,25.7184188 7.92625,23.4625 C8.47875,20.60125 13.44125,20 16,20 C18.55875,20 23.52125,20.60125 24.07375,23.461875 C21.9955592,25.7182161 19.0675643,27.0013388 16,27 Z" id="Icon-Shape"></path>
+                    </g>
+                    <rect id="ViewBox" x="0" y="0" width="32" height="32"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

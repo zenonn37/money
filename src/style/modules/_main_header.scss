@@ -1,6 +1,5 @@
 .header {
   height: 350px;
-  margin-left: 5rem;
   background: rgb(2, 0, 36);
   background: linear-gradient(
     273deg,
@@ -8,4 +7,12 @@
     rgba(58, 56, 151, 0.9556197478991597) 0%,
     rgba(163, 161, 255, 1) 100%
   );
+}
+//media
+
+@media screen and (min-width: 1025px) {
+  .header {
+    height: 350px;
+    margin-left: 5rem;
+  }
 }

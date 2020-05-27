@@ -1,6 +1,72 @@
 .nav {
-  height: 100vh;
+  height: 4rem;
   position: fixed;
-  width: 5rem;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   background: $primary;
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: inherit;
+  }
+}
+.navbar {
+  height: 100%;
+}
+.logo-item {
+  display: none;
+}
+.exit-item {
+  display: none;
+}
+
+@media screen and (min-width: 1025px) {
+  .nav {
+    height: 100vh;
+    position: fixed;
+    width: 5rem;
+    background: $primary;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ul {
+      display: flex;
+      flex-direction: column;
+      height: 300px;
+      max-height: 300px;
+    }
+  }
+  .logo-item {
+    display: block;
+    flex: 1;
+
+    width: 100%;
+  }
+  .nav-contents {
+    flex: 1;
+  }
+  .exit-item {
+    display: block;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 1.6rem;
+  }
+  .logo {
+    background: $primaryDark;
+    width: inherit;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 375px) {
 }
