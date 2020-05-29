@@ -8,6 +8,20 @@
     rgba(163, 161, 255, 1) 100%
   );
 }
+.greeting {
+  color: $white;
+}
+.interactive {
+  display: flex;
+  justify-content: flex-end;
+}
+.balances {
+  color: $white;
+  font-size: 7.2rem;
+  .title {
+    font-size: 1.5rem;
+  }
+}
 //media
 
 @media screen and (min-width: 1025px) {

@@ -3,7 +3,9 @@
     <SideNav />
     <Header />
     <main class="main-content">
-      <slot />
+      <div class="container">
+        <slot />
+      </div>
     </main>
   </div>
 </template>

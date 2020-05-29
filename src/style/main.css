@@ -112,6 +112,28 @@
   background: linear-gradient(273deg, #020024 0%, rgba(58, 56, 151, 0.95562) 0%, #a3a1ff 100%);
 }
 
+.greeting {
+  color: #fff;
+}
+
+.interactive {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.balances {
+  color: #fff;
+  font-size: 7.2rem;
+}
+
+.balances .title {
+  font-size: 1.5rem;
+}
+
 @media screen and (min-width: 1025px) {
   .header {
     height: 350px;
@@ -187,7 +209,13 @@ img {
   margin-left: 5rem;
   margin-top: -5rem;
   background: #fff;
+  min-height: 50vh;
   border-radius: 15px 15px 0 0;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 .debit {
