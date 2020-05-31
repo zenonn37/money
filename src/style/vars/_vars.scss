@@ -1,24 +1,29 @@
 //theme
-$primary:#393857;
-$primaryDark:#30304D;
-$trim:rgb(168, 165, 235);
-$destroy:rgb(219, 58, 58);
-$negative:rgba(207, 91, 56, 0.781);
-$positive:rgb(103, 212, 103);
-$action_green:rgb(103, 199, 103);
-$white:#fff;
-$body:#e2dfdf;
-$titles:#D8D8D8;
-$titleFont:18px;
-$listFont:#2A2A44;
-$pageLink:14px;
-$default-page-LM:3rem;
-$input-background:#f1f1f1;
+$primary: #393857;
+$primaryDark: #30304d;
+$trim: rgb(168, 165, 235);
+$destroy: rgb(219, 58, 58);
+$negative: rgba(207, 91, 56, 0.781);
+$positive: rgb(103, 212, 103);
+$action_green: rgb(103, 199, 103);
+$white: #fff;
+$body: #e2dfdf;
+$titles: #d8d8d8;
+$titleFont: 18px;
+$listFont: #2a2a44;
+$pageLink: 14px;
+$default-page-LM: 3rem;
+$input-background: #f1f1f1;
 $input-focus: rgb(83, 82, 82);
-$border-focus:rgba(0, 12, 55, 0.1);
-$shadow:0px 2px 8px 4px rgba(0,0,0,0.10);
-$shadow2:0px 2px 8px 4px rgba(0,0,0,0.30);
+$border-focus: rgba(0, 12, 55, 0.1);
+$shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+$shadow2: 0px 2px 8px 4px rgba(0, 0, 0, 0.3);
+$tableFontSize: 20px;
+$fontColor: #565656;
 
-$gradient1:linear-gradient(273deg, rgba(2,0,36,1) 0%,
-rgba(58,56,151,0.9556197478991597) 0%,
-rgba(163,161,255,1) 100%);
+$gradient1: linear-gradient(
+  273deg,
+  rgba(2, 0, 36, 1) 0%,
+  rgba(58, 56, 151, 0.9556197478991597) 0%,
+  rgba(163, 161, 255, 1) 100%
+);

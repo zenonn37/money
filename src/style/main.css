@@ -91,7 +91,7 @@
     padding-bottom: 1.6rem;
   }
   .logo {
-    background: #30304D;
+    background: #30304d;
     width: inherit;
     height: 5rem;
     display: -webkit-box;
@@ -141,6 +141,35 @@
   }
 }
 
+td,
+th {
+  font-size: 20px;
+  text-align: left;
+}
+
+th {
+  padding-bottom: 3rem;
+}
+
+tbody td {
+  padding: 1rem;
+}
+
+.page-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page-title {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -162,6 +191,7 @@ body {
   background-color: #fff;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 16px;
+  color: #565656;
 }
 
 body::-webkit-scrollbar {
@@ -169,16 +199,20 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background-color: #30304D;
+  background-color: #30304d;
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: #a8a5eb;
 }
 
+table {
+  width: 100%;
+}
+
 a {
   text-decoration: none;
-  color: #2A2A44;
+  color: #2a2a44;
 }
 
 ul {
