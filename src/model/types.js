@@ -1,6 +1,6 @@
 export const types = [
   "Debit",
-  "Credit Card",
+  "Credit",
   "Check",
   "PayPal",
   "Apple Pay",
@@ -8,7 +8,7 @@ export const types = [
   "Visa Pay",
   "Venmo",
   "Deposit",
-  "ATM"
+  "ATM",
 ];
 
 export const acct = [
@@ -18,5 +18,8 @@ export const acct = [
   "Savings",
   "CD",
   "Business Checking",
-  "Money Market"
+  "Money Market",
+  "PayPal",
+  "Apple",
+  "Google",
 ];

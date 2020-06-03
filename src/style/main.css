@@ -152,7 +152,7 @@ th {
 }
 
 tbody td {
-  padding: 1rem;
+  padding: 1rem 0 1rem 0;
 }
 
 .page-header {
@@ -291,7 +291,14 @@ img {
           animation-duration: 0.25s;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1025px) {
+  .main-content {
+    margin-left: 0;
+    margin-top: -5rem;
+    background: #fff;
+    min-height: 50vh;
+    border-radius: 15px 15px 0 0;
+  }
   .page-headers {
     display: none;
   }

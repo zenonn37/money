@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>mdi-finance</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-268.000000, -474.000000)" fill-rule="nonzero">
+            <g id="mdi-finance" transform="translate(265.000000, 471.000000)">
+                <g id="Icon" fill="#565656">
+                    <path d="M6,16.5 L3,19.44 L3,11 L6,11 M11,14.66 L9.43,13.32 L8,14.64 L8,7 L11,7 M16,13 L13,16 L13,3 L16,3 M18.81,12.81 L17,11 L22,11 L22,16 L20.21,14.21 L13,21.36 L9.53,18.34 L5.75,22 L3,22 L9.47,15.66 L13,18.64" id="Icon-Shape"></path>
+                </g>
+                <rect id="ViewBox" x="0" y="0" width="24" height="24"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

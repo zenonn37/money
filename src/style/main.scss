@@ -136,7 +136,16 @@ img {
   // animation-iteration-count: infinite;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1025px) {
+  .main-content {
+    margin-left: 0;
+    margin-top: -5rem;
+    background: $white;
+    min-height: 50vh;
+
+    //height: 100vh;
+    border-radius: 15px 15px 0 0;
+  }
   .page-headers {
     display: none;
   }

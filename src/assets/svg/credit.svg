@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="16px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>bx-bx-credit-card-alt</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-267.000000, -811.000000)" fill-rule="nonzero">
+            <g id="bx-bx-credit-card-alt" transform="translate(265.000000, 807.000000)">
+                <g id="Icon" fill="#565656">
+                    <circle id="Icon-Oval" cx="15.5" cy="13.5" r="2.5"></circle>
+                    <path d="M12,13.5 C12,12.685 12.396,11.968 13,11.512 C12.5698203,11.181189 12.0426684,11.0012545 11.5,11 C10.1192881,11 9,12.1192881 9,13.5 C9,14.8807119 10.1192881,16 11.5,16 C12.0426684,15.9987455 12.5698203,15.818811 13,15.488 C12.372125,15.0198499 12.0015725,14.2831915 12,13.5 L12,13.5 Z" id="Icon-Path"></path>
+                    <path d="M20,4 L4,4 C2.897,4 2,4.897 2,6 L2,18 C2,19.103 2.897,20 4,20 L20,20 C21.103,20 22,19.103 22,18 L22,6 C22,4.897 21.103,4 20,4 Z M4,18 L4,6 L20,6 L20.002,18 L4,18 Z" id="Icon-Shape"></path>
+                </g>
+                <rect id="ViewBox" x="0" y="0" width="24" height="24"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
