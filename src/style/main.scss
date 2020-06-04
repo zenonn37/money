@@ -57,7 +57,25 @@ body {
   }
 }
 table {
-  width: 100%;
+  width: 90%;
+  margin-top: 5rem;
+  td,
+  th {
+    // border: 1px solid black;
+
+    font-size: $tableFontSize;
+    text-align: left;
+  }
+
+  th {
+    padding-bottom: 3rem;
+  }
+
+  tbody {
+    td {
+      padding: 1rem 0 1rem 0;
+    }
+  }
 }
 
 a {

@@ -1,26 +1,27 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Home from "@/views/Home.vue";
 
 import Account from "@/views/accounts/Account.vue";
 import Accounts from "@/views/accounts/Accounts.vue";
 import Analytics from "@/views/accounts/Analytics.vue";
 import Budget from "@/views/accounts/Budgets.vue";
 
-import Transactions from "./views/accounts/Transactions.vue";
+import Transactions from "@/views/accounts/Transactions.vue";
+import TransactionsTable from "@/views/accounts/transactions/TransactionsTable.vue";
 import Users from "@/views/users/Users.vue";
 import Info from "@/views/users/Info.vue";
 import Expenses from "@/views/expense/Expenses.vue";
-import New from "./views/accounts/New";
-import Edit from "./views/Edit";
-import NewAccount from "./views/accounts/NewAccount";
-import EditAccount from "./views/accounts/EditAccount";
-import Cover from "./views/Cover";
+import New from "@/views/accounts/New";
+import Edit from "@/views/Edit";
+import NewAccount from "@/views/accounts/NewAccount";
+import EditAccount from "@/views/accounts/EditAccount";
+import Cover from "@/views/Cover";
 //import Settings from "./views/Settings.vue";
 //import Help from "./views/Help.vue";
 
 //import About from "./views/About.vue";
-import Auth from "./views/Auth.vue";
+import Auth from "@/views/Auth.vue";
 
 Vue.use(Router);
 
@@ -99,6 +100,35 @@ export default new Router({
             layout: "user",
             requiresAuth: true,
           },
+          children: [
+            {
+              path: "",
+              component: TransactionsTable,
+              name: "trans.transactions",
+              meta: {
+                layout: "user",
+                requiresAuth: true,
+              },
+            },
+            {
+              path: "new",
+              component: New,
+              name: "trans.new",
+              meta: {
+                layout: "user",
+                requiresAuth: true,
+              },
+            },
+            {
+              path: "edit",
+              component: Edit,
+              name: "trans.edit",
+              meta: {
+                layout: "user",
+                requiresAuth: true,
+              },
+            },
+          ],
         },
         {
           path: "budget",
@@ -144,16 +174,16 @@ export default new Router({
       component: Expenses,
     },
 
-    {
-      path: "/new/:id",
-      name: "new",
-      props: true,
-      meta: {
-        layout: "user",
-        requiresAuth: true,
-      },
-      component: New,
-    },
+    // {
+    //   path: "/new/:id",
+    //   name: "new",
+    //   props: true,
+    //   meta: {
+    //     layout: "user",
+    //     requiresAuth: true,
+    //   },
+    //   component: New,
+    // },
     {
       path: "/new",
       name: "new_account",

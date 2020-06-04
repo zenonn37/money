@@ -226,7 +226,22 @@ body::-webkit-scrollbar-thumb {
 }
 
 table {
-  width: 100%;
+  width: 90%;
+  margin-top: 5rem;
+}
+
+table td,
+table th {
+  font-size: 20px;
+  text-align: left;
+}
+
+table th {
+  padding-bottom: 3rem;
+}
+
+table tbody td {
+  padding: 1rem 0 1rem 0;
 }
 
 a {

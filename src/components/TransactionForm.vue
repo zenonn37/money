@@ -30,7 +30,7 @@
               required: { allowFalse: false },
               regex: /^(\d*\.)?\d+$/,
               min: 3,
-              max: 10
+              max: 10,
             }"
             :bails="false"
             v-slot="{ errors }"
@@ -42,6 +42,11 @@
         <div class="form-field">
           <select name="type" v-model="trans.type" value="Debit">
             <option v-for="t in types" :key="t" :value="t">{{ t }}</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <select name="type" v-model="trans.category" value="Housing">
+            <option v-for="c in categories" :key="c" :value="c">{{ c }}</option>
           </select>
         </div>
 
@@ -82,7 +87,7 @@
 </template>
 
 <script>
-import { types } from "@/model/types.js";
+import { types, categories } from "@/model/types.js";
 //import moment from "moment";
 
 export default {
@@ -91,6 +96,7 @@ export default {
   data() {
     return {
       types: types,
+      categories: categories,
       trans: {
         id: this.id !== undefined ? this.id : "",
         acct_id: this.acct,
@@ -106,10 +112,14 @@ export default {
           this.edit === null || this.edit === undefined
             ? "Debit"
             : this.edit.type,
+        category:
+          this.edit == null || this.edit === undefined
+            ? "Housing"
+            : this.edit.category,
         state: {
-          isValidation: false
-        }
-      }
+          isValidation: false,
+        },
+      },
     };
   },
   methods: {
@@ -121,10 +131,9 @@ export default {
       requestAnimationFrame(() => {
         this.$refs.observer.reset();
       });
-      this.$emit("new", this.trans);
 
-      // console.log(this.trans);
-    }
-  }
+      this.$emit("new", this.trans);
+    },
+  },
 };
 </script>

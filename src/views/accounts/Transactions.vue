@@ -1,64 +1,57 @@
 <template>
   <div>
-    <template v-if="loading">
-      <Loader />
-    </template>
-
-    <template v-else>
-      <div>
+    <!-- <div>
         <ReturnBtn :back="back" @nav="onReturn()" />
         <div @click="onRefresh()" class="cursors">
           <i class="fas fa-redo-alt"></i>
         </div>
         <Range @range="onRange" :id="id" />
-      </div>
+      </div> -->
 
-      <div>
-        <!-- <ListTable name="Name" :data="trans" :type="type" :acct_id="id" /> -->
-
-        <NewBtn @new="onNew()" :icon="icon" />
-      </div>
-    </template>
+    <router-view />
+    <NewBtn @new="onNew()" :icon="icon" />
+    <!-- </div>
+    </template> -->
   </div>
 </template>
 
 <script>
 import NewBtn from "@/components/btns/NewBtn";
-import ReturnBtn from "@/components/btns/ReturnBtn";
-import { prevRoutes } from "@/mixins/prevRoute";
-import Range from "@/components/Range";
-import Loader from "@/components/Loader";
+// import ReturnBtn from "@/components/btns/ReturnBtn";
+// import { prevRoutes } from "@/mixins/prevRoute";
+// import Range from "@/components/Range";
+// import Loader from "@/components/Loader";
 export default {
   name: "Transactions",
 
-  props: ["id"],
-  mixins: [prevRoutes],
+  // props: ["id"],
+  // mixins: [prevRoutes],
 
   components: {
     NewBtn,
-    ReturnBtn,
-    Loader,
-    Range,
+    // ReturnBtn,
+    // Loader,
+    // Range,
   },
   data() {
     return {
       // trans: [],
       type: false,
       loading: false,
-      currentAcctid: this.id,
+
       form: false,
       icon: "fas fa-dollar-sign",
       back: "fas fa-chevron-left",
     };
   },
-  computed: {
-    trans() {
-      return this.$store.getters["transactions/GET_TRANSACTIONS"];
-    },
-  },
+  // computed: {
+  //   trans() {
+  //     return this.$store.getters["transactions/GET_TRANSACTIONS"];
+  //   },
+  // },
   methods: {
     onNew() {
-      this.$router.push(`/new/${this.id}`);
+      this.$router.push({ name: "trans.new" });
     },
     onReturn() {
       this.$router.push("/account");
@@ -105,26 +98,26 @@ export default {
     },
   },
 
-  created() {
-    this.loading = true;
-    this.$store
-      .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.$route.params.id)
-      .then(() => {
-        this.$toast.open({
-          message: "Transaction data loaded",
-          type: "info",
-          position: "top",
-        });
-        this.loading = false;
-      })
-      .catch(() => {
-        this.$toast.open({
-          message: "Connection Error please refresh the page",
-          type: "error",
-          position: "top",
-        });
-      });
-    //
-  },
+  // created() {
+  //   this.loading = true;
+  //   this.$store
+  //     .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.$route.params.id)
+  //     .then(() => {
+  //       this.$toast.open({
+  //         message: "Transaction data loaded",
+  //         type: "info",
+  //         position: "top",
+  //       });
+  //       this.loading = false;
+  //     })
+  //     .catch(() => {
+  //       this.$toast.open({
+  //         message: "Connection Error please refresh the page",
+  //         type: "error",
+  //         position: "top",
+  //       });
+  //     });
+  //   //
+  // },
 };
 </script>

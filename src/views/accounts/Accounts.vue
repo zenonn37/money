@@ -7,7 +7,14 @@
 
       <ul class="page-nav">
         <router-link
-          :to="{ name: 'accounts.transactions' }"
+          :to="{ name: 'accounts.analytics' }"
+          tag="li"
+          class="page-items"
+        >
+          Analytics
+        </router-link>
+        <router-link
+          :to="{ name: 'trans.transactions' }"
           tag="li"
           class="page-items"
         >
