@@ -3,7 +3,7 @@ axios.defaults.baseURL = `${process.env.VUE_APP_API}`;
 
 const state = {
   token: localStorage.getItem("access_token") || null,
-  user: JSON.parse(localStorage.getItem("user")) || null,
+  user: JSON.parse(localStorage.getItem("user")) || null
 };
 const mutations = {
   SET_AUTH(state, token) {
@@ -14,7 +14,7 @@ const mutations = {
   },
   SET_LOGGED(state) {
     state.isLogged;
-  },
+  }
 };
 
 const getters = {
@@ -26,7 +26,7 @@ const getters = {
   },
   isLogged(state) {
     return state.token !== null ? true : false;
-  },
+  }
 };
 
 const actions = {
@@ -35,7 +35,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios
         .post("new", data)
-        .then((res) => {
+        .then(res => {
           // console.log(res);
           // const result = res.data;
           // console.log(result);
@@ -43,7 +43,7 @@ const actions = {
 
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           // console.log(err);
           // console.log(err.response.data.errors.email[0]);
           const error =
@@ -62,7 +62,7 @@ const actions = {
       axios
         .post("login", data)
         // this.$http.post('/login', data)
-        .then((res) => {
+        .then(res => {
           // console.log(res);
           const result = res.data.access_token;
           //  console.log(result);
@@ -72,7 +72,7 @@ const actions = {
           commit("base/set_errors", null, { root: true });
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           commit("base/set_errors", err.response.data.message, { root: true });
           reject(err);
         });
@@ -95,7 +95,7 @@ const actions = {
           localStorage.removeItem("access_token");
           resolve();
         })
-        .catch((err) => {
+        .catch(err => {
           // console.log(err);
           commit("base/set_errors", err.response.data.message, { root: true });
           reject(err);
@@ -109,7 +109,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios
         .get("user")
-        .then((res) => {
+        .then(res => {
           // console.log(res);
 
           const result = res.data.data;
@@ -119,17 +119,17 @@ const actions = {
           localStorage.setItem("user", JSON.stringify(result));
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           commit("base/set_errors", err.response.data.message, { root: true });
           reject(err);
         });
     });
-  },
+  }
 };
 
 export default {
   state,
   mutations,
   getters,
-  actions,
+  actions
 };

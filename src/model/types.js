@@ -8,7 +8,7 @@ export const types = [
   "Visa Pay",
   "Venmo",
   "Deposit",
-  "ATM",
+  "ATM"
 ];
 
 export const acct = [
@@ -21,5 +21,5 @@ export const acct = [
   "Money Market",
   "PayPal",
   "Apple",
-  "Google",
+  "Google"
 ];

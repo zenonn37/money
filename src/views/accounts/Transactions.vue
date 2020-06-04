@@ -1,11 +1,11 @@
 <template>
-  <div class="render-child page">
+  <div>
     <template v-if="loading">
       <Loader />
     </template>
 
     <template v-else>
-      <div class="render-header">
+      <div>
         <ReturnBtn :back="back" @nav="onReturn()" />
         <div @click="onRefresh()" class="cursors">
           <i class="fas fa-redo-alt"></i>
@@ -14,7 +14,7 @@
       </div>
 
       <div>
-        <ListTable name="Name" :data="trans" :type="type" :acct_id="id" />
+        <!-- <ListTable name="Name" :data="trans" :type="type" :acct_id="id" /> -->
 
         <NewBtn @new="onNew()" :icon="icon" />
       </div>
@@ -23,11 +23,9 @@
 </template>
 
 <script>
-import ListTable from "@/components/ListTable";
-
 import NewBtn from "@/components/btns/NewBtn";
 import ReturnBtn from "@/components/btns/ReturnBtn";
-import { prevRoutes } from "../mixins/prevRoute";
+import { prevRoutes } from "@/mixins/prevRoute";
 import Range from "@/components/Range";
 import Loader from "@/components/Loader";
 export default {
@@ -37,12 +35,10 @@ export default {
   mixins: [prevRoutes],
 
   components: {
-    ListTable,
-
     NewBtn,
     ReturnBtn,
     Loader,
-    Range
+    Range,
   },
   data() {
     return {
@@ -52,13 +48,13 @@ export default {
       currentAcctid: this.id,
       form: false,
       icon: "fas fa-dollar-sign",
-      back: "fas fa-chevron-left"
+      back: "fas fa-chevron-left",
     };
   },
   computed: {
     trans() {
       return this.$store.getters["transactions/GET_TRANSACTIONS"];
-    }
+    },
   },
   methods: {
     onNew() {
@@ -76,7 +72,7 @@ export default {
           this.$toast.open({
             message: "New Date range active",
             type: "info",
-            position: "top"
+            position: "top",
           });
           this.loading = false;
         })
@@ -84,7 +80,7 @@ export default {
           this.$toast.open({
             message: "Connection Error please refresh the page",
             type: "error",
-            position: "top"
+            position: "top",
           });
         });
     },
@@ -95,7 +91,7 @@ export default {
           this.$toast.open({
             message: "Date range reset to default",
             type: "info",
-            position: "top"
+            position: "top",
           });
           this.loading = false;
         })
@@ -103,21 +99,21 @@ export default {
           this.$toast.open({
             message: "Connection Error please refresh the page",
             type: "error",
-            position: "top"
+            position: "top",
           });
         });
-    }
+    },
   },
 
   created() {
     this.loading = true;
     this.$store
-      .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.currentAcctid)
+      .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.$route.params.id)
       .then(() => {
         this.$toast.open({
           message: "Transaction data loaded",
           type: "info",
-          position: "top"
+          position: "top",
         });
         this.loading = false;
       })
@@ -125,10 +121,10 @@ export default {
         this.$toast.open({
           message: "Connection Error please refresh the page",
           type: "error",
-          position: "top"
+          position: "top",
         });
       });
     //
-  }
+  },
 };
 </script>

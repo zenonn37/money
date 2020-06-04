@@ -8,7 +8,7 @@
         title="Edit Account"
         :edit="edit"
         @new="onSubmit"
-        :id="id"
+        :id="this.$route.params.id"
       />
     </div>
   </div>
@@ -16,21 +16,21 @@
 
 <script>
 import AccountForm from "@/components/AccountForm";
-import { prevRoutes } from "../mixins/prevRoute.js";
+//import { prevRoutes } from "@/mixins/prevRoute.js";
 import ReturnBtn from "@/components/btns/ReturnBtn";
 
 export default {
   name: "Edit",
   props: ["id"],
-  mixins: [prevRoutes],
+  //mixins: [prevRoutes],
   components: {
     AccountForm,
-    ReturnBtn
+    ReturnBtn,
   },
   data() {
     return {
       loading: false,
-      back: "fas fa-chevron-left"
+      back: "fas fa-chevron-left",
       //   prevRoute: null
     };
   },
@@ -41,7 +41,7 @@ export default {
     },
     errors() {
       return this.$store.getters["base/get_errors"];
-    }
+    },
   },
   methods: {
     onSubmit(value) {
@@ -53,7 +53,7 @@ export default {
           this.$toast.open({
             message: "Account updated",
             type: "success",
-            position: "top"
+            position: "top",
           });
           this.loading = false;
           this.goBack();
@@ -66,10 +66,10 @@ export default {
                 ? this.errors
                 : "Connection Error, please try again",
             type: "error",
-            position: "top"
+            position: "top",
           });
         });
-    }
-  }
+    },
+  },
 };
 </script>

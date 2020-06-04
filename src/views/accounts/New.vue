@@ -22,7 +22,7 @@
 
 <script>
 import TransactionForm from "@/components/TransactionForm";
-import { prevRoutes } from "../mixins/prevRoute.js";
+import { prevRoutes } from "@/mixins/prevRoute.js";
 
 export default {
   name: "New",

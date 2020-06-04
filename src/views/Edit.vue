@@ -18,18 +18,18 @@
 
 <script>
 import TransactionForm from "@/components/TransactionForm";
-import { prevRoutes } from "../mixins/prevRoute.js";
+import { prevRoutes } from "@/mixins/prevRoute.js";
 
 export default {
   name: "Edit",
   props: ["id", "acct"],
   mixins: [prevRoutes],
   components: {
-    TransactionForm
+    TransactionForm,
   },
   data() {
     return {
-      loading: false
+      loading: false,
       //   prevRoute: null
     };
   },
@@ -37,7 +37,7 @@ export default {
     edit() {
       const id = parseInt(this.$route.params.id);
       return this.$store.getters["transactions/GET_TRANSACTION"](id);
-    }
+    },
   },
   methods: {
     onSubmit(value) {
@@ -49,7 +49,7 @@ export default {
           this.$toast.open({
             message: "Transaction has been updated",
             type: "success",
-            position: "top"
+            position: "top",
           });
           this.loading = false;
           this.goBack();
@@ -58,10 +58,10 @@ export default {
           this.$toast.open({
             message: "Connection Error please refresh the page",
             type: "error",
-            position: "top"
+            position: "top",
           });
         });
-    }
-  }
+    },
+  },
 };
 </script>

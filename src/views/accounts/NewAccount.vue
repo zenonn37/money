@@ -3,20 +3,14 @@
     <ReturnBtn class="top-spacer" :back="back" @nav="goBack()" />
 
     <div class="new-form">
-      <AccountForm
-        :loading="loading"
-        :edit="null"
-        title="New Account"
-        @new="onSubmit"
-        :id="null"
-      />
+      <AccountForm :loading="loading" :edit="null" title="New Account" @new="onSubmit" :id="null" />
     </div>
   </div>
 </template>
 
 <script>
 import AccountForm from "@/components/AccountForm";
-import { prevRoutes } from "../mixins/prevRoute.js";
+import { prevRoutes } from "@/mixins/prevRoute.js";
 import ReturnBtn from "@/components/btns/ReturnBtn";
 export default {
   name: "NewAccount",

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="17px" viewBox="0 0 25 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>bi-toggle-off</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-1147.000000, -474.000000)" fill-rule="nonzero">
+            <g id="bi-toggle-off" transform="translate(1147.000000, 470.000000)">
+                <g id="Icon" fill="#7edb37">
+                    <g id="Icon-Group" transform="translate(0.000000, 4.687500)">
+                        <path d="M17.1875,1.5625 C20.6392797,1.5625 23.4375,4.36072031 23.4375,7.8125 C23.4375,11.2642797 20.6392797,14.0625 17.1875,14.0625 L12.5,14.0625 C14.4687878,12.5883731 15.6269712,10.2720063 15.625,7.8125 C15.6269712,5.35299366 14.4687878,3.03662688 12.5,1.5625 L17.1875,1.5625 Z M7.8125,14.0625 C4.36072031,14.0625 1.5625,11.2642797 1.5625,7.8125 C1.5625,4.36072031 4.36072031,1.5625 7.8125,1.5625 C11.2642797,1.5625 14.0625,4.36072031 14.0625,7.8125 C14.0625,11.2642797 11.2642797,14.0625 7.8125,14.0625 Z M0,7.8125 C0,12.1272246 3.49777539,15.625 7.8125,15.625 L17.1875,15.625 C21.5022246,15.625 25,12.1272246 25,7.8125 C25,3.49777539 21.5022246,4.4408921e-16 17.1875,4.4408921e-16 L7.8125,4.4408921e-16 C3.49777539,4.4408921e-16 0,3.49777539 0,7.8125 Z" id="Icon-Shape"></path>
+                    </g>
+                </g>
+                <rect id="ViewBox" x="0" y="0" width="25" height="25"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

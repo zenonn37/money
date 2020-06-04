@@ -10,7 +10,11 @@
       </tr>
     </thead>
     <tbody>
-      <AccountTableList :accounts="account" v-for="account in accounts" :key="account.id" />
+      <AccountTableList
+        :accounts="account"
+        v-for="account in accounts"
+        :key="account.id"
+      />
     </tbody>
   </table>
 </template>
@@ -24,4 +28,3 @@ export default {
   }
 };
 </script>
-
