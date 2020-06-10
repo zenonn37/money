@@ -297,7 +297,7 @@ const actions = {
           name: payload.name,
           type: payload.type,
           amount: payload.amount,
-          acct_id: payload.acct_id,
+          category: payload.category,
           date: payload.date.slice(0, 19).replace("T", " "),
         })
         .then((res) => {

@@ -7,15 +7,18 @@
     <table v-else>
       <thead>
         <tr>
-          <th>Category</th>
           <th>Name</th>
           <th>Type</th>
           <th>Date</th>
+          <th>Category</th>
           <th>Amount</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <TableList
+          @delete="remove"
+          @edit="edit"
           :transaction="transaction"
           v-for="transaction in transactions"
           :key="transaction.id"
@@ -32,18 +35,33 @@ export default {
   name: "TransactionTable",
   components: {
     TableList,
-    Loader,
+    Loader
   },
   data() {
     return {
-      loading: false,
+      loading: false
     };
   },
   computed: {
     transactions() {
       return this.$store.getters["transactions/GET_TRANSACTIONS"];
-    },
+    }
   },
+
+  methods: {
+    remove(trans) {
+      const payload = {
+        id: trans,
+        acct_id: this.$route.params.id
+      };
+      this.$store.dispatch("transactions/DELETE_TRANSACTION", payload);
+    },
+    edit(id) {
+      // this.$router.push({ name: "trans.edit", params: { id: id } });
+      this.$router.push(`edit/${id}`);
+    }
+  },
+
   created() {
     this.loading = true;
     this.$store
@@ -52,7 +70,7 @@ export default {
         this.$toast.open({
           message: "Transaction data loaded",
           type: "info",
-          position: "top",
+          position: "top"
         });
         this.loading = false;
       })
@@ -60,10 +78,10 @@ export default {
         this.$toast.open({
           message: "Connection Error please refresh the page",
           type: "error",
-          position: "top",
+          position: "top"
         });
       });
     //
-  },
+  }
 };
 </script>

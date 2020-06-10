@@ -49,7 +49,7 @@ export default {
     account() {
       const id = parseInt(this.$route.params.id);
       return this.$store.getters["account/GET_ACCOUNT"](id);
-    },
-  },
+    }
+  }
 };
 </script>

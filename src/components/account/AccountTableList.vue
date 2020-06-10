@@ -41,7 +41,7 @@
 
 <script>
 export default {
-  props: ["accounts"],
+  props: ["accounts"]
 };
 </script>
 

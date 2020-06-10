@@ -323,7 +323,7 @@ export default {
       this.$store.dispatch("LOGOUT").then(() => {
         this.$router.push("/auth");
       });
-    },
-  },
+    }
+  }
 };
 </script>

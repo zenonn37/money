@@ -11,6 +11,6 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {}
 };
 </script>

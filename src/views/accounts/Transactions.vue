@@ -28,7 +28,7 @@ export default {
   // mixins: [prevRoutes],
 
   components: {
-    NewBtn,
+    NewBtn
     // ReturnBtn,
     // Loader,
     // Range,
@@ -41,7 +41,7 @@ export default {
 
       form: false,
       icon: "fas fa-dollar-sign",
-      back: "fas fa-chevron-left",
+      back: "fas fa-chevron-left"
     };
   },
   // computed: {
@@ -65,7 +65,7 @@ export default {
           this.$toast.open({
             message: "New Date range active",
             type: "info",
-            position: "top",
+            position: "top"
           });
           this.loading = false;
         })
@@ -73,7 +73,7 @@ export default {
           this.$toast.open({
             message: "Connection Error please refresh the page",
             type: "error",
-            position: "top",
+            position: "top"
           });
         });
     },
@@ -84,7 +84,7 @@ export default {
           this.$toast.open({
             message: "Date range reset to default",
             type: "info",
-            position: "top",
+            position: "top"
           });
           this.loading = false;
         })
@@ -92,11 +92,11 @@ export default {
           this.$toast.open({
             message: "Connection Error please refresh the page",
             type: "error",
-            position: "top",
+            position: "top"
           });
         });
-    },
-  },
+    }
+  }
 
   // created() {
   //   this.loading = true;

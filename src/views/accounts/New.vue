@@ -29,18 +29,18 @@ export default {
   props: ["id"],
   mixins: [prevRoutes],
   components: {
-    TransactionForm,
+    TransactionForm
   },
   data() {
     return {
       loading: false,
-      back: "fas fa-chevron-left",
+      back: "fas fa-chevron-left"
     };
   },
   computed: {
     errors() {
       return this.$store.getters["base/get_errors"];
-    },
+    }
   },
   methods: {
     onSubmit(value) {
@@ -52,7 +52,7 @@ export default {
           this.$toast.open({
             message: "New Transaction Created",
             type: "success",
-            position: "top",
+            position: "top"
           });
           this.loading = true;
           //console.log("done");
@@ -70,10 +70,10 @@ export default {
                 ? this.errors
                 : "Connection Error please refresh the page",
             type: "error",
-            position: "top",
+            position: "top"
           });
         });
-    },
-  },
+    }
+  }
 };
 </script>

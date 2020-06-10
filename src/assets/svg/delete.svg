@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="24px" viewBox="0 0 18 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>ic-outline-delete-forever</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Account-transaction" transform="translate(-1095.000000, -468.000000)" fill-rule="nonzero">
+            <g id="ic-outline-delete-forever" transform="translate(1089.000000, 465.000000)">
+                <g id="Icon" fill="#565656">
+                    <path d="M17.65,13.0875 L15,15.7375 L12.3375,13.0875 L10.575,14.85 L13.2375,17.5 L10.5875,20.15 L12.35,21.9125 L15,19.2625 L17.65,21.9125 L19.4125,20.15 L16.7625,17.5 L19.4125,14.85 L17.65,13.0875 Z M19.375,5 L18.125,3.75 L11.875,3.75 L10.625,5 L6.25,5 L6.25,7.5 L23.75,7.5 L23.75,5 L19.375,5 Z M7.5,23.75 C7.5,25.125 8.625,26.25 10,26.25 L20,26.25 C21.375,26.25 22.5,25.125 22.5,23.75 L22.5,8.75 L7.5,8.75 L7.5,23.75 Z M10,11.25 L20,11.25 L20,23.75 L10,23.75 L10,11.25 Z" id="Icon-Shape"></path>
+                </g>
+                <rect id="ViewBox" x="0" y="0" width="30" height="30"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

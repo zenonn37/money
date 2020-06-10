@@ -12,6 +12,7 @@ import "./plugins/vue-paginate";
 import "./plugins/vee-validate";
 import "./plugins/vue-filters";
 import "./plugins/toast";
+import "./plugins/vue-scroll";
 
 import interceptor from "./interceptor";
 

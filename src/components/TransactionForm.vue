@@ -30,7 +30,7 @@
               required: { allowFalse: false },
               regex: /^(\d*\.)?\d+$/,
               min: 3,
-              max: 10,
+              max: 10
             }"
             :bails="false"
             v-slot="{ errors }"
@@ -117,9 +117,9 @@ export default {
             ? "Housing"
             : this.edit.category,
         state: {
-          isValidation: false,
-        },
-      },
+          isValidation: false
+        }
+      }
     };
   },
   methods: {
@@ -133,7 +133,7 @@ export default {
       });
 
       this.$emit("new", this.trans);
-    },
-  },
+    }
+  }
 };
 </script>

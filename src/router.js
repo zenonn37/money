@@ -120,7 +120,7 @@ export default new Router({
               },
             },
             {
-              path: "edit",
+              path: "edit/:id",
               component: Edit,
               name: "trans.edit",
               meta: {
