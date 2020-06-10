@@ -8,6 +8,7 @@
 @import "./modules/account_table";
 @import "./modules/account";
 @import "./modules/accounts";
+@import "./modules/transaction_table_page";
 // @import "./modules/header";
 
 // @import "./modules/sidebar";
@@ -58,7 +59,8 @@ body {
 }
 table {
   width: 90%;
-  margin-top: 5rem;
+  //margin-top: 5rem;
+  margin: 5rem 0 5rem 0;
   td,
   th {
     // border: 1px solid black;

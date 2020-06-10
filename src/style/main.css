@@ -189,6 +189,40 @@ tbody td {
   padding: 1rem;
 }
 
+.transaction-header {
+  width: 100%;
+}
+
+.transaction-header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.transaction-header ul li {
+  padding-left: 2rem;
+  cursor: pointer;
+}
+
+.transaction-header ul li:first-child {
+  padding-left: 0;
+}
+
+.transaction-header ul li:last-child {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -227,7 +261,7 @@ body::-webkit-scrollbar-thumb {
 
 table {
   width: 90%;
-  margin-top: 5rem;
+  margin: 5rem 0 5rem 0;
 }
 
 table td,

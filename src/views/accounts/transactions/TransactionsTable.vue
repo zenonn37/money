@@ -3,28 +3,40 @@
     <template v-if="loading">
       <Loader />
     </template>
+    <div v-else>
+      <div class="transaction-header">
+        <ul>
+          <li>Range</li>
+          <li>Search</li>
+          <li>Category</li>
+          <li @click="onNew()">
+            <img src="@/assets/svg/new.svg" alt="new transaction button" />
+          </li>
+        </ul>
+      </div>
 
-    <table v-else>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Date</th>
-          <th>Category</th>
-          <th>Amount</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <TableList
-          @delete="remove"
-          @edit="edit"
-          :transaction="transaction"
-          v-for="transaction in transactions"
-          :key="transaction.id"
-        />
-      </tbody>
-    </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <TableList
+            @delete="remove"
+            @edit="edit"
+            :transaction="transaction"
+            v-for="transaction in transactions"
+            :key="transaction.id"
+          />
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -49,6 +61,9 @@ export default {
   },
 
   methods: {
+    onNew() {
+      this.$router.push({ name: "trans.new" });
+    },
     remove(trans) {
       const payload = {
         id: trans,

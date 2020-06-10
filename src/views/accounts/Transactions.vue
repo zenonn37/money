@@ -6,12 +6,12 @@
           <i class="fas fa-redo-alt"></i>
         </div>
         <Range @range="onRange" :id="id" />
-      </div> -->
+    </div>-->
 
     <router-view />
-    <NewBtn @new="onNew()" :icon="icon" />
+
     <!-- </div>
-    </template> -->
+    </template>-->
   </div>
 </template>
 
