@@ -9,7 +9,7 @@
         title="Edit Transaction"
         :edit="edit"
         @new="onSubmit"
-        :id="$route.params.id"
+        :id="this.id"
         :acct="acct"
       />
     </div>
@@ -35,16 +35,16 @@ export default {
   },
   computed: {
     edit() {
-      const id = parseInt(this.$route.params.id);
+      const id = parseInt(this.id);
       return this.$store.getters["transactions/GET_TRANSACTION"](id);
     }
   },
   methods: {
-    onSubmit(value) {
+    onSubmit(transaction) {
       this.loading = true;
 
       this.$store
-        .dispatch("transactions/UPDATE_TRANSACTION", value)
+        .dispatch("transactions/UPDATE_TRANSACTION", transaction)
         .then(() => {
           this.$toast.open({
             message: "Transaction has been updated",

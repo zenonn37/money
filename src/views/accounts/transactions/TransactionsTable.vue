@@ -3,7 +3,7 @@
     <template v-if="loading">
       <Loader />
     </template>
-    <div v-else>
+    <template v-else>
       <div class="transaction-header">
         <ul>
           <li>Range</li>
@@ -36,7 +36,7 @@
           />
         </tbody>
       </table>
-    </div>
+    </template>
   </div>
 </template>
 
@@ -45,6 +45,7 @@ import TableList from "@/components/transactions/TableList";
 import Loader from "@/components/Loader";
 export default {
   name: "TransactionTable",
+  props: ["account"],
   components: {
     TableList,
     Loader
@@ -67,7 +68,7 @@ export default {
     remove(trans) {
       const payload = {
         id: trans,
-        acct_id: this.$route.params.id
+        acct_id: this.account
       };
       this.$store.dispatch("transactions/DELETE_TRANSACTION", payload);
     },
@@ -80,7 +81,7 @@ export default {
   created() {
     this.loading = true;
     this.$store
-      .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.$route.params.id)
+      .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.account)
       .then(() => {
         this.$toast.open({
           message: "Transaction data loaded",

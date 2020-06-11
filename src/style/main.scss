@@ -9,6 +9,8 @@
 @import "./modules/account";
 @import "./modules/accounts";
 @import "./modules/transaction_table_page";
+@import "./modules/loaders";
+
 // @import "./modules/header";
 
 // @import "./modules/sidebar";
@@ -70,12 +72,20 @@ table {
   }
 
   th {
-    padding-bottom: 3rem;
+    padding: 0 0 3rem 0.5rem;
   }
 
   tbody {
+    tr {
+      &:hover {
+        background-color: $table_hover;
+      }
+    }
     td {
-      padding: 1rem 0 1rem 0;
+      padding: 1rem 0 1rem 0.5rem;
+      &:hover {
+        background-color: $table_highlight;
+      }
 
       span:first-child {
         padding-right: 2rem;

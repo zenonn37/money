@@ -13,7 +13,7 @@
           :edit="null"
           title="New Transaction"
           @new="onSubmit"
-          :acct="this.$route.params.id"
+          :acct="this.$route.params.account"
         />
       </div>
     </template>

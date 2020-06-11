@@ -3,12 +3,7 @@
     <div class="forms">
       <h1>{{ title }}</h1>
 
-      <ValidationObserver
-        ref="observer"
-        v-slot="{ valid }"
-        tag="form"
-        @submit.prevent="onSend()"
-      >
+      <ValidationObserver ref="observer" v-slot="{ valid }" tag="form" @submit.prevent="onSend()">
         <div class="form-field">
           <ValidationProvider
             name="Transaction name"
@@ -51,12 +46,7 @@
         </div>
 
         <div class="form-field">
-          <ValidationProvider
-            name="Date"
-            rules="required"
-            :bails="false"
-            v-slot="{ errors }"
-          >
+          <ValidationProvider name="Date" rules="required" :bails="false" v-slot="{ errors }">
             <datetime
               placeholder="Enter Date"
               v-model="trans.date"
@@ -73,9 +63,7 @@
             :class="[valid ? 'complete' : 'not-valid']"
             :disabled="!valid"
             type="submit"
-          >
-            {{ valid ? "Complete" : "Disabled" }}
-          </button>
+          >{{ valid ? "Complete" : "Disabled" }}</button>
         </div>
 
         <div class="form-field" v-else>
@@ -99,7 +87,12 @@ export default {
       categories: categories,
       trans: {
         id: this.id !== undefined ? this.id : "",
-        acct_id: this.acct,
+        acct_id:
+          this.acct !== undefined
+            ? this.acct
+            : "no" || (this.edit !== null && this.edit !== undefined)
+            ? this.edit.acct_id
+            : "",
 
         date:
           this.edit === null || this.edit === undefined ? "" : this.edit.date,

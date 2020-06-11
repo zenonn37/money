@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import NewBtn from "@/components/btns/NewBtn";
 // import ReturnBtn from "@/components/btns/ReturnBtn";
 // import { prevRoutes } from "@/mixins/prevRoute";
 // import Range from "@/components/Range";
@@ -28,7 +27,6 @@ export default {
   // mixins: [prevRoutes],
 
   components: {
-    NewBtn
     // ReturnBtn,
     // Loader,
     // Range,

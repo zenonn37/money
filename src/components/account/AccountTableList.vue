@@ -23,13 +23,13 @@
 
     <!-- <router-link :to="{ name: 'Bank' }" tag="td">{{
       accounts.name
-    }}</router-link> -->
+    }}</router-link>-->
 
     <router-link
       tag="td"
-      :to="{ name: 'accounts.analytics', params: { id: accounts.id } }"
-      >{{ accounts.name }}</router-link
-    >
+      class="cursors"
+      :to="{ name: 'accounts.analytics', params: { account: accounts.id } }"
+    >{{ accounts.name }}</router-link>
 
     <td>Active</td>
     <td>${{ accounts.balance }}</td>

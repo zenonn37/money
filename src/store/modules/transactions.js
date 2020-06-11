@@ -292,6 +292,8 @@ const actions = {
     // axios.defaults.headers.common["Authorization"] =
     //     "Bearer " + localStorage.getItem('access_token');
     return new Promise((resolve, reject) => {
+      console.log(payload.acct_id);
+
       axios
         .patch(`transactions/${payload.id}`, {
           name: payload.name,

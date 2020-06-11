@@ -187,6 +187,7 @@ tbody td {
 
 .page-nav li {
   padding: 1rem;
+  cursor: pointer;
 }
 
 .transaction-header {
@@ -221,6 +222,24 @@ tbody td {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.loader-class {
+  position: relative;
+  height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loader-class .loader img {
+  width: 75px;
 }
 
 * {
@@ -271,11 +290,19 @@ table th {
 }
 
 table th {
-  padding-bottom: 3rem;
+  padding: 0 0 3rem 0.5rem;
+}
+
+table tbody tr:hover {
+  background-color: rgba(168, 165, 235, 0.1);
 }
 
 table tbody td {
-  padding: 1rem 0 1rem 0;
+  padding: 1rem 0 1rem 0.5rem;
+}
+
+table tbody td:hover {
+  background-color: rgba(168, 165, 235, 0.5);
 }
 
 table tbody td span:first-child {

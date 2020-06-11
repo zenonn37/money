@@ -12,6 +12,10 @@ import TransactionsTable from "@/views/accounts/transactions/TransactionsTable.v
 import Users from "@/views/users/Users.vue";
 import Info from "@/views/users/Info.vue";
 import Expenses from "@/views/expense/Expenses.vue";
+import NewExpense from "@/views/expense/NewExpense.vue";
+import EditExpense from "@/views/expense/EditExpense.vue";
+import DetailExpense from "@/views/expense/DetailExpense.vue";
+import ExpenseTable from "@/views/expense/ExpenseTable.vue";
 import New from "@/views/accounts/New";
 import Edit from "@/views/Edit";
 import NewAccount from "@/views/accounts/NewAccount";
@@ -78,9 +82,10 @@ export default new Router({
     },
 
     {
-      path: "/accounts/:id",
+      path: "/accounts/:account",
       name: "account",
       component: Accounts,
+      props: true,
       children: [
         {
           path: "",
@@ -105,6 +110,7 @@ export default new Router({
               path: "",
               component: TransactionsTable,
               name: "trans.transactions",
+              props: true,
               meta: {
                 layout: "user",
                 requiresAuth: true,
@@ -123,6 +129,7 @@ export default new Router({
               path: "edit/:id",
               component: Edit,
               name: "trans.edit",
+              props: true,
               meta: {
                 layout: "user",
                 requiresAuth: true,
@@ -172,6 +179,44 @@ export default new Router({
         requiresAuth: true,
       },
       component: Expenses,
+      children: [
+        {
+          path: "",
+          name: "expense.table",
+          component: ExpenseTable,
+          meta: {
+            layout: "user",
+            requiresAuth: true,
+          },
+        },
+        {
+          path: "new",
+          name: "expense.new",
+          component: NewExpense,
+          meta: {
+            layout: "user",
+            requiresAuth: true,
+          },
+        },
+        {
+          path: "edit/:id",
+          name: "expense.edit",
+          component: EditExpense,
+          meta: {
+            layout: "user",
+            requiresAuth: true,
+          },
+        },
+        {
+          path: "detail/:id",
+          name: "expense.detail",
+          component: DetailExpense,
+          meta: {
+            layout: "user",
+            requiresAuth: true,
+          },
+        },
+      ],
     },
 
     // {

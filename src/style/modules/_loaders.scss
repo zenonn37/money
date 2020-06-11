@@ -1,12 +1,12 @@
-.loader-class{
+.loader-class {
   position: relative;
-  height: 100vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  .loader{
-      img{
-          width: 75px;
-      }
+  .loader {
+    img {
+      width: 75px;
+    }
   }
 }
