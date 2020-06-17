@@ -248,7 +248,7 @@ const actions = {
         .then((res) => {
           resolve(res);
 
-          commit("SET_TOTAL", res.data);
+          commit("set_total", res.data, { root: true });
         })
         .catch((err) => {
           commit("base/set_errors", err.response.data.message, { root: true });

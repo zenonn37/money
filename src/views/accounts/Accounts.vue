@@ -6,14 +6,27 @@
       </div>
 
       <ul class="page-nav">
-        <router-link :to="{ name: 'accounts.analytics' }" tag="li" class="page-items">Analytics</router-link>
+        <router-link
+          :to="{ name: 'accounts.analytics' }"
+          tag="li"
+          class="page-items"
+          >Analytics</router-link
+        >
         <router-link
           :to="{ name: 'trans.transactions', params: { account: accounts.id } }"
           tag="li"
           class="page-items"
-        >Transactions</router-link>
-        <router-link :to="{ name: 'accounts.budgets' }" tag="li" class="page-items">Budgets</router-link>
-        <router-link :to="{ name: 'accounts.edit' }" tag="li" class="page-items">Edit</router-link>
+          >Transactions</router-link
+        >
+        <router-link
+          :to="{ name: 'accounts.budgets' }"
+          tag="li"
+          class="page-items"
+          >Budgets</router-link
+        >
+        <router-link :to="{ name: 'accounts.edit' }" tag="li" class="page-items"
+          >Edit</router-link
+        >
       </ul>
     </div>
 

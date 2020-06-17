@@ -3,20 +3,15 @@
     <div class="forms">
       <h1>{{ title }}</h1>
 
-      <ValidationObserver
-        ref="observer"
-        v-slot="{ valid }"
-        tag="form"
-        @submit.prevent="onSend()"
-      >
+      <ValidationObserver ref="observer" v-slot="{ valid }" tag="form" @submit.prevent="onSend()">
         <div class="form-field">
           <ValidationProvider
-            name="Transaction name"
+            name="Name"
             rules="required|min:2|max:30|alpha_spaces"
             :bails="false"
             v-slot="{ errors }"
           >
-            <input type="text" placeholder="Name" v-model="trans.name" />
+            <input type="text" placeholder="Name" v-model="exp.name" />
             <span class="errors">{{ errors[0] }}</span>
             <!-- <ul>
               <li class="errors" v-for="error in errors">{{ error }}</li>
@@ -35,31 +30,27 @@
             :bails="false"
             v-slot="{ errors }"
           >
-            <input type="text" placeholder="Amount" v-model="trans.amount" />
+            <input type="text" placeholder="Amount" v-model="exp.amount" />
             <span class="errors">{{ errors[0] }}</span>
           </ValidationProvider>
         </div>
+
         <div class="form-field">
-          <select name="type" v-model="trans.type" value="Debit">
-            <option v-for="t in types" :key="t" :value="t">{{ t }}</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <select name="type" v-model="trans.category" value="Housing">
+          <select name="type" v-model="exp.category" value="Housing">
             <option v-for="c in categories" :key="c" :value="c">{{ c }}</option>
           </select>
         </div>
 
+        <!-- <div class="form-field">
+          <input type="checkbox" id="checkbox" v-model="exp.repeat" />
+          <label for="checkbox">{{ exp.repeat }}</label>
+        </div>-->
+
         <div class="form-field">
-          <ValidationProvider
-            name="Date"
-            rules="required"
-            :bails="false"
-            v-slot="{ errors }"
-          >
+          <ValidationProvider name="Due Date" rules="required" :bails="false" v-slot="{ errors }">
             <datetime
               placeholder="Enter Date"
-              v-model="trans.date"
+              v-model="exp.date"
               value-zone="America/New_York"
               :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
             ></datetime>
@@ -73,9 +64,7 @@
             :class="[valid ? 'complete' : 'not-valid']"
             :disabled="!valid"
             type="submit"
-          >
-            {{ valid ? "Complete" : "Disabled" }}
-          </button>
+          >{{ valid ? "Complete" : "Disabled" }}</button>
         </div>
 
         <div class="form-field" v-else>
@@ -91,20 +80,20 @@ import { types, categories } from "@/model/types.js";
 //import moment from "moment";
 
 export default {
-  props: ["id", "edit", "title", "acct", "loading"],
+  props: ["id", "edit", "title", "loading"],
   components: {},
   data() {
     return {
       types: types,
       categories: categories,
-      trans: {
-        id: this.id !== undefined ? this.id : "",
-        acct_id:
-          this.acct !== undefined
-            ? this.acct
-            : "no" || (this.edit !== null && this.edit !== undefined)
-            ? this.edit.acct_id
-            : "",
+      exp: {
+        id: this.id !== undefined || this.id !== null ? this.id : "",
+        // acct_id:
+        //   this.acct !== undefined
+        //     ? this.acct
+        //     : "no" || (this.edit !== null && this.edit !== undefined)
+        //     ? this.edit.acct_id
+        //     : "",
 
         date:
           this.edit === null || this.edit === undefined ? "" : this.edit.date,
@@ -113,7 +102,7 @@ export default {
           this.edit === null || this.edit === undefined ? "" : this.edit.amount,
         name:
           this.edit === null || this.edit === undefined ? "" : this.edit.name,
-        type:
+        repeat:
           this.edit === null || this.edit === undefined
             ? "Debit"
             : this.edit.type,
@@ -137,7 +126,7 @@ export default {
         this.$refs.observer.reset();
       });
 
-      this.$emit("new", this.trans);
+      this.$emit("new", this.exp);
     }
   }
 };

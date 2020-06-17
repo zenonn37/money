@@ -38,25 +38,25 @@ export default new Router({
       name: "cover",
       meta: {
         layout: "no-user",
-        requiresVisitor: true,
+        requiresVisitor: true
       },
-      component: Cover,
+      component: Cover
     },
     {
       path: "/dashboard",
       name: "dashboard",
       meta: {
         layout: "user",
-        requiresAuth: true,
+        requiresAuth: true
       },
-      component: Home,
+      component: Home
     },
     {
       path: "/user",
       name: "Users",
       meta: {
         layout: "user",
-        requiresAuth: true,
+        requiresAuth: true
       },
       component: Users,
       children: [
@@ -65,20 +65,20 @@ export default new Router({
           name: "Info",
           meta: {
             layout: "user",
-            requiresAuth: true,
+            requiresAuth: true
           },
-          component: Info,
-        },
-      ],
+          component: Info
+        }
+      ]
     },
     {
       path: "/account",
       name: "accounts",
       meta: {
         layout: "user",
-        requiresAuth: true,
+        requiresAuth: true
       },
-      component: Account,
+      component: Account
     },
 
     {
@@ -94,8 +94,8 @@ export default new Router({
           name: "accounts.analytics",
           meta: {
             layout: "user",
-            requiresAuth: true,
-          },
+            requiresAuth: true
+          }
         },
         {
           path: "transactions",
@@ -103,7 +103,7 @@ export default new Router({
           name: "accounts.transactions",
           meta: {
             layout: "user",
-            requiresAuth: true,
+            requiresAuth: true
           },
           children: [
             {
@@ -113,8 +113,8 @@ export default new Router({
               props: true,
               meta: {
                 layout: "user",
-                requiresAuth: true,
-              },
+                requiresAuth: true
+              }
             },
             {
               path: "new",
@@ -122,8 +122,8 @@ export default new Router({
               name: "trans.new",
               meta: {
                 layout: "user",
-                requiresAuth: true,
-              },
+                requiresAuth: true
+              }
             },
             {
               path: "edit/:id",
@@ -132,10 +132,10 @@ export default new Router({
               props: true,
               meta: {
                 layout: "user",
-                requiresAuth: true,
-              },
-            },
-          ],
+                requiresAuth: true
+              }
+            }
+          ]
         },
         {
           path: "budget",
@@ -143,8 +143,8 @@ export default new Router({
           name: "accounts.budgets",
           meta: {
             layout: "user",
-            requiresAuth: true,
-          },
+            requiresAuth: true
+          }
         },
         {
           path: "edit",
@@ -152,14 +152,14 @@ export default new Router({
           name: "accounts.edit",
           meta: {
             layout: "user",
-            requiresAuth: true,
-          },
-        },
+            requiresAuth: true
+          }
+        }
       ],
       meta: {
         layout: "user",
-        requiresAuth: true,
-      },
+        requiresAuth: true
+      }
     },
     {
       path: "/transactions/:id",
@@ -167,16 +167,16 @@ export default new Router({
       props: true,
       meta: {
         layout: "user",
-        requiresAuth: true,
+        requiresAuth: true
       },
-      component: Transactions,
+      component: Transactions
     },
     {
       path: "/expenses",
       name: "expenses",
       meta: {
         layout: "user",
-        requiresAuth: true,
+        requiresAuth: true
       },
       component: Expenses,
       children: [
@@ -186,8 +186,8 @@ export default new Router({
           component: ExpenseTable,
           meta: {
             layout: "user",
-            requiresAuth: true,
-          },
+            requiresAuth: true
+          }
         },
         {
           path: "new",
@@ -195,8 +195,8 @@ export default new Router({
           component: NewExpense,
           meta: {
             layout: "user",
-            requiresAuth: true,
-          },
+            requiresAuth: true
+          }
         },
         {
           path: "edit/:id",
@@ -204,8 +204,8 @@ export default new Router({
           component: EditExpense,
           meta: {
             layout: "user",
-            requiresAuth: true,
-          },
+            requiresAuth: true
+          }
         },
         {
           path: "detail/:id",
@@ -213,10 +213,10 @@ export default new Router({
           component: DetailExpense,
           meta: {
             layout: "user",
-            requiresAuth: true,
-          },
-        },
-      ],
+            requiresAuth: true
+          }
+        }
+      ]
     },
 
     // {
@@ -234,9 +234,9 @@ export default new Router({
       name: "new_account",
       meta: {
         layout: "user",
-        requiresAuth: true,
+        requiresAuth: true
       },
-      component: NewAccount,
+      component: NewAccount
     },
     {
       path: "/edit/:acct/:id",
@@ -244,9 +244,9 @@ export default new Router({
       props: true,
       meta: {
         layout: "user",
-        requiresAuth: true,
+        requiresAuth: true
       },
-      component: Edit,
+      component: Edit
     },
     {
       path: "/edit/:id",
@@ -254,9 +254,9 @@ export default new Router({
       props: true,
       meta: {
         layout: "user",
-        requiresAuth: true,
+        requiresAuth: true
       },
-      component: EditAccount,
+      component: EditAccount
     },
 
     {
@@ -264,9 +264,9 @@ export default new Router({
       name: "auth",
       meta: {
         layout: "no-user",
-        requiresVisitor: true,
+        requiresVisitor: true
       },
-      component: Auth,
+      component: Auth
     },
 
     {
@@ -274,39 +274,39 @@ export default new Router({
       name: "about",
       meta: {
         layout: "user",
-        requiresAuth: true,
+        requiresAuth: true
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue"),
+        import(/* webpackChunkName: "about" */ "./views/About.vue")
     },
     {
       path: "/settings",
       name: "settings",
       meta: {
         layout: "user",
-        requiresAuth: true,
+        requiresAuth: true
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/Settings.vue"),
+        import(/* webpackChunkName: "about" */ "./views/Settings.vue")
     },
     {
       path: "/help",
       name: "help",
       meta: {
         layout: "user",
-        requiresAuth: true,
+        requiresAuth: true
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/Help.vue"),
-    },
-  ],
+        import(/* webpackChunkName: "about" */ "./views/Help.vue")
+    }
+  ]
 });

@@ -5,6 +5,7 @@ import account from "./modules/account";
 import transactions from "./modules/transactions";
 import base from "./modules/base";
 import home from "./modules/home";
+import expense from "./modules/expense";
 
 Vue.use(Vuex);
 
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     account,
     transactions,
     base,
-    home
-  }
+    home,
+    expense,
+  },
 });

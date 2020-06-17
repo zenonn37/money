@@ -1,7 +1,8 @@
 const state = {
   errors: null,
   nav: true,
-  auth: false
+  auth: false,
+  total: 0,
 };
 
 const mutations = {
@@ -16,7 +17,10 @@ const mutations = {
   },
   set_auth(state, bool) {
     state.auth = bool;
-  }
+  },
+  set_total(state, total) {
+    state.total = total;
+  },
 };
 
 const getters = {
@@ -28,10 +32,16 @@ const getters = {
   },
   get_auth(state) {
     return state.auth;
-  }
+  },
+  get_total(state) {
+    return state.total;
+  },
 };
 
 const actions = {
+  set_total({ commit }) {
+    commit("set_total");
+  },
   set_aside({ commit }) {
     commit("set_nav");
   },
@@ -46,7 +56,7 @@ const actions = {
   },
   clear_errors({ commit }) {
     commit("set_errors", null);
-  }
+  },
 };
 
 export default {
@@ -54,5 +64,5 @@ export default {
   state,
   mutations,
   getters,
-  actions
+  actions,
 };

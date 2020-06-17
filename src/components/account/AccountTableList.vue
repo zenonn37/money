@@ -29,7 +29,8 @@
       tag="td"
       class="cursors"
       :to="{ name: 'accounts.analytics', params: { account: accounts.id } }"
-    >{{ accounts.name }}</router-link>
+      >{{ accounts.name }}</router-link
+    >
 
     <td>Active</td>
     <td>${{ accounts.balance }}</td>
