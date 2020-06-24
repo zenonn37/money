@@ -13,7 +13,7 @@ const mutations = {
     state.expenses.push(exp);
   },
 
-  delete_exp(state, id) {
+  delete_expense(state, id) {
     // console.log(id);
     const newExp = state.expenses.filter((exp) => exp.id !== id);
     state.expenses = newExp;
@@ -36,12 +36,13 @@ const getters = {
 };
 
 const actions = {
-  get_expenses({ commit }) {
+  get_expenses({ commit, dispatch }) {
     return new Promise((resolve, reject) => {
-      Axios.get("expenses")
+      Axios.get("expense")
         .then((res) => {
-          commit("set_expenses", res.data);
+          commit("set_expense", res.data.data);
           resolve(res);
+          dispatch("total");
         })
         .catch((err) => {
           commit("base/set_errors", err.response.data.message, { root: true });
@@ -53,14 +54,7 @@ const actions = {
     // axios.defaults.headers.common["Authorization"] =
     //     "Bearer " + localStorage.getItem('access_token');
     return new Promise((resolve, reject) => {
-      Axios.post(`expense`, {
-        name: payload.name,
-        repeat: payload.repeat,
-        category: payload.category,
-        amount: parseFloat(payload.amount),
-
-        due: payload.date.slice(0, 19).replace("T", " "),
-      })
+      Axios.post(`expense`, payload)
         .then((res) => {
           commit("new_expense", res.data);
 
@@ -78,18 +72,32 @@ const actions = {
         });
     });
   },
-  delete_expense({ commit, dispatch }, payload) {
+  update_expense({ commit, dispatch }, payload) {
+    return new Promise((resolve, reject) => {
+      Axios.patch(`expense/${payload.id}`, payload)
+        .then(() => {
+          dispatch("total");
+
+          resolve();
+        })
+        .catch((err) => {
+          commit("base/set_errors", err.response.data.message, { root: true });
+          reject(err);
+        });
+    });
+  },
+  delete_expense({ commit, dispatch }, id) {
     //MAKE DRY!
     // axios.defaults.headers.common["Authorization"] =
     //     "Bearer " + localStorage.getItem('access_token');
     return new Promise((resolve, reject) => {
       // console.log(payload.acct_id);
 
-      Axios.delete(`expenses/${payload.id}`)
+      Axios.delete(`expense/${id}`)
         .then((res) => {
-          commit("delete_expense", payload.id);
+          commit("delete_expense", id);
 
-          dispatch("total", payload.id);
+          dispatch("total");
 
           //
           // console.log(bal);

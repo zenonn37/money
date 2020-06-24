@@ -23,10 +23,9 @@
           <th>Amount</th>
           <th>Due</th>
           <th>Paid</th>
-          <th>Repeated</th>
         </thead>
         <tbody>
-          <ExpenseTableList />
+          <ExpenseTableList :expense="expense" v-for="expense in expenses" :key="expense.id" />
         </tbody>
       </table>
     </template>
@@ -37,6 +36,7 @@
 import ExpenseTableList from "@/components/expense/ExpenseTableList";
 import Loader from "@/components/Loader";
 export default {
+  name: "ExpenseTable",
   components: {
     ExpenseTableList,
     Loader
@@ -46,10 +46,21 @@ export default {
       loading: false
     };
   },
+  computed: {
+    expenses() {
+      return this.$store.getters["expense/get_expenses"];
+    }
+  },
   methods: {
     onNew() {
       this.$router.push({ name: "expense.new" });
     }
+  },
+  created() {
+    this.loading = true;
+    this.$store.dispatch("expense/get_expenses").then(() => {
+      this.loading = false;
+    });
   }
 };
 </script>

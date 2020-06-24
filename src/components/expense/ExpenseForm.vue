@@ -24,7 +24,7 @@
             :rules="{
               required: { allowFalse: false },
               regex: /^(\d*\.)?\d+$/,
-              min: 3,
+              min: 1,
               max: 10
             }"
             :bails="false"
@@ -46,7 +46,7 @@
           <label for="checkbox">{{ exp.repeat }}</label>
         </div>-->
 
-        <div class="form-field">
+        <div class="form-field" v-if="dates">
           <ValidationProvider name="Due Date" rules="required" :bails="false" v-slot="{ errors }">
             <datetime
               placeholder="Enter Date"
@@ -56,6 +56,9 @@
             ></datetime>
             <span class="errors">{{ errors[0] }}</span>
           </ValidationProvider>
+        </div>
+        <div class="form-field-hidden" v-else>
+          <p>Due, {{exp.date | day}}</p>
         </div>
 
         <div class="form-field" v-if="!loading">
@@ -71,6 +74,7 @@
           <input @keyup.enter="onSend()" type="submit" value="Processing" />
         </div>
       </ValidationObserver>
+      <button @click="dates = !dates">Edit Date</button>
     </div>
   </div>
 </template>
@@ -86,6 +90,7 @@ export default {
     return {
       types: types,
       categories: categories,
+      dates: false,
       exp: {
         id: this.id !== undefined || this.id !== null ? this.id : "",
         // acct_id:
@@ -102,16 +107,17 @@ export default {
           this.edit === null || this.edit === undefined ? "" : this.edit.amount,
         name:
           this.edit === null || this.edit === undefined ? "" : this.edit.name,
-        repeat:
-          this.edit === null || this.edit === undefined
-            ? "Debit"
-            : this.edit.type,
+        // repeat:
+        //   this.edit === null || this.edit === undefined
+        //     ? "Debit"
+        //     : this.edit.type,
         category:
           this.edit == null || this.edit === undefined
             ? "Housing"
             : this.edit.category,
         state: {
-          isValidation: false
+          isValidation:
+            this.edit !== null || this.edit !== undefined ? true : false
         }
       }
     };
@@ -125,6 +131,10 @@ export default {
       requestAnimationFrame(() => {
         this.$refs.observer.reset();
       });
+
+      this.exp.date = this.exp.date.slice(0, 19).replace("T", " ");
+      this.exp.amount = parseFloat(this.exp.amount);
+      console.log(this.exp);
 
       this.$emit("new", this.exp);
     }
