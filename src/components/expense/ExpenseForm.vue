@@ -3,7 +3,12 @@
     <div class="forms">
       <h1>{{ title }}</h1>
 
-      <ValidationObserver ref="observer" v-slot="{ valid }" tag="form" @submit.prevent="onSend()">
+      <ValidationObserver
+        ref="observer"
+        v-slot="{ valid }"
+        tag="form"
+        @submit.prevent="onSend()"
+      >
         <div class="form-field">
           <ValidationProvider
             name="Name"
@@ -47,7 +52,12 @@
         </div>-->
 
         <div class="form-field" v-if="dates">
-          <ValidationProvider name="Due Date" rules="required" :bails="false" v-slot="{ errors }">
+          <ValidationProvider
+            name="Due Date"
+            rules="required"
+            :bails="false"
+            v-slot="{ errors }"
+          >
             <datetime
               placeholder="Enter Date"
               v-model="exp.date"
@@ -58,7 +68,7 @@
           </ValidationProvider>
         </div>
         <div class="form-field-hidden" v-else>
-          <p>Due, {{exp.date | day}}</p>
+          <p>Due, {{ exp.date | day }}</p>
         </div>
 
         <div class="form-field" v-if="!loading">
@@ -67,7 +77,9 @@
             :class="[valid ? 'complete' : 'not-valid']"
             :disabled="!valid"
             type="submit"
-          >{{ valid ? "Complete" : "Disabled" }}</button>
+          >
+            {{ valid ? "Complete" : "Disabled" }}
+          </button>
         </div>
 
         <div class="form-field" v-else>

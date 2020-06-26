@@ -1,11 +1,11 @@
 <template>
   <tr>
-    <td>{{expense.name}}</td>
+    <td>{{ expense.name }}</td>
 
-    <td>{{expense.category}}</td>
-    <td>{{expense.amount | currency}}</td>
-    <td>{{expense.date | day}}</td>
-    <td>{{expense.paid ? 'YES': 'NO'}}</td>
+    <td>{{ expense.category }}</td>
+    <td>{{ expense.amount | currency }}</td>
+    <td>{{ expense.date | day }}</td>
+    <td>{{ expense.paid ? "YES" : "NO" }}</td>
     <CrudControls :id="expense.id" @remove="onDelete" @edit="onEdit" />
   </tr>
 </template>

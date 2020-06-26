@@ -8,12 +8,17 @@
       <div class="transaction-header">
         <ul>
           <li>Range</li>
-          <li>Search</li>
-          <li>Category</li>
+          <li @click="search = !search">Search</li>
+          <li @click="category = !category">Category</li>
           <li @click="onNew()">
             <img src="@/assets/svg/new.svg" alt="new expense button" />
           </li>
         </ul>
+        <div class="tools">
+          <transition name="fade" mode="in-out">
+            <Category v-if="category" @category="onCategory" @reset="onReset" />
+          </transition>
+        </div>
       </div>
       <table>
         <thead>
@@ -24,9 +29,14 @@
           <th>Due</th>
           <th>Paid</th>
         </thead>
-        <tbody>
-          <ExpenseTableList :expense="expense" v-for="expense in expenses" :key="expense.id" />
-        </tbody>
+
+        <transition-group tag="tbody" name="fade" mode="out-in">
+          <ExpenseTableList
+            :expense="expense"
+            v-for="expense in expenses"
+            :key="expense.id"
+          />
+        </transition-group>
       </table>
     </template>
   </div>
@@ -35,15 +45,19 @@
 <script>
 import ExpenseTableList from "@/components/expense/ExpenseTableList";
 import Loader from "@/components/Loader";
+import Category from "@/components/shared/Category";
+
 export default {
   name: "ExpenseTable",
   components: {
     ExpenseTableList,
-    Loader
+    Loader,
+    Category
   },
   data() {
     return {
-      loading: false
+      loading: false,
+      category: false
     };
   },
   computed: {
@@ -54,13 +68,26 @@ export default {
   methods: {
     onNew() {
       this.$router.push({ name: "expense.new" });
+    },
+    getExpenseData() {
+      this.loading = true;
+      this.$store.dispatch("expense/get_expenses").then(() => {
+        this.loading = false;
+      });
+    },
+    onCategory(category) {
+      this.$store.dispatch("expense/filter_category", category);
+      //console.log(category);
+    },
+    onSearch() {
+      this.$store.dispatch("expense/sea");
+    },
+    onReset() {
+      this.getExpenseData();
     }
   },
   created() {
-    this.loading = true;
-    this.$store.dispatch("expense/get_expenses").then(() => {
-      this.loading = false;
-    });
+    this.getExpenseData();
   }
 };
 </script>

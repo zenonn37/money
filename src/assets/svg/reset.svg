@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="24px" viewBox="0 0 29 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>carbon-reset</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Accounts" transform="translate(-426.000000, -334.000000)" fill-rule="nonzero">
+            <g id="carbon-reset" transform="translate(425.000000, 330.000000)">
+                <g id="Icon" fill="#565656">
+                    <path d="M18,28 C24.627417,28 30,22.627417 30,16 C30,9.372583 24.627417,4 18,4 C11.372583,4 6,9.372583 6,16 L6,22.2 L2.4,18.6 L1,20 L7,26 L13,20 L11.6,18.6 L8,22.2 L8,16 C8,10.4771525 12.4771525,6 18,6 C23.5228475,6 28,10.4771525 28,16 C28,21.5228475 23.5228475,26 18,26 L18,28 Z" id="Icon-Path"></path>
+                </g>
+                <rect id="ViewBox" x="0" y="0" width="32" height="32"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

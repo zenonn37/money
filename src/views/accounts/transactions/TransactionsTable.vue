@@ -14,6 +14,15 @@
           </li>
         </ul>
       </div>
+      <div class="tools">
+        <transition name="fade" mode="in-out">
+          <Category v-if="category" @category="onCategory" @reset="onReset" />
+        </transition>
+
+        <transition name="fade" mode="in-out">
+          <Search v-if="search" @search="onSearch" @reset="onReset" />
+        </transition>
+      </div>
 
       <table>
         <thead>
@@ -26,7 +35,7 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <transition-group tag="tbody" name="fade" mode="out-in">
           <TableList
             @delete="remove"
             @edit="edit"
@@ -34,7 +43,7 @@
             v-for="transaction in transactions"
             :key="transaction.id"
           />
-        </tbody>
+        </transition-group>
       </table>
     </template>
   </div>
@@ -43,12 +52,16 @@
 <script>
 import TableList from "@/components/transactions/TableList";
 import Loader from "@/components/Loader";
+import Category from "@/components/shared/Category";
+import Search from "@/components/shared/Search";
 export default {
   name: "TransactionTable",
   props: ["account"],
   components: {
     TableList,
-    Loader
+    Loader,
+    Category,
+    Search
   },
   data() {
     return {

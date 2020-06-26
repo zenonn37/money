@@ -9,13 +9,13 @@
         <th>Balance</th>
       </tr>
     </thead>
-    <tbody>
+    <transition-group tag="tbody" name="fade" mode="out-in">
       <AccountTableList
         :accounts="account"
         v-for="account in accounts"
         :key="account.id"
       />
-    </tbody>
+    </transition-group>
   </table>
 </template>
 

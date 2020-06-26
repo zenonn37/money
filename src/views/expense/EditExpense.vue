@@ -8,7 +8,13 @@
 
     <template>
       <div class="new-form">
-        <ExpenseForm :loading="loading" :edit="edit" title="Edit Expense" @new="onSubmit" :id="id" />
+        <ExpenseForm
+          :loading="loading"
+          :edit="edit"
+          title="Edit Expense"
+          @new="onSubmit"
+          :id="id"
+        />
       </div>
     </template>
   </div>

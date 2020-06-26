@@ -242,6 +242,17 @@ tbody td {
   width: 75px;
 }
 
+.category-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2rem;
+}
+
+.category-search .input-box {
+  width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;

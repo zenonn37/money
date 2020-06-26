@@ -18,6 +18,6 @@ export default new Vuex.Store({
     transactions,
     base,
     home,
-    expense,
-  },
+    expense
+  }
 });

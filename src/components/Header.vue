@@ -3,7 +3,7 @@
     <div class="container">
       <div class="greeting">
         <h1>Hello, {{ user.name }}</h1>
-        <h2>{{$route.name}}</h2>
+        <h2>{{ $route.name }}</h2>
       </div>
       <div class="interactive">
         <div class="balances" v-if="$route.name === 'accounts'">

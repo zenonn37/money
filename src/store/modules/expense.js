@@ -21,6 +21,11 @@ const mutations = {
   set_total(state, total) {
     state.total = total;
   },
+  filter_category(state, cat) {
+    let c = cat.toString();
+    const newExpense = state.expenses.filter((exp) => exp.category === c);
+    state.expenses = newExpense;
+  },
 };
 
 const getters = {
@@ -36,12 +41,27 @@ const getters = {
 };
 
 const actions = {
+  filter_category({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      Axios.get(`expense-category/${payload}`)
+        .then((res) => {
+          commit("set_expense", res.data.data);
+          resolve(res);
+        })
+        .catch((err) => {
+          commit("base/set_errors", err.response.data.message, { root: true });
+          reject(err);
+        });
+    });
+  },
+
   get_expenses({ commit, dispatch }) {
     return new Promise((resolve, reject) => {
       Axios.get("expense")
         .then((res) => {
           commit("set_expense", res.data.data);
           resolve(res);
+
           dispatch("total");
         })
         .catch((err) => {
