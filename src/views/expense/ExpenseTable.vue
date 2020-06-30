@@ -7,8 +7,6 @@
     <template v-else>
       <div class="transaction-header">
         <ul>
-          <li>Range</li>
-          <li @click="search = !search">Search</li>
           <li @click="category = !category">Category</li>
           <li @click="onNew()">
             <img src="@/assets/svg/new.svg" alt="new expense button" />
@@ -31,11 +29,7 @@
         </thead>
 
         <transition-group tag="tbody" name="fade" mode="out-in">
-          <ExpenseTableList
-            :expense="expense"
-            v-for="expense in expenses"
-            :key="expense.id"
-          />
+          <ExpenseTableList :expense="expense" v-for="expense in expenses" :key="expense.id" />
         </transition-group>
       </table>
     </template>

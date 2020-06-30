@@ -22,6 +22,9 @@
         <transition name="fade" mode="in-out">
           <Search v-if="search" @search="onSearch" @reset="onReset" />
         </transition>
+        <transition name="fade" mode="in-out">
+          <Range v-if="range" @range="onRange" @reset="onReset" />
+        </transition>
       </div>
 
       <table>
@@ -54,6 +57,7 @@ import TableList from "@/components/transactions/TableList";
 import Loader from "@/components/Loader";
 import Category from "@/components/shared/Category";
 import Search from "@/components/shared/Search";
+import Range from "@/components/shared/Range";
 export default {
   name: "TransactionTable",
   props: ["account"],
@@ -61,11 +65,14 @@ export default {
     TableList,
     Loader,
     Category,
-    Search
+    Search,
+    Range
   },
   data() {
     return {
-      loading: false
+      loading: false,
+      category: false,
+      search: false
     };
   },
   computed: {
@@ -88,7 +95,8 @@ export default {
     edit(id) {
       // this.$router.push({ name: "trans.edit", params: { id: id } });
       this.$router.push(`edit/${id}`);
-    }
+    },
+    tools() {}
   },
 
   created() {
