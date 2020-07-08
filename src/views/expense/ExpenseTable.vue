@@ -29,7 +29,11 @@
         </thead>
 
         <transition-group tag="tbody" name="fade" mode="out-in">
-          <ExpenseTableList :expense="expense" v-for="expense in expenses" :key="expense.id" />
+          <ExpenseTableList
+            :expense="expense"
+            v-for="expense in expenses"
+            :key="expense.id"
+          />
         </transition-group>
       </table>
     </template>

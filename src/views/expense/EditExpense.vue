@@ -2,13 +2,24 @@
   <div>
     <!-- <ReturnBtn :back="back" @nav="goBack()" /> -->
 
-    <div class="back top-spacer cursors">
+    <!-- <div class="back top-spacer cursors">
       <i :class="[back]" @click="goBack()"></i>
-    </div>
+    </div>-->
 
     <template>
-      <div class="new-form">
-        <ExpenseForm :loading="loading" :edit="edit" title="Edit Expense" @new="onSubmit" :id="id" />
+      <div class="business">
+        <div class="form-logo">
+          <h1>Edit Expense</h1>
+        </div>
+        <div class="form">
+          <ExpenseForm
+            :loading="loading"
+            :edit="edit"
+            title="Edit Expense"
+            @new="onSubmit"
+            :id="id"
+          />
+        </div>
       </div>
     </template>
   </div>

@@ -46,7 +46,7 @@
           <label for="checkbox">{{ exp.repeat }}</label>
         </div>-->
 
-        <div class="form-field" v-if="edit === null">
+        <div class="form-field" v-if="edit === null || dates === true">
           <ValidationProvider name="Due Date" rules="required" :bails="false" v-slot="{ errors }">
             <datetime
               placeholder="Enter Date"
@@ -58,6 +58,7 @@
           </ValidationProvider>
         </div>
         <div class="form-field-hidden" v-else>
+          <img class="cursors" src="@/assets/svg/edit.svg" @click="onEditDate()" alt="Edit" />
           <p>Due, {{ exp.date | day }}</p>
         </div>
 
@@ -76,7 +77,6 @@
           <input @keyup.enter="onSend()" type="submit" value="Processing" />
         </div>
       </ValidationObserver>
-      <button v-if="edit !== null" @click="dates = !dates">Edit Date</button>
     </div>
   </div>
 </template>
@@ -142,6 +142,9 @@ export default {
     },
     onCancel() {
       this.$router.push("/expenses");
+    },
+    onEditDate() {
+      this.dates = !this.dates;
     }
   }
 };

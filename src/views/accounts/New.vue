@@ -7,14 +7,17 @@
     </div>
 
     <template>
-      <div class="new-form">
-        <TransactionForm
-          :loading="loading"
-          :edit="null"
-          title="New Transaction"
-          @new="onSubmit"
-          :acct="this.$route.params.account"
-        />
+      <div class="business">
+        <div class="form">
+          <TransactionForm
+            :loading="loading"
+            :edit="null"
+            title="New Transaction"
+            @new="onSubmit"
+            @cancel="goBack()"
+            :acct="this.$route.params.account"
+          />
+        </div>
       </div>
     </template>
   </div>

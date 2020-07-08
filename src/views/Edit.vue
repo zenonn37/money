@@ -3,15 +3,17 @@
     <div class="back top-spacer">
       <i class="fas fa-chevron-left" @click="goBack()"></i>
     </div>
-    <div class="new-form">
-      <TransactionForm
-        :loading="loading"
-        title="Edit Transaction"
-        :edit="edit"
-        @new="onSubmit"
-        :id="this.id"
-        :acct="acct"
-      />
+    <div class="business">
+      <div class="form">
+        <TransactionForm
+          :loading="loading"
+          title="Edit Transaction"
+          :edit="edit"
+          @new="onSubmit"
+          :id="this.id"
+          :acct="acct"
+        />
+      </div>
     </div>
   </div>
 </template>

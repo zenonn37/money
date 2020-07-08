@@ -6,9 +6,9 @@
     <template v-else>
       <div class="transaction-header">
         <ul>
-          <li>Range</li>
-          <li>Search</li>
-          <li>Category</li>
+          <li @click="tools(1)">Range</li>
+          <li @click="tools(2)">Search</li>
+          <li @click="tools(3)">Category</li>
           <li @click="onNew()">
             <img src="@/assets/svg/new.svg" alt="new transaction button" />
           </li>
@@ -72,7 +72,8 @@ export default {
     return {
       loading: false,
       category: false,
-      search: false
+      search: false,
+      range: false
     };
   },
   computed: {
@@ -96,29 +97,71 @@ export default {
       // this.$router.push({ name: "trans.edit", params: { id: id } });
       this.$router.push(`edit/${id}`);
     },
-    tools() {}
+    tools(mode) {
+      switch (mode) {
+        case 1:
+          this.range = !this.range;
+          this.search = false;
+          this.category = false;
+          break;
+
+        case 2:
+          this.search = !this.search;
+          this.range = false;
+          this.category = false;
+          break;
+
+        case 3:
+          this.category = !this.category;
+          this.range = false;
+          this.search = false;
+          break;
+
+        default:
+          break;
+      }
+    },
+    onRange(dates) {
+      console.log(dates);
+    },
+    onSearch(term) {
+      console.log(term);
+    },
+    onCategory(category) {
+      const payload = {
+        term: category,
+        id: this.account
+      };
+      this.$store.dispatch("transactions/filter_category", payload);
+      console.log(category);
+    },
+    onReset() {
+      this.loadData();
+    },
+    loadData() {
+      this.loading = true;
+      this.$store
+        .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.account)
+        .then(() => {
+          // this.$toast.open({
+          //   message: "Transaction data loaded",
+          //   type: "info",
+          //   position: "top"
+          // });
+          this.loading = false;
+        })
+        .catch(() => {
+          this.$toast.open({
+            message: "Connection Error please refresh the page",
+            type: "error",
+            position: "top"
+          });
+        });
+    }
   },
 
   created() {
-    this.loading = true;
-    this.$store
-      .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.account)
-      .then(() => {
-        // this.$toast.open({
-        //   message: "Transaction data loaded",
-        //   type: "info",
-        //   position: "top"
-        // });
-        this.loading = false;
-      })
-      .catch(() => {
-        this.$toast.open({
-          message: "Connection Error please refresh the page",
-          type: "error",
-          position: "top"
-        });
-      });
-    //
+    this.loadData();
   }
 };
 </script>
