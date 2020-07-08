@@ -2,19 +2,24 @@
   <div>
     <!-- <ReturnBtn :back="back" @nav="goBack()" /> -->
 
-    <div class="back top-spacer cursors">
+    <!-- <div class="back top-spacer cursors">
       <i :class="[back]" @click="goBack()"></i>
-    </div>
+    </div>-->
 
     <template>
-      <div class="new-form">
-        <ExpenseForm
-          :loading="loading"
-          :edit="null"
-          title="New Expense"
-          @new="onSubmit"
-          :id="null"
-        />
+      <div class="business">
+        <div class="form-logo">
+          <h1>Form Logo</h1>
+        </div>
+        <div class="form">
+          <ExpenseForm
+            :loading="loading"
+            :edit="null"
+            title="New Expense"
+            @new="onSubmit"
+            :id="null"
+          />
+        </div>
       </div>
     </template>
   </div>
@@ -22,12 +27,12 @@
 
 <script>
 import ExpenseForm from "@/components/expense/ExpenseForm";
-import { prevRoutes } from "@/mixins/prevRoute.js";
+// import { prevRoutes } from "@/mixins/prevRoute.js";
 
 export default {
   name: "New",
   props: ["id"],
-  mixins: [prevRoutes],
+  // mixins: [prevRoutes],
   components: {
     ExpenseForm
   },
@@ -49,19 +54,9 @@ export default {
       this.$store
         .dispatch("expense/new_expense", expense)
         .then(() => {
-          this.$toast.open({
-            message: "New Expense Created",
-            type: "success",
-            position: "right"
-          });
           this.loading = true;
-          //console.log("done");
 
-          this.goBack();
-          // console.log("success");
-          // setTimeout(() => {
-
-          // }, 300);
+          this.$router.push("/expenses");
         })
         .catch(() => {
           this.$toast.open({

@@ -104,11 +104,11 @@ export default {
     this.$store
       .dispatch("transactions/ACCOUNT_TRANSACTIONS", this.account)
       .then(() => {
-        this.$toast.open({
-          message: "Transaction data loaded",
-          type: "info",
-          position: "top"
-        });
+        // this.$toast.open({
+        //   message: "Transaction data loaded",
+        //   type: "info",
+        //   position: "top"
+        // });
         this.loading = false;
       })
       .catch(() => {

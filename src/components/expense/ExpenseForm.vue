@@ -3,12 +3,7 @@
     <div class="forms">
       <h1>{{ title }}</h1>
 
-      <ValidationObserver
-        ref="observer"
-        v-slot="{ valid }"
-        tag="form"
-        @submit.prevent="onSend()"
-      >
+      <ValidationObserver ref="observer" v-slot="{ valid }" tag="form" @submit.prevent="onSend()">
         <div class="form-field">
           <ValidationProvider
             name="Name"
@@ -51,13 +46,8 @@
           <label for="checkbox">{{ exp.repeat }}</label>
         </div>-->
 
-        <div class="form-field" v-if="dates">
-          <ValidationProvider
-            name="Due Date"
-            rules="required"
-            :bails="false"
-            v-slot="{ errors }"
-          >
+        <div class="form-field" v-if="edit === null">
+          <ValidationProvider name="Due Date" rules="required" :bails="false" v-slot="{ errors }">
             <datetime
               placeholder="Enter Date"
               v-model="exp.date"
@@ -77,16 +67,16 @@
             :class="[valid ? 'complete' : 'not-valid']"
             :disabled="!valid"
             type="submit"
-          >
-            {{ valid ? "Complete" : "Disabled" }}
-          </button>
+          >{{ valid ? "Complete" : "Form Incomplete" }}</button>
+
+          <button class="cancel" @click="onCancel()">Cancel</button>
         </div>
 
         <div class="form-field" v-else>
           <input @keyup.enter="onSend()" type="submit" value="Processing" />
         </div>
       </ValidationObserver>
-      <button @click="dates = !dates">Edit Date</button>
+      <button v-if="edit !== null" @click="dates = !dates">Edit Date</button>
     </div>
   </div>
 </template>
@@ -149,6 +139,9 @@ export default {
       console.log(this.exp);
 
       this.$emit("new", this.exp);
+    },
+    onCancel() {
+      this.$router.push("/expenses");
     }
   }
 };

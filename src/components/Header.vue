@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="container">
-      <div class="greeting">
+      <div class="greeting" v-if="user">
         <h1>Hello, {{ user.name }}</h1>
         <h2>{{ $route.name }}</h2>
       </div>
@@ -43,12 +43,15 @@
 
 <script>
 import moment from "moment";
+//import gsap from "gsap";
 export default {
   data() {
     return {
       route: this.$route.name,
       open: true,
-      day: ""
+      day: "",
+      tnum: 0,
+      sum: 0
     };
   },
   computed: {
@@ -77,6 +80,14 @@ export default {
     },
     notifications() {}
   },
+  // watch: {
+  //   sum(newValue) {
+  //     gsap.to(this.$data, {
+  //       duration: 1,
+  //       tnum: newValue,
+  //     });
+  //   },
+  // },
   mounted() {
     this.setGreeting();
   }

@@ -8,13 +8,7 @@
 
     <template>
       <div class="new-form">
-        <ExpenseForm
-          :loading="loading"
-          :edit="edit"
-          title="Edit Expense"
-          @new="onSubmit"
-          :id="id"
-        />
+        <ExpenseForm :loading="loading" :edit="edit" title="Edit Expense" @new="onSubmit" :id="id" />
       </div>
     </template>
   </div>
@@ -53,19 +47,9 @@ export default {
       this.$store
         .dispatch("expense/update_expense", expense)
         .then(() => {
-          this.$toast.open({
-            message: "Expense Updated",
-            type: "success",
-            position: "right"
-          });
           this.loading = true;
-          //console.log("done");
 
           this.goBack();
-          // console.log("success");
-          // setTimeout(() => {
-
-          // }, 300);
         })
         .catch(() => {
           this.$toast.open({
