@@ -122,7 +122,23 @@ export default {
       }
     },
     onRange(dates) {
+      this.loading = true;
       console.log(dates);
+
+      const range = {
+        date: dates.date.slice(0, 19).replace("T", " "),
+        date2: dates.date2.slice(0, 19).replace("T", " "),
+        id: this.account
+      };
+      this.$store
+        .dispatch("transactions/range", range)
+        .then(() => {
+          this.loading = false;
+        })
+        .catch(err => {
+          this.loading = false;
+          //some error function
+        });
     },
     onSearch(term) {
       console.log(term);

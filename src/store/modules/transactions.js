@@ -121,12 +121,10 @@ const actions = {
     });
   },
   range({ commit }, payload) {
+    const { id } = payload;
     return new Promise((resolve, reject) => {
       axios
-        .post(`range/${payload.id}`, {
-          date: payload.date.slice(0, 19).replace("T", " "),
-          date2: payload.date2.slice(0, 19).replace("T", " "),
-        })
+        .post(`range/${id}`, payload)
         .then((res) => {
           commit("SET_TRANS", res.data.data);
           commit("SET_LINKS", res.data.links);

@@ -8,7 +8,7 @@ export const types = [
   "Visa Pay",
   "Venmo",
   "Deposit",
-  "ATM"
+  "ATM",
 ];
 export const categories = [
   "Housing",
@@ -19,13 +19,14 @@ export const categories = [
   "HealthCare",
   "Savings",
   "Investments",
+  "Income",
   "Debt Payments",
   "Personal Spending",
   "Recreation",
   "Entertainment",
   "Education",
   "Miscellaneous",
-  "Dining"
+  "Dining",
 ];
 
 export const acct = [
@@ -38,5 +39,5 @@ export const acct = [
   "Money Market",
   "PayPal",
   "Apple",
-  "Google"
+  "Google",
 ];
