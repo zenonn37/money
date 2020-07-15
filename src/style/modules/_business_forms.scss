@@ -1,6 +1,12 @@
+.search {
+  max-width: 80%;
+}
+.range {
+}
 .business {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 
   input[type="text"] {
     width: 100%;
@@ -71,6 +77,14 @@
     border-radius: 4px;
     outline: none;
     transition: all 0.3s ease-in-out;
+  }
+
+  .search-input {
+    flex: 2;
+    width: 90%;
+  }
+  .tool {
+    padding: 0 0 0 1rem;
   }
 }
 

@@ -253,6 +253,10 @@ tbody td {
   width: 100%;
 }
 
+.search {
+  max-width: 80%;
+}
+
 .business {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -260,6 +264,9 @@ tbody td {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .business input[type="text"] {
@@ -352,6 +359,17 @@ tbody td {
   outline: none;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+.business .search-input {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  width: 90%;
+}
+
+.business .tool {
+  padding: 0 0 0 1rem;
 }
 
 .form-logo {

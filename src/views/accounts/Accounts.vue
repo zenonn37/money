@@ -2,31 +2,18 @@
   <div>
     <div class="bank">
       <div class="page-title">
-        <h1>{{ accounts.name }}</h1>
+        <h1 v-if="accounts">{{ accounts.name }}</h1>
       </div>
 
-      <ul class="page-nav">
-        <router-link
-          :to="{ name: 'accounts.analytics' }"
-          tag="li"
-          class="page-items"
-          >Analytics</router-link
-        >
+      <ul class="page-nav" v-if="accounts">
+        <router-link :to="{ name: 'accounts.analytics' }" tag="li" class="page-items">Analytics</router-link>
         <router-link
           :to="{ name: 'trans.transactions', params: { account: accounts.id } }"
           tag="li"
           class="page-items"
-          >Transactions</router-link
-        >
-        <router-link
-          :to="{ name: 'accounts.budgets' }"
-          tag="li"
-          class="page-items"
-          >Budgets</router-link
-        >
-        <router-link :to="{ name: 'accounts.edit' }" tag="li" class="page-items"
-          >Edit</router-link
-        >
+        >Transactions</router-link>
+        <router-link :to="{ name: 'accounts.budgets' }" tag="li" class="page-items">Budgets</router-link>
+        <router-link :to="{ name: 'accounts.edit' }" tag="li" class="page-items">Edit</router-link>
       </ul>
     </div>
 
@@ -45,8 +32,23 @@ export default {
 
   computed: {
     accounts() {
-      const id = parseInt(this.account);
-      return this.$store.getters["account/GET_ACCOUNT"](id);
+      if (this.account === undefined) {
+        return this.$store.getters["account/GET_ACCOUNT"](
+          parseInt(this.$route.params.id)
+        );
+      } else {
+        const id = parseInt(this.account);
+        return this.$store.getters["account/GET_ACCOUNT"](id);
+      }
+    }
+  },
+
+  created() {
+    if (this.accounts === undefined || this.accounts === null) {
+      //change to new dispatch single account!
+      this.$store.dispatch("account/ALL_ACCOUNTS").then(() => {
+        //no action needed at this time possible reload warning to user
+      });
     }
   }
 };

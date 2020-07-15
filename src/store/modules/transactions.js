@@ -120,6 +120,23 @@ const actions = {
         });
     });
   },
+  search({ commit }, payload) {
+    const { id, term } = payload;
+    return new Promise((resolve, reject) => {
+      axios
+        .get(`search/${term}/${id}`)
+        .then((res) => {
+          commit("SET_TRANS", res.data.data);
+          commit("SET_LINKS", res.data.links);
+          commit("SET_META", res.data.meta);
+          resolve(res);
+        })
+        .catch((err) => {
+          commit("base/set_errors", err.response.data.message, { root: true });
+          reject(err);
+        });
+    });
+  },
   range({ commit }, payload) {
     const { id } = payload;
     return new Promise((resolve, reject) => {

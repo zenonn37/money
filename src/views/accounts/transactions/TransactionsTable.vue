@@ -135,13 +135,25 @@ export default {
         .then(() => {
           this.loading = false;
         })
-        .catch(err => {
+        .catch(() => {
           this.loading = false;
           //some error function
         });
     },
     onSearch(term) {
-      console.log(term);
+      const payload = {
+        id: this.account,
+        term: term
+      };
+      this.$store
+        .dispatch("transactions/search", payload)
+        .then(() => {
+          this.loading = false;
+        })
+        .catch(() => {
+          this.loading = false;
+          //some error function
+        });
     },
     onCategory(category) {
       const payload = {

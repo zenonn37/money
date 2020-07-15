@@ -1,5 +1,5 @@
 <template>
-  <div class="category-search">
+  <div class="category-search business">
     <div class="input-box">
       <select name="category" id="category" v-model="cat">
         <option v-for="category in categories" :key="category" :value="category">{{ category }}</option>
