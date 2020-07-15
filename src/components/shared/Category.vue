@@ -1,11 +1,11 @@
 <template>
   <div class="category-search business">
     <div class="input-box">
-      <select name="category" id="category" v-model="cat">
+      <select name="category" id="category" v-model="cat" value="Housing">
         <option v-for="category in categories" :key="category" :value="category">{{ category }}</option>
       </select>
     </div>
-    <div class="reset" @click="onReset()">
+    <div class="tool" @click="onReset()">
       <img src="@/assets/svg/reset.svg" alt="Reset" />
     </div>
   </div>

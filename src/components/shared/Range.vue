@@ -1,6 +1,6 @@
 <template>
-  <div class="business range">
-    <form @submit.prevent="onRange()">
+  <div class="business">
+    <form @submit.prevent="onRange()" class="range">
       <div class="form-field">
         <datetime
           placeholder="Start"

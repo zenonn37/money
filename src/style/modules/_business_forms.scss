@@ -2,11 +2,24 @@
   max-width: 80%;
 }
 .range {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  justify-content: space-between;
+  margin-right: 5rem;
+  .form-field {
+    width: 100%;
+    padding-right: 1rem;
+  }
+}
+.forms {
+  width: 100%;
 }
 .business {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  width: 100%;
 
   input[type="text"] {
     width: 100%;

@@ -1,13 +1,8 @@
 <template>
-  <div class="forms-container">
+  <div class="business">
     <div class="forms">
       <h1>{{ title }}</h1>
-      <ValidationObserver
-        ref="observer"
-        tag="form"
-        v-slot="{ valid }"
-        @submit.prevent="onSend()"
-      >
+      <ValidationObserver ref="observer" tag="form" v-slot="{ valid }" @submit.prevent="onSend()">
         <div class="form-field">
           <ValidationProvider
             name="Account name"
@@ -30,11 +25,7 @@
             }"
             v-slot="{ errors }"
           >
-            <input
-              type="text"
-              placeholder=" Starting Balance"
-              v-model="account.balance"
-            />
+            <input type="text" placeholder=" Starting Balance" v-model="account.balance" />
             <!-- <input v-else
             
               type="text"
@@ -50,12 +41,7 @@
           </select>
         </div>
         <div class="form-field">
-          <ValidationProvider
-            name="Date"
-            rules="required"
-            :bails="false"
-            v-slot="{ errors }"
-          >
+          <ValidationProvider name="Date" rules="required" :bails="false" v-slot="{ errors }">
             <datetime
               placeholder="Enter Date"
               v-model="account.date"
@@ -71,9 +57,7 @@
             :class="[valid ? 'complete' : 'not-valid']"
             :disabled="!valid"
             type="submit"
-          >
-            {{ valid ? "Complete" : "Disabled" }}
-          </button>
+          >{{ valid ? "Complete" : "Disabled" }}</button>
         </div>
 
         <div class="form-field" v-else>

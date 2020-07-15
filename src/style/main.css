@@ -257,6 +257,29 @@ tbody td {
   max-width: 80%;
 }
 
+.range {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-right: 5rem;
+}
+
+.range .form-field {
+  width: 100%;
+  padding-right: 1rem;
+}
+
+.forms {
+  width: 100%;
+}
+
 .business {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -267,6 +290,7 @@ tbody td {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
 }
 
 .business input[type="text"] {

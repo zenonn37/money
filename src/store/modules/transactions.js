@@ -197,7 +197,7 @@ const actions = {
     });
   },
 
-  ACCOUNT_TRANSACTIONS({ commit }, id) {
+  ACCOUNT_TRANSACTIONS({ commit, dispatch }, id) {
     // axios.defaults.headers.common["Authorization"] =
     //     "Bearer " + localStorage.getItem('access_token');
     return new Promise((resolve, reject) => {
@@ -209,7 +209,7 @@ const actions = {
           commit("SET_LINKS", data.links);
           commit("SET_META", data.meta);
 
-          //dispatch('total', id)
+          dispatch("total", id);
           axios
             .post(`total/${id}`)
             .then((res) => {
@@ -278,7 +278,7 @@ const actions = {
         .then((res) => {
           resolve(res);
 
-          commit("set_total", res.data, { root: true });
+          commit("base/set_total", res.data, { root: true });
         })
         .catch((err) => {
           commit("base/set_errors", err.response.data.message, { root: true });

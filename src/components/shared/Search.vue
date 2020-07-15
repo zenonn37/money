@@ -23,6 +23,9 @@ export default {
   methods: {
     onPush() {
       this.$emit("search", this.term);
+    },
+    onReset() {
+      this.$emit("reset");
     }
   }
 };

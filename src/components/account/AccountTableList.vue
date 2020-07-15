@@ -29,11 +29,10 @@
       tag="td"
       class="cursors"
       :to="{ name: 'accounts.analytics', params: { account: accounts.id } }"
-      >{{ accounts.name }}</router-link
-    >
+    >{{ accounts.name }}</router-link>
 
     <td>Active</td>
-    <td>${{ accounts.balance }}</td>
+    <td>{{ accounts.balance | currency }}</td>
     <td>
       <img src="@/assets/svg/toggle.svg" alt="toggle icon" />
     </td>
