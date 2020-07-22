@@ -1,0 +1,76 @@
+.analytic-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 1rem;
+  row-gap: 4rem;
+
+  grid-template-areas:
+    "mini chart"
+    "mini chart"
+    "mini chart";
+}
+
+.mini-analytic {
+  grid-area: mini;
+}
+.chart {
+  grid-area: chart;
+  background-color: chartreuse;
+}
+
+//analytic panels
+.analytic-panel-wide,
+.analytic-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  box-shadow: $light-drop;
+  background: $white;
+}
+.analytic-title {
+  color: $analytic-title;
+}
+.analytic-number {
+  font-size: 26px;
+  color: $analytic-num;
+}
+.analytic-panel {
+  width: 165px;
+  height: 123px;
+}
+.analytic-panel-wide {
+  width: 253px;
+  height: 123px;
+}
+
+.analytic-row1,
+.analytic-row2,
+.analytic-row3 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.icon-circle {
+  width: 44px;
+  height: 44px;
+  background-color: $trim;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 769px) {
+  .analytic-container {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "mini"
+      "chart";
+  }
+}

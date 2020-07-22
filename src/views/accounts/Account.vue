@@ -37,22 +37,13 @@
           <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
           <title>carbon-new-tab</title>
           <desc>Created with Sketch.</desc>
-          <g
-            id="Dashboard"
-            stroke="none"
-            stroke-width="1"
-            fill="none"
-            fill-rule="evenodd"
-          >
+          <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g
               id="Desktop-HD"
               transform="translate(-1094.000000, -332.000000)"
               fill-rule="nonzero"
             >
-              <g
-                id="carbon-new-tab"
-                transform="translate(1090.000000, 330.000000)"
-              >
+              <g id="carbon-new-tab" transform="translate(1090.000000, 330.000000)">
                 <g id="Icon" fill="#565656">
                   <path
                     d="M26,26 L6,26 L6,6 L15,6 L15,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,26 C4,27.1045695 4.8954305,28 6,28 L26,28 C27.1045695,28 28,27.1045695 28,26 L28,17 L26,17 L26,26 Z"
@@ -114,11 +105,6 @@ export default {
     this.$store
       .dispatch("account/ALL_ACCOUNTS")
       .then(() => {
-        this.$toast.open({
-          message: "Accounts Loaded",
-          type: "info",
-          position: "top"
-        });
         this.loading = false;
       })
       .catch(() => {
