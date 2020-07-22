@@ -504,7 +504,6 @@ tbody td {
 .icon-circle {
   width: 44px;
   height: 44px;
-  background-color: #a8a5eb;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -517,7 +516,19 @@ tbody td {
           align-items: center;
 }
 
-@media screen and (max-width: 769px) {
+.basic {
+  background-color: #b5d3e4;
+}
+
+.down {
+  background-color: #c05b22;
+}
+
+.up {
+  background-color: #b9fab8;
+}
+
+@media screen and (max-width: 1024px) {
   .analytic-container {
     display: -ms-grid;
     display: grid;

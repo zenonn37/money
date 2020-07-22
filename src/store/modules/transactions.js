@@ -9,6 +9,7 @@ const state = {
   total: "",
   order: true,
   net: "",
+  acct: "",
 };
 
 const mutations = {
@@ -20,6 +21,9 @@ const mutations = {
   },
   set_net(state, net) {
     state.net = net;
+  },
+  set_acct(state, acct) {
+    state.acct = acct;
   },
 
   DELETE_TRANS(state, id) {
@@ -89,6 +93,9 @@ const getters = {
   },
   GET_TOTAL(state) {
     return state.total;
+  },
+  GET_ACCT(state) {
+    return state.acct;
   },
 };
 
@@ -165,6 +172,22 @@ const actions = {
           commit("SET_TRANS", res.data.data);
           commit("SET_LINKS", res.data.links);
           commit("SET_META", res.data.meta);
+          resolve(res);
+        })
+        .catch((err) => {
+          reject(err);
+          commit("base/set_errors", err.response.data.message, { root: true });
+        });
+    });
+  },
+  account_worth({ commit }, id) {
+    // const { id } = payload;
+
+    return new Promise((resolve, reject) => {
+      axios
+        .get(`account_worth/${id}`)
+        .then((res) => {
+          commit("set_acct", res.data);
           resolve(res);
         })
         .catch((err) => {

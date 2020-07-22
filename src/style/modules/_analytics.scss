@@ -57,14 +57,23 @@
 .icon-circle {
   width: 44px;
   height: 44px;
-  background-color: $trim;
+  // background-color: $trim;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.basic {
+  background-color: $basic;
+}
+.down {
+  background-color: $debit;
+}
+.up {
+  background-color: $credit;
+}
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1024px) {
   .analytic-container {
     display: grid;
     grid-template-columns: 1fr;

@@ -2,19 +2,9 @@
   <div class="analytic-container">
     <div class="mini-analytic">
       <div class="analytic-row1">
-        <div class="analytic-panel">
-          <div class="icon-circle">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <div class="analytic-title">
-            <span>Transactions</span>
-          </div>
-          <div class="analytic-number">
-            <span>1.2k</span>
-          </div>
-        </div>
-        <div class="analytic-panel"></div>
-        <div class="analytic-panel"></div>
+        <Analytic :basic="ana_1" :integer="analytic.transactions" />
+        <Analytic :basic="ana_2" :integer="analytic.debits" />
+        <Analytic :basic="ana_3" :integer="analytic.credits" />
       </div>
       <div class="analytic-row2">
         <div class="analytic-panel-wide"></div>
@@ -31,5 +21,44 @@
 </template>
 
 <script>
-export default {};
+import Analytic from "@/components/shared/Analytic_data";
+export default {
+  name: "Analytics",
+
+  components: {
+    Analytic
+  },
+  data() {
+    return {
+      ana_1: {
+        style: "analytic-panel",
+        title: "Transactions",
+        icon: "d_sign",
+        background: "icon-circle basic"
+      },
+      ana_2: {
+        style: "analytic-panel",
+        title: "Debits",
+        icon: "trend_down",
+        background: "icon-circle down"
+      },
+      ana_3: {
+        style: "analytic-panel",
+        title: "Credits",
+        icon: "trend_up",
+        background: "icon-circle up"
+      }
+    };
+  },
+  computed: {
+    analytic() {
+      return this.$store.getters["transactions/GET_ACCT"];
+    }
+  },
+  created() {
+    const id = this.$route.params.account;
+
+    this.$store.dispatch("transactions/account_worth", id);
+  }
+};
 </script>
