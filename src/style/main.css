@@ -485,7 +485,7 @@ tbody td {
 }
 
 .analytic-panel-wide {
-  width: 253px;
+  width: 300px;
   height: 123px;
 }
 
@@ -499,6 +499,10 @@ tbody td {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 2rem;
+}
+
+.analytic-row2 div {
+  padding: 0 0 0 0;
 }
 
 .icon-circle {

@@ -42,7 +42,9 @@
   height: 123px;
 }
 .analytic-panel-wide {
-  width: 253px;
+  width: 300px;
+  // max-width: 300px;
+  // min-width: 150px;
   height: 123px;
 }
 
@@ -52,6 +54,15 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+}
+
+.analytic-row2 {
+  div:nth-child(2) {
+    // margin-left: 1rem;
+  }
+  div {
+    padding: 0 0 0 0;
+  }
 }
 
 .icon-circle {

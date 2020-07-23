@@ -7,8 +7,8 @@
         <Analytic :basic="ana_3" :integer="analytic.credits" />
       </div>
       <div class="analytic-row2">
-        <div class="analytic-panel-wide"></div>
-        <div class="analytic-panel-wide"></div>
+        <Analytic :basic="ana_4" :integer="analytic.spent" />
+        <Analytic :basic="ana_5" :integer="analytic.deposits" />
       </div>
       <div class="analytic-row3">
         <div class="analytic-panel"></div>
@@ -45,6 +45,18 @@ export default {
       ana_3: {
         style: "analytic-panel",
         title: "Credits",
+        icon: "trend_up",
+        background: "icon-circle up"
+      },
+      ana_4: {
+        style: "analytic-panel-wide",
+        title: "Spent",
+        icon: "trend_up",
+        background: "icon-circle up"
+      },
+      ana_5: {
+        style: "analytic-panel-wide",
+        title: "Deposits",
         icon: "trend_up",
         background: "icon-circle up"
       }
