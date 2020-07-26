@@ -7,7 +7,8 @@
       <span>{{ basic.title }}</span>
     </div>
     <div class="analytic-number">
-      <span>{{ integer }}</span>
+      <span v-if="basic.cash">{{ integer | currency }}</span>
+      <span v-else>{{ integer }}</span>
     </div>
   </div>
 </template>

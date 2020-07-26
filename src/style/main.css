@@ -112,6 +112,16 @@
   background: linear-gradient(273deg, #020024 0%, rgba(58, 56, 151, 0.95562) 0%, #a3a1ff 100%);
 }
 
+.header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 1rem;
+}
+
 .greeting {
   color: #fff;
 }
@@ -627,6 +637,10 @@ i {
 
 img {
   max-width: 100%;
+}
+
+h1 {
+  margin: 0;
 }
 
 .app {

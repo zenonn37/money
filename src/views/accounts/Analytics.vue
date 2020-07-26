@@ -11,9 +11,8 @@
         <Analytic :basic="ana_5" :integer="analytic.deposits" />
       </div>
       <div class="analytic-row3">
-        <div class="analytic-panel"></div>
-        <div class="analytic-panel"></div>
-        <div class="analytic-panel"></div>
+        <Analytic :basic="ana_6" :integer="analytic.balance" />
+        <Analytic :basic="ana_7" :integer="analytic.daily" />
       </div>
     </div>
     <div class="chart">Chart</div>
@@ -34,31 +33,50 @@ export default {
         style: "analytic-panel",
         title: "Transactions",
         icon: "d_sign",
-        background: "icon-circle basic"
+        background: "icon-circle basic",
+        cash: false
       },
       ana_2: {
         style: "analytic-panel",
         title: "Debits",
         icon: "trend_down",
-        background: "icon-circle down"
+        background: "icon-circle down",
+        cash: false
       },
       ana_3: {
         style: "analytic-panel",
         title: "Credits",
         icon: "trend_up",
-        background: "icon-circle up"
+        background: "icon-circle up",
+        cash: false
       },
       ana_4: {
         style: "analytic-panel-wide",
         title: "Spent",
         icon: "trend_up",
-        background: "icon-circle up"
+        background: "icon-circle up",
+        cash: true
       },
       ana_5: {
         style: "analytic-panel-wide",
         title: "Deposits",
         icon: "trend_up",
-        background: "icon-circle up"
+        background: "icon-circle up",
+        cash: true
+      },
+      ana_6: {
+        style: "analytic-panel-wide",
+        title: "Monthly Balance",
+        icon: "trend_up",
+        background: "icon-circle up",
+        cash: true
+      },
+      ana_7: {
+        style: "analytic-panel-wide",
+        title: "Daily Spending",
+        icon: "trend_up",
+        background: "icon-circle up",
+        cash: true
       }
     };
   },
