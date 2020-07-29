@@ -15,17 +15,23 @@
         <Analytic :basic="ana_7" :integer="analytic.daily" />
       </div>
     </div>
-    <div class="chart">Chart</div>
+    <div class="chart">
+      <div class="chart-container">
+        <LineChart />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Analytic from "@/components/shared/Analytic_data";
+import LineChart from "@/components/shared/Line_Chart";
 export default {
   name: "Analytics",
 
   components: {
-    Analytic
+    Analytic,
+    LineChart
   },
   data() {
     return {

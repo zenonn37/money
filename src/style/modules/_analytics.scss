@@ -6,9 +6,9 @@
   row-gap: 4rem;
 
   grid-template-areas:
-    "mini chart"
-    "mini chart"
-    "mini chart";
+    "mini reports"
+    "mini reports"
+    "chart chart";
 }
 
 .mini-analytic {
@@ -16,7 +16,15 @@
 }
 .chart {
   grid-area: chart;
-  background-color: chartreuse;
+}
+.reports {
+  grid-area: reports;
+}
+.chart-container {
+  position: relative;
+  height: 80%;
+  width: 80%;
+  margin: auto;
 }
 
 //analytic panels
@@ -91,6 +99,51 @@
 
     grid-template-areas:
       "mini"
+      "reports"
       "chart";
+  }
+
+  .mini-analytic {
+    grid-area: mini;
+  }
+  .chart {
+    grid-area: chart;
+  }
+  .reports {
+    grid-area: reports;
+  }
+  .chart-container {
+    position: relative;
+    height: 80%;
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .analytic-container {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "mini"
+      "reports"
+      "chart";
+  }
+
+  .mini-analytic {
+    grid-area: mini;
+  }
+  .chart {
+    grid-area: chart;
+  }
+  .reports {
+    grid-area: reports;
+  }
+  .chart-container {
+    position: relative;
+    height: 50%;
+    width: 50%;
+    margin: auto;
   }
 }
