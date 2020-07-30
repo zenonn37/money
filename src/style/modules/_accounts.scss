@@ -1,5 +1,14 @@
 .bank {
   display: flex;
+  margin: 1rem 0 1rem 0;
+  .page-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    i {
+      margin: 0 1rem 0 0;
+    }
+  }
 }
 
 .page-nav {

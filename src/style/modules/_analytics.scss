@@ -1,18 +1,21 @@
 .analytic-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 155px 1fr;
   column-gap: 1rem;
-  row-gap: 4rem;
+  //row-gap: 4rem;
 
   grid-template-areas:
-    "mini reports"
+    "mini trend"
     "mini reports"
     "chart chart";
 }
 
 .mini-analytic {
   grid-area: mini;
+}
+.trends {
+  grid-area: trend;
 }
 .chart {
   grid-area: chart;
@@ -27,6 +30,25 @@
   margin: auto;
 }
 
+.trends-panel {
+  position: relative;
+  background-color: $white;
+  width: 100%;
+  height: 123px;
+  border-radius: 4px;
+  .trend-control {
+    width: 200px;
+    height: 100px;
+    padding: 1rem;
+  }
+}
+.reports-panel {
+  background-color: $white;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
 //analytic panels
 .analytic-panel-wide,
 .analytic-panel {
@@ -35,7 +57,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  box-shadow: $light-drop;
+  //box-shadow: $light-drop;
   background: $white;
 }
 .analytic-title {

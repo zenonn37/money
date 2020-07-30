@@ -2,6 +2,7 @@
   <div>
     <div class="bank">
       <div class="page-title">
+        <i @click="goBack()" class="fas fa-chevron-left cursors"></i>
         <h1 v-if="accounts">{{ accounts.name }}</h1>
       </div>
 
@@ -22,8 +23,10 @@
 </template>
 
 <script>
+import { prevRoutes } from "@/mixins/prevRoute.js";
 export default {
   name: "Accounts",
+  mixins: [prevRoutes],
   props: {
     account: {
       required: true
@@ -42,6 +45,7 @@ export default {
       }
     }
   },
+  methods: {},
 
   created() {
     if (this.accounts === undefined || this.accounts === null) {

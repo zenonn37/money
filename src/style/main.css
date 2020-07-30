@@ -186,6 +186,23 @@ tbody td {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 1rem 0 1rem 0;
+}
+
+.bank .page-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.bank .page-title i {
+  margin: 0 1rem 0 0;
 }
 
 .page-nav {
@@ -438,12 +455,11 @@ tbody td {
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+  -ms-grid-rows: 155px 1fr;
+      grid-template-rows: 155px 1fr;
   -webkit-column-gap: 1rem;
           column-gap: 1rem;
-  row-gap: 4rem;
-      grid-template-areas: "mini reports" "mini reports" "chart chart";
+      grid-template-areas: "mini trend" "mini reports" "chart chart";
 }
 
 .mini-analytic {
@@ -451,6 +467,12 @@ tbody td {
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: mini;
+}
+
+.trends {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: trend;
 }
 
 .chart {
@@ -461,8 +483,7 @@ tbody td {
 }
 
 .reports {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
+  -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: reports;
 }
@@ -472,6 +493,27 @@ tbody td {
   height: 80%;
   width: 80%;
   margin: auto;
+}
+
+.trends-panel {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 123px;
+  border-radius: 4px;
+}
+
+.trends-panel .trend-control {
+  width: 200px;
+  height: 100px;
+  padding: 1rem;
+}
+
+.reports-panel {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
 }
 
 .analytic-panel-wide,
@@ -490,8 +532,6 @@ tbody td {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 4px;
-  -webkit-box-shadow: 0px 0px 0px 0.1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 0px 0.1px rgba(0, 0, 0, 0.1);
   background: #fff;
 }
 
@@ -637,7 +677,7 @@ html {
 }
 
 body {
-  background-color: #fdfdfd;
+  background-color: #f0f0f0;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 16px;
   color: #565656;
@@ -721,7 +761,7 @@ h1 {
 }
 
 .main-content {
-  background: #fdfdfd;
+  background: #f0f0f0;
   min-height: 50vh;
   margin: -10rem 0 5rem 5rem;
   border-radius: 15px 15px 0 0;
