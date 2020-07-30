@@ -11,7 +11,7 @@ import Lines from "@/components/shared/Line.vue";
 
 export default {
   name: "LineChart",
-  props: ["chart"],
+  props: ["charts"],
   components: { Lines },
 
   data: () => ({
@@ -23,14 +23,14 @@ export default {
           yAxisID: "A",
           borderColor: "rgba(75, 192, 192, 1)",
           backgroundColor: "rgba(75, 192, 192, 0.2)",
-          data: [708.0, 1500.0, 690.0, 350.0]
+          data: []
         },
         {
           label: "Weekly Transactions",
           yAxisID: "B",
           borderColor: "rgba(75, 192, 192, 1)",
           backgroundColor: "rgba(192, 192, 192, 0.2)",
-          data: [15, 30, 40, 10]
+          data: []
         }
         // {
         //   label: "Week Three",
@@ -81,19 +81,30 @@ export default {
     }
   }),
   methods: {},
-  computed: {}
-  //   created() {
-  //     const lab = this.chart.map(label => {
-  //       return moment(label.date).format("D MMM");
-  //     });
+  computed: {},
+  created() {
+    //   const lab = this.chart.map(label => {
 
-  //     const data = this.chart.map(trans => {
-  //       return Math.round(trans.amount);
-  //     });
+    //   });
 
-  //     this.chartdata.datasets[0].data = data;
+    //   const data = this.chart.map(trans => {
+    //     return Math.round(trans.amount);
+    //   });
 
-  //     this.chartdata.labels = lab;
-  //   }
+    this.chartdata.datasets[0].data = [
+      this.charts.month.weekOne,
+      this.charts.month.weekTwo,
+      this.charts.month.weekThree,
+      this.charts.month.weekFour
+    ];
+    this.chartdata.datasets[1].data = [
+      this.charts.trans.weekOneTrans,
+      this.charts.trans.weekTwoTrans,
+      this.charts.trans.weekThreeTrans,
+      this.charts.trans.weekFourTrans
+    ];
+
+    //this.chartdata.labels = lab;
+  }
 };
 </script>

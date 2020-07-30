@@ -17,7 +17,7 @@
     </div>
     <div class="chart">
       <div class="chart-container">
-        <LineChart />
+        <LineChart :charts="charts" />
       </div>
     </div>
   </div>
@@ -35,6 +35,7 @@ export default {
   },
   data() {
     return {
+      loading: false,
       ana_1: {
         style: "analytic-panel",
         title: "Transactions",
@@ -89,12 +90,17 @@ export default {
   computed: {
     analytic() {
       return this.$store.getters["transactions/GET_ACCT"];
+    },
+    charts() {
+      return this.$store.getters["transactions/GET_CHARTS"];
     }
   },
   created() {
     const id = this.$route.params.account;
 
-    this.$store.dispatch("transactions/account_worth", id);
+    this.$store.dispatch("transactions/account_worth", id).then(() => {});
+
+    this.$store.dispatch("transactions/monthly", id).then(() => {});
   }
 };
 </script>

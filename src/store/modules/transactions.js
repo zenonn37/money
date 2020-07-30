@@ -10,6 +10,7 @@ const state = {
   order: true,
   net: "",
   acct: "",
+  charts: "",
 };
 
 const mutations = {
@@ -24,6 +25,9 @@ const mutations = {
   },
   set_acct(state, acct) {
     state.acct = acct;
+  },
+  set_chart(state, payload) {
+    state.charts = payload;
   },
 
   DELETE_TRANS(state, id) {
@@ -84,6 +88,9 @@ const getters = {
   GET_TRANSACTION: (state) => (id) => {
     return state.trans.find((tran) => tran.id === id);
   },
+  GET_CHARTS(state) {
+    return state.charts;
+  },
 
   GET_LINKS(state) {
     return state.links;
@@ -119,6 +126,20 @@ const actions = {
         .get(`category/${payload.term}/${payload.id}`)
         .then((res) => {
           commit("SET_TRANS", res.data.data);
+          resolve(res);
+        })
+        .catch((err) => {
+          commit("base/set_errors", err.response.data.message, { root: true });
+          reject(err);
+        });
+    });
+  },
+  monthly({ commit }, id) {
+    return new Promise((resolve, reject) => {
+      axios
+        .get(`monthly/${id}`)
+        .then((res) => {
+          commit("set_chart", res.data);
           resolve(res);
         })
         .catch((err) => {
