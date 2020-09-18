@@ -120,6 +120,10 @@
                   <h3>Largest Purchase</h3>
                   <p>{{transactions | currency}}</p>
                 </li>
+                <li>
+                  <h3>Average Balance</h3>
+                  <p>{{transactions | currency}}</p>
+                </li>
               </ul>
             </div>
           </div>
@@ -321,15 +325,16 @@ export default {
       return this.$store.getters["transactions/GET_CHARTS"];
     },
     transactions() {
-      const trans = this.$store.getters["transactions/GET_TRANSACTIONS"];
-      //const array = [1, 34, 60];
       let amount = [];
-      trans.forEach(ele => {
+      this.analytic.debit.forEach(ele => {
         amount.push(ele.amount);
       });
 
       const lg = Math.max(...amount);
       return lg;
+    },
+    avgBalance() {
+      return this.analytic.balance / 28;
     }
   },
 
