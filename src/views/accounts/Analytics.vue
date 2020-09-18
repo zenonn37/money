@@ -12,7 +12,7 @@
               <h2>Debits</h2>
             </div>
             <div class="info">
-              <h1>25</h1>
+              <h1>{{analytic.debits}}</h1>
             </div>
           </div>
           <div class="overviewcard">
@@ -20,7 +20,7 @@
               <h2>Credits</h2>
             </div>
             <div class="info">
-              <h1>8</h1>
+              <h1>{{analytic.credits}}</h1>
             </div>
           </div>
           <div class="overviewcard">
@@ -28,7 +28,7 @@
               <h2>Spent</h2>
             </div>
             <div class="info">
-              <h1>3698.54</h1>
+              <h1>{{analytic.spent | currency}}</h1>
             </div>
           </div>
           <div class="overviewcard">
@@ -36,7 +36,7 @@
               <h2>balance</h2>
             </div>
             <div class="info">
-              <h1>1563.98</h1>
+              <h1>{{ analytic.balance | currency}}</h1>
             </div>
           </div>
           <!-- <div class="mini-analytic">
@@ -88,9 +88,41 @@
           </div>-->
         </div>
         <div class="main-cards">
-          <div class="card">Card</div>
-          <div class="card">Card</div>
-          <div class="card">Card</div>
+          <div class="card">
+            <Chart :data="charts" />
+          </div>
+          <div class="card">
+            <div class="trends">
+              <div class="trends-panel">
+                <div class="trend-control">
+                  <apexchart height="100" type="donut" :options="pie" :series=" pieData.series"></apexchart>
+                </div>
+                <div class="trend-control">
+                  <h2>Transactions</h2>
+                  <h1>{{analytic.transactions}}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-trends">
+              <h2>Monthly Trends</h2>
+              <ul>
+                <li>
+                  <h3>Deposits</h3>
+                  <p>{{analytic.deposits | currency}}</p>
+                </li>
+                <li>
+                  <h3>Daily Average</h3>
+                  <p>{{analytic.daily | currency}}</p>
+                </li>
+                <li>
+                  <h3>Largest Purchase</h3>
+                  <p>{{transactions | currency}}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </template>
@@ -98,21 +130,23 @@
 </template>
 
 <script>
-import Analytic from "@/components/shared/Analytic_data";
-import LineChart from "@/components/shared/Line_Chart";
+// import Analytic from "@/components/shared/Analytic_data";
+// import LineChart from "@/components/shared/Line_Chart";
+import Chart from "@/charts/apex/apex-line";
 import Loader from "@/components/Loader";
 export default {
   name: "Analytics",
 
   components: {
-    Analytic,
-    LineChart,
-    Loader
+    // Analytic,
+    // LineChart,
+    Loader,
+    Chart
   },
   data() {
     return {
       pieData: {
-        series: [2000, 5550]
+        series: [0, 0]
       },
       pieData2: {
         series: [1000, 4500]
@@ -285,15 +319,34 @@ export default {
     },
     charts() {
       return this.$store.getters["transactions/GET_CHARTS"];
+    },
+    transactions() {
+      const trans = this.$store.getters["transactions/GET_TRANSACTIONS"];
+      //const array = [1, 34, 60];
+      let amount = [];
+      trans.forEach(ele => {
+        amount.push(ele.amount);
+      });
+
+      const lg = Math.max(...amount);
+      return lg;
     }
   },
+
   created() {
+    console.log("updating");
     const id = this.$route.params.account;
     this.loading = true;
     this.$store.dispatch("transactions/account_worth", id).then(() => {});
     this.$store.dispatch("transactions/monthly", id).then(() => {
       this.loading = false;
     });
+
+    const pies = this.$store.getters["transactions/GET_ACCT"];
+    const series1 = parseInt(pies.spent);
+    const series2 = parseInt(pies.deposits);
+    this.pieData.series[0] = series1;
+    this.pieData.series[1] = series2;
   }
 };
 </script>
