@@ -1,6 +1,11 @@
 <template>
   <div id="chart">
-    <apexchart type="line" height="400" :options="chartOptions" :series="series"></apexchart>
+    <apexchart
+      type="line"
+      height="400"
+      :options="chartOptions"
+      :series="series"
+    ></apexchart>
   </div>
 </template>
 
@@ -61,4 +66,3 @@ export default {
   }
 };
 </script>
-

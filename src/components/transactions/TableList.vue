@@ -5,7 +5,10 @@
     <td>{{ transaction.date | day }}</td>
     <td>{{ transaction.category }}</td>
 
-    <td>{{transaction.type !== "Deposit" ? '-': ''}} {{ transaction.amount | currency }}</td>
+    <td>
+      {{ transaction.type !== "Deposit" ? "-" : "" }}
+      {{ transaction.amount | currency }}
+    </td>
     <!-- <td>
       <span class="cursors" @click="onDelete(transaction.id)">
         <img src="@/assets/svg/delete.svg" alt="icon delete" />

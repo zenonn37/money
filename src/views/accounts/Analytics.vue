@@ -12,7 +12,7 @@
               <h2>Debits</h2>
             </div>
             <div class="info">
-              <h1>{{analytic.debits}}</h1>
+              <h1>{{ analytic.debits }}</h1>
             </div>
           </div>
           <div class="overviewcard">
@@ -20,7 +20,7 @@
               <h2>Credits</h2>
             </div>
             <div class="info">
-              <h1>{{analytic.credits}}</h1>
+              <h1>{{ analytic.credits }}</h1>
             </div>
           </div>
           <div class="overviewcard">
@@ -28,7 +28,7 @@
               <h2>Spent</h2>
             </div>
             <div class="info">
-              <h1>{{analytic.spent | currency}}</h1>
+              <h1>{{ analytic.spent | currency }}</h1>
             </div>
           </div>
           <div class="overviewcard">
@@ -36,7 +36,7 @@
               <h2>balance</h2>
             </div>
             <div class="info">
-              <h1>{{ analytic.balance | currency}}</h1>
+              <h1>{{ analytic.balance | currency }}</h1>
             </div>
           </div>
           <!-- <div class="mini-analytic">
@@ -95,11 +95,13 @@
             <div class="trends">
               <div class="trends-panel">
                 <div class="trend-control">
-                  <apexchart height="100" type="donut" :options="pie" :series=" pieData.series"></apexchart>
+                  <h2>Weekly Avg</h2>
+                  <h1>{{ analytic.transactions }}</h1>
+                  <!-- <apexchart height="100" type="donut" :options="pie" :series=" pieData.series"></apexchart> -->
                 </div>
                 <div class="trend-control">
                   <h2>Transactions</h2>
-                  <h1>{{analytic.transactions}}</h1>
+                  <h1>{{ analytic.transactions }}</h1>
                 </div>
               </div>
             </div>
@@ -110,19 +112,19 @@
               <ul>
                 <li>
                   <h3>Deposits</h3>
-                  <p>{{analytic.deposits | currency}}</p>
+                  <p>{{ analytic.deposits | currency }}</p>
                 </li>
                 <li>
                   <h3>Daily Average</h3>
-                  <p>{{analytic.daily | currency}}</p>
+                  <p>{{ analytic.daily | currency }}</p>
                 </li>
                 <li>
                   <h3>Largest Purchase</h3>
-                  <p>{{transactions | currency}}</p>
+                  <p>{{ transactions | currency }}</p>
                 </li>
                 <li>
                   <h3>Average Balance</h3>
-                  <p>{{transactions | currency}}</p>
+                  <p>{{ transactions | currency }}</p>
                 </li>
               </ul>
             </div>

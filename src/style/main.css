@@ -189,6 +189,10 @@ tbody td {
   margin: 1rem 0 1rem 0;
 }
 
+.bank h1 {
+  font-size: 1.2rem;
+}
+
 .bank .page-title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -205,6 +209,10 @@ tbody td {
   margin: 0 1rem 0 0;
 }
 
+.bank .mobile {
+  display: none;
+}
+
 .page-nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -217,6 +225,54 @@ tbody td {
 .page-nav li {
   padding: 1rem;
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .bank {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0.5rem;
+  }
+  .bank .page-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .bank .page-title h1 {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+  .bank .page-title i {
+    margin: 0 1rem 0 0;
+  }
+  .bank .mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .bank .mobile li {
+    padding: 1rem;
+  }
+  .page-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: none;
+  }
+  .page-nav li {
+    padding: 1rem;
+    cursor: pointer;
+  }
 }
 
 .transaction-header {
@@ -824,6 +880,7 @@ tbody td {
 
 @media screen and (max-width: 600px) {
   .analytic-container {
+    margin: 4px;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr;
@@ -850,6 +907,33 @@ tbody td {
     height: 50%;
     width: 50%;
     margin: auto;
+  }
+  .main-cards {
+    -webkit-column-count: 1;
+            column-count: 1;
+    -webkit-column-gap: 20px;
+            column-gap: 20px;
+    margin: 20px 4px 4px 4px;
+  }
+  .card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 20px;
+    -webkit-column-break-inside: avoid;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 2px;
   }
 }
 
@@ -1005,7 +1089,7 @@ h1 {
           animation-duration: 0.25s;
 }
 
-@media (max-width: 1025px) {
+@media screen and (max-width: 1025px) {
   .main-content {
     margin-left: 0;
     margin-top: -5rem;
@@ -1015,6 +1099,9 @@ h1 {
   }
   .page-headers {
     display: none;
+  }
+  .container {
+    max-width: 100%;
   }
 }
 /*# sourceMappingURL=main.css.map */

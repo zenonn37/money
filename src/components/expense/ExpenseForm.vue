@@ -3,7 +3,12 @@
     <div class="forms">
       <h1>{{ title }}</h1>
 
-      <ValidationObserver ref="observer" v-slot="{ valid }" tag="form" @submit.prevent="onSend()">
+      <ValidationObserver
+        ref="observer"
+        v-slot="{ valid }"
+        tag="form"
+        @submit.prevent="onSend()"
+      >
         <div class="form-field">
           <ValidationProvider
             name="Name"
@@ -47,7 +52,12 @@
         </div>-->
 
         <div class="form-field" v-if="edit === null || dates === true">
-          <ValidationProvider name="Due Date" rules="required" :bails="false" v-slot="{ errors }">
+          <ValidationProvider
+            name="Due Date"
+            rules="required"
+            :bails="false"
+            v-slot="{ errors }"
+          >
             <datetime
               placeholder="Enter Date"
               v-model="exp.date"
@@ -58,7 +68,12 @@
           </ValidationProvider>
         </div>
         <div class="form-field-hidden" v-else>
-          <img class="cursors" src="@/assets/svg/edit.svg" @click="onEditDate()" alt="Edit" />
+          <img
+            class="cursors"
+            src="@/assets/svg/edit.svg"
+            @click="onEditDate()"
+            alt="Edit"
+          />
           <p>Due, {{ exp.date | day }}</p>
         </div>
 
@@ -68,7 +83,9 @@
             :class="[valid ? 'complete' : 'not-valid']"
             :disabled="!valid"
             type="submit"
-          >{{ valid ? "Complete" : "Form Incomplete" }}</button>
+          >
+            {{ valid ? "Complete" : "Form Incomplete" }}
+          </button>
 
           <button class="cancel" @click="onCancel()">Cancel</button>
         </div>

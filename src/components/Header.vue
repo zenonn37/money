@@ -15,11 +15,17 @@
             <div class="title">Expense Total</div>
             {{ balance.total | currency("$") }}
           </div>
-          <div class="balances" v-else-if="$route.name === 'accounts.analytics'">
+          <div
+            class="balances"
+            v-else-if="$route.name === 'accounts.analytics'"
+          >
             <div class="title">Account Total</div>
             {{ balance.total | currency("$") }}
           </div>
-          <div class="balances" v-else-if="$route.name === 'trans.transactions'">
+          <div
+            class="balances"
+            v-else-if="$route.name === 'trans.transactions'"
+          >
             <div class="title">Transactions Total</div>
             {{ balance.net | currency("$") }}
           </div>

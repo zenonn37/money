@@ -2,7 +2,12 @@
   <div class="category-search business">
     <div class="input-box">
       <select name="category" id="category" v-model="cat" value="Housing">
-        <option v-for="category in categories" :key="category" :value="category">{{ category }}</option>
+        <option
+          v-for="category in categories"
+          :key="category"
+          :value="category"
+          >{{ category }}</option
+        >
       </select>
     </div>
     <div class="tool" @click="onReset()">

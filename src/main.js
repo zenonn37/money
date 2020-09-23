@@ -18,6 +18,9 @@ import "./plugins/vue-apex";
 
 import interceptor from "./interceptor";
 
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+Vue.component("font-awesome-icon", FontAwesomeIcon);
+
 interceptor();
 
 Vue.config.productionTip = false;
@@ -28,22 +31,22 @@ Vue.component("user", User);
 Vue.component("no-user", Guest);
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some((record) => record.meta.requiresAuth)) {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!store.getters.isLogged) {
       // console.log("not logged");
 
       next({
-        name: "auth",
+        name: "auth"
       });
     } else {
       next();
     }
-  } else if (to.matched.some((record) => record.meta.requiresVisitor)) {
+  } else if (to.matched.some(record => record.meta.requiresVisitor)) {
     if (store.getters.isLogged) {
       // console.log("logged");
 
       next({
-        name: "dashboard",
+        name: "dashboard"
       });
     } else {
       next();
@@ -56,5 +59,5 @@ router.beforeEach((to, from, next) => {
 new Vue({
   router,
   store,
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount("#app");

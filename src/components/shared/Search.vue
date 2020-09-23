@@ -1,7 +1,12 @@
 <template>
   <div class="search business">
     <div class="search-input">
-      <input type="text" placeholder="Enter Search Term" v-model="term" @keyup.enter="onPush()" />
+      <input
+        type="text"
+        placeholder="Enter Search Term"
+        v-model="term"
+        @keyup.enter="onPush()"
+      />
     </div>
     <div class="tool" @click="onPush()">
       <img src="@/assets/svg/search.svg" alt="Enter" />

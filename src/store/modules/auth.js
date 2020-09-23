@@ -82,6 +82,8 @@ const actions = {
     // axios.defaults.headers.common["Authorization"] =
     //     "Bearer " + state.token;
     return new Promise((resolve, reject) => {
+      localStorage.removeItem("user");
+      localStorage.removeItem("access_token");
       axios
         .post("logout")
         .then(() => {
@@ -91,8 +93,7 @@ const actions = {
           commit("transactions/SET_TRANS", [], { root: true });
           commit("transactions/SET_TOTAL", [], { root: true });
           commit("base/set_errors", null, { root: true });
-          localStorage.removeItem("user");
-          localStorage.removeItem("access_token");
+
           resolve();
         })
         .catch(err => {

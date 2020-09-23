@@ -10,7 +10,7 @@ const state = {
   order: true,
   net: "",
   acct: "",
-  charts: "",
+  charts: ""
 };
 
 const mutations = {
@@ -32,7 +32,7 @@ const mutations = {
 
   DELETE_TRANS(state, id) {
     // console.log(id);
-    const newTrans = state.trans.filter((tran) => tran.id !== id);
+    const newTrans = state.trans.filter(tran => tran.id !== id);
     state.trans = newTrans;
   },
   SET_TOTAL(state, total) {
@@ -51,7 +51,7 @@ const mutations = {
           // console.log('called ASC ');
 
           return new Date(value.date);
-        },
+        }
       ]);
       // console.log(state.trans);
     } else {
@@ -59,7 +59,7 @@ const mutations = {
         function(value) {
           // console.log('called DESC ');
           return new Date(value.date) * -1;
-        },
+        }
       ]);
       //console.log(state.trans);
     }
@@ -69,24 +69,24 @@ const mutations = {
       state.trans = _.sortBy(state.trans, [
         function(value) {
           return value.amount;
-        },
+        }
       ]);
     } else {
       state.trans = _.sortBy(state.trans, [
         function(value) {
           return value.amount * -1;
-        },
+        }
       ]);
     }
-  },
+  }
 };
 
 const getters = {
   GET_TRANSACTIONS(state) {
     return state.trans;
   },
-  GET_TRANSACTION: (state) => (id) => {
-    return state.trans.find((tran) => tran.id === id);
+  GET_TRANSACTION: state => id => {
+    return state.trans.find(tran => tran.id === id);
   },
   GET_CHARTS(state) {
     return state.charts;
@@ -103,7 +103,7 @@ const getters = {
   },
   GET_ACCT(state) {
     return state.acct;
-  },
+  }
 };
 
 const actions = {
@@ -124,11 +124,11 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios
         .get(`category/${payload.term}/${payload.id}`)
-        .then((res) => {
+        .then(res => {
           commit("SET_TRANS", res.data.data);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           commit("base/set_errors", err.response.data.message, { root: true });
           reject(err);
         });
@@ -138,11 +138,11 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios
         .get(`monthly/${id}`)
-        .then((res) => {
+        .then(res => {
           commit("set_chart", res.data);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           commit("base/set_errors", err.response.data.message, { root: true });
           reject(err);
         });
@@ -153,13 +153,13 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios
         .get(`search/${term}/${id}`)
-        .then((res) => {
+        .then(res => {
           commit("SET_TRANS", res.data.data);
           commit("SET_LINKS", res.data.links);
           commit("SET_META", res.data.meta);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           commit("base/set_errors", err.response.data.message, { root: true });
           reject(err);
         });
@@ -170,13 +170,13 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios
         .post(`range/${id}`, payload)
-        .then((res) => {
+        .then(res => {
           commit("SET_TRANS", res.data.data);
           commit("SET_LINKS", res.data.links);
           commit("SET_META", res.data.meta);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           reject(err);
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -187,15 +187,15 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios
         .post(`day/${payload.id}`, {
-          date: payload.date.slice(0, 19).replace("T", " "),
+          date: payload.date.slice(0, 19).replace("T", " ")
         })
-        .then((res) => {
+        .then(res => {
           commit("SET_TRANS", res.data.data);
           commit("SET_LINKS", res.data.links);
           commit("SET_META", res.data.meta);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           reject(err);
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -207,11 +207,11 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios
         .get(`account_worth/${id}`)
-        .then((res) => {
+        .then(res => {
           commit("set_acct", res.data);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           reject(err);
           commit("base/set_errors", err.response.data.message, { root: true });
         });
@@ -226,13 +226,13 @@ const actions = {
       axios
         .get(`transactions/${data.id}?page=${data.page}`)
         // axios.get(`${url}/transactions/${id}?page=${page}`)
-        .then((res) => {
+        .then(res => {
           const data = res.data;
           commit("SET_TRANS", data.data);
 
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           //handle errors!!
           commit("base/set_errors", err.response.data.message, { root: true });
 
@@ -247,7 +247,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios
         .get(`transactions/${id}`)
-        .then((res) => {
+        .then(res => {
           const data = res.data;
           commit("SET_TRANS", data.data);
           commit("SET_LINKS", data.links);
@@ -256,17 +256,17 @@ const actions = {
           dispatch("total", id);
           axios
             .post(`total/${id}`)
-            .then((res) => {
+            .then(res => {
               resolve(res);
               commit("SET_TOTAL", res.data);
             })
-            .catch((err) => {
+            .catch(err => {
               commit("base/set_errors", err.response.data.message, {
-                root: true,
+                root: true
               });
             });
         })
-        .catch((err) => {
+        .catch(err => {
           //handle errors!!
           commit("base/set_errors", err.response.data.message, { root: true });
           reject(err);
@@ -286,29 +286,29 @@ const actions = {
           type: payload.type,
           amount: parseFloat(payload.amount),
           date: payload.date.slice(0, 19).replace("T", " "),
-          acct_id: payload.acct_id,
+          acct_id: payload.acct_id
         })
-        .then((res) => {
+        .then(res => {
           // console.log('called');
 
           commit("NEW_TRANS", res.data);
           const bal = getters.GET_TOTAL;
           axios
             .post(`total/${payload.acct_id}`, {
-              balance: bal,
+              balance: bal
             })
-            .then((res) => {
+            .then(res => {
               resolve(res);
               commit("SET_TOTAL", res.data);
             })
-            .catch((err) => {
+            .catch(err => {
               commit("base/set_errors", err.response.data.message, {
-                root: true,
+                root: true
               });
             });
           //  resolve(res)
         })
-        .catch((err) => {
+        .catch(err => {
           //handle errors!!
           commit("base/set_errors", err.response.data.message, { root: true });
           reject(err);
@@ -319,12 +319,12 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios
         .post(`total/${id}`)
-        .then((res) => {
+        .then(res => {
           resolve(res);
 
           commit("base/set_total", res.data, { root: true });
         })
-        .catch((err) => {
+        .catch(err => {
           commit("base/set_errors", err.response.data.message, { root: true });
           reject(err);
         });
@@ -342,9 +342,9 @@ const actions = {
           category: payload.category,
           amount: parseFloat(payload.amount),
           date: payload.date.slice(0, 19).replace("T", " "),
-          acct_id: payload.acct_id,
+          acct_id: payload.acct_id
         })
-        .then((res) => {
+        .then(res => {
           commit("NEW_TRANS", res.data);
 
           dispatch("total", payload.acct_id);
@@ -353,7 +353,7 @@ const actions = {
 
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           //handle errors!!
           commit("base/set_errors", err.response.data.message, { root: true });
 
@@ -372,15 +372,15 @@ const actions = {
           type: payload.type,
           amount: payload.amount,
           category: payload.category,
-          date: payload.date.slice(0, 19).replace("T", " "),
+          date: payload.date.slice(0, 19).replace("T", " ")
         })
-        .then((res) => {
+        .then(res => {
           commit("NEW_TRANS", res.data);
 
           dispatch("total", payload.acct_id);
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           //handle errors!!
           commit("base/set_errors", err.response.data.message, { root: true });
 
@@ -397,7 +397,7 @@ const actions = {
 
       axios
         .delete(`transactions/${payload.id}`)
-        .then((res) => {
+        .then(res => {
           commit("DELETE_TRANS", payload.id);
 
           dispatch("total", payload.acct_id);
@@ -409,14 +409,14 @@ const actions = {
 
           resolve(res);
         })
-        .catch((err) => {
+        .catch(err => {
           //handle errors!!
           commit("base/set_errors", err.response.data.message, { root: true });
 
           reject(err);
         });
     });
-  },
+  }
 };
 
 export default {
@@ -424,5 +424,5 @@ export default {
   state,
   mutations,
   actions,
-  getters,
+  getters
 };
