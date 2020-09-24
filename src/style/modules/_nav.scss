@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
   background: $primary;
-  display: none;
+  //display: none;
   ul {
     display: flex;
     justify-content: space-around;
@@ -30,7 +30,7 @@
     position: fixed;
     width: 5rem;
     background: $primary;
-    display: block;
+    //display: block;
   }
   .navbar {
     display: flex;
