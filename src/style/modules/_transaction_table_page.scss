@@ -1,5 +1,6 @@
 .transaction-header {
   width: 100%;
+  position: relative;
 
   ul {
     display: flex;
@@ -15,6 +16,80 @@
       flex: 2;
       display: flex;
       justify-content: flex-end;
+    }
+  }
+}
+.mobile-transaction {
+  display: none;
+  position: relative;
+}
+
+@media screen and (max-width: 800px) {
+  table {
+    display: none;
+  }
+  .mobile-transaction {
+    display: block;
+    padding: 1rem;
+    position: relative;
+    width: 100%;
+    .trans-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 2rem;
+
+      .category-icon {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        background: transparent;
+        border: solid 1.5px rgb(206, 206, 206);
+        border-radius: 15px;
+        margin-right: 1.2rem;
+      }
+      .transaction {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        border-bottom: rgb(238, 238, 238) 1px solid;
+        padding-bottom: 0.5rem;
+
+        .title {
+          h1 {
+            font-size: 1.2rem;
+            margin-bottom: 0.1rem;
+          }
+          h2 {
+            font-size: 1rem;
+            color: $titles;
+          }
+          small {
+            text-transform: uppercase;
+            color: $titles;
+          }
+        }
+        .amount {
+          flex: 2;
+          text-align: right;
+          font-size: 1.1rem;
+          .debit {
+            color: rgb(94, 94, 94);
+            &::before {
+              content: "\2212";
+            }
+          }
+          .credit {
+            color: $positive;
+            &::before {
+              content: "\002B";
+            }
+          }
+        }
+      }
     }
   }
 }

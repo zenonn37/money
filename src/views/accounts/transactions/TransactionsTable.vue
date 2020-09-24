@@ -48,6 +48,14 @@
           />
         </transition-group>
       </table>
+
+      <div class="mobile-transaction">
+        <Trans
+          :trans="transaction"
+          v-for="transaction in transactions"
+          :key="transaction.id"
+        />
+      </div>
     </template>
   </div>
 </template>
@@ -58,6 +66,7 @@ import Loader from "@/components/Loader";
 import Category from "@/components/shared/Category";
 import Search from "@/components/shared/Search";
 import Range from "@/components/shared/Range";
+import Trans from "@/components/transactions/TransMobileList.vue";
 export default {
   name: "TransactionTable",
   props: ["account"],
@@ -66,20 +75,21 @@ export default {
     Loader,
     Category,
     Search,
-    Range
+    Range,
+    Trans,
   },
   data() {
     return {
       loading: false,
       category: false,
       search: false,
-      range: false
+      range: false,
     };
   },
   computed: {
     transactions() {
       return this.$store.getters["transactions/GET_TRANSACTIONS"];
-    }
+    },
   },
 
   methods: {
@@ -89,7 +99,7 @@ export default {
     remove(trans) {
       const payload = {
         id: trans,
-        acct_id: this.account
+        acct_id: this.account,
       };
       this.$store.dispatch("transactions/DELETE_TRANSACTION", payload);
     },
@@ -128,7 +138,7 @@ export default {
       const range = {
         date: dates.date.slice(0, 19).replace("T", " "),
         date2: dates.date2.slice(0, 19).replace("T", " "),
-        id: this.account
+        id: this.account,
       };
       this.$store
         .dispatch("transactions/range", range)
@@ -143,7 +153,7 @@ export default {
     onSearch(term) {
       const payload = {
         id: this.account,
-        term: term
+        term: term,
       };
       this.$store
         .dispatch("transactions/search", payload)
@@ -158,7 +168,7 @@ export default {
     onCategory(category) {
       const payload = {
         term: category,
-        id: this.account
+        id: this.account,
       };
       this.$store.dispatch("transactions/filter_category", payload);
       console.log(category);
@@ -182,14 +192,14 @@ export default {
           this.$toast.open({
             message: "Connection Error please refresh the page",
             type: "error",
-            position: "top"
+            position: "top",
           });
         });
-    }
+    },
   },
 
   created() {
     this.loadData();
-  }
+  },
 };
 </script>

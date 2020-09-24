@@ -141,18 +141,7 @@ h1 {
 }
 .mobile-container {
 }
-.debit {
-  color: $negative;
-  &::before {
-    content: "\2212";
-  }
-}
-.credit {
-  color: $positive;
-  &::before {
-    content: "\002B";
-  }
-}
+
 .top-spacer {
   margin-top: 1.5rem;
 }
@@ -177,10 +166,14 @@ h1 {
 }
 
 @media screen and (max-width: 1025px) {
+  body {
+    background: white;
+  }
+
   .main-content {
     margin-left: 0;
     margin-top: -5rem;
-    background: $off-white;
+    background: white;
     min-height: 50vh;
 
     //height: 100vh;
