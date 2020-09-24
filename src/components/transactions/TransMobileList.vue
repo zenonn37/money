@@ -22,8 +22,8 @@ export default {
   computed: {
     debit() {
       return this.trans.type !== "Debit" ? true : false;
-    },
-  },
+    }
+  }
 };
 </script>
 
