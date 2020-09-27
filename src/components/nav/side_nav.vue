@@ -104,9 +104,6 @@ export default {
     };
   },
   methods: {
-    mobileShow() {
-      console.log(this.nav);
-    },
     logOut() {
       this.$store.dispatch("LOGOUT").then(() => {
         this.$router.push("/auth");
