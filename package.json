@@ -15,7 +15,7 @@
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "core-js": "^2.6.11",
-    "gsap": "^3.3.4",
+    "gsap": "file:gsap-bonus.tgz",
     "lodash": "^4.17.19",
     "lodash.sortby": "^4.7.0",
     "luxon": "^1.21.3",

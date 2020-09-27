@@ -1,27 +1,44 @@
 .nav {
-  height: 4rem;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  height: 400px;
+  width: 50px;
+  position: absolute;
   background: #393857;
+  z-index: 1000;
+  top: 30px;
+  border-radius: 6px;
 }
 
 .nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: inherit;
+}
+
+.nav ul li {
+  padding-top: 2rem;
 }
 
 .navbar {
   height: 100%;
   z-index: 100;
+}
+
+.navbar .desktop {
+  display: none;
+}
+
+.navbar .mobile {
+  display: block;
 }
 
 .logo-item {
@@ -114,6 +131,18 @@
   background: linear-gradient(273deg, #020024 0%, rgba(58, 56, 151, 0.95562) 0%, #a3a1ff 100%);
 }
 
+.header .menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem 0.5rem;
+  display: block;
+}
+
+.header .menu i {
+  color: white;
+}
+
 .header-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -150,6 +179,9 @@
   .header {
     height: 350px;
   }
+  .header .menu {
+    display: none;
+  }
   .header-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -183,6 +215,9 @@
 @media screen and (max-width: 600px) {
   .header {
     height: 250px;
+  }
+  .header .menu {
+    display: block;
   }
   .header-container {
     display: -webkit-box;
