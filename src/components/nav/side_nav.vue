@@ -42,7 +42,7 @@
         <NavLinks />
       </div>
       <div class="mobile">
-        <NavLinks @exit="logOut" />
+        <NavLinks @exit="logOut" @close="closeNav" />
       </div>
 
       <div class="exit-item cursors" @click="logOut()">
@@ -101,9 +101,14 @@ export default {
     return {
       nav: "",
       toggle: false,
+      tl: "",
     };
   },
   methods: {
+    closeNav() {
+      this.tl.reverse();
+      this.toggle = !this.toggle;
+    },
     logOut() {
       this.$store.dispatch("LOGOUT").then(() => {
         this.$router.push("/auth");
@@ -116,9 +121,9 @@ export default {
     //grab the nav
 
     //setup gsap
-    const tl = gsap.timeline({ paused: true });
+    this.tl = gsap.timeline({ paused: true });
 
-    tl.from(".nav", {
+    this.tl.from(".nav", {
       x: "-100%",
       opacity: 0,
       duration: 0.5,
@@ -128,10 +133,10 @@ export default {
     //setup functions
     toggle.addEventListener("click", () => {
       if (!this.toggle) {
-        tl.play();
+        this.tl.play();
         this.toggle = !this.toggle;
       } else {
-        tl.reverse();
+        this.tl.reverse();
         this.toggle = !this.toggle;
       }
     });

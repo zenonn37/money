@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="all-accounts">
     <!-- <div class="render-child page">
     <PageHeaders title="My Accounts" menu1 menu2 menu3 />
 
@@ -73,11 +73,15 @@
     <div class="table-data">
       <AccountTable :accounts="accounts" />
     </div>
+    <div class="mobile-accounts">
+      <MobileAccounts :accounts="accounts" />
+    </div>
   </div>
 </template>
 
 <script>
 import AccountTable from "@/components/account/AccountTable";
+import MobileAccounts from "@/components/account/MobileAccounts";
 // import PageHeaders from "@/components/PageHeaders";
 // import ListTable from "@/components/ListTable";
 // import NewBtn from "@/components/btns/NewBtn";
@@ -88,26 +92,27 @@ import AccountTable from "@/components/account/AccountTable";
 export default {
   name: "Account",
   components: {
-    AccountTable
+    AccountTable,
+    MobileAccounts,
   },
   data() {
     return {
       acct: [],
       type: true,
       loading: false,
-      icon: "fas fa-university"
+      icon: "fas fa-university",
     };
   },
   computed: {
     // ...mapGetters(["GET_ACCOUNTS"])
     accounts() {
       return this.$store.getters["account/GET_ACCOUNTS"];
-    }
+    },
   },
   methods: {
     onNew() {
       this.$router.push("/new");
-    }
+    },
   },
   created() {
     this.loading = true;
@@ -120,9 +125,9 @@ export default {
         this.$toast.open({
           message: "Connection Error please refresh the page",
           type: "error",
-          position: "top"
+          position: "top",
         });
       });
-  }
+  },
 };
 </script>

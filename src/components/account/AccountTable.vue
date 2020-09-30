@@ -24,7 +24,7 @@ import AccountTableList from "@/components/account/AccountTableList";
 export default {
   props: ["accounts"],
   components: {
-    AccountTableList
-  }
+    AccountTableList,
+  },
 };
 </script>

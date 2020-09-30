@@ -147,15 +147,15 @@ export default {
     // Analytic,
     // LineChart,
     Loader,
-    Chart
+    Chart,
   },
   data() {
     return {
       pieData: {
-        series: [0, 0]
+        series: [0, 0],
       },
       pieData2: {
-        series: [1000, 4500]
+        series: [1000, 4500],
       },
       pie: {
         chart: {
@@ -163,21 +163,21 @@ export default {
           width: 30,
           height: 30,
           sparkline: {
-            enabled: true
-          }
+            enabled: true,
+          },
         },
         labels: ["Spent", "Deposits"],
         stroke: {
-          width: 1
+          width: 1,
         },
         dataLabels: {
-          enabled: true
+          enabled: true,
         },
         tooltip: {
           fixed: {
-            enabled: false
-          }
-        }
+            enabled: false,
+          },
+        },
       },
       pie2: {
         chart: {
@@ -185,22 +185,22 @@ export default {
           width: 30,
           height: 30,
           sparkline: {
-            enabled: true
-          }
+            enabled: true,
+          },
         },
         colors: ["#30304d", "#b9fab8"],
         labels: ["Spent", "Budget"],
         stroke: {
-          width: 1
+          width: 1,
         },
         dataLabels: {
-          enabled: true
+          enabled: true,
         },
         tooltip: {
           fixed: {
-            enabled: false
-          }
-        }
+            enabled: false,
+          },
+        },
       },
       bar: {
         chartOptions: {
@@ -209,13 +209,13 @@ export default {
             width: 50,
             height: 35,
             sparkline: {
-              enabled: true
-            }
+              enabled: true,
+            },
           },
           plotOptions: {
             bar: {
-              columnWidth: "80%"
-            }
+              columnWidth: "80%",
+            },
           },
           labels: [
             1,
@@ -235,13 +235,13 @@ export default {
             15,
             16,
             17,
-            18
+            18,
           ],
           xaxis: {
             crosshairs: {
-              width: 1
-            }
-          }
+              width: 1,
+            },
+          },
         },
         series: [
           {
@@ -262,10 +262,10 @@ export default {
               15,
               16,
               17,
-              18
-            ]
-          }
-        ]
+              18,
+            ],
+          },
+        ],
       },
       loading: false,
       ana_1: {
@@ -273,50 +273,50 @@ export default {
         title: "Transactions",
         icon: "d_sign",
         background: "icon-circle basic",
-        cash: false
+        cash: false,
       },
       ana_2: {
         style: "analytic-panel",
         title: "Debits",
         icon: "trend_down",
         background: "icon-circle down",
-        cash: false
+        cash: false,
       },
       ana_3: {
         style: "analytic-panel",
         title: "Credits",
         icon: "trend_up",
         background: "icon-circle up",
-        cash: false
+        cash: false,
       },
       ana_4: {
         style: "analytic-panel-wide",
         title: "Spent",
         icon: "trend_up",
         background: "icon-circle up",
-        cash: true
+        cash: true,
       },
       ana_5: {
         style: "analytic-panel-wide",
         title: "Deposits",
         icon: "trend_up",
         background: "icon-circle up",
-        cash: true
+        cash: true,
       },
       ana_6: {
         style: "analytic-panel-wide",
         title: "Monthly Balance",
         icon: "trend_up",
         background: "icon-circle up",
-        cash: true
+        cash: true,
       },
       ana_7: {
         style: "analytic-panel-wide",
         title: "Daily Spending",
         icon: "trend_up",
         background: "icon-circle up",
-        cash: true
-      }
+        cash: true,
+      },
     };
   },
   computed: {
@@ -328,7 +328,7 @@ export default {
     },
     transactions() {
       let amount = [];
-      this.analytic.debit.forEach(ele => {
+      this.analytic.debit.forEach((ele) => {
         amount.push(ele.amount);
       });
 
@@ -337,7 +337,7 @@ export default {
     },
     avgBalance() {
       return this.analytic.balance / 28;
-    }
+    },
   },
 
   created() {
@@ -349,11 +349,11 @@ export default {
       this.loading = false;
     });
 
-    const pies = this.$store.getters["transactions/GET_ACCT"];
-    const series1 = parseInt(pies.spent);
-    const series2 = parseInt(pies.deposits);
-    this.pieData.series[0] = series1;
-    this.pieData.series[1] = series2;
-  }
+    // const pies = this.$store.getters["transactions/GET_ACCT"];
+    // const series1 = parseInt(pies.spent);
+    // const series2 = parseInt(pies.deposits);
+    // this.pieData.series[0] = series1;
+    // this.pieData.series[1] = series2;
+  },
 };
 </script>

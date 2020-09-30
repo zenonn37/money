@@ -1,11 +1,40 @@
-.page-header {
-  display: flex;
-  align-items: center;
+.all-accounts {
+  .mobile-accounts {
+    display: none;
+  }
+  .page-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .page-title {
+    flex: 2;
+  }
+
+  .icon {
+  }
 }
 
-.page-title {
-  flex: 2;
-}
+@media screen and (max-width: 1025px) {
+  .all-accounts {
+    .page-header {
+      padding: 1rem;
+    }
 
-.icon {
+    .page-title {
+    }
+
+    .icon {
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .all-accounts {
+    .table-data {
+      display: none;
+    }
+    .mobile-accounts {
+      display: block;
+    }
+  }
 }

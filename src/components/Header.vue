@@ -11,8 +11,8 @@
 
         <div class="interactive">
           <div class="balances" v-if="$route.name === 'accounts'">
-            <div class="title">Account Balance</div>
-            {{ balance.total | currency("$") }}
+            <div class="title">Accounts Total</div>
+            {{ balance | currency("$") }}
           </div>
           <div class="balances" v-else-if="$route.name === 'expense.table'">
             <div class="title">Expense Total</div>

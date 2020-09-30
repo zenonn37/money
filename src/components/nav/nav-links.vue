@@ -1,6 +1,11 @@
 <template>
   <ul class="nav-contents">
-    <router-link to="/dashboard" tag="li" class="nav-item">
+    <router-link
+      to="/dashboard"
+      tag="li"
+      class="nav-item"
+      @click.native="onClose()"
+    >
       <svg
         width="30px"
         height="30px"
@@ -45,7 +50,12 @@
         </g>
       </svg>
     </router-link>
-    <router-link to="/account" tag="li" class="nav-item">
+    <router-link
+      to="/account"
+      tag="li"
+      class="nav-item"
+      @click.native="onClose()"
+    >
       <svg
         width="28px"
         height="28px"
@@ -89,7 +99,12 @@
       </svg>
     </router-link>
 
-    <router-link to="/expenses" tag="li" class="nav-item">
+    <router-link
+      to="/expenses"
+      tag="li"
+      class="nav-item"
+      @click.native="onClose()"
+    >
       <svg
         width="22px"
         height="28px"
@@ -139,7 +154,7 @@
         </g>
       </svg>
     </router-link>
-    <router-link to="/user" tag="li" class="nav-item">
+    <router-link to="/user" tag="li" class="nav-item" @click.native="onClose()">
       <svg
         width="26px"
         height="26px"
@@ -182,7 +197,7 @@
       </svg>
     </router-link>
 
-    <router-link to="/help" tag="li" class="nav-item">
+    <router-link to="/help" tag="li" class="nav-item" @click.native="onClose()">
       <svg
         width="26px"
         height="26px"
@@ -273,6 +288,10 @@
 <script>
 export default {
   methods: {
+    onClose() {
+      this.$emit("close");
+      console.log("test");
+    },
     onLogout() {
       this.$emit("exit");
     },
