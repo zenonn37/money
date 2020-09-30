@@ -13,7 +13,7 @@ import MobileList from "@/components/account/MobileAccountsList";
 export default {
   props: ["accounts"],
   components: {
-    MobileList,
-  },
+    MobileList
+  }
 };
 </script>

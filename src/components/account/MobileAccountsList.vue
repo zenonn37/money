@@ -22,6 +22,6 @@ export default {
   props: ["accounts"],
   data() {
     return {};
-  },
+  }
 };
 </script>

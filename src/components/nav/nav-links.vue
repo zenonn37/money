@@ -294,8 +294,8 @@ export default {
     },
     onLogout() {
       this.$emit("exit");
-    },
-  },
+    }
+  }
 };
 </script>
 

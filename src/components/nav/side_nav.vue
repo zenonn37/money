@@ -95,13 +95,13 @@ import NavLinks from "@/components/nav/nav-links";
 import gsap from "gsap";
 export default {
   components: {
-    NavLinks,
+    NavLinks
   },
   data() {
     return {
       nav: "",
       toggle: false,
-      tl: "",
+      tl: ""
     };
   },
   methods: {
@@ -113,7 +113,7 @@ export default {
       this.$store.dispatch("LOGOUT").then(() => {
         this.$router.push("/auth");
       });
-    },
+    }
   },
   mounted() {
     //grab the btn
@@ -127,7 +127,7 @@ export default {
       x: "-100%",
       opacity: 0,
       duration: 0.5,
-      ease: "back",
+      ease: "back"
     });
 
     //setup functions
@@ -140,6 +140,6 @@ export default {
         this.toggle = !this.toggle;
       }
     });
-  },
+  }
 };
 </script>

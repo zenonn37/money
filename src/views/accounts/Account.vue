@@ -93,26 +93,26 @@ export default {
   name: "Account",
   components: {
     AccountTable,
-    MobileAccounts,
+    MobileAccounts
   },
   data() {
     return {
       acct: [],
       type: true,
       loading: false,
-      icon: "fas fa-university",
+      icon: "fas fa-university"
     };
   },
   computed: {
     // ...mapGetters(["GET_ACCOUNTS"])
     accounts() {
       return this.$store.getters["account/GET_ACCOUNTS"];
-    },
+    }
   },
   methods: {
     onNew() {
       this.$router.push("/new");
-    },
+    }
   },
   created() {
     this.loading = true;
@@ -125,9 +125,9 @@ export default {
         this.$toast.open({
           message: "Connection Error please refresh the page",
           type: "error",
-          position: "top",
+          position: "top"
         });
       });
-  },
+  }
 };
 </script>

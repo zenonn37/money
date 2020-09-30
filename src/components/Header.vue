@@ -62,7 +62,7 @@ export default {
       open: true,
       day: "",
       tnum: 0,
-      sum: 0,
+      sum: 0
     };
   },
   computed: {
@@ -74,7 +74,7 @@ export default {
     },
     user() {
       return this.$store.getters["GET_USER"];
-    },
+    }
   },
   methods: {
     setGreeting() {
@@ -89,7 +89,7 @@ export default {
     menu() {
       this.$store.dispatch("base/set_aside");
     },
-    notifications() {},
+    notifications() {}
   },
   // watch: {
   //   sum(newValue) {
@@ -101,6 +101,6 @@ export default {
   // },
   mounted() {
     this.setGreeting();
-  },
+  }
 };
 </script>
