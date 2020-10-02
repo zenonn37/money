@@ -5,7 +5,33 @@
     </template>
 
     <template v-else>
-      <div>
+      <div class="analytic-mobile">
+        <div class="ana-box">
+          <div class="ana-data">
+            <div>Spent</div>
+            <div>{{ analytic.spent | currency }}</div>
+          </div>
+          <div class="ana-data">
+            <div>Earned</div>
+            <div>{{ analytic.deposits | currency }}</div>
+          </div>
+        </div>
+        <div class="analytic-split">
+          <div class="ana-data-small">
+            <div>Debits</div>
+            <div>12</div>
+          </div>
+          <div class="ana-data-small">
+            <div>Credits</div>
+            <div>4</div>
+          </div>
+        </div>
+        <div class="ana-data-short">
+          <div>Current Balance</div>
+          <div>{{ analytic.balance | currency }}</div>
+        </div>
+      </div>
+      <div class="analytic-desktop">
         <div class="analytic-container">
           <div class="overviewcard">
             <div class="icon">
@@ -267,56 +293,7 @@ export default {
           }
         ]
       },
-      loading: false,
-      ana_1: {
-        style: "analytic-panel",
-        title: "Transactions",
-        icon: "d_sign",
-        background: "icon-circle basic",
-        cash: false
-      },
-      ana_2: {
-        style: "analytic-panel",
-        title: "Debits",
-        icon: "trend_down",
-        background: "icon-circle down",
-        cash: false
-      },
-      ana_3: {
-        style: "analytic-panel",
-        title: "Credits",
-        icon: "trend_up",
-        background: "icon-circle up",
-        cash: false
-      },
-      ana_4: {
-        style: "analytic-panel-wide",
-        title: "Spent",
-        icon: "trend_up",
-        background: "icon-circle up",
-        cash: true
-      },
-      ana_5: {
-        style: "analytic-panel-wide",
-        title: "Deposits",
-        icon: "trend_up",
-        background: "icon-circle up",
-        cash: true
-      },
-      ana_6: {
-        style: "analytic-panel-wide",
-        title: "Monthly Balance",
-        icon: "trend_up",
-        background: "icon-circle up",
-        cash: true
-      },
-      ana_7: {
-        style: "analytic-panel-wide",
-        title: "Daily Spending",
-        icon: "trend_up",
-        background: "icon-circle up",
-        cash: true
-      }
+      loading: false
     };
   },
   computed: {

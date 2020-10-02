@@ -401,6 +401,30 @@ tbody td {
   }
 }
 
+.blue {
+  background-color: #3772ff;
+}
+
+.tuscan {
+  background-color: #754043;
+}
+
+.champagne {
+  background-color: #e8ccbf;
+}
+
+.sheen {
+  background-color: #70a9a1;
+}
+
+.rich {
+  background-color: #073b3a;
+}
+
+.celeste {
+  background-color: #a9fff7;
+}
+
 .transaction-header {
   width: 100%;
   position: relative;
@@ -473,10 +497,19 @@ tbody td {
     width: 50px;
     height: 50px;
     min-width: 50px;
-    background: transparent;
-    border: solid 1.5px #cecece;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     border-radius: 15px;
     margin-right: 1.2rem;
+    color: white;
+    font-size: 1.8rem;
   }
   .mobile-transaction .trans-container .transaction {
     display: -webkit-box;
@@ -718,6 +751,10 @@ tbody td {
 
 .form-field-hidden p {
   margin: 0 0 0 1rem;
+}
+
+.analytic-mobile {
+  display: none;
 }
 
 .analytic-container {
@@ -1148,6 +1185,86 @@ tbody td {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     border-radius: 2px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .analytic-desktop {
+    display: none;
+  }
+  .analytic-mobile {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 1.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+  }
+  .analytic-mobile .ana-box {
+    position: relative;
+    background-color: #e7e7e7;
+    width: 100%;
+    height: 100px;
+    border-radius: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1rem;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  .analytic-mobile .ana-box .ana-data {
+    padding: 0.5rem;
+  }
+  .analytic-mobile .ana-box .ana-data div:first-child {
+    color: gray;
+    font-size: 1.2rem;
+  }
+  .analytic-mobile .ana-box .ana-data div:nth-child(2) {
+    margin-top: 0.5rem;
+    font-size: 2rem;
+  }
+  .analytic-mobile .analytic-split {
+    position: relative;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    height: 100%;
+  }
+  .analytic-mobile .analytic-split .ana-data-small {
+    background-color: #e7e7e7;
+    width: 48%;
+    text-align: center;
+    border-radius: 3px;
+    padding: 1rem;
+  }
+  .analytic-mobile .analytic-split .ana-data-small div:first-child {
+    color: gray;
+    font-size: 1.2rem;
+  }
+  .analytic-mobile .analytic-split .ana-data-small div:nth-child(2) {
+    margin-top: 0.5rem;
+    font-size: 2rem;
   }
 }
 

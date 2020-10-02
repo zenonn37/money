@@ -7,6 +7,7 @@ import Guest from "./layouts/Guest";
 import User from "./layouts/User";
 import "./filters/filter";
 import "./style/main.css";
+
 import "./plugins/vue-datetime";
 import "./plugins/vue-paginate";
 import "./plugins/vee-validate";
@@ -31,22 +32,22 @@ Vue.component("user", User);
 Vue.component("no-user", Guest);
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!store.getters.isLogged) {
       // console.log("not logged");
 
       next({
-        name: "auth"
+        name: "auth",
       });
     } else {
       next();
     }
-  } else if (to.matched.some(record => record.meta.requiresVisitor)) {
+  } else if (to.matched.some((record) => record.meta.requiresVisitor)) {
     if (store.getters.isLogged) {
       // console.log("logged");
 
       next({
-        name: "dashboard"
+        name: "dashboard",
       });
     } else {
       next();
@@ -59,5 +60,5 @@ router.beforeEach((to, from, next) => {
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");

@@ -1,3 +1,7 @@
+.analytic-mobile {
+  display: none;
+}
+
 .analytic-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));

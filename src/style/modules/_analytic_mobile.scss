@@ -1,0 +1,63 @@
+@media screen and (max-width: 800px) {
+  .analytic-desktop {
+    display: none;
+  }
+  .analytic-mobile {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    .ana-box {
+      position: relative;
+      background-color: rgb(231, 231, 231);
+      width: 100%;
+      height: 100px;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      .ana-data {
+        padding: 0.5rem;
+        div:first-child {
+          color: gray;
+          font-size: 1.2rem;
+        }
+        div:nth-child(2) {
+          margin-top: 0.5rem;
+          font-size: 2rem;
+        }
+      }
+    }
+    .analytic-split {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+
+      .ana-data-small {
+        background-color: rgb(231, 231, 231);
+        width: 48%;
+        text-align: center;
+        border-radius: 3px;
+        padding: 1rem;
+
+        div:first-child {
+          color: gray;
+          font-size: 1.2rem;
+        }
+        div:nth-child(2) {
+          margin-top: 0.5rem;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
