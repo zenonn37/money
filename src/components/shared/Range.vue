@@ -17,7 +17,9 @@
           :format="{ year: 'numeric', month: 'long', day: 'numeric' }"
         ></datetime>
       </div>
-      <button type="submit">GO</button>
+      <div class="btn-control">
+        <button type="submit">GO</button>
+      </div>
     </form>
   </div>
 </template>

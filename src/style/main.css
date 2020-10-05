@@ -1306,6 +1306,70 @@ tbody td {
   }
 }
 
+.m-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: white;
+  width: 100%;
+  z-index: 50;
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+  padding: 1rem;
+}
+
+.m-modal .modal-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1rem;
+}
+
+.m-modal .modal-header h4 {
+  text-transform: uppercase;
+}
+
+.m-modal .modal-header .icon-circle {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.m-modal .modal-body .modal-range .range {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.m-modal .modal-body .modal-range .range input[type="text"] {
+  font-size: 1.1rem;
+}
+
+.m-modal .modal-body .modal-range .range .btn-control {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.m-modal .modal-body .modal-range .range .btn-control button {
+  padding: 0.7rem;
+  width: 40%;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  background: #a8a5eb;
+  color: white;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -5,46 +5,11 @@
     </template>
 
     <template v-else>
-      <div class="analytic-mobile">
-        <div class="ana-box">
-          <div class="ana-data">
-            <div>Spent</div>
-            <div>{{ analytic.spent | currency }}</div>
-          </div>
-          <div class="ana-data">
-            <div>Earned</div>
-            <div>{{ analytic.deposits | currency }}</div>
-          </div>
-        </div>
-        <div class="analytic-split">
-          <div class="ana-data-small">
-            <div>Debits</div>
-            <div>{{ analytic.debits }}</div>
-          </div>
-          <div class="ana-data-small">
-            <div>Deposits</div>
-            <div>{{ analytic.credits }}</div>
-          </div>
-        </div>
-        <div class="ana-data-short">
-          <div>
-            <i class="far fa-money-bill-wave"></i>
-          </div>
-          <div>Daily Spending</div>
-          <div>{{ analytic.daily | currency }}</div>
-        </div>
-        <div class="ana-data-short">
-          <div>
-            <i class="far fa-money-bill-wave"></i>
-          </div>
-          <div>Largest Debit</div>
-          <div>{{ transactions | currency }}</div>
-        </div>
-
-        <div class="mobile-chart">
-          <Chart :data="charts" />
-        </div>
-      </div>
+      <AnalyticMobile
+        :analytic="analytic"
+        :data="charts"
+        :trans="transactions"
+      />
       <div class="analytic-desktop">
         <div class="analytic-container">
           <div class="overviewcard">
@@ -79,53 +44,6 @@
               <h1>{{ analytic.balance | currency }}</h1>
             </div>
           </div>
-          <!-- <div class="mini-analytic">
-            <div class="analytic-row1">
-              <Analytic :basic="ana_1" :integer="analytic.transactions" />
-              <Analytic :basic="ana_2" :integer="analytic.debits" />
-              <Analytic :basic="ana_3" :integer="analytic.credits" />
-            </div>
-            <div class="analytic-row2">
-              <Analytic :basic="ana_4" :integer="analytic.spent" />
-              <Analytic :basic="ana_5" :integer="analytic.deposits" />
-            </div>
-            <div class="analytic-row3">
-              <Analytic :basic="ana_6" :integer="analytic.balance" />
-              <Analytic :basic="ana_7" :integer="analytic.daily" />
-            </div>
-          </div>
-          <div class="trends">
-            <div class="trends-panel">
-              <div class="trend-control">
-                <apexchart height="100" type="donut" :options="pie" :series=" pieData.series"></apexchart>
-              </div>
-              <div class="trend-control">
-                <apexchart type="pie" height="100" :options="pie2" :series="pieData2.series"></apexchart>
-              </div>
-            </div>
-          </div>
-          <div class="reports">
-            <div class="reports-panel">
-              <h2>Frequent Categories</h2>
-              <ul>
-                <li>
-                  <i class="fas fa-heartbeat"></i>
-                  <div>
-                    <h3>HealthCare</h3>
-                    <figure>Two transactions this month.</figure>
-                  </div>
-                  <div>
-                    <h2>$500.00</h2>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="chart">
-            <div class="chart-container">
-              <LineChart :charts="charts" />
-            </div>
-          </div>-->
         </div>
         <div class="main-cards">
           <div class="card">
@@ -180,6 +98,7 @@
 // import LineChart from "@/components/shared/Line_Chart";
 import Chart from "@/charts/apex/apex-line";
 import Loader from "@/components/Loader";
+import AnalyticMobile from "@/components/account/AnalyticMobile";
 export default {
   name: "Analytics",
 
@@ -187,7 +106,8 @@ export default {
     // Analytic,
     // LineChart,
     Loader,
-    Chart
+    Chart,
+    AnalyticMobile
   },
   data() {
     return {

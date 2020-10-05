@@ -50,7 +50,7 @@
         >
           <i class="fal fa-money-bill-wave-alt"></i>
         </router-link>
-        <li>
+        <li class="cal-btn">
           <i class="fal fa-calendar-alt"></i>
         </li>
 
@@ -64,29 +64,18 @@
 
 <script>
 import { prevRoutes } from "@/mixins/prevRoute.js";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import {
-  faChartLine,
-  faEdit,
-  faFileInvoiceDollar,
-} from "@fortawesome/free-solid-svg-icons";
+
 export default {
   name: "Accounts",
   mixins: [prevRoutes],
   props: {
     account: {
-      required: true,
-    },
+      required: true
+    }
   },
-  components: {
-    FontAwesomeIcon,
-  },
+  components: {},
   data() {
-    return {
-      line: faChartLine,
-      edit: faEdit,
-      trans: faFileInvoiceDollar,
-    };
+    return {};
   },
 
   computed: {
@@ -99,7 +88,7 @@ export default {
         const id = parseInt(this.account);
         return this.$store.getters["account/GET_ACCOUNT"](id);
       }
-    },
+    }
   },
   methods: {},
 
@@ -110,6 +99,6 @@ export default {
         //no action needed at this time possible reload warning to user
       });
     }
-  },
+  }
 };
 </script>
