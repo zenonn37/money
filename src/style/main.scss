@@ -45,7 +45,7 @@ html {
 }
 
 body {
-  background-color: $off-white;
+  background-color: #fafafb;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 16px;
   color: $fontColor;
@@ -167,13 +167,13 @@ h1 {
 
 @media screen and (max-width: 1025px) {
   body {
-    background: white;
+    background: #fafafb;
   }
 
   .main-content {
     margin-left: 0;
     margin-top: -5rem;
-    background: white;
+    background: #fafafb;
     min-height: 50vh;
 
     //height: 100vh;

@@ -22,8 +22,8 @@
             class="balances"
             v-else-if="$route.name === 'accounts.analytics'"
           >
-            <div class="title">Account Total</div>
-            {{ balance.total | currency("$") }}
+            <div class="title">Account Balance</div>
+            {{ balance.net | currency("$") }}
           </div>
           <div
             class="balances"
