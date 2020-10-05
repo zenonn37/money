@@ -2,16 +2,17 @@
   <div>
     <div class="bank">
       <div class="page-title">
-        <i @click="goBack()" class="fas fa-chevron-left cursors"></i>
+        <i @click="goBack()" class="fad fa-chevron-left"></i>
+        <!-- <i @click="goBack()" class="fas fa-chevron-left cursors"></i> -->
         <h1 v-if="accounts">
           {{ accounts.name }}
         </h1>
         <router-link
           :to="{ name: 'accounts.edit' }"
-          tag="li"
+          tag="div"
           class="page-items"
         >
-          <font-awesome-icon :icon="edit" size="lg" />
+          <i class="fal fa-edit"></i>
         </router-link>
       </div>
 
@@ -40,15 +41,18 @@
           tag="li"
           class="page-items"
         >
-          <font-awesome-icon :icon="line" size="lg" />
+          <i class="fal fa-analytics"></i>
         </router-link>
         <router-link
           :to="{ name: 'trans.transactions', params: { account: accounts.id } }"
           tag="li"
           class="page-items"
         >
-          <font-awesome-icon :icon="trans" size="lg"
-        /></router-link>
+          <i class="fal fa-money-bill-wave-alt"></i>
+        </router-link>
+        <li>
+          <i class="fal fa-calendar-alt"></i>
+        </li>
 
         <!-- <router-link :to="{ name: 'accounts.budgets' }" tag="li" class="page-items">Budgets</router-link> -->
       </ul>
@@ -64,24 +68,24 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
   faChartLine,
   faEdit,
-  faFileInvoiceDollar
+  faFileInvoiceDollar,
 } from "@fortawesome/free-solid-svg-icons";
 export default {
   name: "Accounts",
   mixins: [prevRoutes],
   props: {
     account: {
-      required: true
-    }
+      required: true,
+    },
   },
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
   },
   data() {
     return {
       line: faChartLine,
       edit: faEdit,
-      trans: faFileInvoiceDollar
+      trans: faFileInvoiceDollar,
     };
   },
 
@@ -95,7 +99,7 @@ export default {
         const id = parseInt(this.account);
         return this.$store.getters["account/GET_ACCOUNT"](id);
       }
-    }
+    },
   },
   methods: {},
 
@@ -106,6 +110,6 @@ export default {
         //no action needed at this time possible reload warning to user
       });
     }
-  }
+  },
 };
 </script>

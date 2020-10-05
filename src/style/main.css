@@ -373,7 +373,7 @@ tbody td {
   }
   .bank .page-title h1 {
     font-size: 1.2rem;
-    margin-right: 0.5rem;
+    margin: 0 0.5rem 0 0.5rem;
   }
   .bank .page-title i {
     margin: 0 1rem 0 0;
@@ -382,6 +382,10 @@ tbody td {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-left: 2rem;
   }
   .bank .mobile li {
     padding: 1rem;
