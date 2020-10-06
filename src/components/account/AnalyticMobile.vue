@@ -37,7 +37,7 @@
     </div>
 
     <div class="mobile-chart">
-      <Chart :data="charts" />
+      <Chart :data="data" />
     </div>
   </div>
 </template>
@@ -49,8 +49,8 @@ export default {
   props: ["analytic", "data", "trans"],
   components: {
     Chart,
-    Modal
-  }
+    Modal,
+  },
 };
 </script>
 
