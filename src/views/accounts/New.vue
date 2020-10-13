@@ -1,5 +1,5 @@
 <template>
-  <div class="render-child">
+  <div class="base-forms">
     <!-- <ReturnBtn :back="back" @nav="goBack()" /> -->
 
     <div class="back top-spacer cursors">
@@ -7,7 +7,7 @@
     </div>
 
     <template>
-      <div class="business">
+      <div class="b-forms">
         <div class="form">
           <TransactionForm
             :loading="loading"

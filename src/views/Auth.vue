@@ -1,10 +1,11 @@
 <template>
   <div class="auth-container">
     <div class="form-container">
+      <div class="title">Money Tracker</div>
       <transition name="fade" mode="out-in">
-        <h1 v-if="!auth" key="login">Login</h1>
+        <h2 v-if="!auth" key="login">Login</h2>
 
-        <h1 v-else key="register">Register</h1>
+        <h2 v-else key="register">Register</h2>
       </transition>
       <span class="errors">{{ errors !== null ? errors : "" }}</span>
       <transition name="fade" mode="out-in">
@@ -12,7 +13,7 @@
         <Login @login="login" v-else :error="errors" />
       </transition>
 
-      <p class="toggle-btn" @click="toggleAuth()">
+      <p class="toggle-btn cursors" @click="toggleAuth()">
         {{ auth ? "I already have an Account." : "I need an Account!" }}
       </p>
     </div>

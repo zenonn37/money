@@ -65,6 +65,58 @@ export default {
           icon = "fas fa-school";
           break;
 
+        case "Insurance":
+          category = "champagne";
+          icon = "fas fa-house-damage";
+          break;
+
+        case "HealthCare":
+          category = "celeste";
+          icon = "fas fa-procedures";
+
+          break;
+
+        case "Savings":
+          category = "sheen";
+          icon = "fas fa-chart-pie";
+
+          break;
+        case "Investments":
+          category = "sheen";
+          icon = "fas fa-chart-line";
+
+          break;
+
+        case "Debt Payments":
+          category = "sheen";
+          icon = "fas fa-chart-line-down";
+
+          break;
+
+        case "Recreation":
+          category = "sheen";
+          icon = "fas fa-volleyball-ball";
+
+          break;
+
+        case "Entertainment":
+          category = "sheen";
+          icon = "fas fa-camera-movie";
+
+          break;
+
+        case "Miscellaneous":
+          category = "sheen";
+          icon = "fas fa-dove";
+
+          break;
+
+        case "Dining":
+          category = "sheen";
+          icon = "fas fa-cheeseburger";
+
+          break;
+
         default:
           break;
       }

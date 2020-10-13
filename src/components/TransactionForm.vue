@@ -76,7 +76,7 @@
           >
             {{ valid ? "Complete" : "Incomplete" }}
           </button>
-          <button type="push" class="cancel">Cancel</button>
+          <!-- <button type="push" class="cancel" @click="onCancel()">Cancel</button> -->
         </div>
 
         <div class="form-field" v-else>

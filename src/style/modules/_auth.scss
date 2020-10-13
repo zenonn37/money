@@ -10,6 +10,13 @@
   height: 100vh;
   .form-container {
     width: 100%;
+    .title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
     .form-field {
       position: relative;
 
@@ -21,6 +28,7 @@
         border: none;
         background-color: $trim;
         color: white;
+        margin-top: 0.5rem;
       }
 
       svg {
@@ -40,6 +48,29 @@
     }
     p {
       margin-top: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .auth-container {
+    .form-container {
+      width: 40%;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .auth-container {
+    .form-container {
+      width: 50%;
+    }
+  }
+}
+@media screen and (min-width: 600px) {
+  .auth-container {
+    .form-container {
+      width: 60%;
     }
   }
 }

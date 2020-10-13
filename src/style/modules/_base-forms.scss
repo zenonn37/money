@@ -1,0 +1,73 @@
+.base-forms {
+  .b-forms {
+    padding: 1rem;
+    input[type="text"] {
+      width: 100%;
+      display: inline-block;
+      margin: 1rem 0 0 0;
+      padding: 18px 8px;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: none;
+      box-sizing: border-box;
+      outline: none;
+      background-color: $input-background;
+      transition: all 0.4s ease-in-out;
+    }
+    select {
+      margin: 1rem 0 0 0;
+      width: 100%;
+      height: 40px;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: none;
+      background-color: $input-background;
+    }
+    input[type="text"]:focus {
+      //border: 2px solid $border-focus;
+      background-color: $trim;
+      color: $white;
+      &::placeholder {
+        color: $white;
+      }
+    }
+    .complete {
+      background-color: $trim;
+      border: none;
+      margin: 1rem 0 0 0;
+      color: $white;
+      padding: 12px 32px;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: $primary;
+      }
+    }
+    .cancel {
+      cursor: pointer;
+      background-color: $primary;
+      margin: 1rem 0 0 2rem;
+      border: none;
+      color: $white;
+      padding: 12px 32px;
+      text-decoration: none;
+      border-radius: 4px;
+      outline: none;
+      transition: all 0.3s ease-in-out;
+    }
+    .not-valid {
+      background-color: $primaryDark;
+      margin: 1rem 0 0 0;
+      border: none;
+      color: $white;
+      padding: 12px 32px;
+      text-decoration: none;
+      border-radius: 4px;
+      outline: none;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
