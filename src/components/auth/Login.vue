@@ -12,6 +12,8 @@
         v-slot="{ errors }"
       >
         <input type="email" v-model="login.username" placeholder="Email" />
+        
+        <i class="fal fa-user"></i>
         <span class="errors">{{ errors[0] }}</span>
       </ValidationProvider>
     </div>
@@ -26,16 +28,19 @@
           v-model="login.password"
           placeholder="Password"
         />
+        <i class="fal fa-key"></i>
         <span class="errors">{{ errors[0] }}</span>
       </ValidationProvider>
     </div>
 
     <div class="form-field">
-      <input
+      <button
         type="submit"
-        :value="!valid ? 'Disabled' : 'Login'"
+      
         :disabled="!valid"
-      />
+      >
+      {{!valid ? 'Disabled' : 'Login'}}
+      </button>
     </div>
   </ValidationObserver>
 </template>

@@ -1,9 +1,9 @@
 <template>
   <div class="auth-container">
     <div class="form-container">
-      <div class="container">
-        <div class="auth">
-          <div class="auth-parent">
+      
+      
+         
             <transition name="fade" mode="out-in">
               <h1 v-if="!auth" key="login">Login</h1>
 
@@ -14,13 +14,13 @@
               <Register @register="register" v-if="auth" :error="errors" />
               <Login @login="login" v-else :error="errors" />
             </transition>
-          </div>
+          
 
-          <button class="toggle-btn" @click="toggleAuth()">
-            {{ auth ? "I already have an Account" : "I need an Account!" }}
-          </button>
-        </div>
-      </div>
+          <p class="toggle-btn" @click="toggleAuth()">
+            {{ auth ? "I already have an Account." : "I need an Account!" }}
+          </p>
+       
+     
     </div>
   </div>
 </template>

@@ -12,6 +12,7 @@
         v-slot="{ errors }"
       >
         <input type="text" v-model="reg.name" placeholder="Name" />
+          <i class="fal fa-user"></i>
         <span class="errors">{{ errors[0] }}</span>
       </ValidationProvider>
     </div>
@@ -22,6 +23,7 @@
         v-slot="{ errors }"
       >
         <input type="email" v-model="reg.email" placeholder="Email" />
+       <i class="fal fa-envelope-open"></i>
         <span class="errors">{{ errors[0] }}</span>
       </ValidationProvider>
     </div>
@@ -32,15 +34,18 @@
         v-slot="{ errors }"
       >
         <input type="password" v-model="reg.password" placeholder="Password" />
+          <i class="fal fa-key"></i>
         <span class="errors">{{ errors[0] }}</span>
       </ValidationProvider>
     </div>
     <div class="form-field">
-      <input
+      <button
         type="submit"
-        :value="!valid ? 'Disabled' : 'Register'"
+       
         :disabled="!valid"
-      />
+      >
+      {{!valid ? 'Disabled' : 'Register'}}
+      </button>
     </div>
   </ValidationObserver>
 </template>
