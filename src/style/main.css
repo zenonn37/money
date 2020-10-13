@@ -293,6 +293,11 @@ tbody td {
           flex: 2;
 }
 
+.all-accounts .icon {
+  font-size: xx-large;
+  color: #a8a5eb;
+}
+
 @media screen and (max-width: 1025px) {
   .all-accounts .page-header {
     padding: 1rem;
@@ -1369,6 +1374,13 @@ tbody td {
   border-radius: 2px;
   background: #a8a5eb;
   color: white;
+}
+
+.base-forms .back {
+  text-align: right;
+  width: 100%;
+  padding: 1rem;
+  font-size: x-large;
 }
 
 .base-forms .b-forms {

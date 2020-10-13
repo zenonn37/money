@@ -2,7 +2,9 @@
   <div>
     <div class="bank">
       <div class="page-title">
-        <i @click="goBack()" class="fad fa-chevron-left"></i>
+        <div @click="goBack()">
+        <i  class="fad fa-chevron-left"></i>
+        </div>
         <!-- <i @click="goBack()" class="fas fa-chevron-left cursors"></i> -->
         <h1 v-if="accounts">
           {{ accounts.name }}

@@ -1,7 +1,12 @@
 <template>
-  <div>
-    <ReturnBtn class="top-spacer" :back="back" @nav="goBack()" />
-
+  <div class="base-forms">
+   
+    <div class="back cursors">
+      <div @click="goBack()">
+      <i class="fas fa-times"></i>
+      </div>
+    </div>
+         
     <div class="new-form">
       <AccountForm
         :loading="loading"
@@ -17,13 +22,13 @@
 <script>
 import AccountForm from "@/components/AccountForm";
 import { prevRoutes } from "@/mixins/prevRoute.js";
-import ReturnBtn from "@/components/btns/ReturnBtn";
+
 export default {
   name: "NewAccount",
   mixins: [prevRoutes],
   components: {
     AccountForm,
-    ReturnBtn
+  
   },
   data() {
     return {
@@ -34,13 +39,13 @@ export default {
   methods: {
     onSubmit(value) {
       this.loading = true;
-      console.log(value);
+  
 
       this.$store.dispatch("account/NEW_ACCOUNTS", value).then(() => {
-        console.log("success");
+       
         setTimeout(() => {
           this.loading = true;
-          console.log("done");
+          
           //callled from mixin method
           this.goBack();
         }, 500);

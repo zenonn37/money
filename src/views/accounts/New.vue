@@ -2,12 +2,16 @@
   <div class="base-forms">
     <!-- <ReturnBtn :back="back" @nav="goBack()" /> -->
 
-    <div class="back top-spacer cursors">
-      <i :class="[back]" @click="goBack()"></i>
+    <div class="back cursors">
+      <div @click="reverse()">
+      <i class="fas fa-times"></i>
+      </div>
+     <!-- <router-link tag="i" :to="{name: 'accounts.transactions'}" class="fas fa-times"></router-link> -->
     </div>
 
     <template>
       <div class="b-forms">
+
         <div class="form">
           <TransactionForm
             :loading="loading"
@@ -46,6 +50,10 @@ export default {
     }
   },
   methods: {
+    reverse(){
+      console.log('tet');
+        this.goBack();
+    },
     onSubmit(value) {
       this.loading = true;
 

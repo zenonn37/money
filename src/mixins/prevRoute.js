@@ -6,7 +6,12 @@ export const prevRoutes = {
   },
   methods: {
     goBack() {
-      this.$router.push(this.prevRoute.path);
+            if (this.prevRoute.path) {
+              this.$router.push(this.prevRoute.path);
+            }else{
+              this.$router.push('/account');
+            }
+     
     }
   },
   beforeRouteEnter(to, from, next) {

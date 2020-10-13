@@ -1,6 +1,6 @@
 <template>
-  <div class="business">
-    <div class="forms">
+  <div>
+    <div class="b-forms">
       <h1>{{ title }}</h1>
       <ValidationObserver
         ref="observer"
