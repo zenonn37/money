@@ -21,18 +21,18 @@ import Range from "@/components/shared/Range";
 
 export default {
   components: {
-    Range,
+    Range
   },
   data() {
     return {
       tl: "",
-      toggle: false,
+      toggle: false
     };
   },
 
   methods: {
     onRange() {},
-    onReset() {},
+    onReset() {}
   },
   mounted() {
     const toggle = document.querySelector(".cal-btn");
@@ -57,9 +57,9 @@ export default {
       duration: 0.8,
       y: "100%",
 
-      ease: "Back.easeOut(0.7)",
+      ease: "Back.easeOut(0.7)"
     });
-  },
+  }
 };
 </script>
 

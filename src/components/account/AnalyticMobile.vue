@@ -49,8 +49,8 @@ export default {
   props: ["analytic", "data", "trans"],
   components: {
     Chart,
-    Modal,
-  },
+    Modal
+  }
 };
 </script>
 
