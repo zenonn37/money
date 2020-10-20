@@ -1,4 +1,15 @@
-.nav {
+//mobile
+
+.project-nav {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+}
+
+.nav-mobile {
   height: 400px;
   width: 50px;
   position: absolute;
@@ -7,6 +18,7 @@
   top: 30px;
   border-radius: 6px;
   //display: none;
+
   ul {
     display: flex;
     justify-content: center;
@@ -20,12 +32,6 @@
 .navbar {
   height: 100%;
   z-index: 100;
-  .desktop {
-    display: none;
-  }
-  .mobile {
-    display: block;
-  }
 }
 .logo-item {
   display: none;
@@ -35,7 +41,15 @@
 }
 
 @media screen and (min-width: 1025px) {
-  .nav {
+  .project-nav {
+    .desktop-nav {
+      display: block;
+    }
+    .mobile-nav {
+      display: none;
+    }
+  }
+  .nav-desktop {
     height: 100vh;
     position: fixed;
     width: 5rem;
@@ -61,7 +75,15 @@
     width: 100%;
   }
   .nav-contents {
-    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+
+    li {
+      padding-bottom: 3rem;
+    }
   }
   .exit-item {
     display: block;
@@ -80,6 +102,7 @@
     align-items: center;
   }
 }
+
 @media screen and (min-width: 768px) {
 }
 @media screen and (min-width: 375px) {

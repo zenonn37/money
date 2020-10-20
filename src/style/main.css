@@ -1,4 +1,12 @@
-.nav {
+.project-nav .desktop-nav {
+  display: none;
+}
+
+.project-nav .mobile-nav {
+  display: block;
+}
+
+.nav-mobile {
   height: 400px;
   width: 50px;
   position: absolute;
@@ -8,7 +16,7 @@
   border-radius: 6px;
 }
 
-.nav ul {
+.nav-mobile ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,21 +32,13 @@
           align-items: center;
 }
 
-.nav ul li {
+.nav-mobile ul li {
   padding-top: 2rem;
 }
 
 .navbar {
   height: 100%;
   z-index: 100;
-}
-
-.navbar .desktop {
-  display: none;
-}
-
-.navbar .mobile {
-  display: block;
 }
 
 .logo-item {
@@ -50,7 +50,13 @@
 }
 
 @media screen and (min-width: 1025px) {
-  .nav {
+  .project-nav .desktop-nav {
+    display: block;
+  }
+  .project-nav .mobile-nav {
+    display: none;
+  }
+  .nav-desktop {
     height: 100vh;
     position: fixed;
     width: 5rem;
@@ -88,9 +94,23 @@
     width: 100%;
   }
   .nav-contents {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 10rem;
+  }
+  .nav-contents li {
+    padding-bottom: 3rem;
   }
   .exit-item {
     display: block;
@@ -137,9 +157,6 @@
   right: 0;
   padding: 1rem 0.5rem;
   display: block;
-}
-
-.header .menu i {
   color: white;
 }
 
@@ -175,7 +192,7 @@
   font-size: 1.5rem;
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (min-width: 1025px) {
   .header {
     height: 350px;
   }

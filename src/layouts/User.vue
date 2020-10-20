@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <SideNav />
+    <Nav />
     <Header />
     <main class="main-content">
       <div class="container">
@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import SideNav from "@/components/nav/side_nav";
+import Nav from "@/components/nav/nav";
 
 import Header from "@/components/Header";
 export default {
   components: {
-    SideNav,
+    Nav,
     Header
   }
 };

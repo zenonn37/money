@@ -15,6 +15,9 @@ header {
     font-size: 1.5rem;
     transition: all 0.3s ease-in;
   }
+  .menu {
+    display: none;
+  }
 }
 
 .header-container {
@@ -23,19 +26,19 @@ header {
 
 @media screen and (max-width: 1025px) {
   header {
-    .nav-container {
-      .menu {
-        flex: 1;
-        display: block;
-        cursor: pointer;
-        &:hover {
-          i {
-            color: $primaryDark;
-            font-size: 1.3rem;
-          }
+    .menu {
+      flex: 1;
+      display: block;
+      cursor: pointer;
+      color: white;
+      &:hover {
+        i {
+          color: $primaryDark;
+          font-size: 1.3rem;
         }
       }
-
+    }
+    .nav-container {
       .log-out {
         cursor: pointer;
         &:hover {

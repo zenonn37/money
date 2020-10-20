@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="menu">
-      <i class="fas fa-bars"></i>
+     <i class="fad fa-bars"></i>
     </div>
     <div class="container">
       <div class="header-container">
