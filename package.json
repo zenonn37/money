@@ -19,7 +19,7 @@
     "lodash": "^4.17.19",
     "lodash.sortby": "^4.7.0",
     "luxon": "^1.21.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "numeral": "^2.0.6",
     "v-chart-plugin": "^1.0.1",
     "vee-validate": "^3.2.2",
