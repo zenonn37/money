@@ -18,7 +18,7 @@
     "gsap": "file:gsap-bonus.tgz",
     "lodash": "^4.17.19",
     "lodash.sortby": "^4.7.0",
-    "luxon": "^1.21.3",
+    "luxon": "^2.5.2",
     "moment": "^2.24.0",
     "numeral": "^2.0.6",
     "v-chart-plugin": "^1.0.1",
